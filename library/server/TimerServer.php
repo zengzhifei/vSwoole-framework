@@ -1,6 +1,6 @@
 <?php
 /**
- * swoole 定时器
+ * library 定时器
  *
  * User: zengzhifei
  * Date: 2018/3/9

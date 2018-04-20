@@ -6,16 +6,16 @@
  * Time: 18:09
  */
 
-namespace swoole\common;
-
-
-use Swoole\Mysql\Exception;
-use swoole\Swoole;
+namespace library\common;
 
 class Redis
 {
+    //同步redis对象key
+    private $_instance_key = '';
     //同步redis对象
     private static $sync_instance = [];
+    //客户端缓存配置
+    private static $sync_config_instance = [];
     //redis配置
     private static $redisOptions = [
         'host'       => '127.0.0.1',
@@ -39,6 +39,7 @@ class Redis
     private static function connect(bool $is_sync = true, array $callback = null)
     {
         $key = md5(json_encode(self::$redisOptions));
+        self::$sync_config_instance[$key] = self::$redisOptions;
         if ($is_sync) {
             if (!extension_loaded('redis')) {
                 throw new \Exception('not support: redis');
@@ -63,13 +64,18 @@ class Redis
             $redis->connect(self::$redisOptions['host'], self::$redisOptions['port'], function (\swoole_redis $redis, $result) use ($key, $callback) {
                 if ($result === false) {
                     throw new \Exception('connect to redis server failed' . PHP_EOL);
-                } else if ($callback && count($callback)) {
-                    $count = count($callback);
-                    if (!is_callable($callback[$count - 1])) {
-                        $callback[$count] = function () {
-                        };
+                } else if ($callback) {
+                    if (count($callback) == 2 && is_array($callback[1]) && !empty($callback[1]) && is_string($callback[1][0])) {
+                        $callback[1][0] = self::$redisOptions['prefix'] . $callback[1][0];
+                        $count = count($callback[1]);
+                        if (!is_callable($callback[1][$count - 1])) {
+                            $callback[1][$count] = function () {
+                            };
+                        }
+                        $redis->__call($callback[0], $callback[1]);
+                    } else {
+                        throw new \InvalidArgumentException("the third param is invalid,it must be indexed array and the second param also be indexed array,example:['set',['name',1,callback]]");
                     }
-                    $redis->__call($callback[0], array_slice($callback, 1));
                 }
             });
         }
@@ -80,10 +86,11 @@ class Redis
      * @param array $options
      * @param bool $is_sync
      * @param array|null $callback
-     * @return mixed
+     * @return Redis
      * @throws \Exception
      */
-    public static function getInstance(array $options = [], bool $is_sync = true, array $callback = null)
+    public
+    static function getInstance(array $options = [], bool $is_sync = true, array $callback = null)
     {
         if (is_array($options) && !empty($options)) {
             self::$redisOptions = array_merge(self::$redisOptions, $options);
@@ -91,14 +98,37 @@ class Redis
 
         $key = md5(json_encode(self::$redisOptions));
         if ($is_sync) {
-            if (!empty(self::$sync_instance) && isset(self::$sync_instance[$key])) {
-                return self::$sync_instance[$key];
-            } else {
-                return self::connect($is_sync);
+            if (empty(self::$sync_instance) || !isset(self::$sync_instance[$key])) {
+                self::connect($is_sync);
             }
+            $me = new self();
+            $me->setInstanceKey($key);
+            return $me;
         } else {
-            return self::connect($is_sync, $callback);
+            self::connect($is_sync, $callback);
         }
     }
 
+    /**
+     * 设置Redis同步客户端的唯一连接标识
+     * @param string $key
+     */
+    private
+    function setInstanceKey(string $key)
+    {
+        $this->_instance_key = $key;
+    }
+
+    /**
+     * Redis同步客户端调用原生Redis方法
+     * @param $name
+     * @param $arguments
+     * @return mixed
+     */
+    public
+    function __call($name, $arguments)
+    {
+        $arguments[0] = self::$sync_config_instance[$this->_instance_key]['prefix'] . $arguments[0];
+        return self::$sync_instance[$this->_instance_key]->$name(...$arguments);
+    }
 }

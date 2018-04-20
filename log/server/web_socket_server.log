@@ -1,0 +1,54 @@
+[2018-04-20 16:20:40 #10845.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught ArgumentCountError: Too few arguments to function library\common\Redis::getCacheKey(), 0 passed in /mnt/hgfs/vSwoole/application/server/WebSocket.php on line 51 and exactly 1 expected in /mnt/hgfs/vSwoole/library/common/Redis.php:117
+Stack trace:
+#0 /mnt/hgfs/vSwoole/application/server/WebSocket.php(51): library\common\Redis->getCacheKey()
+#1 [internal function]: application\server\WebSocket->onStart(Object(Swoole\WebSocket\Server))
+#2 /mnt/hgfs/vSwoo
+[2018-04-20 16:43:07 #11406.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Call to undefined method Redis::getCacheKey1() in /mnt/hgfs/vSwoole/library/common/Redis.php:130
+Stack trace:
+#0 [internal function]: library\common\Redis->library\common\{closure}('name1')
+#1 /mnt/hgfs/vSwoole/library/common/Redis.php(131): call_user_func_array(Object(Closure), Array)
+#2 /mnt/hgfs/vSwoole/application/server/WebSocket.php(55): library\common\Redis->__call('getCacheKey1', Array)
+#3 [internal function]: application\server\WebSock
+[2018-04-20 16:45:37 #11472.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Call to undefined method Redis::getCacheKey1() in /mnt/hgfs/vSwoole/library/common/Redis.php:126
+Stack trace:
+#0 [internal function]: library\common\Redis->library\common\{closure}('name1')
+#1 /mnt/hgfs/vSwoole/library/common/Redis.php(127): call_user_func_array(Object(Closure), Array)
+#2 /mnt/hgfs/vSwoole/application/server/WebSocket.php(55): library\common\Redis->__call('getCacheKey1', Array)
+#3 [internal function]: application\server\WebSock
+[2018-04-20 16:58:55 #11756.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught ArgumentCountError: Too few arguments to function library\common\Redis::test(), 2 passed in /mnt/hgfs/vSwoole/library/common/Redis.php on line 125 and exactly 3 expected in /mnt/hgfs/vSwoole/library/common/Redis.php:132
+Stack trace:
+#0 /mnt/hgfs/vSwoole/library/common/Redis.php(125): library\common\Redis->test('name1', 1)
+#1 /mnt/hgfs/vSwoole/application/server/WebSocket.php(55): library\common\Redis->__call('set', Array)
+#2 [internal function]: appli
+[2018-04-20 16:59:50 #11799.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught ArgumentCountError: Too few arguments to function library\common\Redis::test(), 2 passed in /mnt/hgfs/vSwoole/library/common/Redis.php on line 125 and exactly 3 expected in /mnt/hgfs/vSwoole/library/common/Redis.php:132
+Stack trace:
+#0 /mnt/hgfs/vSwoole/library/common/Redis.php(125): library\common\Redis->test('name1', 1)
+#1 /mnt/hgfs/vSwoole/application/server/WebSocket.php(55): library\common\Redis->__call('set', Array)
+#2 [internal function]: appli
+[2018-04-20 17:39:23 #12828.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught InvalidArgumentException: the third param is invalid,it must is indexed array and the second param also is indexed array,example:['set',['name',1,callback]] in /mnt/hgfs/vSwoole/library/common/Redis.php:77
+Stack trace:
+#0 [internal function]: library\common\Redis::library\common\{closure}(Object(Swoole\Redis), true)
+#1 /mnt/hgfs/vSwoole/library/server/Swoole.php(141): Swoole\Http\Server->start()
+#2 /mnt/hgfs/vSwoole/application/server/WebSocket.php(27
+[2018-04-20 17:42:03 #12902.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught ErrorException: the third param is invalid,it must be indexed array and the second param also be indexed array,example:['set',['name',1,callback]] in /mnt/hgfs/vSwoole/library/common/Redis.php:77
+Stack trace:
+#0 [internal function]: library\common\Redis::library\common\{closure}(Object(Swoole\Redis), true)
+#1 /mnt/hgfs/vSwoole/library/server/Swoole.php(141): Swoole\Http\Server->start()
+#2 /mnt/hgfs/vSwoole/application/server/WebSocket.php(27): library
+[2018-04-20 17:44:10 #12954.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Exception: connect to redis server failed
+ in /mnt/hgfs/vSwoole/library/common/Redis.php:66
+Stack trace:
+#0 [internal function]: library\common\Redis::library\common\{closure}(Object(Swoole\Redis), true)
+#1 /mnt/hgfs/vSwoole/library/server/Swoole.php(141): Swoole\Http\Server->start()
+#2 /mnt/hgfs/vSwoole/application/server/WebSocket.php(27): library\server\Swoole->__construct(Array, Array)
+#3 /mnt/hgfs/vSwoole/library/Init.php(152): application\server
+[2018-04-20 17:45:13 #12986.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught ErrorException: the third param is invalid,it must be indexed array and the second param also be indexed array,example:['set',['name',1,callback]] in /mnt/hgfs/vSwoole/library/common/Redis.php:77
+Stack trace:
+#0 [internal function]: library\common\Redis::library\common\{closure}(Object(Swoole\Redis), true)
+#1 /mnt/hgfs/vSwoole/library/server/Swoole.php(141): Swoole\Http\Server->start()
+#2 /mnt/hgfs/vSwoole/application/server/WebSocket.php(27): library
+[2018-04-20 17:47:33 #13045.2]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught ErrorException: the third param is invalid,it must be indexed array and the second param also be indexed array,example:['set',['name',1,callback]] in /mnt/hgfs/vSwoole/library/common/Redis.php:77
+Stack trace:
+#0 [internal function]: library\common\Redis::library\common\{closure}(Object(Swoole\Redis), true)
+#1 /mnt/hgfs/vSwoole/library/server/Swoole.php(141): Swoole\Http\Server->start()
+#2 /mnt/hgfs/vSwoole/application/server/WebSocket.php(27): library

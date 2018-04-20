@@ -1,13 +1,12 @@
 <?php
 /**
  * 配置工具类
- * User: zengz
+ * User: zengzhifei
  * Date: 2018/4/19
  * Time: 17:19
  */
 
-namespace swoole\common;
-
+namespace library\common;
 
 class Config
 {
@@ -17,27 +16,24 @@ class Config
     private static $_instance = null;
 
     /**
-     * 载入配置文件
-     * @param string $configName
-     * @return null|Config
+     * 装载配置文件
+     * @param string $config_file
+     * @return Config|null
      */
-    public static function loadConfig(string $configName = '*')
+    public static function loadConfig(string $config_file = '*')
     {
-        if (defined('SWOOLE_CONFIG_PATH') && is_dir(SWOOLE_CONFIG_PATH)) {
-            $configFiles = glob(SWOOLE_CONFIG_PATH . $configName . '.php');
+        if (defined('VSWOOLE_CONFIG_PATH') && is_dir(VSWOOLE_CONFIG_PATH)) {
+            $configFiles = glob(VSWOOLE_CONFIG_PATH . $config_file . VSWOOLE_CONFIG_EXT);
+            $configs = [];
             foreach ($configFiles as $configFile) {
                 $configInfo = pathinfo($configFile);
-                $configs[$configInfo['filename']] = require_once $configFile;
+                $configs[$configInfo['filename']] = require $configFile;
             }
-            if ($configName !== '*') {
-                self::$configs = $configName == '*' ? $configs : $configs[$configName];
-            }
+            self::$configs = $config_file == '*' ? $configs : $configs[$config_file];
         }
-        if (self::$_instance) {
-            return self::$_instance;
-        } else {
-            return new self();
-        }
+
+        self::$_instance = self::$_instance ? self::$_instance : new self();
+        return self::$_instance;
     }
 
     /**
