@@ -52,3 +52,54 @@ Stack trace:
 #0 [internal function]: library\common\Redis::library\common\{closure}(Object(Swoole\Redis), true)
 #1 /mnt/hgfs/vSwoole/library/server/Swoole.php(141): Swoole\Http\Server->start()
 #2 /mnt/hgfs/vSwoole/application/server/WebSocket.php(27): library
+[2018-04-20 18:32:18 $10846.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *10853.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11414.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $11407.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *10856.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11480.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $11473.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *11417.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *10855.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $11757.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *11807.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11483.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12836.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $11800.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *11767.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11416.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $12903.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *12910.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $12829.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *12912.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11810.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12962.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12838.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *10854.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12839.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12994.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $13046.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *13053.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11415.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11809.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $12955.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *12913.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11764.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $12987.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-04-20 18:32:18 *12965.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11766.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12997.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11481.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11482.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *13056.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12964.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12996.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11765.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *13055.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *11808.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12837.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12911.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12963.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 *12995.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-04-20 18:32:18 $12987.0]	ERROR	swManager_loop(:419): waitpid(12994) failed. Error: No child processes[10].
+[2018-04-20 18:32:18 *13054.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
