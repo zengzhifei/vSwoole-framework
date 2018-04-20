@@ -1,0 +1,37 @@
+[2018-04-19 23:42:25 #13428.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Call to undefined method swoole\common\Redis::sAdd() in /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php:52
+Stack trace:
+#0 [internal function]: swoole\server\WebSocketServer->onStart(Object(Swoole\WebSocket\Server))
+#1 /mnt/hgfs/demo/tp5/swoole/server/Server.php(87): Swoole\Http\Server->start()
+#2 /mnt/hgfs/demo/tp5/swoole/Swoole.php(32): swoole\server\Server->__construct()
+#3 /mnt/hgfs/demo/tp5/swoole/Swoole.php(70): swoole\Swoole->__cons
+[2018-04-19 23:57:31 #14985.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Cannot use object of type swoole\common\Redis as array in /mnt/hgfs/demo/tp5/swoole/common/Redis.php:114
+Stack trace:
+#0 /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php(52): swoole\common\Redis->__call('sAdd', Array)
+#1 [internal function]: swoole\server\WebSocketServer->onStart(Object(Swoole\WebSocket\Server))
+#2 /mnt/hgfs/demo/tp5/swoole/server/Server.php(87): Swoole\Http\Server->start()
+#3 /mnt/hgfs/demo/tp5/swoole/Swoole.php(32): swool
+[2018-04-20 00:13:35 #16489.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Call to a member function sAdd() on null in /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php:52
+Stack trace:
+#0 [internal function]: swoole\server\WebSocketServer->onStart(Object(Swoole\WebSocket\Server))
+#1 /mnt/hgfs/demo/tp5/swoole/server/Server.php(87): Swoole\Http\Server->start()
+#2 /mnt/hgfs/demo/tp5/swoole/Swoole.php(32): swoole\server\Server->__construct()
+#3 /mnt/hgfs/demo/tp5/swoole/Swoole.php(70): swoole\Swoole->__construct(Array)
+[2018-04-20 00:30:15 #18039.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Coroutine\Redis::__construct(): coroutine client should use under swoole server in onRequet, onReceive, onConnect callback. in /mnt/hgfs/demo/tp5/swoole/common/Redis.php on line 47.
+[2018-04-20 01:06:22 #21723.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 3 passed to swoole\common\Redis::getInstance() must be callable or null, integer given, called in /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php on line 52 and defined in /mnt/hgfs/demo/tp5/swoole/common/Redis.php:80
+Stack trace:
+#0 /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php(52): swoole\common\Redis::getInstance(Array, true, 123)
+#1 [internal function]: swoole\server\WebSocketServer->onStart(Object(Swoole\WebSocket\
+[2018-04-20 01:48:38 #26415.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 1 passed to swoole\common\Redis::getInstance() must be of the type array, object given, called in /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php on line 53 and defined in /mnt/hgfs/demo/tp5/swoole/common/Redis.php:86
+Stack trace:
+#0 /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php(53): swoole\common\Redis::getInstance(Object(Swoole\Redis), true)
+#1 [internal function]: swoole\server\WebSocketServer->swoole\server\{closure
+[2018-04-20 01:56:04 #27169.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Call to undefined method Redis::SMEMBERSs() in /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php:53
+Stack trace:
+#0 [internal function]: swoole\server\WebSocketServer->swoole\server\{closure}(Object(Swoole\Redis), 0)
+#1 /mnt/hgfs/demo/tp5/swoole/server/Server.php(87): Swoole\Http\Server->start()
+#2 /mnt/hgfs/demo/tp5/swoole/Swoole.php(32): swoole\server\Server->__construct()
+#3 /mnt/hgfs/demo/tp5/swoole/Swoole.php(70): swoole\Swoole->__const
+[2018-04-20 01:57:50 #27384.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to swoole\common\Redis::getInstance() must be of the type boolean, array given, called in /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php on line 55 and defined in /mnt/hgfs/demo/tp5/swoole/common/Redis.php:86
+Stack trace:
+#0 /mnt/hgfs/demo/tp5/swoole/server/WebSocketServer.php(55): swoole\common\Redis::getInstance(Array, Array, Array)
+#1 [internal function]: swoole\server\WebSocketServer->onStart(Object(Swoole\WebSoc
