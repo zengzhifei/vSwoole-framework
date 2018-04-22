@@ -17,10 +17,14 @@ return [
         'timeout'    => 0,
         'expire'     => 0,
         'persistent' => true,
-        'prefix'     => 'VSwoole-WebSocket-',
+        'prefix'     => 'VSwoole-',
     ],
     //缓存键值
     'redis_key'    => [
-        'Server_Ip' => 'Server_Ip'
+        'WebSocket' => [
+            'Server_Ip' => 'WebSocket_Server_Ip',
+            'Link_Info' => 'WebSocket_Link_Info',
+            'User_Info' => 'WebSocket_User_Info',
+        ],
     ],
 ];

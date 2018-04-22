@@ -32,7 +32,7 @@ class Redis
     /**
      * 同步或异步连接redis
      * @param bool $is_sync
-     * @param array|null $callback
+     * @param callable|null $callback
      * @return mixed
      * @throws \Exception
      */
@@ -61,24 +61,13 @@ class Redis
                 'password' => self::$redisOptions['password'],
                 'database' => self::$redisOptions['select']
             ]);
-            $redis->connect(self::$redisOptions['host'], self::$redisOptions['port'], function (\swoole_redis $redis, $result) use ($key, $callback) {
+            $redis->connect(self::$redisOptions['host'], self::$redisOptions['port'], function (\swoole_redis $redis, $result) use ($callback) {
                 if ($result === false) {
                     throw new \Exception('connect to redis server failed');
                 } else if (is_callable($callback)) {
-                    $callback($redis);
-                    /*if (count($callback) == 2 && is_array($callback[1]) && !empty($callback[1]) && is_string($callback[1][0])) {
-                        $callback[1][0] = self::$redisOptions['prefix'] . $callback[1][0];
-                        $count = count($callback[1]);
-                        if (!is_callable($callback[1][$count - 1])) {
-                            $callback[1][$count] = function () {
-                            };
-                        }
-                        $redis->__call($callback[0], $callback[1]);
-                    } else {
-                        throw new \InvalidArgumentException("the third param is invalid,it must be indexed array and the second param also be indexed array,example:['set',['name',1,callback]]");
-                    }*/
-                } else {
-                    echo 3333;
+                    $callback($redis, function ($redisKey) {
+                        return self::$redisOptions['prefix'] . $redisKey;
+                    });
                 }
             });
         }
@@ -88,7 +77,7 @@ class Redis
      * 获取同步或异步Redis客户端
      * @param array $options
      * @param bool $is_sync
-     * @param array|null $callback
+     * @param callable|null $callback
      * @return Redis
      * @throws \Exception
      */

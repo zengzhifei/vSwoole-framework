@@ -21,11 +21,11 @@ return [
         //服务Sock类型
         'sockType'          => SWOOLE_SOCK_TCP,
         //监听管理端IP
-        'adminHost'         => '',
+        'adminHost'         => '0.0.0.0',
         //监听管理端端口
-        'adminPort'         => '',
+        'adminPort'         => '9500',
         //监听管理Sock类型
-        'adminSockType'     => '',
+        'adminSockType'     => SWOOLE_SOCK_TCP,
         //监听其他客户端IP+端口
         'others'            => [],
         //监听其他客户端Sock类型

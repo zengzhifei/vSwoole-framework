@@ -54,8 +54,6 @@ class Init
      */
     private static function initDefine()
     {
-        //框架根目录
-        define('VSWOOLE_ROOT', __DIR__ . '/../');
         //偏好配置
         $defines = require VSWOOLE_ROOT . 'library/conf/convention.php';
         foreach ($defines['define'] as $defineKey => $defineValue) {
@@ -125,11 +123,14 @@ class Init
     }
 
     /**
-     * 注册类自动加载
+     * 注册框架核心功能
      */
-    private static function registerAutoload()
+    private static function initRegister()
     {
+        //注册类自动加载
         spl_autoload_register("self::loadClass");
+        //注册异常错误处理
+        //todo
     }
 
     /**
@@ -179,7 +180,7 @@ class Init
         self::initEnv();
         self::initDefine();
         self::initInstall();
-        self::registerAutoload();
+        self::initRegister();
 
         return new self();
     }

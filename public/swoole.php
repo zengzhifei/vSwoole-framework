@@ -8,18 +8,20 @@
 // +----------------------------------------------------------------------+
 
 
-class Server
+class Swoole
 {
     /**
-     * Server constructor.
+     * Swoole constructor.
      * @param $argv
      */
     public function __construct($argv)
     {
+        //设置框架根目录
+        define('VSWOOLE_ROOT', __DIR__ . '/../');
         //设置debug模式
         define('IS_DEBUG', true);
         //引入框架异常处理文件
-        require_once '../library/common/Exception.php';
+        require_once VSWOOLE_ROOT . 'library/common/Exception.php';
         //执行命令
         $this->start($argv);
     }
@@ -33,9 +35,9 @@ class Server
         try {
             //载入框架初始化文件
             if (php_sapi_name() === 'cli') {
-                require '../library/Init.php';
+                require VSWOOLE_ROOT . 'library/Init.php';
             } else {
-                throw new \RuntimeException("vSwoole Server must run in the CLI mode");
+                throw new \RuntimeException("Swoole Server must run in the CLI mode");
             }
             //运行框架
             if (isset($argv[1])) {
@@ -66,4 +68,4 @@ class Server
     }
 }
 
-$server = new Server(@$argv);
+$server = new Swoole(@$argv);

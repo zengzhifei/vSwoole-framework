@@ -9,7 +9,7 @@
 
 namespace library\server;
 
-abstract class Swoole
+abstract class Server
 {
     //服务对象
     protected $swoole;
@@ -84,7 +84,7 @@ abstract class Swoole
     ];
 
     /**
-     * Swoole constructor.
+     * Server constructor.
      * @param array $connect_options
      * @param array $config_options
      */

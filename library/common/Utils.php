@@ -13,11 +13,17 @@ class Utils
 {
     /**
      * 获取本机服务器Ip地址
-     * @return array
+     * @return string
      */
     public static function getServerIp()
     {
-        return swoole_get_local_ip();
+        $ips = swoole_get_local_ip();
+        $server_ip = '';
+        foreach ($ips as $ip) {
+            $server_ip = $ip;
+            break;
+        }
+        return $server_ip;
     }
 
     /**
