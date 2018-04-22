@@ -1,7 +1,7 @@
 <?php
 /**
  * Redis工具类
- * User: zengz
+ * User: zengzhifei
  * Date: 2018/4/19
  * Time: 18:09
  */
@@ -36,7 +36,7 @@ class Redis
      * @return mixed
      * @throws \Exception
      */
-    private static function connect(bool $is_sync = true, array $callback = null)
+    private static function connect(bool $is_sync = true, callable $callback = null)
     {
         $key = md5(json_encode(self::$redisOptions));
         self::$sync_config_instance[$key] = self::$redisOptions;
@@ -63,9 +63,10 @@ class Redis
             ]);
             $redis->connect(self::$redisOptions['host'], self::$redisOptions['port'], function (\swoole_redis $redis, $result) use ($key, $callback) {
                 if ($result === false) {
-                    throw new \Exception('connect to redis server failed' . PHP_EOL);
-                } else if ($callback) {
-                    if (count($callback) == 2 && is_array($callback[1]) && !empty($callback[1]) && is_string($callback[1][0])) {
+                    throw new \Exception('connect to redis server failed');
+                } else if (is_callable($callback)) {
+                    $callback($redis);
+                    /*if (count($callback) == 2 && is_array($callback[1]) && !empty($callback[1]) && is_string($callback[1][0])) {
                         $callback[1][0] = self::$redisOptions['prefix'] . $callback[1][0];
                         $count = count($callback[1]);
                         if (!is_callable($callback[1][$count - 1])) {
@@ -75,7 +76,9 @@ class Redis
                         $redis->__call($callback[0], $callback[1]);
                     } else {
                         throw new \InvalidArgumentException("the third param is invalid,it must be indexed array and the second param also be indexed array,example:['set',['name',1,callback]]");
-                    }
+                    }*/
+                } else {
+                    echo 3333;
                 }
             });
         }
@@ -89,8 +92,7 @@ class Redis
      * @return Redis
      * @throws \Exception
      */
-    public
-    static function getInstance(array $options = [], bool $is_sync = true, array $callback = null)
+    public static function getInstance(array $options = [], bool $is_sync = true, callable $callback = null)
     {
         if (is_array($options) && !empty($options)) {
             self::$redisOptions = array_merge(self::$redisOptions, $options);
@@ -113,8 +115,7 @@ class Redis
      * 设置Redis同步客户端的唯一连接标识
      * @param string $key
      */
-    private
-    function setInstanceKey(string $key)
+    private function setInstanceKey(string $key)
     {
         $this->_instance_key = $key;
     }
@@ -125,8 +126,7 @@ class Redis
      * @param $arguments
      * @return mixed
      */
-    public
-    function __call($name, $arguments)
+    public function __call($name, $arguments)
     {
         $arguments[0] = self::$sync_config_instance[$this->_instance_key]['prefix'] . $arguments[0];
         return self::$sync_instance[$this->_instance_key]->$name(...$arguments);

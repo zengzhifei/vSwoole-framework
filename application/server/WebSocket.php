@@ -1,14 +1,17 @@
 <?php
-/**
- * WebSocket 服务器
- * User: zengzhifei
- * Date: 2018/1/29
- * Time: 11:29
- */
+// +----------------------------------------------------------------------+
+// | VSwoole FrameWork                                                    |
+// +----------------------------------------------------------------------+
+// | Not Decline To Shoulder a Responsibility                             |
+// +----------------------------------------------------------------------+
+// | zengzhifei@outlook.com                                               |
+// +----------------------------------------------------------------------+
 
 namespace application\server;
 
 use library\common\Config;
+use library\common\Exception;
+use library\common\Log;
 use library\common\Redis;
 use library\common\Utils;
 use library\server\Swoole;
@@ -33,12 +36,19 @@ class WebSocket extends Swoole
      */
     public function onStart(\swoole_websocket_server $server)
     {
+        //展示服务启动信息
+        $this->startShowServerInfo();
+
         //设置主进程别名
         if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title('WebSocket master');
+            @cli_set_process_title(VSWOOLE_WEB_SOCKET_SERVER . ' master');
         } else {
-            @swoole_set_process_name('WebSocket master');
+            @swoole_set_process_name(VSWOOLE_WEB_SOCKET_SERVER . ' master');
         }
+
+        //异步记录服务进程PID
+        Utils::writePid($server->master_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Master');
+        Utils::writePid($server->manager_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Manager');
 
         //异步写入服务器IP到缓存
         try {
@@ -47,10 +57,12 @@ class WebSocket extends Swoole
             $redisKeys = $redisConf->get('redis_key');
             $ips = Utils::getServerIp();
             foreach ($ips as $ip) {
-                Redis::getInstance($redisOptions, false, ['sAdd', [$redisKeys['Server_Ip'], $ip]]);
+                Redis::getInstance($redisOptions, false, function ($redis) {
+                    $redis->__call('set',[1,function(){}]);
+                });
             }
         } catch (\Exception $e) {
-            Utils::asyncLog($e->getMessage());
+            Exception::reportException($e);
         }
     }
 

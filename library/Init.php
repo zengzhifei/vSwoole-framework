@@ -1,10 +1,15 @@
 <?php
-/**
- * 框架引导文件
- * User: zengzhifei
- * Date: 2018/4/20
- * Time: 10:18
- */
+// +----------------------------------------------------------------------+
+// | VSwoole FrameWork                                                    |
+// +----------------------------------------------------------------------+
+// | Not Decline To Shoulder a Responsibility                             |
+// +----------------------------------------------------------------------+
+// | zengzhifei@outlook.com                                               |
+// +----------------------------------------------------------------------+
+
+namespace library;
+
+use library\common\Exception;
 
 class Init
 {
@@ -18,6 +23,10 @@ class Init
             if (version_compare(PHP_VERSION, '7.0.0', '<')) {
                 throw new \Exception('php version must than 7.0');
             }
+            //Swoole 扩展检查
+            if (!extension_loaded('swoole')) {
+                throw new \Exception('swoole extension not loaded');
+            }
             //Swoole 版本检测
             if (version_compare(swoole_version(), '2.0', '<')) {
                 throw new \Exception('swoole version must than 2.0');
@@ -27,7 +36,7 @@ class Init
                 throw new \BadFunctionCallException('function not support: spl_autoload_register');
             }
         } catch (\Exception $e) {
-            exit($e->getMessage() . PHP_EOL);
+            Exception::reportError($e);
         }
     }
 
@@ -36,84 +45,82 @@ class Init
      */
     private static function initEnv()
     {
-        //框架根目录
-        define('VSWOOLE_ROOT', __DIR__ . '/../');
-        //框架应用目录
-        define('VSOOLE_APP_PATH', VSWOOLE_ROOT . 'application/');
-        //框架日志目录
-        define('VSWOOLE_LOG_PATH', VSWOOLE_ROOT . 'log/');
-        //框架服务端日志目录
-        define('VSWOOLE_SERVER_LOG_PATH', VSWOOLE_LOG_PATH . 'server/');
-        //框架客户端日志目录
-        define('VSWOOLE_CLIENT_LOG_PATH', VSWOOLE_LOG_PATH . 'client/');
-        //框架配置目录
-        define('VSWOOLE_CONFIG_PATH', VSWOOLE_ROOT . 'configs/');
-        //框架核心目录
-        define('VSWOOLE_LIBRARY_PATH', VSWOOLE_ROOT . 'library/');
-    }
-
-    /**
-     * 初始化框架服务常量
-     */
-    private static function initServer()
-    {
-        //服务器
-        define('VSWOOLE_SERVER', 1);
-        //客户端
-        define('VSWOOLE_CLIENT', 2);
-        //Http服务
-        define('VSWOOLE_HTTP_SERVER', 'Http_Server');
-        //WebSocket服务
-        define('VSWOOLE_WEB_SOCKET_SERVER', 'WebSocket_Server');
-    }
-
-    /**
-     * 初始化框架命名空间常量
-     */
-    private static function initNamespace()
-    {
-        //服务端命名空间
-        define('VSWOOLE_APP_SERVER_NAMESPACE', 'application\server');
-        //客户端命名空间
-        define('VSWOOLE_APP_CLIENT_NAMESPACE', 'application\client');
+        //设置时区
+        ini_set('date.timezone', 'PRC');
     }
 
     /**
      * 初始化框架偏好常量
      */
-    private static function initConvention()
+    private static function initDefine()
     {
-        //类文件扩展名
-        define('VSWOOLE_CLASS_EXT', '.php');
-        //配置文件扩展名
-        define('VSWOOLE_CONFIG_EXT', '.php');
+        //框架根目录
+        define('VSWOOLE_ROOT', __DIR__ . '/../');
+        //偏好配置
+        $defines = require VSWOOLE_ROOT . 'library/conf/convention.php';
+        foreach ($defines['define'] as $defineKey => $defineValue) {
+            define(strtoupper($defineKey), $defineValue);
+        }
     }
 
     /**
-     * 初始化日志目录
+     * 初始化框架目录
      */
-    private static function initLogPath()
+    private static function initInstall()
     {
-        if (!is_dir(VSWOOLE_SERVER_LOG_PATH)) {
-            mkdir(VSWOOLE_SERVER_LOG_PATH, 755, true);
+        //应用根目录
+        if (!is_dir(VSWOOLE_APP_PATH)) {
+            mkdir(VSWOOLE_APP_PATH, 755, true);
         }
-        if (!is_dir(VSWOOLE_CLIENT_LOG_PATH)) {
-            mkdir(VSWOOLE_CLIENT_LOG_PATH, 755, true);
+        //应用服务端目录
+        if (!is_dir(VSWOOLE_APP_SERVER_PATH)) {
+            mkdir(VSWOOLE_APP_SERVER_PATH, 755, true);
+        }
+        //应用客户端目录
+        if (!is_dir(VSWOOLE_APP_CLIENT_PATH)) {
+            mkdir(VSWOOLE_APP_CLIENT_PATH, 755, true);
+        }
+        //框架配置目录
+        if (!is_dir(VSWOOLE_CONFIG_PATH)) {
+            mkdir(VSWOOLE_CONFIG_PATH, 755, true);
+        }
+        //框架数据根目录
+        if (!is_dir(VSWOOLE_DATA_PATH)) {
+            mkdir(VSWOOLE_DATA_PATH, 755, true);
+        }
+        //框架数据服务进程目录
+        if (!is_dir(VSWOOLE_DATA_PID_PATH)) {
+            mkdir(VSWOOLE_DATA_PID_PATH, 755, true);
+        }
+        //日志根目录
+        if (!is_dir(VSWOOLE_LOG_PATH)) {
+            mkdir(VSWOOLE_LOG_PATH, 755, true);
+        }
+        //日志服务端目录
+        if (!is_dir(VSWOOLE_LOG_SERVER_PATH)) {
+            mkdir(VSWOOLE_LOG_SERVER_PATH, 755, true);
+        }
+        //日志客户端目录
+        if (!is_dir(VSWOOLE_LOG_CLIENT_PATH)) {
+            mkdir(VSWOOLE_LOG_CLIENT_PATH, 755, true);
         }
     }
 
     /**
      * 类自动加载
      * @param string $className
-     * @throws ErrorException
      */
     private static function loadClass(string $className)
     {
-        $class = str_replace("\\", '/', $className);
-        if (file_exists(VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT)) {
-            require_once VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT;
-        } else {
-            throw new \ErrorException("class {$className} not exist,file path: " . VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT);
+        try {
+            $class = str_replace("\\", '/', $className);
+            if (file_exists(VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT)) {
+                require_once VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT;
+            } else {
+                throw new \RuntimeException("class {$className} not exist,file path: " . VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT);
+            }
+        } catch (\Exception $e) {
+            Exception::reportError($e);
         }
     }
 
@@ -126,6 +133,43 @@ class Init
     }
 
     /**
+     * 安装框架目录结构
+     */
+    public static function install()
+    {
+        self::initDefine();
+        self::initInstall();
+    }
+
+    /**
+     * 清除框架日志文件
+     * @param null $dir
+     */
+    public static function clear($dir = null)
+    {
+        if (!defined('VSWOOLE_LOG_PATH') || !defined('VSWOOLE_LOG_SERVER_PATH') || !defined('VSWOOLE_LOG_CLIENT_PATH')) {
+            self::initDefine();
+        }
+
+        $dir = $dir ? $dir : VSWOOLE_LOG_PATH;
+
+        if (is_dir($dir)) {
+            $files = scandir($dir);
+            foreach ($files as $file) {
+                if ($file != '.' && $file != '..') {
+                    $this_dir = $dir . $file;
+                    if (is_dir($this_dir)) {
+                        self::clear($this_dir . '/');
+                    } else {
+                        @unlink($this_dir);
+                    }
+                }
+            }
+            $dir !== VSWOOLE_LOG_SERVER_PATH && $dir !== VSWOOLE_LOG_CLIENT_PATH && @rmdir($dir);
+        }
+    }
+
+    /**
      * 载入框架
      * @return Init
      */
@@ -133,10 +177,8 @@ class Init
     {
         self::initCheck();
         self::initEnv();
-        self::initServer();
-        self::initNamespace();
-        self::initConvention();
-        self::initLogPath();
+        self::initDefine();
+        self::initInstall();
         self::registerAutoload();
 
         return new self();
@@ -151,7 +193,7 @@ class Init
         try {
             $server = new $class;
         } catch (\Exception $e) {
-            exit($e->getMessage() . PHP_EOL);
+            Exception::reportError($e);
         }
     }
 }

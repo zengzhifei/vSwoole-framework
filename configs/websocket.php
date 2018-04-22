@@ -1,10 +1,12 @@
 <?php
-/**
- * WebSocket 配置文件
- * User: zengzhifei
- * Date: 2018/4/20
- * Time: 12:50
- */
+// +----------------------------------------------------------------------+
+// | VSwoole FrameWork                                                    |
+// +----------------------------------------------------------------------+
+// | Not Decline To Shoulder a Responsibility                             |
+// +----------------------------------------------------------------------+
+// | zengzhifei@outlook.com                                               |
+// +----------------------------------------------------------------------+
+
 return [
     //连接配置
     'ws_connect_options' => [
@@ -36,7 +38,7 @@ return [
         //守护进程化
         'daemonize'                => false,
         //日志
-        'log_file'                 => VSWOOLE_SERVER_LOG_PATH . 'web_socket_server.log',
+        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'WebSocket.log',
         //工作进程数
         'worker_num'               => 4,
         //工作线程数
@@ -48,6 +50,8 @@ return [
         //连接最大闲置时间
         'heartbeat_idle_time'      => 600,
         //启用CPU亲和性设置
-        'open_cpu_affinity'        => true
+        'open_cpu_affinity'        => true,
+        //debug模式
+        'debug_mode'               => false,
     ]
 ];

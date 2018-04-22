@@ -1,10 +1,11 @@
 <?php
-/**
- * Swoole 服务底层抽象模型
- * User: zengzhifei
- * Date: 2018/1/29
- * Time: 11:29
- */
+// +----------------------------------------------------------------------+
+// | VSwoole FrameWork                                                    |
+// +----------------------------------------------------------------------+
+// | Not Decline To Shoulder a Responsibility                             |
+// +----------------------------------------------------------------------+
+// | zengzhifei@outlook.com                                               |
+// +----------------------------------------------------------------------+
 
 namespace library\server;
 
@@ -40,7 +41,7 @@ abstract class Swoole
         //守护进程化
         'daemonize'                => true,
         //日志
-        'log_file'                 => VSWOOLE_SERVER_LOG_PATH . 'vswoole.log',
+        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'vSwoole.log',
         //工作进程数
         'worker_num'               => 4,
         //工作线程数
@@ -52,7 +53,9 @@ abstract class Swoole
         //连接最大闲置时间
         'heartbeat_idle_time'      => 600,
         //启用CPU亲和性设置
-        'open_cpu_affinity'        => true
+        'open_cpu_affinity'        => true,
+        //debug模式
+        'debug_mode'               => false,
     ];
     //服务回调事件列表
     protected $callbackEventList = [
@@ -112,7 +115,6 @@ abstract class Swoole
             $this->configOptions['worker_num'] = $cpu_cores ? $this->configOptions['worker_num'] * $cpu_cores : $this->configOptions['worker_num'];
             $this->configOptions['reactor_num'] = $cpu_cores ? $this->configOptions['reactor_num'] * $cpu_cores : $this->configOptions['reactor_num'];
             $this->configOptions['task_worker_num'] = $cpu_cores ? $this->configOptions['task_worker_num'] * $cpu_cores : $this->configOptions['task_worker_num'];
-            $this->configOptions = array_merge($this->configOptions, $config_options);
             $this->swoole->set($this->configOptions);
         }
 
@@ -139,6 +141,24 @@ abstract class Swoole
 
         //开启服务
         $this->swoole->start();
+    }
+
+    /**
+     * 展示服务启动信息
+     */
+    protected function startShowServerInfo()
+    {
+        $setting = $this->swoole->setting;
+        $str = '';
+        $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL;
+        $str .= '|' . $this->connectOptions['serverType'] . ' start ok. ' . date('Y-m-d H:i:s') . PHP_EOL;
+        $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL;
+        foreach ($setting as $option => $config) {
+            $str .= '|' . $option . ': ' . (is_bool($config) ? ($config ? 'true' : 'false') : $config) . PHP_EOL;
+        }
+        $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL;
+        swoole_async_writefile($setting['log_file'], $str, null, FILE_APPEND);
+        if (!$setting['daemonize']) echo $str;
     }
 
     /**
