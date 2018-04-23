@@ -8,8 +8,8 @@
 // +----------------------------------------------------------------------+
 
 return [
-    //连接配置
-    'ws_connect_options' => [
+    //服务端连接配置
+    'ws_server_connect' => [
         //服务类型
         'serverType'        => VSWOOLE_WEB_SOCKET_SERVER,
         //监听IP
@@ -33,8 +33,8 @@ return [
         //服务回调事件列表
         'callbackEventList' => [],
     ],
-    //服务配置
-    'ws_config_options'  => [
+    //服务端配置
+    'ws_server_config'  => [
         //守护进程化
         'daemonize'                => false,
         //日志
@@ -53,5 +53,30 @@ return [
         'open_cpu_affinity'        => true,
         //debug模式
         'debug_mode'               => false,
+        //SSL Crt
+        'ssl_cert_file'            => 'server.crt',
+        //SSL Key
+        'ssl_key_file'             => 'server.key'
+    ],
+    //客户端连接配置
+    'ws_client_connect' => [
+        //服务Sock类型
+        'sockType'      => SWOOLE_SOCK_TCP | SWOOLE_KEEP,
+        //同步异步
+        'syncType'      => SWOOLE_SOCK_SYNC,
+        //长连接Key
+        'connectionKey' => '',
+        //服务器地址
+        'host'          => '192.168.1.100',
+        //服务器端口
+        'port'          => 9500,
+        //连接超时
+        'timeout'       => 0.5,
+        //连接是否阻塞
+        'flag'          => 0,
+    ],
+    //客户端配置
+    'ws_client_config'  => [
+
     ]
 ];

@@ -15,7 +15,6 @@ use library\common\Exception;
 use library\common\Log;
 use library\common\Redis;
 use library\common\Utils;
-use library\server\Server;
 
 class WebSocketServer extends Server
 {
@@ -25,10 +24,10 @@ class WebSocketServer extends Server
     public function __construct()
     {
         $wsConfig = Config::loadConfig('websocket');
-        $ws_connect_options = $wsConfig->get('ws_connect_options');
-        $ws_config_options = $wsConfig->get('ws_config_options');
+        $ws_server_connect = $wsConfig->get('ws_server_connect');
+        $ws_server_config = $wsConfig->get('ws_server_config');
 
-        parent::__construct($ws_connect_options, $ws_config_options);
+        parent::__construct($ws_server_connect, $ws_server_config);
     }
 
     /**
