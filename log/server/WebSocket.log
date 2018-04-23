@@ -1054,3 +1054,11 @@ Stack trace:
 |open_length_check: false
 |open_websocket_protocol: true
 +-----------------------------------------------------------------------------------------------------+
+[2018-04-23 23:29:37 #9050.0]	WARNING	swWebSocket_dispatch_frame: unknown opcode [7].
+[2018-04-23 23:29:37 #9050.0]	WARNING	swWebSocket_dispatch_frame: bad frame[opcode=0]. remote_addr=192.168.31.100:55976.
+[2018-04-23 23:36:28 #9050.0]	WARNING	swWebSocket_dispatch_frame: unknown opcode [7].
+[2018-04-23 23:36:28 #9050.0]	WARNING	swWebSocket_dispatch_frame: bad frame[opcode=0]. remote_addr=192.168.31.100:56004.
+[2018-04-23 23:36:52 #9050.3]	WARNING	swWebSocket_dispatch_frame: unknown opcode [7].
+[2018-04-23 23:36:52 #9050.3]	WARNING	swWebSocket_dispatch_frame: bad frame[opcode=0]. remote_addr=192.168.31.100:56020.
+[2018-04-23 23:39:09 #9050.0]	WARNING	swWebSocket_dispatch_frame: unknown opcode [7].
+[2018-04-23 23:39:09 #9050.0]	WARNING	swWebSocket_dispatch_frame: bad frame[opcode=0]. remote_addr=192.168.31.100:56048.
