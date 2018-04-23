@@ -10,6 +10,8 @@
 namespace library\client;
 
 
+use library\common\Exception;
+
 abstract class Client
 {
     //客户端对象
@@ -75,15 +77,4 @@ abstract class Client
         //客户端连接服务器
         return $this->client->connect($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['timeout'], $this->connectOptions['flag']);
     }
-
-    /**
-     * @param $name
-     * @param $arguments
-     */
-    public function __call($name, $arguments)
-    {
-        // TODO: Implement __call() method.
-        call_user_func_array([$this->client, $name], $arguments);
-    }
-
 }

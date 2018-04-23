@@ -1014,3 +1014,43 @@ Stack trace:
 |open_length_check: false
 |open_websocket_protocol: true
 +-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-04-23 23:22:42
++-----------------------------------------------------------------------------------------------------+
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-04-23 23:23:23
++-----------------------------------------------------------------------------------------------------+
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+

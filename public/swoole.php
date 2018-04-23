@@ -50,7 +50,7 @@ class Swoole
                         break;
                     case 'start':
                         if (isset($argv[2])) {
-                            \library\Init::start()->run(VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $argv[2]);
+                            \library\Init::start()->runServer($argv[2]);
                         } else {
                             throw new \InvalidArgumentException("Argument 2 is invalid");
                         }

@@ -10,19 +10,14 @@
 namespace application\client;
 
 
-use library\client\WebSocketClient;
-
-class WebSocket extends WebSocketClient
+class Index
 {
-    public function __construct(array $connectOptions = [], array $configOptions = [])
+    public function index()
     {
-        parent::__construct($connectOptions, $configOptions);
+        echo <<<EOT
+             <p style="padding-left:30px;font-size: 30px;">VSwoole FrameWork</p>
+             <p style="padding-left:30px;font-size: 20px;">Swoole 微服务框架 - Not Decline To Shoulder a Responsibility</p>
+EOT;
+
     }
-
-    public function send()
-    {
-        var_dump(2222);
-    }
-
-
 }

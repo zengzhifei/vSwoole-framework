@@ -186,13 +186,37 @@ class Init
     }
 
     /**
-     * 启动框架
+     * 启动框架服务
      * @param string $class
      */
-    public function run(string $class)
+    public function runServer(string $class)
     {
         try {
+            $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
             $server = new $class;
+        } catch (\Exception $e) {
+            Exception::reportError($e);
+        }
+    }
+
+    /**
+     * 启动框架客户端
+     * @param string $uri
+     */
+    public function runClient(string $uri = '')
+    {
+        try {
+            //$uri = VSWOOLE_APP_CLIENT_NAMESPACE . '\\' . $uri;
+            $router = explode("\\", str_replace('/', '\\', $uri));
+            $controller = isset($router[0]) && $router[0] != '' ? $router[0] : 'Index';
+            $action = isset($router[1]) && $router[1] != '' ? $router[1] : 'index';
+            $class = VSWOOLE_APP_CLIENT_NAMESPACE . '\\' . $controller;
+            $client = new $class;
+            if (method_exists($client, $action)) {
+                $client->$action();
+            } else {
+                throw new \Exception("Argument 2 {$action} method not exist");
+            }
         } catch (\Exception $e) {
             Exception::reportError($e);
         }

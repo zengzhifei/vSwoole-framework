@@ -7,7 +7,7 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
-class Index
+class Client
 {
     public function __construct()
     {
@@ -17,11 +17,26 @@ class Index
         define('IS_DEBUG', true);
         //引入框架异常处理文件
         require_once VSWOOLE_ROOT . 'library/common/Exception.php';
-        //引入框架引导文件
-        require_once VSWOOLE_ROOT . 'library/Init.php';
-        //载入框架
-        \library\Init::start();
+        //路由
+        $this->start();
+    }
+
+    public function start()
+    {
+        try {
+            //载入框架初始化文件
+            if (php_sapi_name() !== 'cli') {
+                require VSWOOLE_ROOT . 'library/Init.php';
+            } else {
+                throw new \RuntimeException("Swoole Server must run in the PHP-FPM mode");
+            }
+
+            //运行框架
+            \library\Init::start()->runClient(isset($_GET['s']) ? $_GET['s'] : '');
+        } catch (\Exception $e) {
+            \library\common\Exception::reportError($e);
+        }
     }
 }
 
-$client = new Index();
+$client = new Client();
