@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://page.ctvit.tv/jssdk/interact.ws.js"></script>
+</head>
+<body>
+<script>
+    new WS('ws://192.168.31.100/wsadmin', {
+        onOpen: function (ws) {
+            var send_data = {cmd: 'push', user_id: 'user_1', range_id: 123456};
+            ws.send(send_data);
+        },
+        onMessage: function (ws, data) {
+            var data = JSON.parse(data);
+            console.log(data);
+        }
+    })
+</script>
+
+</body>
+</html>
