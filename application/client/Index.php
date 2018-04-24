@@ -7,7 +7,7 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
-namespace application\client;
+namespace vSwoole\application\client;
 
 
 class Index

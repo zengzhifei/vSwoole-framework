@@ -7,7 +7,7 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace library\common;
+namespace vSwoole\library\common;
 
 class Exception extends \Exception
 {
@@ -107,7 +107,7 @@ class Exception extends \Exception
             $exception_string .= 'In ' . $file . ': ' . $line . PHP_EOL;
             $exception_string .= 'Exception Code: ' . $code . PHP_EOL;
             $exception_string .= 'Exception Trace: ' . PHP_EOL;
-            $exception_string .= $trace . PHP_EOL;
+            $exception_string .= $trace . PHP_EOL . PHP_EOL;
         } else {
             $status = $status == self::Exception ? '异常' : '错误';
             $exception_string = <<<EOT

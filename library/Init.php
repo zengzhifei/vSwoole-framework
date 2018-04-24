@@ -7,9 +7,10 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace library;
+namespace vSwoole\library;
 
-use library\common\Exception;
+
+use vSwoole\library\common\Exception;
 
 class Init
 {
@@ -111,7 +112,8 @@ class Init
     private static function loadClass(string $className)
     {
         try {
-            $class = str_replace("\\", '/', $className);
+            $class = str_replace(VSWOOLE_NAMESPACE . '\\', '', $className);
+            $class = str_replace('\\', '/', $class);
             if (file_exists(VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT)) {
                 require_once VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT;
             } else {
@@ -203,10 +205,9 @@ class Init
      * 启动框架客户端
      * @param string $uri
      */
-    public function runClient(string $uri = '')
+    public function runClient(string $uri = null)
     {
         try {
-            //$uri = VSWOOLE_APP_CLIENT_NAMESPACE . '\\' . $uri;
             $router = explode("\\", str_replace('/', '\\', $uri));
             $controller = isset($router[0]) && $router[0] != '' ? $router[0] : 'Index';
             $action = isset($router[1]) && $router[1] != '' ? $router[1] : 'index';

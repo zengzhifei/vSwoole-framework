@@ -7,10 +7,15 @@
 </head>
 <body>
 <script>
-    new WS('ws://192.168.31.100/ws', {
+    new WS('ws://10.4.0.101:9501/ws', {
         onOpen: function (ws) {
             var range_data = {cmd: 'range', user_id: 'user_2', range_id: 123456};
-            ws.send(range_data);
+            var push_data = {cmd: 'send', user_id: 'user_1', range_id: 123456,message:'hi user 1'};
+            ws.send(JSON.stringify(range_data));
+            setTimeout(function () {
+                ws.send(JSON.stringify(push_data));
+            },10000);
+
         },
         onMessage: function (ws, data) {
             var data = JSON.parse(data);

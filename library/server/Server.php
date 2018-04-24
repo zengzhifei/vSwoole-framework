@@ -7,7 +7,9 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace library\server;
+namespace vSwoole\library\server;
+
+use vSwoole\library\common\Utils;
 
 abstract class Server
 {
@@ -140,7 +142,7 @@ abstract class Server
         }
 
         //开启服务
-        $this->swoole->start();
+        return $this->swoole->start();
     }
 
     /**
@@ -153,6 +155,7 @@ abstract class Server
         $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL;
         $str .= '|' . $this->connectOptions['serverType'] . ' start ok. ' . date('Y-m-d H:i:s') . PHP_EOL;
         $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL;
+        $str .= '|' . 'IP: ' . Utils::getServerIp() . PHP_EOL;
         foreach ($setting as $option => $config) {
             $str .= '|' . $option . ': ' . (is_bool($config) ? ($config ? 'true' : 'false') : $config) . PHP_EOL;
         }

@@ -23,7 +23,7 @@ return [
         //监听管理端IP
         'adminHost'         => '0.0.0.0',
         //监听管理端端口
-        'adminPort'         => '9500',
+        'adminPort'         => 9500,
         //监听管理Sock类型
         'adminSockType'     => SWOOLE_SOCK_TCP,
         //监听其他客户端IP+端口
@@ -58,16 +58,16 @@ return [
         //SSL Key
         'ssl_key_file'             => 'server.key'
     ],
-    //客户端连接配置
+    //管理客户端连接配置
     'ws_client_connect' => [
         //服务Sock类型
-        'sockType'      => SWOOLE_SOCK_TCP | SWOOLE_KEEP,
+        'sockType'      => SWOOLE_SOCK_TCP,
         //同步异步
         'syncType'      => SWOOLE_SOCK_SYNC,
         //长连接Key
         'connectionKey' => '',
         //服务器地址
-        'host'          => '192.168.31.100',
+        'host'          => '10.4.0.100',
         //服务器端口
         'port'          => 9500,
         //连接超时

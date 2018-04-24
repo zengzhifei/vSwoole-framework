@@ -6,7 +6,7 @@
  * Time: 18:09
  */
 
-namespace library\common;
+namespace vSwoole\library\common;
 
 class Redis
 {

@@ -7,11 +7,11 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
-namespace library\client;
+namespace vSwoole\library\client;
 
 
-use library\common\Config;
-use library\common\Exception;
+use vSwoole\library\common\Config;
+use vSwoole\library\common\Exception;
 
 class WebSocketClient extends Client
 {
@@ -30,9 +30,11 @@ class WebSocketClient extends Client
     protected $connected = false;
     //服务端返回数据包
     protected $returnData = false;
-
+    //客户端实例
+    protected $clients_instance = [];
 
     /**
+     * 连接服务器
      * WebSocketClient constructor.
      * @param array $connectOptions
      * @param array $configOptions
@@ -42,12 +44,18 @@ class WebSocketClient extends Client
         try {
             $connectOptions = array_merge(Config::loadConfig('websocket')->get('ws_client_connect'), $connectOptions);
             $configOptions = array_merge(Config::loadConfig('websocket')->get('ws_client_config'), $configOptions);
-            if (parent::__construct($connectOptions, $configOptions)) {
+            if (false !== parent::__construct($connectOptions, $configOptions)) {
                 $this->key = $this->generateToken();
                 $this->header = $this->createHeader($connectOptions['host'], $connectOptions['port']);
                 $this->client->send($this->header);
-                return $this->recv();
+                $res = $this->recv();
+                if ($res) {
+                    $this->clients_instance[md5($connectOptions['host'])] = $this->client;
+                    return $this->client;
+                }
+                return false;
             } else {
+                $this->client->close();
                 throw new \Exception('Swoole Client connect failed');
             }
         } catch (\Exception $e) {
@@ -180,5 +188,37 @@ class WebSocketClient extends Client
         }
         $retval['content'] = $content;
         return $retval;
+    }
+
+    /**
+     * 向服务器发送数据
+     * @param string $data
+     * @return bool
+     */
+    public function send(array $data = [])
+    {
+        $result = true;
+        $data['cmd'] = 'push';
+        foreach ($this->clients_instance as $client) {
+            if ($client->isConnected()) {
+                $res = $client->send(\swoole_websocket_server::pack(json_encode($data), WEBSOCKET_OPCODE_TEXT));
+                $res = false === $res ? false : true;
+                $result = $result && $res;
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * 请求结束，关闭客户端连接
+     */
+    public function __destruct()
+    {
+        // TODO: Implement __destruct() method.
+        foreach ($this->clients_instance as $client) {
+            if ($client->isConnected()) {
+                $client->close();
+            }
+        }
     }
 }

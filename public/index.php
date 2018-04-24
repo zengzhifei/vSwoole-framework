@@ -20,7 +20,7 @@ class Index
         //引入框架引导文件
         require_once VSWOOLE_ROOT . 'library/Init.php';
         //载入框架
-        \library\Init::start();
+
     }
 }
 

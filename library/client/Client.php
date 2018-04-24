@@ -7,10 +7,8 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
-namespace library\client;
+namespace vSwoole\library\client;
 
-
-use library\common\Exception;
 
 abstract class Client
 {
@@ -68,13 +66,16 @@ abstract class Client
             if (!empty($this->callbackEventList)) {
                 foreach ($this->callbackEventList as $event) {
                     if (method_exists($this, 'on' . $event)) {
-                        $this->swoole->on($event, [$this, 'on' . $event]);
+                        $this->client->on($event, [$this, 'on' . $event]);
                     }
                 }
             }
         }
 
         //客户端连接服务器
-        return $this->client->connect($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['timeout'], $this->connectOptions['flag']);
+        $res =  $this->client->connect($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['timeout'], $this->connectOptions['flag']);
+
+        //同步返回结果可用，异步不可用
+        return $res ? $this->client : false;
     }
 }

@@ -43,14 +43,14 @@ class Swoole
             if (isset($argv[1])) {
                 switch (strtolower($argv[1])) {
                     case 'install':
-                        \library\Init::install();
+                        \vSwoole\library\Init::install();
                         break;
                     case 'clear':
-                        \library\Init::clear();
+                        \vSwoole\library\Init::clear();
                         break;
                     case 'start':
                         if (isset($argv[2])) {
-                            \library\Init::start()->runServer($argv[2]);
+                            \vSwoole\library\Init::start()->runServer($argv[2]);
                         } else {
                             throw new \InvalidArgumentException("Argument 2 is invalid");
                         }
@@ -63,7 +63,7 @@ class Swoole
                 throw new \InvalidArgumentException("Argument can't be empty");
             }
         } catch (\Exception $e) {
-            \library\common\Exception::reportError($e);
+            \vSwoole\library\common\Exception::reportError($e);
         }
     }
 }

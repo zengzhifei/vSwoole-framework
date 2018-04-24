@@ -6,7 +6,7 @@
  * Time: 17:19
  */
 
-namespace library\common;
+namespace vSwoole\library\common;
 
 class Config
 {

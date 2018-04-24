@@ -44,10 +44,12 @@ return [
         //WebSocket服务
         'VSWOOLE_WEB_SOCKET_SERVER'    => 'Swoole_WebSocket_Server',
 
+        //根命名空间
+        'VSWOOLE_NAMESPACE'            => 'vSwoole',
         //服务端命名空间
-        'VSWOOLE_APP_SERVER_NAMESPACE' => 'application\server',
+        'VSWOOLE_APP_SERVER_NAMESPACE' => 'vSwoole\application\server',
         //客户端命名空间
-        'VSWOOLE_APP_CLIENT_NAMESPACE' => 'application\client',
+        'VSWOOLE_APP_CLIENT_NAMESPACE' => 'vSwoole\application\client',
 
         //类文件扩展名
         'VSWOOLE_CLASS_EXT'            => '.php',

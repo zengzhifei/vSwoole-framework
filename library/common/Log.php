@@ -7,7 +7,7 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
-namespace library\common;
+namespace vSwoole\library\common;
 
 
 class Log

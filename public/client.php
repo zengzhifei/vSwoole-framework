@@ -32,9 +32,9 @@ class Client
             }
 
             //运行框架
-            \library\Init::start()->runClient(isset($_GET['s']) ? $_GET['s'] : '');
+            \vSwoole\library\Init::start()->runClient(isset($_GET['s']) ? $_GET['s'] : '');
         } catch (\Exception $e) {
-            \library\common\Exception::reportError($e);
+            \vSwoole\library\common\Exception::reportError($e);
         }
     }
 }

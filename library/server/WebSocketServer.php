@@ -7,27 +7,33 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace library\server;
+namespace vSwoole\library\server;
 
 
-use library\common\Config;
-use library\common\Exception;
-use library\common\Log;
-use library\common\Redis;
-use library\common\Utils;
+use vSwoole\library\common\Config;
+use vSwoole\library\common\Exception;
+use vSwoole\library\common\Utils;
 
 class WebSocketServer extends Server
 {
     /**
      * 启动服务器
+     * WebSocketServer constructor.
+     * @param array $connectOptions
+     * @param array $configOptions
      */
-    public function __construct()
+    public function __construct(array $connectOptions = [], array $configOptions = [])
     {
-        $wsConfig = Config::loadConfig('websocket');
-        $ws_server_connect = $wsConfig->get('ws_server_connect');
-        $ws_server_config = $wsConfig->get('ws_server_config');
+        try {
+            $ws_server_connect = array_merge(Config::loadConfig('websocket')->get('ws_server_connect'), $connectOptions);
+            $ws_server_config = array_merge(Config::loadConfig('websocket')->get('ws_server_config'), $configOptions);
 
-        parent::__construct($ws_server_connect, $ws_server_config);
+            if (!parent::__construct($ws_server_connect, $ws_server_config)) {
+                throw new \Exception("Swoole WebSocket Server start failed", $this->swoole->getLastError());
+            }
+        } catch (\Exception $e) {
+            Exception::reportError($e);
+        }
     }
 
     /**
@@ -72,6 +78,7 @@ class WebSocketServer extends Server
     }
 
     /**
+     * 服务器执行异步任务回调函数
      * @param \swoole_server $server
      * @param $task_id
      * @param $src_worker_id
@@ -83,11 +90,22 @@ class WebSocketServer extends Server
     }
 
     /**
+     * 服务器异步任务执行结束回调函数
      * @param \swoole_server $server
      * @param $task_id
      * @param $data
      */
     public function onFinish(\swoole_server $server, $task_id, $data)
+    {
+
+    }
+
+    /**
+     * 客户端断开连接回调函数
+     * @param \swoole_websocket_server $server
+     * @param $fd
+     */
+    public function onClose(\swoole_websocket_server $server, $fd)
     {
 
     }
