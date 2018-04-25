@@ -62,7 +62,7 @@ return [
     'ws_client_connect' => [
         //服务Sock类型
         'sockType'      => SWOOLE_SOCK_TCP,
-        //同步异步
+        //同步异步(PHP-FPM/APACHE模式下只允许同步)
         'syncType'      => SWOOLE_SOCK_SYNC,
         //长连接Key
         'connectionKey' => '',

@@ -74,7 +74,14 @@ class WebSocketServer extends Server
      */
     public function onMessage(\swoole_websocket_server $server, \swoole_websocket_frame $frame)
     {
-
+        //向PHP-FPM 或Apache 模式的管理客户端返回数据接收成功状态
+        if ($frame->finish) {
+            $client_info = $server->getClientInfo($frame->fd);
+            $admin_port = Config::loadConfig('websocket')->get('ws_server_connect.adminPort');
+            if ($client_info && $admin_port == $client_info['server_port']) {
+                $server->push($frame->fd, 'ok');
+            }
+        }
     }
 
     /**

@@ -19,6 +19,12 @@ use vSwoole\library\common\Response;
 
 class WebSocket extends WebSocketClient
 {
+    /**
+     * 连接服务器
+     * WebSocket constructor.
+     * @param array $connectOptions
+     * @param array $configOptions
+     */
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
