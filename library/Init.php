@@ -15,6 +15,67 @@ use vSwoole\library\common\Exception;
 class Init
 {
     /**
+     * 执行命令
+     */
+    public static function cmd()
+    {
+        $commands = [
+            'default' => 'You can input the following commands:' . PHP_EOL,
+            'start'   => '  start servername' . '       you can start a server[WebSocket,Http,Udp]' . PHP_EOL,
+            'clear'   => '  clear' . '                  you can clear the logs of the vswoole framework' . PHP_EOL,
+            'install' => '  install' . '                you can install the necessary directory in the vswoole framework' . PHP_EOL,
+            'help'    => '  help' . '                   you can get help about vswoole framework' . PHP_EOL,
+        ];
+
+        $cmd = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
+        switch (strtolower($cmd)) {
+            case 'start':
+                if (count($_SERVER['argv']) !== 3) {
+                    echo "command: '{$cmd}' require parameter server name and do not require more parameter" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::start()->runServer($_SERVER['argv'][2]);
+                }
+                break;
+            case 'clear':
+                if (count($_SERVER['argv']) > 2) {
+                    echo "command: '{$cmd}' do not require parameters" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::clear();
+                }
+                break;
+            case 'install':
+                if (count($_SERVER['argv']) > 2) {
+                    echo "command: '{$cmd}' do not require parameters" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::install();
+                }
+                break;
+            case 'help':
+                $help_cmd = isset($_SERVER['argv'][2]) ? strtolower($_SERVER['argv'][2]) : '';
+                if (array_key_exists($help_cmd, $commands)) {
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$help_cmd];
+                } else {
+                    echo join('', $commands);
+                }
+                break;
+            case '':
+                echo join('', $commands);
+                break;
+            default:
+                echo "command: '{$cmd}' is invalid" . PHP_EOL;
+                echo join('', $commands);
+                break;
+        }
+    }
+
+    /**
      * 框架初始化检测
      */
     private static function initCheck()

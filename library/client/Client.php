@@ -27,7 +27,7 @@ abstract class Client
         //服务器端口
         'port'          => '',
         //连接超时
-        'timeout'       => 0.5,
+        'timeout'       => 1,
         //连接是否阻塞
         'flag'          => 0,
     ];

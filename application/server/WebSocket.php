@@ -67,13 +67,13 @@ class WebSocket extends WebSocketServer
 
         //异步写入客户端信息到缓存
         try {
-            Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), false, function ($redis, $get_redis_key) use ($request) {
+            Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), false, function ($redis, $get_redis_key) use ($server, $request) {
                 $linkKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Link_Info');
                 $server_ip = Utils::getServerIp();
                 $ip = str_replace('.', '', $server_ip);
                 $link_key = $get_redis_key($linkKey . '_' . $ip);
                 $clientInfo = [
-                    'client_ip'    => isset($request->header['x-real-ip']) ? $request->header['x-real-ip'] : '',
+                    'client_ip'    => isset($request->header['x-real-ip']) ? $request->header['x-real-ip'] : Utils::getClientIp($server, $request->fd),
                     'server_ip'    => $server_ip,
                     'server_port'  => $request->server['server_port'],
                     'connect_time' => time()
@@ -209,7 +209,7 @@ class WebSocket extends WebSocketServer
 
         //删除客户端信息
         try {
-            $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), false, function ($redis, $get_redis_key) use ($fd) {
+            Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), false, function ($redis, $get_redis_key) use ($fd) {
                 $linkKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Link_Info');
                 $ip = str_replace('.', '', Utils::getServerIp());
                 $link_key = $get_redis_key($linkKey . '_' . $ip);

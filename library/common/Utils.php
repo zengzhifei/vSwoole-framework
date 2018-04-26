@@ -27,6 +27,30 @@ class Utils
     }
 
     /**
+     * 获取连接客户端的IP
+     * @param \swoole_server $server
+     * @param $fd
+     * @return string
+     */
+    public static function getClientIp(\swoole_server $server, $fd)
+    {
+        $client_info = $server->getClientInfo($fd);
+        return $client_info && isset($client_info['remote_ip']) ? $client_info['remote_ip'] : '';
+    }
+
+    /**
+     * 获取连接客户端的端口
+     * @param \swoole_server $server
+     * @param $fd
+     * @return string
+     */
+    public static function getClientPort(\swoole_server $server, $fd)
+    {
+        $client_info = $server->getClientInfo($fd);
+        return $client_info && isset($client_info['server_port']) ? $client_info['server_port'] : '';
+    }
+
+    /**
      * 异步记录服务主进程PID
      * @param int $pid
      * @param string $pidName
