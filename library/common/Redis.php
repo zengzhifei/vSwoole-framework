@@ -10,13 +10,21 @@ namespace vSwoole\library\common;
 
 class Redis
 {
-    //同步redis对象key
-    private $_instance_key = '';
     //同步redis对象
+    private static $_instance = null;
+    //同步redis客户端连接key
+    private $sync_instance_key = '';
+    //异步redis客户端连接key
+    private $async_instance_key = '';
+    //同步redis客户端
     private static $sync_instance = [];
-    //客户端缓存配置
+    //异步redis客户端
+    private static $async_instance = [];
+    //同步客户端缓存配置
     private static $sync_config_instance = [];
-    //redis配置
+    //异步客户端缓存配置
+    private static $async_config_instance = [];
+    //redis默认配置
     private static $redisOptions = [
         'host'       => '127.0.0.1',
         'port'       => 6379,
@@ -39,7 +47,6 @@ class Redis
     private static function connect(bool $is_sync = true, callable $callback = null)
     {
         $key = md5(json_encode(self::$redisOptions));
-        self::$sync_config_instance[$key] = self::$redisOptions;
         if ($is_sync) {
             if (!extension_loaded('redis')) {
                 throw new \Exception('not support: redis');
@@ -54,6 +61,7 @@ class Redis
                 $redis->select(self::$redisOptions['select']);
             }
             self::$sync_instance[$key] = $redis;
+            self::$sync_config_instance[$key] = self::$redisOptions;
             return self::$sync_instance[$key];
         } else {
             $redis = new \swoole_redis([
@@ -61,7 +69,7 @@ class Redis
                 'password' => self::$redisOptions['password'],
                 'database' => self::$redisOptions['select']
             ]);
-            $redis->connect(self::$redisOptions['host'], self::$redisOptions['port'], function (\swoole_redis $redis, $result) use ($callback) {
+            $redis->connect(self::$redisOptions['host'], self::$redisOptions['port'], function (\swoole_redis $redis, $result) use ($callback, $key) {
                 if ($result === false) {
                     throw new \Exception('connect to redis server failed');
                 } else if (is_callable($callback)) {
@@ -92,9 +100,11 @@ class Redis
             if (empty(self::$sync_instance) || !isset(self::$sync_instance[$key])) {
                 self::connect($is_sync);
             }
-            $me = new self();
-            $me->setInstanceKey($key);
-            return $me;
+            if (is_null(self::$_instance)) {
+                self::$_instance = new self();
+            }
+            self::$_instance->setInstanceKey($key);
+            return self::$_instance;
         } else {
             self::connect($is_sync, $callback);
         }
@@ -106,7 +116,7 @@ class Redis
      */
     private function setInstanceKey(string $key)
     {
-        $this->_instance_key = $key;
+        $this->sync_instance_key = $key;
     }
 
     /**
@@ -117,7 +127,7 @@ class Redis
      */
     public function __call($name, $arguments)
     {
-        $arguments[0] = self::$sync_config_instance[$this->_instance_key]['prefix'] . $arguments[0];
-        return self::$sync_instance[$this->_instance_key]->$name(...$arguments);
+        $arguments[0] = self::$sync_config_instance[$this->sync_instance_key]['prefix'] . $arguments[0];
+        return self::$sync_instance[$this->sync_instance_key]->$name(...$arguments);
     }
 }

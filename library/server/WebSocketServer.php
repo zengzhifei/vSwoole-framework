@@ -58,6 +58,28 @@ class WebSocketServer extends Server
     }
 
     /**
+     * 管理进程启动回调事件
+     * @param \swoole_websocket_server $server
+     */
+    public function onManagerStart(\swoole_websocket_server $server)
+    {
+
+    }
+
+    /**
+     * 工作进程启动回调事件
+     * @param \swoole_websocket_server $server
+     * @param $worker_id
+     */
+    public function onWorkerStart(\swoole_websocket_server $server, $worker_id)
+    {
+        $is_cache = Config::loadConfig('websocket')->get('ws_other_config.is_cache_config');
+        if ($is_cache) {
+            Config::cacheConfig();
+        }
+    }
+
+    /**
      * 客户端连接服务器回调函数
      * @param \swoole_websocket_server $server
      * @param \swoole_http_request $request

@@ -78,5 +78,9 @@ return [
     //客户端配置
     'ws_client_config'  => [
 
+    ],
+    //其他配置
+    'ws_other_config'   => [
+        'is_cache_config' => true,
     ]
 ];

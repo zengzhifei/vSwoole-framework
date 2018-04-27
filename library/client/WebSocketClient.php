@@ -191,27 +191,32 @@ class WebSocketClient extends Client
     }
 
     /**
-     * 向服务器发送数据
+     * 向服务器发送指令+数据
+     * @param string $cmd
      * @param array $data
      * @return bool
      */
-    public function send(array $data = [])
+    public function execute(string $cmd = '', array $data = [])
     {
-        $result = true;
-        $data['cmd'] = 'push';
-        if (!empty($this->clients_instance)) {
-            foreach ($this->clients_instance as $client) {
-                if ($client->isConnected()) {
-                    $res = $client->send(\swoole_websocket_server::pack(json_encode($data), WEBSOCKET_OPCODE_TEXT));
-                    $res = false === $res ? false : true;
-                    $return_status = $this->parseData($client->recv());
-                    $result = $result && $res && $return_status->finish;
+        if ($cmd && is_string($cmd)) {
+            $result = true;
+            $data['cmd'] = $cmd;
+            if (!empty($this->clients_instance)) {
+                foreach ($this->clients_instance as $client) {
+                    if ($client->isConnected()) {
+                        $res = $client->send(\swoole_websocket_server::pack(json_encode($data), WEBSOCKET_OPCODE_TEXT));
+                        $res = false === $res ? false : true;
+                        $return_status = $this->parseData($client->recv());
+                        $result = $result && $res && $return_status->finish;
+                    }
                 }
+            } else {
+                $result = $result && false;
             }
+            return $result;
         } else {
-            $result = $result && false;
+            return false;
         }
-        return $result;
     }
 
     /**

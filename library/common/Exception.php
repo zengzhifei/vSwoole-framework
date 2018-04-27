@@ -9,6 +9,7 @@
 
 namespace vSwoole\library\common;
 
+
 use Throwable;
 
 class Exception extends \Exception
@@ -18,6 +19,12 @@ class Exception extends \Exception
     //异常代码
     const Exception = 0;
 
+    /**
+     * Exception constructor.
+     * @param string $message
+     * @param int $code
+     * @param Throwable|null $previous
+     */
     public function __construct(string $message = "", int $code = 0, Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
@@ -55,7 +62,11 @@ class Exception extends \Exception
      */
     public static function swooleException(Throwable $exception)
     {
-        self::reportException($exception);
+        if ($exception instanceof \Exception) {
+            self::reportException($exception);
+        } else {
+            self::reportError($exception);
+        }
     }
 
     /**
@@ -67,7 +78,7 @@ class Exception extends \Exception
             $error = new self($error['message'], $error['type']);
             $error->file = $error['file'];
             $error->line = $error['line'];
-            php_sapi_name() === 'cli' ? self::reportException($error) : self::reportError($error);
+            VSWOOLE_IS_CLI ? self::reportException($error) : self::reportError($error);
         }
     }
 
@@ -111,15 +122,29 @@ class Exception extends \Exception
     }
 
     /**
+     * 根据错误级别记录错误日志
+     * @param Throwable $e
+     */
+    public static function logException(Throwable $e)
+    {
+        if (defined('VSWOOLE_IS_LOG') && VSWOOLE_IS_LOG) {
+            if (self::isFatal($e->getCode())) {
+                Log::write(self::getException($e));
+            }
+        }
+    }
+
+    /**
      * 报告异常
      * @param Throwable $exception
      */
     public static function reportException(Throwable $exception)
     {
-        if (defined('IS_DEBUG') && IS_DEBUG) {
+        self::logException($exception);
+
+        if (defined('VSWOOLE_IS_DEBUG') && VSWOOLE_IS_DEBUG) {
             echo self::parseException($exception, self::Exception);
         } else {
-            Log::write(self::getException($exception));
             echo self::defaultException();
         }
     }
@@ -130,10 +155,11 @@ class Exception extends \Exception
      */
     public static function reportError(Throwable $error)
     {
-        if (defined('IS_DEBUG') && IS_DEBUG) {
+        self::logException($error);
+
+        if (defined('VSWOOLE_IS_DEBUG') && VSWOOLE_IS_DEBUG) {
             die(self::parseException($error, self::ERROR));
         } else {
-            Log::write(self::getException($error));
             die(self::defaultException());
         }
     }
@@ -162,7 +188,7 @@ class Exception extends \Exception
 
     /**
      * 异常或错误分析
-     * @param \Exception $e
+     * @param Throwable $e
      * @param int $status
      * @return string
      */
@@ -191,15 +217,16 @@ class Exception extends \Exception
      */
     private static function formatException(int $status = self::Exception, string $type, string $message, string $file, int $line, $code, string $trace)
     {
-        if (php_sapi_name() === 'cli') {
+        if (VSWOOLE_IS_CLI) {
             $exception_string = PHP_EOL;
             $exception_string .= $type . ': ' . $message . PHP_EOL;
             $exception_string .= 'In ' . $file . ': ' . $line . PHP_EOL;
-            $exception_string .= 'Exception Code: ' . $code . PHP_EOL;
+            $exception_string .= 'Exception Code: ' . self::getErrorGrade($code) . '[' . $code . ']' . PHP_EOL;
             $exception_string .= 'Exception Trace: ' . PHP_EOL;
             $exception_string .= $trace . PHP_EOL . PHP_EOL;
         } else {
             $status = $status == self::Exception ? '异常' : '错误';
+            $errorCodeMsg = self::getErrorGrade($code);
             $exception_string = <<<EOT
                 <table width="50%" style="margin:50px auto;empty-cells: show;border-collapse: collapse;border:1px solid #cad9ea;color:#666;text-align: center;">
                     <tr>
@@ -223,7 +250,7 @@ class Exception extends \Exception
                     </tr>
                     <tr>
                         <td width="20%" style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}代码</td>
-                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;padding:0 1em 0;">{$code}</td>
+                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;padding:0 1em 0;">{$errorCodeMsg}[{$code}]</td>
                     </tr>
                     <tr>
                         <td width="20%" style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}追踪</td>
@@ -241,7 +268,10 @@ EOT;
      */
     private static function defaultException()
     {
-        return <<<EOT
+        if (VSWOOLE_IS_CLI) {
+            $default_exception = '可能发生了一些错误，╮(╯﹏╰）╭';
+        } else {
+            $default_exception = <<<EOT
             <table width="50%" style="margin:50px auto;empty-cells: show;border-collapse: collapse;border:1px solid #cad9ea;color:#666;text-align: center;">
                     <tr>
                         <th colspan="2" style="font-size: 1.5rem;background-repeat:repeat-x;height:30px;background-color:#f5fafe;">vSwoole</th>
@@ -251,6 +281,8 @@ EOT;
                     </tr>
                 </table> 
 EOT;
+        }
+        return $default_exception . PHP_EOL;
     }
 
 }

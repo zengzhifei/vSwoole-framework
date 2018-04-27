@@ -59,5 +59,18 @@ return [
         'VSWOOLE_PID_EXT'              => '.pid',
         //日志文件扩展名
         'VSWOOLE_LOG_EXT'              => '.log',
+
+        //是否开启调试
+        'VSWOOLE_IS_DEBUG'             => true,
+
+        //是否记录日志
+        'VSWOOLE_IS_LOG'               => true,
+
+        //运行模式
+        'VSWOOLE_IS_CLI'               => php_sapi_name() === 'cli' ? true : false,
+
+        //路由
+        'VSWOOLE_URI_CLIENT'           => 's',
+
     ],
 ];

@@ -67,13 +67,12 @@ class WebSocket extends WebSocketClient
             Response::return(['status' => -1, 'msg' => 'param message is invalid']);
         }
 
-        $res = $this->send(['user_id' => $user_id, 'range_id' => $range_id, 'message' => $message]);
+        $res = $this->execute('push', ['user_id' => $user_id, 'range_id' => $range_id, 'message' => $message]);
         if ($res) {
             Response::return(['status' => 1, 'msg' => 'send success']);
         } else {
             Response::return(['status' => 0, 'msg' => 'send failed']);
         }
     }
-
 
 }
