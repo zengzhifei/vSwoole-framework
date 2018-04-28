@@ -9,6 +9,7 @@
 
 namespace vSwoole\library\server;
 
+
 use vSwoole\library\common\Utils;
 
 abstract class Server
@@ -22,7 +23,7 @@ abstract class Server
         //监听IP
         'host'           => '0.0.0.0',
         //监听客户端端口
-        'port'           => 9501,
+        'port'           => '',
         //服务进程运行模式
         'mode'           => SWOOLE_PROCESS,
         //服务Sock类型
@@ -86,15 +87,15 @@ abstract class Server
     ];
 
     /**
-     * Server constructor.
-     * @param array $connect_options
-     * @param array $config_options
+     * 启动服务器
+     * @param array $connectOptions
+     * @param array $configOptions
      */
-    public function __construct(array $connect_options = [], array $config_options = [])
+    public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         //配置相关参数
-        $this->connectOptions = array_merge($this->connectOptions, $connect_options);
-        $this->configOptions = array_merge($this->configOptions, $config_options);
+        $this->connectOptions = array_merge($this->connectOptions, $connectOptions);
+        $this->configOptions = array_merge($this->configOptions, $configOptions);
 
         // 实例化服务
         if (!empty($this->connectOptions)) {
@@ -165,6 +166,7 @@ abstract class Server
     }
 
     /**
+     * 魔术方法
      * @param $method
      * @param $args
      */

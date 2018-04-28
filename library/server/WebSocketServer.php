@@ -18,7 +18,6 @@ class WebSocketServer extends Server
 {
     /**
      * 启动服务器
-     * WebSocketServer constructor.
      * @param array $connectOptions
      * @param array $configOptions
      */
@@ -37,7 +36,7 @@ class WebSocketServer extends Server
     }
 
     /**
-     * 服务器主进程启动回调函数
+     * 主进程启动回调函数
      * @param \swoole_websocket_server $server
      */
     public function onStart(\swoole_websocket_server $server)
@@ -69,9 +68,9 @@ class WebSocketServer extends Server
     /**
      * 工作进程启动回调事件
      * @param \swoole_websocket_server $server
-     * @param $worker_id
+     * @param int $worker_id
      */
-    public function onWorkerStart(\swoole_websocket_server $server, $worker_id)
+    public function onWorkerStart(\swoole_websocket_server $server, int $worker_id)
     {
         $is_cache = Config::loadConfig('websocket')->get('ws_other_config.is_cache_config');
         if ($is_cache) {
@@ -80,7 +79,7 @@ class WebSocketServer extends Server
     }
 
     /**
-     * 客户端连接服务器回调函数
+     * 客户端连接回调函数
      * @param \swoole_websocket_server $server
      * @param \swoole_http_request $request
      */
@@ -90,7 +89,7 @@ class WebSocketServer extends Server
     }
 
     /**
-     * 服务器接收客户端消息回调函数
+     * 接收客户端数据回调函数
      * @param \swoole_websocket_server $server
      * @param \swoole_websocket_frame $frame
      */
@@ -107,34 +106,34 @@ class WebSocketServer extends Server
     }
 
     /**
-     * 服务器执行异步任务回调函数
-     * @param \swoole_server $server
-     * @param $task_id
-     * @param $src_worker_id
-     * @param $data
-     */
-    public function onTask(\swoole_server $server, $task_id, $src_worker_id, $data)
-    {
-
-    }
-
-    /**
-     * 服务器异步任务执行结束回调函数
-     * @param \swoole_server $server
-     * @param $task_id
-     * @param $data
-     */
-    public function onFinish(\swoole_server $server, $task_id, $data)
-    {
-
-    }
-
-    /**
-     * 客户端断开连接回调函数
+     * 客户端断开回调函数
      * @param \swoole_websocket_server $server
-     * @param $fd
+     * @param int $fd
      */
-    public function onClose(\swoole_websocket_server $server, $fd)
+    public function onClose(\swoole_websocket_server $server, int $fd)
+    {
+
+    }
+
+    /**
+     * 异步任务执行回调函数
+     * @param \swoole_server $server
+     * @param int $task_id
+     * @param int $src_worker_id
+     * @param $data
+     */
+    public function onTask(\swoole_server $server, int $task_id, int $src_worker_id, $data)
+    {
+
+    }
+
+    /**
+     * 异步任务执行完成回调函数
+     * @param \swoole_server $server
+     * @param int $task_id
+     * @param $data
+     */
+    public function onFinish(\swoole_server $server, int $task_id, $data)
     {
 
     }

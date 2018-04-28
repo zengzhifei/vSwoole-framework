@@ -35,7 +35,6 @@ class WebSocketClient extends Client
 
     /**
      * 连接服务器
-     * WebSocketClient constructor.
      * @param array $connectOptions
      * @param array $configOptions
      */

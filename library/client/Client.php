@@ -38,7 +38,7 @@ abstract class Client
 
 
     /**
-     * Client constructor.
+     * 连接服务器
      * @param array $connectOptions
      * @param array $configOptions
      */

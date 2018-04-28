@@ -43,6 +43,10 @@ return [
         'VSWOOLE_HTTP_SERVER'          => 'Swoole_Http_Server',
         //WebSocket服务
         'VSWOOLE_WEB_SOCKET_SERVER'    => 'Swoole_WebSocket_Server',
+        //Timer服务
+        'VSWOOLE_TIMER_SERVER'         => 'Swoole_Timer_Server',
+        //UDP服务
+        'VSWOOLE_UDP_SERVER'           => 'Swoole_Udp_Server',
 
         //根命名空间
         'VSWOOLE_NAMESPACE'            => 'vSwoole',
