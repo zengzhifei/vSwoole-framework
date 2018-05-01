@@ -10,6 +10,7 @@
 namespace vSwoole\library;
 
 
+use vSwoole\library\common\Build;
 use vSwoole\library\common\Exception;
 
 class Init
@@ -103,6 +104,7 @@ class Init
     /**
      * 类自动加载
      * @param string $className
+     * @throws \Error
      */
     private static function loadClass(string $className)
     {
@@ -122,7 +124,7 @@ class Init
      */
     private static function exceptionRegister()
     {
-        require VSWOOLE_ROOT . '/library/common/Exception.php';
+        require VSWOOLE_ROOT . 'library/common/Exception.php';
         Exception::register();
     }
 
@@ -141,6 +143,19 @@ class Init
     {
         self::initConvention();
         self::initInstall();
+    }
+
+    /**
+     * 构建服务器基础文件
+     * @param string $serverName
+     */
+    private static function build(string $serverName = 'Demo')
+    {
+        self::initConvention();
+        require VSWOOLE_ROOT . 'library/common/Build.php';
+        if (!Build::build($serverName)) {
+            die('Build the server failure,and the server file has already existed.' . PHP_EOL);
+        }
     }
 
     /**
@@ -180,6 +195,7 @@ class Init
         $commands = [
             'default' => 'You can input the following commands:' . PHP_EOL,
             'start'   => '  start servername' . '       you can start a server[WebSocket,Http,Udp]' . PHP_EOL,
+            'build'   => '  build servername' . '       you can build a new server' . PHP_EOL,
             'clear'   => '  clear' . '                  you can clear the logs of the vswoole framework' . PHP_EOL,
             'install' => '  install' . '                you can install the necessary directory in the vswoole framework' . PHP_EOL,
             'help'    => '  help' . '                   you can get help about vswoole framework' . PHP_EOL,
@@ -189,7 +205,7 @@ class Init
         switch (strtolower($cmd)) {
             case 'start':
                 if (count($_SERVER['argv']) !== 3) {
-                    echo "command: '{$cmd}' require parameter server name and do not require more parameter" . PHP_EOL;
+                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
                     echo 'help:' . PHP_EOL;
                     echo $commands[$cmd];
                 } else {
@@ -198,7 +214,7 @@ class Init
                 break;
             case 'clear':
                 if (count($_SERVER['argv']) > 2) {
-                    echo "command: '{$cmd}' do not require parameters" . PHP_EOL;
+                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
                     echo 'help:' . PHP_EOL;
                     echo $commands[$cmd];
                 } else {
@@ -207,11 +223,23 @@ class Init
                 break;
             case 'install':
                 if (count($_SERVER['argv']) > 2) {
-                    echo "command: '{$cmd}' do not require parameters" . PHP_EOL;
+                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
                     echo 'help:' . PHP_EOL;
                     echo $commands[$cmd];
                 } else {
                     self::install();
+                }
+                break;
+            case 'build':
+                if (count($_SERVER['argv']) > 3) {
+                    echo "command: '{$cmd}' require arguments server name and do not require more arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else if (count($_SERVER['argv']) == 2) {
+                    echo "will build a Demo server for you..." . PHP_EOL;
+                    self::build();
+                } else {
+                    self::build($_SERVER['argv'][2]);
                 }
                 break;
             case 'help':
@@ -263,7 +291,6 @@ class Init
 
     /**
      * 启动框架客户端
-     * @param string|null $uri
      * @throws \Exception
      */
     public function runClient()

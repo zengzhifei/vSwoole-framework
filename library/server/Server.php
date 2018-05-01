@@ -64,6 +64,8 @@ abstract class Server
     protected $callbackEventList = [
         'Start',
         'Shutdown',
+        'ManagerStart',
+        'ManagerStop',
         'WorkerStart',
         'WorkerStop',
         'WorkerExit',
@@ -77,8 +79,6 @@ abstract class Server
         'Task',
         'Finish',
         'PipeMessage',
-        'ManagerStart',
-        'ManagerStop',
         'Timer',
         'HandShake',
         'Open',
