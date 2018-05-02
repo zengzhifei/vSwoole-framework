@@ -92,7 +92,7 @@ class Process
             return false;
         }
 
-        if ((is_string($callback) && function_exists($callback)) || is_callable($callback)) {
+        if ((is_string($callback) && function_exists($callback)) || (is_object($callback) && is_callable($callback))) {
             $pid = $this->createProcess(function (\swoole_process $process) use ($callback, $arguments) {
                 array_unshift($arguments, $process);
                 $callback(...$arguments);

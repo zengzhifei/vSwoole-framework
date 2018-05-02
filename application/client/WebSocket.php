@@ -74,4 +74,29 @@ class WebSocket extends WebSocketClient
         }
     }
 
+    /**
+     * 重启服务
+     */
+    public function reload()
+    {
+        $res = $this->execute('reload');
+        if ($res) {
+            Response::return(['status' => 1, 'msg' => 'reload success']);
+        } else {
+            Response::return(['status' => 0, 'msg' => 'reload failed']);
+        }
+    }
+
+    /**
+     * 关闭服务
+     */
+    public function shutdown()
+    {
+        $res = $this->execute('shutdown');
+        if ($res) {
+            Response::return(['status' => 1, 'msg' => 'shutdown success']);
+        } else {
+            Response::return(['status' => 0, 'msg' => 'shutdown failed']);
+        }
+    }
 }

@@ -79,7 +79,6 @@ abstract class Server
         'Task',
         'Finish',
         'PipeMessage',
-        'Timer',
         'HandShake',
         'Open',
         'Message',

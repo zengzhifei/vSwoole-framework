@@ -23,7 +23,7 @@ return [
         //监听管理端IP
         'adminHost'         => '0.0.0.0',
         //监听管理端端口
-        'adminPort'         => 9601,
+        'adminPort'         => 8501,
         //监听管理Sock类型
         'adminSockType'     => SWOOLE_SOCK_TCP,
         //监听其他客户端IP+端口
@@ -69,7 +69,7 @@ return [
         //服务器地址
         'host'          => '10.4.0.100',
         //服务器端口
-        'port'          => 9401,
+        'port'          => 8501,
         //连接超时
         'timeout'       => 3,
         //连接是否阻塞

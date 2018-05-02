@@ -18,9 +18,13 @@
             onOpen: function (ws) {
                 var range_data = {cmd: 'range', user_id: 'user_1', range_id: 123456};
                 ws.send(JSON.stringify(range_data));
+                var line = {cmd:'online',range_id:123456};
+                /*setInterval(function () {
+                    ws.send(JSON.stringify(line));
+
+                },1000)*/
             },
             onMessage: function (ws, data) {
-                console.log(interact.getTime());
                 var data = JSON.parse(data);
                 console.log(data);
             }
