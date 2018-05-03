@@ -23,8 +23,10 @@ class Process
      * @var array
      */
     protected $process_options = [
-        'is_signal' => true,
-        'is_daemon' => true,
+        'is_signal'             => true,
+        'is_daemon'             => true,
+        'redirect_stdin_stdout' => true,
+        'create_pipe'           => true,
     ];
 
 
@@ -51,7 +53,7 @@ class Process
      */
     private function createProcess(callable $callback)
     {
-        $process = new \swoole_process($callback, true, true);
+        $process = new \swoole_process($callback, $this->process_options['redirect_stdin_stdout'], $this->process_options['create_pipe']);
         $pid = $process->start();
         if (false !== $pid) {
             $this->process_instance[$pid] = $process;
@@ -66,7 +68,6 @@ class Process
     {
         \swoole_process::signal(SIGCHLD, function ($sig) {
             while ($ret = \swoole_process::wait(false)) {
-                var_dump($ret);
                 unset($this->process_instance[$ret['pid']]);
             }
         });

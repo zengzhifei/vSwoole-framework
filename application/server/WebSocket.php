@@ -22,12 +22,6 @@ use vSwoole\library\server\WebSocketServer;
 class WebSocket extends WebSocketServer
 {
     /**
-     * 逻辑层对象
-     * @var
-     */
-    private $logic;
-
-    /**
      * 启动服务器
      * @param array $connectOptions
      * @param array $configOptions

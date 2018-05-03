@@ -1,0 +1,897 @@
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 11:42:53
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 12:12:24
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 12:17:18
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 12:17:21 *37910.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Cannot use object of type vSwoole\library\common\Exception as array in /mnt/hgfs/demo/vSwoole/library/common/Exception.php:79
+Stack trace:
+#0 [internal function]: vSwoole\library\common\Exception::swooleShutdown()
+#1 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/library/common/Exception.php on line 79.
+[2018-05-03 12:17:21 $37891.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 12:17:37
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 12:20:49
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 12:21:11
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 12:21:47
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 12:56:57
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 13:00:05
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 13:00:08 ^38912.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Cannot use object of type vSwoole\library\common\Exception as array in /mnt/hgfs/demo/vSwoole/library/common/Exception.php:79
+Stack trace:
+#0 [internal function]: vSwoole\library\common\Exception::swooleShutdown()
+#1 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/library/common/Exception.php on line 79.
+[2018-05-03 13:00:08 $38905.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 13:01:11
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 13:02:38
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 13:03:25
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 13:05:37 $39052.0]	NOTICE	Server is reloading now.
+[2018-05-03 13:05:51 $39052.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 13:16:22
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 13:16:54 @39428.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-03 13:16:54 ^39410.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Cannot use object of type vSwoole\library\common\Exception as array in /mnt/hgfs/demo/vSwoole/library/common/Exception.php:79
+Stack trace:
+#0 [internal function]: vSwoole\library\common\Exception::swooleShutdown()
+#1 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/library/common/Exception.php on line 79.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 13:19:34
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 13:19:38 @39516.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 13:21:27
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 13:21:31 @39586.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-03 13:24:17 $39563.0]	NOTICE	Server is reloading now.
+[2018-05-03 13:24:29 $39563.0]	NOTICE	Server is reloading now.
+[2018-05-03 14:06:41 $39563.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:07:17
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:11:19
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:12:15
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:12:46
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:13:10
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 14:13:12 $40817.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=0, signal=11
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:13:43
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:14:12
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 14:14:14 @40915.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-03 14:14:46 $40892.0]	NOTICE	Server is reloading now.
+[2018-05-03 14:14:54 @40936.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-03 14:15:53 $40892.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:25:45
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 14:25:53 ^41194.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Cannot use object of type vSwoole\library\common\Exception as array in /mnt/hgfs/demo/vSwoole/library/common/Exception.php:79
+Stack trace:
+#0 [internal function]: vSwoole\library\common\Exception::swooleShutdown()
+#1 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/library/common/Exception.php on line 79.
+[2018-05-03 14:25:53 $41187.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:30:33
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:34:12
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 14:35:24 $41429.0]	NOTICE	Server is reloading now.
+[2018-05-03 14:35:53 @41502.0]	WARNING	swSignal_callback: signal[15] callback is null.
+[2018-05-03 14:36:08 @41502.0]	WARNING	swSignal_callback: signal[15] callback is null.
+[2018-05-03 14:36:23 @41502.0]	WARNING	swSignal_callback: signal[15] callback is null.
+[2018-05-03 14:36:32 @41502.0]	WARNING	swSignal_callback: signal[15] callback is null.
+[2018-05-03 14:37:11 $41429.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:39:23
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 14:40:37 #41621.4]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:42:45
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:43:26
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 14:46:23
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 17:45:43
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 17:47:25 $45527.0]	NOTICE	Server is reloading now.
+[2018-05-03 17:47:56 $45527.0]	NOTICE	Server is reloading now.
+[2018-05-03 17:49:54 $45527.0]	NOTICE	Server is reloading now.
+[2018-05-03 17:51:54 $45527.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 17:52:09
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 17:54:34
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 17:55:30
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 17:56:26
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 17:56:41 $45930.0]	NOTICE	Server is reloading now.
+[2018-05-03 17:56:51 $45930.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 17:59:53
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:01:03 $46058.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:02:08
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:02:14 *46192.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Cannot use object of type vSwoole\library\common\Exception as array in /mnt/hgfs/demo/vSwoole/library/common/Exception.php:79
+Stack trace:
+#0 [internal function]: vSwoole\library\common\Exception::swooleShutdown()
+#1 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/library/common/Exception.php on line 79.
+[2018-05-03 18:02:14 $46173.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:02:35
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:02:52
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:03:19
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:12:17
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:13:05 $46477.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:26:58
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:27:06 *46825.4]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:27:42
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:27:44 *46870.4]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:28:20
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:28:32
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:28:34 *46940.4]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:28:41
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:30:14
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:34:54
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:35:20
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:35:25 *47184.4]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:36:01
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:37:14 *47211.4]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:37:35
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:42:11
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:44:44 $47383.0]	NOTICE	Server is reloading now.
+[2018-05-03 18:56:09 $47383.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-03 18:56:16
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 8
+|reactor_num: 4
+|task_worker_num: 8
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+[2018-05-03 18:56:24 ^47918.8]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().

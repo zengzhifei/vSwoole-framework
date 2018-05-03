@@ -15,7 +15,7 @@ return [
         //监听IP
         'host'              => '0.0.0.0',
         //监听客户端端口
-        'port'              => 9500,
+        'port'              => 9502,
         //服务进程运行模式
         'mode'              => SWOOLE_PROCESS,
         //服务Sock类型
@@ -23,7 +23,7 @@ return [
         //监听管理端IP
         'adminHost'         => '0.0.0.0',
         //监听管理端端口
-        'adminPort'         => 9400,
+        'adminPort'         => 8502,
         //监听管理Sock类型
         'adminSockType'     => SWOOLE_SOCK_TCP,
         //监听其他客户端IP+端口
@@ -67,9 +67,9 @@ return [
         //长连接Key
         'connectionKey' => '',
         //服务器地址
-        'host'          => '10.4.0.100',
+        'host'          => '10.4.0.101',
         //服务器端口
-        'port'          => 9400,
+        'port'          => 8502,
         //连接超时
         'timeout'       => 3,
         //连接是否阻塞

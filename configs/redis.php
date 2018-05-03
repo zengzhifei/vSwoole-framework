@@ -26,5 +26,8 @@ return [
             'Link_Info' => 'WebSocket-Link_Info',
             'User_Info' => 'WebSocket-User_Info',
         ],
+        'Timer'     => [
+            'Task_List' => 'Timer-Task_List',
+        ]
     ],
 ];

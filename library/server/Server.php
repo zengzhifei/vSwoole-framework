@@ -16,6 +16,8 @@ abstract class Server
 {
     //服务对象
     protected $swoole;
+    //服务逻辑对象
+    protected $logic;
     //服务连接配置
     protected $connectOptions = [
         //服务类型
@@ -78,11 +80,7 @@ abstract class Server
         'BufferEmpty',
         'Task',
         'Finish',
-        'PipeMessage',
-        'HandShake',
-        'Open',
-        'Message',
-        'Request'
+        'PipeMessage'
     ];
 
     /**
@@ -101,9 +99,11 @@ abstract class Server
             switch ($this->connectOptions['serverType']) {
                 case VSWOOLE_WEB_SOCKET_SERVER:
                     $this->swoole = new \swoole_websocket_server($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['mode'], $this->connectOptions['sockType']);
+                    array_push($this->callbackEventList, 'HandShake', 'Open', 'Message');
                     break;
                 case VSWOOLE_HTTP_SERVER:
                     $this->swoole = new \swoole_http_server($this->connectOptions['host'], $this->connectOptions['port']);
+                    array_push($this->callbackEventList, 'Request');
                     break;
                 default:
                     $this->swoole = new \swoole_server($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['mode'], $this->connectOptions['sockType']);

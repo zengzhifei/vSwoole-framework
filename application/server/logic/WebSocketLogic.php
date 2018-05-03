@@ -21,7 +21,7 @@ class WebSocketLogic
      * 设置服务对象为全局变量
      * @param \swoole_server $server
      */
-    public function __construct(\swoole_server $server)
+    public function __construct(\swoole_websocket_server $server)
     {
         $GLOBALS['server'] = $server;
     }

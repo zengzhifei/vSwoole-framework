@@ -225,16 +225,16 @@ class Init
         self::exceptionRegister();
         self::autoloadRegister();
         switch ($serverName) {
-            case 'WebSocket':
+            case 'websocket':
                 Command::getInstance()->shutdown(VSWOOLE_WEB_SOCKET_SERVER);
                 break;
-            case 'Http':
+            case 'http':
                 Command::getInstance()->shutdown(VSWOOLE_HTTP_SERVER);
                 break;
-            case 'Timer':
+            case 'timer':
                 Command::getInstance()->shutdown(VSWOOLE_TIMER_SERVER);
                 break;
-            case 'Udp':
+            case 'udp':
                 Command::getInstance()->shutdown(VSWOOLE_UDP_SERVER);
                 break;
             default:

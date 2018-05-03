@@ -56,14 +56,14 @@ class WebSocket extends WebSocketClient
         $message = Request::getInstance()->param('message', null);
 
         if (null === $range_id) {
-            Response::return(['status' => -1, 'msg' => 'param range_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments range_id is empty']);
         } else if ('' === $range_id) {
-            Response::return(['status' => -1, 'msg' => 'param range_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments range_id is invalid']);
         }
         if (null === $message) {
-            Response::return(['status' => -1, 'msg' => 'param message is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments message is empty']);
         } else if ('' === $message) {
-            Response::return(['status' => -1, 'msg' => 'param message is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments message is invalid']);
         }
 
         $res = $this->execute('push', ['user_id' => $user_id, 'range_id' => $range_id, 'message' => $message]);
