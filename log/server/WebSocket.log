@@ -4867,3 +4867,24 @@ ver start ok. 2018-05-02 18:49:36
 +-----------------------------------------------------------------------------------------------------+
 [2018-05-02 18:50:42 $15570.0]	NOTICE	Server is reloading now.
 [2018-05-02 18:52:12 #15569.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-02 18:55:17
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
