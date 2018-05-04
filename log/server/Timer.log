@@ -2673,3 +2673,6 @@ Stack trace:
 |ssl_cert_file: server.crt
 |ssl_key_file: server.key
 +-----------------------------------------------------------------------------------------------------+
+[2018-05-04 20:13:21 *12757.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-04 20:13:21 #12744.4]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-04 20:13:21 *12758.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
