@@ -45,9 +45,9 @@ class TimerClient extends Client
     public function execute(string $cmd = '', array $data = [])
     {
         if ($cmd && is_string($cmd)) {
-            $data['cmd'] = $cmd;
+            $send_data = ['cmd' => $cmd, 'data' => $data];
             if ($this->client->isConnected()) {
-                return $this->client->send(json_encode($data));
+                return $this->client->send(json_encode($send_data));
             }
         } else {
             return false;

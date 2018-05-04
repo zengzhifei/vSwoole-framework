@@ -12,6 +12,7 @@ namespace vSwoole\application\server;
 
 use vSwoole\application\server\logic\TimerLogic;
 use vSwoole\library\common\Config;
+use vSwoole\library\common\Redis;
 use vSwoole\library\common\Task;
 use vSwoole\library\server\TimerServer;
 
@@ -60,7 +61,16 @@ class Timer extends TimerServer
             if ($client_info && $admin_port == $client_info['server_port']) {
                 switch (strtolower($data['cmd'])) {
                     case 'add':
-                        Task::task($server, [$this->logic, 'add'], [$data]);
+                        $this->logic->add($data['data']);
+                        break;
+                    case 'start':
+                        $this->logic->start($data['data']);
+                        break;
+                    case 'stop':
+                        $this->logic->stop($data['data']);
+                        break;
+                    case 'delete':
+                        $this->logic->delete($data['data']);
                         break;
                 }
             }

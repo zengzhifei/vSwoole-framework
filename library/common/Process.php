@@ -23,10 +23,9 @@ class Process
      * @var array
      */
     protected $process_options = [
-        'is_signal'             => true,
-        'is_daemon'             => true,
         'redirect_stdin_stdout' => true,
         'create_pipe'           => true,
+        'is_blocking'           => false
     ];
 
 
@@ -37,48 +36,9 @@ class Process
      */
     public function __construct(array $options = [])
     {
-        $this->process_options = !empty($options) ? array_merge($this->process_options, $options) : $this->process_options;
-
-        if ($this->process_options['is_daemon'] === true) {
-            $this->daemonProcess();
-        }
+        $this->process_options = array_merge($this->process_options, $options);
 
         return $this;
-    }
-
-    /**
-     * 工厂模式创建process子进程
-     * @param callable $callback
-     * @return int
-     */
-    private function createProcess(callable $callback)
-    {
-        $process = new \swoole_process($callback, $this->process_options['redirect_stdin_stdout'], $this->process_options['create_pipe']);
-        $pid = $process->start();
-        if (false !== $pid) {
-            $this->process_instance[$pid] = $process;
-        }
-        return $pid;
-    }
-
-    /**
-     * 监听子进程状态，子进程退出后，释放子进程
-     */
-    private function releaseProcess()
-    {
-        \swoole_process::signal(SIGCHLD, function ($sig) {
-            while ($ret = \swoole_process::wait(false)) {
-                unset($this->process_instance[$ret['pid']]);
-            }
-        });
-    }
-
-    /**
-     * 设置当前进程为守护进程
-     */
-    private function daemonProcess()
-    {
-        \swoole_process::daemon();
     }
 
     /**
@@ -116,10 +76,6 @@ class Process
             }
         }
 
-        if ($this->process_options['is_signal'] === true && isset($pid) && $pid) {
-            $this->releaseProcess();
-        }
-
         return isset($pid) ? $pid : false;
     }
 
@@ -128,7 +84,7 @@ class Process
      * @param int $pid
      * @return mixed|null
      */
-    public function getProcess(int $pid = 0)
+    public function getProcess(int $pid = -1)
     {
         return !empty($this->process_instance) && isset($this->process_instance[$pid]) ? $this->process_instance[$pid] : null;
     }
@@ -140,5 +96,50 @@ class Process
     public function getProcessList()
     {
         return $this->process_instance;
+    }
+
+    /**
+     * 终止指定子进程
+     * @param int $pid
+     */
+    public function killProcess($pid = -1)
+    {
+        if (is_int($pid) && $pid > -1) {
+            \swoole_process::kill($pid);
+        } else if (is_array($pid)) {
+            for ($i = 0; $i < count($pid); $i++) {
+                if (is_int($pid[$i]) && $pid[$i] > -1) {
+                    \swoole_process::kill($pid[$i]);
+                }
+            }
+        }
+    }
+
+    /**
+     * 工厂模式创建process子进程
+     * @param callable $callback
+     * @return int
+     */
+    private function createProcess(callable $callback)
+    {
+        $process = new \swoole_process($callback, $this->process_options['redirect_stdin_stdout'], $this->process_options['create_pipe']);
+        $pid = $process->start();
+        if (false !== $pid) {
+            $this->process_instance[$pid] = $process;
+            $this->releaseProcess();
+        }
+        return $pid;
+    }
+
+    /**
+     * 监听子进程状态，子进程退出后，释放子进程
+     */
+    private function releaseProcess()
+    {
+        while ($ret = \swoole_process::wait($this->process_options['is_blocking'])) {
+            if ($ret) {
+                unset($this->process_instance[$ret['pid']]);
+            }
+        }
     }
 }

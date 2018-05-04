@@ -10,7 +10,7 @@
 return [
     //缓存连接配置（正式）
     'redis_master' => [
-        'host'       => '10.4.0.100',
+        'host'       => '10.4.0.101',
         'port'       => 6379,
         'password'   => '',
         'select'     => 0,

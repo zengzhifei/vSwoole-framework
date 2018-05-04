@@ -4888,3 +4888,139 @@ ver start ok. 2018-05-02 18:49:36
 |open_length_check: false
 |open_websocket_protocol: true
 +-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-04 10:12:24
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+[2018-05-04 10:12:27 #1878.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Cannot use object of type vSwoole\library\common\Exception as array in /mnt/hgfs/demo/vSwoole/library/common/Exception.php:79
+Stack trace:
+#0 [internal function]: vSwoole\library\common\Exception::swooleShutdown()
+#1 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/library/common/Exception.php on line 79.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-04 10:13:00
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+[2018-05-04 10:13:03 #1926.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Cannot use object of type vSwoole\library\common\Exception as array in /mnt/hgfs/demo/vSwoole/library/common/Exception.php:79
+Stack trace:
+#0 [internal function]: vSwoole\library\common\Exception::swooleShutdown()
+#1 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/library/common/Exception.php on line 79.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-04 10:13:45
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-04 10:35:27
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-04 11:30:29
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-04 11:31:37
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+

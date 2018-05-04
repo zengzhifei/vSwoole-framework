@@ -40,11 +40,11 @@ return [
         //日志
         'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'Timer.log',
         //工作进程数
-        'worker_num'               => 2,
+        'worker_num'               => 1,
         //工作线程数
-        'reactor_num'              => 1,
+        'reactor_num'              => 2,
         //TASK进程数
-        'task_worker_num'          => 2,
+        'task_worker_num'          => 1,
         //心跳检测最大时间间隔
         'heartbeat_check_interval' => 60,
         //连接最大闲置时间

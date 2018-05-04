@@ -44,6 +44,7 @@ class WebSocketLogic
                 $link_info = json_decode($link_info, true);
                 if ($link_info['server_port'] == Config::loadConfig('websocket')->get('ws_server_connect.port')) {
                     $data = json_decode($frame->data, true);
+                    $data = $data['data'];
                     if (isset($data['user_id']) && $data['user_id']) {
                         $link_info['user_id'] = $data['user_id'];
                         $link_info['range_id'] = $data['range_id'];
@@ -76,6 +77,7 @@ class WebSocketLogic
             $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
             $userKey = Config::loadConfig('redis')->get('redis_key.WebSocket.User_Info');
             $data = json_decode($frame->data, true);
+            $data = $data['data'];
             if (isset($data['range_id']) && $data['range_id']) {
                 $user_key = $userKey . '_' . $data['range_id'];
                 $online = $redis->hLen($user_key);
@@ -94,6 +96,7 @@ class WebSocketLogic
     {
         try {
             $data = json_decode($frame->data, true);
+            $data = $data['data'];
             if (is_array($data)) {
                 $client = new \vSwoole\application\client\WebSocket([], []);
                 $client->execute('push', $data);
@@ -123,6 +126,7 @@ class WebSocketLogic
                 $link_info = json_decode($link_info, true);
                 if ($link_info['server_port'] == Config::loadConfig('websocket')->get('ws_server_connect.adminPort')) {
                     $data = json_decode($frame->data, true);
+                    $data = $data['data'];
                     if (isset($data['range_id']) && $data['range_id']) {
                         //推送指定用户
                         if (isset($data['user_id']) && $data['user_id']) {

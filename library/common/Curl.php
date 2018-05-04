@@ -12,6 +12,10 @@ namespace vSwoole\library\common;
 
 class Curl
 {
+    /**
+     * CURL资源句柄
+     * @var
+     */
     protected $curl_instance;
 
     /**

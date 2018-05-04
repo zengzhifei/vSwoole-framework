@@ -17,8 +17,9 @@ class Task
      * @param \swoole_server $server
      * @param $callback
      * @param array $arguments
+     * @param int $dst_worker_id
      */
-    public static function task(\swoole_server $server, $callback, array $arguments = [])
+    public static function task(\swoole_server $server, $callback, array $arguments = [], int $dst_worker_id = -1)
     {
         try {
             if ((is_string($callback) && function_exists($callback)) || (is_object($callback) && is_callable($callback))) {
@@ -32,8 +33,7 @@ class Task
             } else {
                 throw new \Exception('Arguments 2 is inaccessible');
             }
-
-            isset($data) && $server->task($data);
+            isset($data) && $server->task($data, $dst_worker_id);
         } catch (\Exception $e) {
             Exception::reportException($e);
         }
