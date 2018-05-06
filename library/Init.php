@@ -49,14 +49,9 @@ class Init
      */
     private static function initConvention()
     {
-        //偏好常量
-        $default_convention = require VSWOOLE_ROOT . 'library/conf/convention.php';
-        $user_convention = file_exists(VSWOOLE_ROOT . 'configs/convention.php') ? require VSWOOLE_ROOT . 'configs/convention.php' : [];
-        $convention['define'] = isset($user_convention['define']) && is_array($user_convention['define']) ? array_merge($default_convention['define'], $user_convention['define']) : $user_convention['define'];
-
-        foreach ($convention['define'] as $defineKey => $defineValue) {
-            !defined(strtoupper($defineKey)) && define(strtoupper($defineKey), $defineValue);
-        }
+        //自定义常量
+        file_exists(VSWOOLE_ROOT . 'configs/const.php') && require VSWOOLE_ROOT . 'configs/const.php';
+        file_exists(VSWOOLE_ROOT . 'library/conf/const.php') && require VSWOOLE_ROOT . 'library/conf/const.php';
     }
 
     /**

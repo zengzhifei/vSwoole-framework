@@ -7,13 +7,27 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
-return [
-    'define' => [
-        //是否开启调试
-        'VSWOOLE_IS_DEBUG'             => true,
-        //是否记录日志
-        'VSWOOLE_IS_LOG'               => true,
-        //路由
-        'VSWOOLE_URI_CLIENT'           => 's',
-    ],
-];
+namespace vSwoole\application\server\logic;
+
+
+class UdpLogic
+{
+    /**
+     * UdpLogic constructor.
+     * @param \swoole_server $server
+     */
+    public function __construct(\swoole_server $server)
+    {
+        $GLOBALS['udp'] = $server;
+    }
+
+    /**
+     * 请求逻辑处理
+     * @param string $data
+     */
+    public function execute(string $data)
+    {
+
+    }
+
+}

@@ -23,7 +23,7 @@ class WebSocketLogic
      */
     public function __construct(\swoole_websocket_server $server)
     {
-        $GLOBALS['server'] = $server;
+        $GLOBALS['webSocket'] = $server;
     }
 
     /**
@@ -81,7 +81,7 @@ class WebSocketLogic
             if (isset($data['range_id']) && $data['range_id']) {
                 $user_key = $userKey . '_' . $data['range_id'];
                 $online = $redis->hLen($user_key);
-                $GLOBALS['server']->push($frame->fd, json_encode(['status' => 1, 'data' => $online]));
+                $GLOBALS['webSocket']->push($frame->fd, json_encode(['status' => 1, 'data' => $online]));
             }
         } catch (\Exception $e) {
             Exception::reportException($e);
@@ -135,8 +135,8 @@ class WebSocketLogic
                             if (false !== $user_info) {
                                 $user_info = json_decode($user_info, true);
                                 $push_data = json_decode($frame->data, true);
-                                if ($user_info['server_ip'] == $server_ip && $GLOBALS['server']->exist($user_info['fd'])) {
-                                    $res = $GLOBALS['server']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
+                                if ($user_info['server_ip'] == $server_ip && $GLOBALS['webSocket']->exist($user_info['fd'])) {
+                                    $res = $GLOBALS['webSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
                                 }
                             }
                             //推送所有用户
@@ -147,8 +147,8 @@ class WebSocketLogic
                                 $push_data = json_decode($frame->data, true);
                                 foreach ($user_list as $user_info) {
                                     $user_info = json_decode($user_info, true);
-                                    if (isset($user_info['fd']) && $GLOBALS['server']->exist($user_info['fd'])) {
-                                        $GLOBALS['server']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
+                                    if (isset($user_info['fd']) && $GLOBALS['webSocket']->exist($user_info['fd'])) {
+                                        $GLOBALS['webSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
                                     }
                                 }
                             }

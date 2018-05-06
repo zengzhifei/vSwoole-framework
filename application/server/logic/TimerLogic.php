@@ -30,7 +30,7 @@ class TimerLogic
      */
     public function __construct(\swoole_server $server)
     {
-        $GLOBALS['server'] = $server;
+        $GLOBALS['timer'] = $server;
 
         $this->process = new Process([
             'redirect_stdin_stdout' => false,
@@ -91,7 +91,7 @@ class TimerLogic
                             });
                             if (false !== $pid) {
                                 $task['is_running'] = true;
-                                $task['worker_id'] = $GLOBALS['server']->worker_id;
+                                $task['worker_id'] = $GLOBALS['timer']->worker_id;
                                 $task['process_id'][] = $pid;
                                 $redis->hSet(Config::loadConfig('redis')->get('redis_key.Timer.Task_List'), $data['task_key'], json_encode($task));
                             }

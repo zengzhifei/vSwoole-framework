@@ -104,6 +104,8 @@ abstract class Server
                 case VSWOOLE_HTTP_SERVER:
                     $this->swoole = new \swoole_http_server($this->connectOptions['host'], $this->connectOptions['port']);
                     array_push($this->callbackEventList, 'Request');
+                    unset($this->callbackEventList[array_search('Connect', $this->callbackEventList)]);
+                    unset($this->callbackEventList[array_search('Receive', $this->callbackEventList)]);
                     break;
                 default:
                     $this->swoole = new \swoole_server($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['mode'], $this->connectOptions['sockType']);
