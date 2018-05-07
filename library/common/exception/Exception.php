@@ -7,10 +7,13 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace vSwoole\library\common;
+namespace vSwoole\library\common\exception;
 
 
 use Throwable;
+use vSwoole\library\common\Log;
+use vSwoole\library\common\reflection\ReflectionClass;
+use vSwoole\library\common\reflection\ReflectionFile;
 
 class Exception extends \Exception
 {
@@ -20,12 +23,12 @@ class Exception extends \Exception
     const Exception = 0;
 
     /**
-     * Exception constructor.
+     * 继承异常基类
      * @param string $message
      * @param int $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $message = "", int $code = 0, Throwable $previous = null)
+    public function __constructs(string $message = "", int $code = 0, Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
@@ -47,6 +50,7 @@ class Exception extends \Exception
      * @param string $errorMsg
      * @param string $errorFile
      * @param int $errorLine
+     * @throws \ReflectionException
      */
     public static function swooleError(int $errorCode = 0, string $errorMsg = '', string $errorFile = '', int $errorLine = 0)
     {
@@ -58,15 +62,12 @@ class Exception extends \Exception
 
     /**
      * 捕获异常
-     * @param \Exception $exception
+     * @param Throwable $exception
+     * @throws \ReflectionException
      */
     public static function swooleException(Throwable $exception)
     {
-        if ($exception instanceof \Exception) {
-            self::reportException($exception);
-        } else {
-            self::reportError($exception);
-        }
+        self::reportException($exception);
     }
 
     /**
@@ -78,7 +79,7 @@ class Exception extends \Exception
             $error = new self($error['message'], $error['type']);
             $error->file = $error['file'];
             $error->line = $error['line'];
-            VSWOOLE_IS_CLI ? self::reportException($error) : self::reportError($error);
+            defined('VSWOOLE_IS_CLI') && VSWOOLE_IS_CLI ? self::reportException($error) : self::reportError($error);
         }
     }
 
@@ -137,6 +138,7 @@ class Exception extends \Exception
     /**
      * 报告异常
      * @param Throwable $exception
+     * @throws \ReflectionException
      */
     public static function reportException(Throwable $exception)
     {
@@ -152,6 +154,7 @@ class Exception extends \Exception
     /**
      * 报告错误
      * @param Throwable $error
+     * @throws \ReflectionException
      */
     public static function reportError(Throwable $error)
     {
@@ -187,10 +190,22 @@ class Exception extends \Exception
     }
 
     /**
+     * 获取异常类类名
+     * @param Throwable $e
+     * @return mixed
+     */
+    private static function getExceptionClass(Throwable $e)
+    {
+        $trace = $e->getTrace();
+        return isset($trace[0]) ? $trace[0]['class'] : null;
+    }
+
+    /**
      * 异常或错误分析
      * @param Throwable $e
      * @param int $status
      * @return string
+     * @throws \ReflectionException
      */
     private static function parseException(Throwable $e, int $status = self::Exception)
     {
@@ -199,7 +214,14 @@ class Exception extends \Exception
         $file = $e->getFile();
         $line = $e->getLine();
         $code = $e->getCode();
-        $trace = $e->getTraceAsString();
+        if (is_null($className = self::getExceptionClass($e))) {
+            $reflection = new ReflectionFile($file);
+        } else {
+            $reflection = new ReflectionClass($className);
+            $fileName = $reflection->getFileName();
+            $reflection = $fileName == $file ? $reflection : new ReflectionFile($file);
+        }
+        $trace = htmlspecialchars($reflection->getSourceCode($line - 10, $line + 10, true));
 
         return self::formatException($status, $type, $message, $file, $line, $code, $trace);
     }
@@ -228,35 +250,38 @@ class Exception extends \Exception
             $status = $status == self::Exception ? '异常' : '错误';
             $errorCodeMsg = self::getErrorGrade($code);
             $exception_string = <<<EOT
-                <table width="50%" style="margin:50px auto;empty-cells: show;border-collapse: collapse;border:1px solid #cad9ea;color:#666;text-align: center;">
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+				<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+                <table style="min-width: 50%;margin: 50px auto;empty-cells: show;border-collapse: collapse;border:1px solid #cad9ea;color:#666;text-align: center;">
                     <tr>
                         <th colspan="2" style="font-size: 1.5rem;background-repeat:repeat-x;height:30px;background-color:#f5fafe;">vSwoole</th>
                     </tr>
                     <tr>
-                        <td width="20%" style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}类型</td>
+                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}类型</td>
                         <td style="font-size: 0.9rem;border:1px solid #cad9ea;padding:0 1em 0;">{$type}</td>
                     </tr>
                     <tr>
-                        <td width="20%" style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}信息</td>
+                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}信息</td>
                         <td style="font-size: 0.9rem;border:1px solid #cad9ea;padding:0 1em 0;">{$message}</td>
                     </tr>
                     <tr>
-                        <td width="20%" style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}文件</td>
+                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}文件</td>
                         <td style="font-size: 0.9rem;border:1px solid #cad9ea;padding:0 1em 0;">{$file}</td>
                     </tr>
                     <tr>
-                        <td width="20%" style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}位置</td>
+                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}行号</td>
                         <td style="font-size: 0.9rem;border:1px solid #cad9ea;padding:0 1em 0;">{$line}</td>
                     </tr>
                     <tr>
-                        <td width="20%" style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}代码</td>
+                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}级别</td>
                         <td style="font-size: 0.9rem;border:1px solid #cad9ea;padding:0 1em 0;">{$errorCodeMsg}[{$code}]</td>
                     </tr>
                     <tr>
-                        <td width="20%" style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}追踪</td>
-                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;padding:0 1em 0;">{$trace}</td>
+                        <td style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}代码</td>
+                        <td style="background:#F0F0F0;border:1px solid #cad9ea;padding:0 1em 0;text-align: left;"><pre><code class="php" style="font-size: 1.0rem;">{$trace}</code></pre></td>
                     </tr>
                 </table> 
+                <script>hljs.initHighlightingOnLoad();</script>
 EOT;
         }
         return $exception_string;

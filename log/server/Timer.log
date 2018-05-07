@@ -2676,3 +2676,19 @@ Stack trace:
 [2018-05-04 20:13:21 *12757.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
 [2018-05-04 20:13:21 #12744.4]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
 [2018-05-04 20:13:21 *12758.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Timer_Server start ok. 2018-05-07 17:49:54
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Timer.log
+|worker_num: 4
+|reactor_num: 8
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+

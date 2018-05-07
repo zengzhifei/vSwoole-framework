@@ -10,6 +10,8 @@
 namespace vSwoole\library\common;
 
 
+use vSwoole\library\common\exception\Exception;
+
 class File
 {
     public static function asyncRead(string $filename, $callback, array $arguments = [])

@@ -12,7 +12,7 @@ namespace vSwoole\library;
 
 use vSwoole\library\common\Build;
 use vSwoole\library\common\Command;
-use vSwoole\library\common\Exception;
+use vSwoole\library\common\exception\Exception;
 
 class Init
 {
@@ -120,7 +120,7 @@ class Init
      */
     private static function exceptionRegister()
     {
-        require VSWOOLE_ROOT . 'library/common/Exception.php';
+        require VSWOOLE_ROOT . 'library/common/exception/Exception.php';
         Exception::register();
     }
 
@@ -355,7 +355,7 @@ class Init
      * 启动框架服务
      * @param string $class
      */
-    public function runServer(string $class)
+    private function runServer(string $class)
     {
         $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
         $server = new $class;
@@ -367,7 +367,7 @@ class Init
      */
     public function runClient()
     {
-        $uri = isset($_GET[VSWOOLE_URI_CLIENT]) ? $_GET[VSWOOLE_URI_CLIENT] : '';
+        $uri = isset($_GET[VSWOOLE_VAR_URL]) ? $_GET[VSWOOLE_VAR_URL] : '';
         $router = explode("\\", str_replace('/', '\\', $uri));
         $controller = isset($router[0]) && $router[0] != '' ? $router[0] : 'Index';
         $action = isset($router[1]) && $router[1] != '' ? $router[1] : 'index';

@@ -10,6 +10,10 @@
 
 class Index
 {
+    /**
+     * 第三方框架引入入口
+     * @throws Exception
+     */
     public function __construct()
     {
         //设置框架根目录

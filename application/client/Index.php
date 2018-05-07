@@ -10,6 +10,9 @@
 namespace vSwoole\application\client;
 
 
+use vSwoole\library\common\Config;
+use vSwoole\library\common\Exception;
+use vSwoole\library\common\Log;
 use vSwoole\library\common\Utils;
 
 class Index
@@ -24,6 +27,6 @@ EOT;
 
     public function ip()
     {
-        var_dump(Utils::getServerIp());
+        Log::save(123,'test.log');
     }
 }

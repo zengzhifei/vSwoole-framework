@@ -7,26 +7,15 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
+namespace vSwoole\library\common\exception;
 
-class Swoole
+
+use Throwable;
+
+class ErrorException extends Exception
 {
-    /**
-     * 框架服务器入口
-     * @throws Exception
-     */
-    public function __construct()
+    public function __construct(string $message = "", int $code = E_ERROR, Throwable $previous = null)
     {
-        //设置框架根目录
-        define('VSWOOLE_ROOT', __DIR__ . '/../');
-        //载入框架初始化文件
-        if (php_sapi_name() === 'cli') {
-            require VSWOOLE_ROOT . 'library/Init.php';
-            //运行框架
-            \vSwoole\library\Init::cmd();
-        } else {
-            die("Swoole Server must run in the CLI mode");
-        }
+        parent::__construct($message, $code, $previous);
     }
 }
-
-$server = new Swoole();

@@ -12,7 +12,6 @@ class Client
 {
     /**
      * 框架客户端入口
-     * Client constructor.
      * @throws Exception
      */
     public function __construct()
