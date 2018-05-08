@@ -18,8 +18,9 @@ class UdpServer extends Server
 {
     /**
      * 启动服务器
-     * @param array $connectOptions = []
-     * @param array $configOptions = []
+     * @param array $connectOptions
+     * @param array $configOptions
+     * @throws \ReflectionException
      */
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {

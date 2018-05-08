@@ -10,7 +10,7 @@
 namespace vSwoole\library\server;
 
 
-use vSwoole\library\common\Log;
+use vSwoole\library\common\File;
 use vSwoole\library\common\Utils;
 
 abstract class Server
@@ -47,7 +47,7 @@ abstract class Server
         //守护进程化
         'daemonize'                => true,
         //日志
-        'log_file'                 => 'vSwoole.log',
+        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'vSwoole.log',
         //工作进程数
         'worker_num'               => 4,
         //工作线程数
@@ -171,7 +171,7 @@ abstract class Server
             $str .= '|' . $option . ': ' . (is_bool($config) ? ($config ? 'true' : 'false') : $config) . PHP_EOL;
         }
         $str .= '+-----------------------------------------------------------------------------------------------------+';
-        Log::write($str, $setting['log_file']);
+        File::write($setting['log_file'], $str);
         if (!$setting['daemonize']) echo $str;
     }
 
