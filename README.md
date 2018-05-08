@@ -79,10 +79,11 @@ vSwoole（服务框架目录）
 │   │   ├─ServerServer.php      服务端核心层
 │   │   └─···
 │   ├─common                    核心工具类目录
+│   │   ├─Exception             服务异常处理类目录
+│   │   ├─Reflection            反射类目录
 │   │   ├─Build.php             服务核心层构建类
 │   │   ├─Command.php           服务管理命令类
-│   │   ├─Config.php            服务配置类
-│   │   ├─Exception.php         服务异常处理类
+│   │   ├─Config.php            服务配置类  
 │   │   ├─File.php              服务文件处理类
 │   │   ├─Log.php               服务日志处理类
 │   │   ├─Process.php           服务进程管理类
