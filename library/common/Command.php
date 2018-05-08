@@ -25,14 +25,15 @@ class Command
     /**
      * 重启指定服务
      * @param string $server_name
+     * @throws \ReflectionException
      */
     public function reload(string $server_name = '')
     {
         if (is_string($server_name) && $server_name !== '') {
             $pidFile = VSWOOLE_DATA_PID_PATH . $server_name . '_Master' . VSWOOLE_PID_EXT;
             if (file_exists($pidFile)) {
-                File::asyncRead($pidFile, function ($filename, $content) {
-                    File::asyncExec('kill -USR1 ' . $content, function ($result) {
+                File::read($pidFile, function ($filename, $content) {
+                    File::exec('kill -USR1 ' . $content, function ($result) {
                     });
                 });
             }
@@ -42,14 +43,15 @@ class Command
     /**
      * 关闭指定服务
      * @param string $server_name
+     * @throws \ReflectionException
      */
     public function shutdown(string $server_name = '')
     {
         if (is_string($server_name) && $server_name !== '') {
             $pidFile = VSWOOLE_DATA_PID_PATH . $server_name . '_Master' . VSWOOLE_PID_EXT;
             if (file_exists($pidFile)) {
-                File::asyncRead($pidFile, function ($filename, $content) {
-                    File::asyncExec('kill 15 ' . $content, function ($result) {
+                File::read($pidFile, function ($filename, $content) {
+                    File::exec('kill 15 ' . $content, function ($result) {
                     });
                 });
             }

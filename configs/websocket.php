@@ -38,7 +38,7 @@ return [
         //守护进程化
         'daemonize'                => false,
         //日志
-        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'WebSocket.log',
+        'log_file'                 => 'WebSocket.log',
         //工作进程数
         'worker_num'               => 4,
         //工作线程数
@@ -67,7 +67,7 @@ return [
         //长连接Key
         'connectionKey' => '',
         //服务器地址
-        'host'          => '10.4.0.100',
+        'host'          => '10.4.0.101',
         //服务器端口
         'port'          => 8501,
         //连接超时

@@ -12,7 +12,7 @@ namespace vSwoole\application\client;
 
 use vSwoole\library\client\TimerClient;
 use vSwoole\library\common\Config;
-use vSwoole\library\common\Exception;
+use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Redis;
 use vSwoole\library\common\Request;
 use vSwoole\library\common\Response;
@@ -21,8 +21,10 @@ class Timer extends TimerClient
 {
     /**
      * 连接服务器
+     * Timer constructor.
      * @param array $connectOptions
      * @param array $configOptions
+     * @throws \ReflectionException
      */
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {

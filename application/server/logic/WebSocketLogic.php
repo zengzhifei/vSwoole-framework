@@ -11,7 +11,7 @@ namespace vSwoole\application\server\logic;
 
 
 use vSwoole\library\common\Config;
-use vSwoole\library\common\Exception;
+use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Redis;
 use vSwoole\library\common\Utils;
 
@@ -29,6 +29,7 @@ class WebSocketLogic
     /**
      * 用户信息归档
      * @param \swoole_websocket_frame $frame
+     * @throws \ReflectionException
      */
     public function range(\swoole_websocket_frame $frame)
     {
@@ -70,6 +71,7 @@ class WebSocketLogic
     /**
      * 发送在线人数
      * @param \swoole_websocket_frame $frame
+     * @throws \ReflectionException
      */
     public function line(\swoole_websocket_frame $frame)
     {
@@ -91,6 +93,7 @@ class WebSocketLogic
     /**
      * 客户端发送消息
      * @param \swoole_websocket_frame $frame
+     * @throws \ReflectionException
      */
     public function send(\swoole_websocket_frame $frame)
     {
@@ -110,6 +113,7 @@ class WebSocketLogic
      * 服务端推送消息
      * @param \swoole_websocket_frame $frame
      * @return array
+     * @throws \ReflectionException
      */
     public function push(\swoole_websocket_frame $frame)
     {
@@ -165,6 +169,7 @@ class WebSocketLogic
     /**
      * 删除管理客户端信息
      * @param int $fd
+     * @throws \ReflectionException
      */
     public function clearClient(int $fd)
     {

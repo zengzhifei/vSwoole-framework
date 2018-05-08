@@ -4,18 +4,17 @@
 // +----------------------------------------------------------------------+
 // | Not Decline To Shoulder a Responsibility                             |
 // +----------------------------------------------------------------------+
-// | zengzhifei@outlook.com                                               |                  
+// | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace vSwoole\application\client;
 
-class Index
-{
-    public function index()
-    {
-        echo <<<EOT
-             <p style="padding-left:30px;font-size: 30px;">VSwoole FrameWork</p>
-             <p style="padding-left:30px;font-size: 20px;">Swoole 微服务框架 - Not Decline To Shoulder a Responsibility</p>
-EOT;
-    }
-}
+return [
+    //是否开启调试
+    'is_debug'  => true,
+    //是否记录日志
+    'is_log'    => true,
+    //日志记录级别
+    'log_grade' => E_ALL,
+    //时区
+    'timezone'  => 'PRC',
+];

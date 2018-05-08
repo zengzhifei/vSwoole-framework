@@ -11,15 +11,16 @@ namespace vSwoole\library\server;
 
 
 use vSwoole\library\common\Config;
-use vSwoole\library\common\Exception;
+use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Utils;
 
 class WebSocketServer extends Server
 {
     /**
      * 启动服务器
-     * @param array $connectOptions = []
-     * @param array $configOptions = []
+     * @param array $connectOptions
+     * @param array $configOptions
+     * @throws \ReflectionException
      */
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
@@ -43,14 +44,12 @@ class WebSocketServer extends Server
     {
         //展示服务启动信息
         $this->startShowServerInfo();
-
         //设置主进程别名
         if (function_exists('cli_set_process_title')) {
             @cli_set_process_title(VSWOOLE_WEB_SOCKET_SERVER . ' master');
         } else {
             @swoole_set_process_name(VSWOOLE_WEB_SOCKET_SERVER . ' master');
         }
-
         //异步记录服务进程PID
         Utils::writePid($server->master_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Master');
         Utils::writePid($server->manager_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Manager');

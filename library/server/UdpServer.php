@@ -11,7 +11,7 @@ namespace vSwoole\library\server;
 
 
 use vSwoole\library\common\Config;
-use vSwoole\library\common\Exception;
+use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Utils;
 
 class UdpServer extends Server
@@ -21,7 +21,7 @@ class UdpServer extends Server
      * @param array $connectOptions = []
      * @param array $configOptions = []
      */
-    public function __construct(array $connectOptions = [], array $configOptions = []) 
+    public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
             $udp_server_connect = array_merge(Config::loadConfig('udp')->get('udp_server_connect'), $connectOptions);
@@ -39,48 +39,46 @@ class UdpServer extends Server
      * 主进程启动回调函数
      * @param \swoole_server $server
      */
-    public function onStart(\swoole_server $server) 
+    public function onStart(\swoole_server $server)
     {
         //展示服务启动信息
         $this->startShowServerInfo();
-
         //设置主进程别名
         if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_HTTP_SERVER . ' master');
+            @cli_set_process_title(VSWOOLE_UDP_SERVER . ' master');
         } else {
-            @swoole_set_process_name(VSWOOLE_HTTP_SERVER . ' master');
+            @swoole_set_process_name(VSWOOLE_UDP_SERVER . ' master');
         }
-
         //异步记录服务进程PID
-        Utils::writePid($server->master_pid, VSWOOLE_HTTP_SERVER . '_Master');
-        Utils::writePid($server->manager_pid, VSWOOLE_HTTP_SERVER . '_Manager');
+        Utils::writePid($server->master_pid, VSWOOLE_UDP_SERVER . '_Master');
+        Utils::writePid($server->manager_pid, VSWOOLE_UDP_SERVER . '_Manager');
     }
 
     /**
      * 主进程结束回调函数
      * @param \swoole_server $server
      */
-    public function onShutdown(\swoole_server $server) 
+    public function onShutdown(\swoole_server $server)
     {
-        
+
     }
 
     /**
      * 管理进程启动回调函数
      * @param \swoole_server $server
      */
-    public function onManagerStart(\swoole_server $server) 
+    public function onManagerStart(\swoole_server $server)
     {
-        
+
     }
 
     /**
      * 管理进程结束回调函数
      * @param \swoole_server $server
      */
-    public function onManagerStop(\swoole_server $server) 
+    public function onManagerStop(\swoole_server $server)
     {
-        
+
     }
 
     /**
@@ -88,7 +86,7 @@ class UdpServer extends Server
      * @param \swoole_server $server
      * @param int $worker_id
      */
-    public function onWorkerStart(\swoole_server $server, int $worker_id) 
+    public function onWorkerStart(\swoole_server $server, int $worker_id)
     {
         $is_cache = Config::loadConfig('udp')->get('udp_other_config.is_cache_config');
         $is_cache && Config::cacheConfig();
@@ -99,9 +97,9 @@ class UdpServer extends Server
      * @param \swoole_server $server
      * @param int $worker_id
      */
-    public function onWorkerStop(\swoole_server $server, int $worker_id) 
+    public function onWorkerStop(\swoole_server $server, int $worker_id)
     {
-        
+
     }
 
     /**
@@ -109,9 +107,9 @@ class UdpServer extends Server
      * @param \swoole_server $server
      * @param int $worker_id
      */
-    public function onWorkerExit(\swoole_server $server, int $worker_id) 
+    public function onWorkerExit(\swoole_server $server, int $worker_id)
     {
-        
+
     }
 
     /**
@@ -119,9 +117,9 @@ class UdpServer extends Server
      * @param \swoole_server $server
      * @param int $worker_id
      */
-    public function onWorkerError(\swoole_server $server, int $worker_id) 
+    public function onWorkerError(\swoole_server $server, int $worker_id)
     {
-        
+
     }
 
     /**
@@ -130,9 +128,9 @@ class UdpServer extends Server
      * @param int $fd
      * @param int $reactor_id
      */
-    public function onConnect(\swoole_server $server, int $fd, int $reactor_id) 
+    public function onConnect(\swoole_server $server, int $fd, int $reactor_id)
     {
-        
+
     }
 
     /**
@@ -142,9 +140,9 @@ class UdpServer extends Server
      * @param int $reactor_id
      * @param string $data
      */
-    public function onReceive(\swoole_server $server, int $fd, int $reactor_id, string $data) 
+    public function onReceive(\swoole_server $server, int $fd, int $reactor_id, string $data)
     {
-        
+
     }
 
     /**
@@ -153,9 +151,9 @@ class UdpServer extends Server
      * @param string $data
      * @param array $client_info
      */
-    public function onPacket(\swoole_server $server, string $data, array $client_info) 
+    public function onPacket(\swoole_server $server, string $data, array $client_info)
     {
-        
+
     }
 
     /**
@@ -164,9 +162,9 @@ class UdpServer extends Server
      * @param int $fd
      * @param int $reactor_id
      */
-    public function onClose(\swoole_server $server, int $fd, int $reactor_id) 
+    public function onClose(\swoole_server $server, int $fd, int $reactor_id)
     {
-        
+
     }
 
     /**
@@ -174,9 +172,9 @@ class UdpServer extends Server
      * @param \swoole_server $server
      * @param int $fd
      */
-    public function onBufferFull(\swoole_server $server, int $fd) 
+    public function onBufferFull(\swoole_server $server, int $fd)
     {
-        
+
     }
 
     /**
@@ -184,9 +182,9 @@ class UdpServer extends Server
      * @param \swoole_server $server
      * @param int $fd
      */
-    public function onBufferEmpty(\swoole_server $server, int $fd) 
+    public function onBufferEmpty(\swoole_server $server, int $fd)
     {
-        
+
     }
 
     /**
@@ -196,9 +194,9 @@ class UdpServer extends Server
      * @param int $src_worker_id
      * @param $data
      */
-    public function onTask(\swoole_server $server, int $task_id, int $src_worker_id, $data) 
+    public function onTask(\swoole_server $server, int $task_id, int $src_worker_id, $data)
     {
-        
+
     }
 
     /**
@@ -207,9 +205,9 @@ class UdpServer extends Server
      * @param int $task_id
      * @param $data
      */
-    public function onFinish(\swoole_server $server, int $task_id, $data) 
+    public function onFinish(\swoole_server $server, int $task_id, $data)
     {
-        
+
     }
 
     /**
@@ -218,9 +216,9 @@ class UdpServer extends Server
      * @param int $src_worker_id
      * @param $data
      */
-    public function onPipeMessage(\swoole_server $server, int $src_worker_id, $data) 
+    public function onPipeMessage(\swoole_server $server, int $src_worker_id, $data)
     {
-        
+
     }
 
     /**
@@ -228,9 +226,9 @@ class UdpServer extends Server
      * @param \swoole_http_request $request
      * @param \swoole_http_response $response
      */
-    public function onHandShake(\swoole_http_request $request, \swoole_http_response $response) 
+    public function onHandShake(\swoole_http_request $request, \swoole_http_response $response)
     {
-        
+
     }
 
     /**
@@ -238,9 +236,9 @@ class UdpServer extends Server
      * @param \swoole_websocket_server $server
      * @param \swoole_http_request $request
      */
-    public function onOpen(\swoole_websocket_server $server, \swoole_http_request $request) 
+    public function onOpen(\swoole_websocket_server $server, \swoole_http_request $request)
     {
-        
+
     }
 
     /**
@@ -248,9 +246,9 @@ class UdpServer extends Server
      * @param \swoole_websocket_server $server
      * @param \swoole_websocket_frame $frame
      */
-    public function onMessage(\swoole_websocket_server $server, \swoole_websocket_frame $frame) 
+    public function onMessage(\swoole_websocket_server $server, \swoole_websocket_frame $frame)
     {
-        
+
     }
 
     /**
@@ -258,9 +256,9 @@ class UdpServer extends Server
      * @param \swoole_http_request $request
      * @param \swoole_http_response $response
      */
-    public function onRequest(\swoole_http_request $request, \swoole_http_response $response) 
+    public function onRequest(\swoole_http_request $request, \swoole_http_response $response)
     {
-        
+
     }
 
 }

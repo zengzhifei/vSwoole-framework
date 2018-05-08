@@ -12,6 +12,8 @@ namespace vSwoole\library;
 
 use vSwoole\library\common\Build;
 use vSwoole\library\common\Command;
+use vSwoole\library\common\Config;
+use vSwoole\library\common\exception\ClassNotFoundException;
 use vSwoole\library\common\exception\Exception;
 
 class Init
@@ -41,7 +43,7 @@ class Init
     private static function initEnv()
     {
         //设置时区
-        ini_set('date.timezone', 'PRC');
+        ini_set('date.timezone', Config::loadConfig()->get('timezone'));
     }
 
     /**
@@ -83,6 +85,10 @@ class Init
         if (!is_dir(VSWOOLE_DATA_PID_PATH)) {
             mkdir(VSWOOLE_DATA_PID_PATH, 755, true);
         }
+        //框架数据服务进程目录
+        if (!is_dir(VSWOOLE_DATA_CACHE_PATH)) {
+            mkdir(VSWOOLE_DATA_CACHE_PATH, 755, true);
+        }
         //日志根目录
         if (!is_dir(VSWOOLE_LOG_PATH)) {
             mkdir(VSWOOLE_LOG_PATH, 755, true);
@@ -100,7 +106,7 @@ class Init
     /**
      * 类自动加载
      * @param string $className
-     * @throws \Error
+     * @throws ClassNotFoundException
      */
     private static function loadClass(string $className)
     {
@@ -110,7 +116,7 @@ class Init
             if (file_exists(VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT)) {
                 require_once VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT;
             } else {
-                throw new \Error("class {$className} not exist,file path: " . VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT);
+                throw new ClassNotFoundException("class {$className} not exist,file path: " . VSWOOLE_ROOT . $class . VSWOOLE_CLASS_EXT);
             }
         }
     }
@@ -239,6 +245,17 @@ class Init
     }
 
     /**
+     * 测试使用
+     */
+    private static function test()
+    {
+        self::initConvention();
+        self::exceptionRegister();
+        self::autoloadRegister();
+
+    }
+
+    /**
      * 执行命令
      * @throws \Exception
      */
@@ -325,6 +342,9 @@ class Init
                 break;
             case '':
                 echo join('', $commands);
+                break;
+            case 'test':
+                self::test();
                 break;
             default:
                 echo "command: '{$cmd}' is invalid" . PHP_EOL;

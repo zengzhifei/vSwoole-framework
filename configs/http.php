@@ -34,11 +34,11 @@ return [
         'callbackEventList' => [],
     ],
     //服务端配置
-    'http_server_config' => [
+    'http_server_config'  => [
         //守护进程化
         'daemonize'                => false,
         //日志
-        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'Http.log',
+        'log_file'                 => 'Http.log',
         //工作进程数
         'worker_num'               => 1,
         //工作线程数

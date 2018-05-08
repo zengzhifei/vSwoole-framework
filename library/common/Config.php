@@ -24,29 +24,78 @@ class Config
      * @param bool $is_force
      * @return null|Config
      */
-    public static function loadConfig(string $config_file = '*', bool $is_force = false)
+    public static function loadConfig(string $config_file = 'config', bool $is_force = false)
     {
-        if (defined('VSWOOLE_CONFIG_PATH') && is_dir(VSWOOLE_CONFIG_PATH)) {
-            $config_file = $config_file == '' ? '*' : $config_file;
-            if ($is_force) {
-                $configFiles = glob(VSWOOLE_CONFIG_PATH . $config_file . VSWOOLE_CONFIG_EXT);
-                foreach ($configFiles as $configFile) {
+        $config_file = $config_file == '' ? '*' : $config_file;
+        if ($is_force) {
+            $config_common = [];
+            if (defined('VSWOOLE_CONFIG_PATH') && is_dir(VSWOOLE_CONFIG_PATH)) {
+                $config_files_common = glob(VSWOOLE_CONFIG_PATH . $config_file . VSWOOLE_CONFIG_EXT);
+                foreach ($config_files_common as $configFile) {
                     $configInfo = pathinfo($configFile);
-                    self::$_configs[$configInfo['filename']] = require $configFile;
+                    $config = require $configFile;
+                    is_array($config) && $config_common[$configInfo['filename']] = $config;
                 }
-            } else {
-                if (!isset(self::$_configs[$config_file])) {
-                    $configFiles = glob(VSWOOLE_CONFIG_PATH . $config_file . VSWOOLE_CONFIG_EXT);
-                    foreach ($configFiles as $configFile) {
+            }
+            $config_lib = [];
+            if (defined('VSWOOLE_LIB_CONF_PATH') && is_dir(VSWOOLE_LIB_CONF_PATH)) {
+                $config_files_lib = glob(VSWOOLE_LIB_CONF_PATH . $config_file . VSWOOLE_CONFIG_EXT);
+                foreach ($config_files_lib as $configFile) {
+                    $configInfo = pathinfo($configFile);
+                    $config = require $configFile;
+                    is_array($config) && $config_lib[$configInfo['filename']] = $config;
+                }
+            }
+            foreach ($config_common as $key => $config) {
+                if (array_key_exists($key, $config_lib)) {
+                    self::$_configs[$key] = array_merge($config_lib[$key], $config_common[$key]);
+                } else {
+                    self::$_configs[$key] = $config;
+                }
+            }
+            foreach ($config_lib as $key => $config) {
+                if (!array_key_exists($key, $config_common)) {
+                    self::$_configs[$key] = $config;
+                }
+            }
+        } else {
+            if (!isset(self::$_configs[$config_file])) {
+                $config_common = [];
+                if (defined('VSWOOLE_CONFIG_PATH') && is_dir(VSWOOLE_CONFIG_PATH)) {
+                    $config_files_common = glob(VSWOOLE_CONFIG_PATH . $config_file . VSWOOLE_CONFIG_EXT);
+                    foreach ($config_files_common as $configFile) {
                         $configInfo = pathinfo($configFile);
-                        self::$_configs[$configInfo['filename']] = isset(self::$_configs[$configInfo['filename']]) ? self::$_configs[$configInfo['filename']] : require $configFile;
+                        $config = require $configFile;
+                        is_array($config) && $config_common[$configInfo['filename']] = $config;
+                    }
+                }
+                $config_lib = [];
+                if (defined('VSWOOLE_LIB_CONF_PATH') && is_dir(VSWOOLE_LIB_CONF_PATH)) {
+                    $config_files_lib = glob(VSWOOLE_LIB_CONF_PATH . $config_file . VSWOOLE_CONFIG_EXT);
+                    foreach ($config_files_lib as $configFile) {
+                        $configInfo = pathinfo($configFile);
+                        $config = require $configFile;
+                        is_array($config) && $config_lib[$configInfo['filename']] = $config;
+                    }
+                }
+                foreach ($config_common as $key => $config) {
+                    if (array_key_exists($key, $config_lib)) {
+                        self::$_configs[$key] = isset(self::$_configs[$key]) ? self::$_configs[$key] : array_merge($config_lib[$key], $config_common[$key]);
+                    } else {
+                        self::$_configs[$key] = isset(self::$_configs[$key]) ? self::$_configs[$key] : $config;
+                    }
+                }
+                foreach ($config_lib as $key => $config) {
+                    if (!array_key_exists($key, $config_common)) {
+                        self::$_configs[$key] = isset(self::$_configs[$key]) ? self::$_configs[$key] : $config;
                     }
                 }
             }
-            self::$config_file = $config_file;
         }
 
+        self::$config_file = $config_file;
         self::$_instance = is_null(self::$_instance) ? new self() : self::$_instance;
+
         return self::$_instance;
     }
 
@@ -81,7 +130,7 @@ class Config
                 return null;
             }
         } else {
-            return self::$config_file == '*' ? self::$_configs : self::$_configs[self::$config_file];
+            return self::$config_file == '*' ? self::$_configs : (isset(self::$_configs[self::$config_file]) ? self::$_configs[self::$config_file] : null);
         }
     }
 

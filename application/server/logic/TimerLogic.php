@@ -12,7 +12,7 @@ namespace vSwoole\application\server\logic;
 
 use vSwoole\library\common\Config;
 use vSwoole\library\common\Curl;
-use vSwoole\library\common\Exception;
+use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Process;
 use vSwoole\library\common\Redis;
 
@@ -41,6 +41,7 @@ class TimerLogic
     /**
      * 添加任务
      * @param array $data
+     * @throws \ReflectionException
      */
     public function add(array $data = [])
     {
@@ -67,6 +68,7 @@ class TimerLogic
     /**
      * 运行任务
      * @param array $data
+     * @throws \ReflectionException
      */
     public function start(array $data = [])
     {
@@ -107,6 +109,7 @@ class TimerLogic
     /**
      * 暂停任务
      * @param array $data
+     * @throws \ReflectionException
      */
     public function stop(array $data = [])
     {
@@ -133,6 +136,7 @@ class TimerLogic
     /**
      * 删除任务
      * @param array $data
+     * @throws \ReflectionException
      */
     public function delete(array $data = [])
     {

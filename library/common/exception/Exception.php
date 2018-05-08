@@ -11,6 +11,7 @@ namespace vSwoole\library\common\exception;
 
 
 use Throwable;
+use vSwoole\library\common\Config;
 use vSwoole\library\common\Log;
 use vSwoole\library\common\reflection\ReflectionClass;
 use vSwoole\library\common\reflection\ReflectionFile;
@@ -128,8 +129,10 @@ class Exception extends \Exception
      */
     public static function logException(Throwable $e)
     {
-        if (defined('VSWOOLE_IS_LOG') && VSWOOLE_IS_LOG) {
-            if (self::isFatal($e->getCode())) {
+        if (Config::loadConfig()->get('is_log')) {
+            if (E_ALL == ($grade = Config::loadConfig()->get('log_grade')) || !is_array($grade)) {
+                Log::write(self::getException($e));
+            } else if (in_array($e->getCode(), $grade)) {
                 Log::write(self::getException($e));
             }
         }
@@ -144,7 +147,7 @@ class Exception extends \Exception
     {
         self::logException($exception);
 
-        if (defined('VSWOOLE_IS_DEBUG') && VSWOOLE_IS_DEBUG) {
+        if (Config::loadConfig()->get('is_debug')) {
             echo self::parseException($exception, self::Exception);
         } else {
             echo self::defaultException();
@@ -160,7 +163,7 @@ class Exception extends \Exception
     {
         self::logException($error);
 
-        if (defined('VSWOOLE_IS_DEBUG') && VSWOOLE_IS_DEBUG) {
+        if (Config::loadConfig()->get('is_debug')) {
             die(self::parseException($error, self::ERROR));
         } else {
             die(self::defaultException());
@@ -169,7 +172,7 @@ class Exception extends \Exception
 
     /**
      * 获取异常或错误信息
-     * @param \Exception $e
+     * @param Throwable $e
      * @return string
      */
     public static function getException(Throwable $e)

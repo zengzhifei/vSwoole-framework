@@ -57,12 +57,6 @@ class Utils
      */
     public static function writePid(int $pid = 0, string $pidName = '')
     {
-        if ($pidName) {
-            if (!is_dir(VSWOOLE_DATA_PID_PATH)) {
-                mkdir(VSWOOLE_DATA_PID_PATH, 755, true);
-            }
-            $pidFile = VSWOOLE_DATA_PID_PATH . $pidName . VSWOOLE_PID_EXT;
-            swoole_async_writefile($pidFile, $pid);
-        }
+        $pidName && File::write(VSWOOLE_DATA_PID_PATH . $pidName . VSWOOLE_PID_EXT, $pid);
     }
 }

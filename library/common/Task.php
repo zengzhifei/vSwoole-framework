@@ -10,6 +10,8 @@
 namespace vSwoole\library\common;
 
 
+use vSwoole\library\common\exception\Exception;
+
 class Task
 {
     /**
@@ -18,6 +20,7 @@ class Task
      * @param $callback
      * @param array $arguments
      * @param int $dst_worker_id
+     * @throws \ReflectionException
      */
     public static function task(\swoole_server $server, $callback, array $arguments = [], int $dst_worker_id = -1)
     {

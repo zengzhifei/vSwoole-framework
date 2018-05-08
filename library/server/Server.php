@@ -10,6 +10,7 @@
 namespace vSwoole\library\server;
 
 
+use vSwoole\library\common\Log;
 use vSwoole\library\common\Utils;
 
 abstract class Server
@@ -46,7 +47,7 @@ abstract class Server
         //守护进程化
         'daemonize'                => true,
         //日志
-        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'vSwoole.log',
+        'log_file'                 => 'vSwoole.log',
         //工作进程数
         'worker_num'               => 4,
         //工作线程数
@@ -116,9 +117,17 @@ abstract class Server
         // 设置服务参数
         if (!empty($this->configOptions)) {
             $cpu_cores = swoole_cpu_num();
-            $this->configOptions['worker_num'] = $cpu_cores ? $this->configOptions['worker_num'] * $cpu_cores : $this->configOptions['worker_num'];
-            $this->configOptions['reactor_num'] = $cpu_cores ? $this->configOptions['reactor_num'] * $cpu_cores : $this->configOptions['reactor_num'];
-            $this->configOptions['task_worker_num'] = $cpu_cores ? $this->configOptions['task_worker_num'] * $cpu_cores : $this->configOptions['task_worker_num'];
+            if ($cpu_cores) {
+                if ($this->configOptions['worker_num'] < 1 || $this->configOptions['worker_num'] > (4 * $cpu_cores)) {
+                    $this->configOptions['worker_num'] = 4 * $cpu_cores;
+                }
+                if ($this->configOptions['reactor_num'] < 1 || $this->configOptions['reactor_num'] > (2 * $cpu_cores)) {
+                    $this->configOptions['reactor_num'] = 2 * $cpu_cores;
+                }
+                if ($this->configOptions['task_worker_num'] < 1 || $this->configOptions['task_worker_num'] > (4 * $cpu_cores)) {
+                    $this->configOptions['task_worker_num'] = 4 * $cpu_cores;
+                }
+            }
             $this->swoole->set($this->configOptions);
         }
 
@@ -161,8 +170,8 @@ abstract class Server
         foreach ($setting as $option => $config) {
             $str .= '|' . $option . ': ' . (is_bool($config) ? ($config ? 'true' : 'false') : $config) . PHP_EOL;
         }
-        $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL;
-        swoole_async_writefile($setting['log_file'], $str, null, FILE_APPEND);
+        $str .= '+-----------------------------------------------------------------------------------------------------+';
+        Log::write($str, $setting['log_file']);
         if (!$setting['daemonize']) echo $str;
     }
 

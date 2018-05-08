@@ -21,6 +21,8 @@ defined('VSWOOLE_CONFIG_PATH') or define('VSWOOLE_CONFIG_PATH', VSWOOLE_ROOT . '
 defined('VSWOOLE_DATA_PATH') or define('VSWOOLE_DATA_PATH', VSWOOLE_ROOT . 'data/');
 //框架数据服务进程目录
 defined('VSWOOLE_DATA_PID_PATH') or define('VSWOOLE_DATA_PID_PATH', VSWOOLE_DATA_PATH . 'pid/');
+//框架文件缓存目录
+defined('VSWOOLE_DATA_CACHE_PATH') or define('VSWOOLE_DATA_CACHE_PATH', VSWOOLE_DATA_PATH . 'cache/');
 
 //框架核心根目录
 defined('VSWOOLE_LIB_PATH') or define('VSWOOLE_LIB_PATH', VSWOOLE_ROOT . 'library/');
@@ -71,15 +73,13 @@ defined('VSWOOLE_CLASS_EXT') or define('VSWOOLE_CLASS_EXT', '.php');
 defined('VSWOOLE_CONFIG_EXT') or define('VSWOOLE_CONFIG_EXT', '.php');
 //进程号文件扩展名
 defined('VSWOOLE_PID_EXT') or define('VSWOOLE_PID_EXT', '.pid');
+//缓存文件扩展名
+defined('VSWOOLE_CACHE_FILE_EXT') or define('VSWOOLE_CACHE_FILE_EXT', '.php');
 //日志文件扩展名
 defined('VSWOOLE_LOG_EXT') or define('VSWOOLE_LOG_EXT', '.log');
 
 //运行模式
 defined('VSWOOLE_IS_CLI') or define('VSWOOLE_IS_CLI', php_sapi_name() === 'cli' ? true : false);
-//是否开启调试
-defined('VSWOOLE_IS_DEBUG') or define('VSWOOLE_IS_DEBUG', true);
-//是否记录日志
-defined('VSWOOLE_IS_LOG') or define('VSWOOLE_IS_LOG', true);
 //路由
 defined('VSWOOLE_VAR_URL') or define('VSWOOLE_VAR_URL', 's');
 

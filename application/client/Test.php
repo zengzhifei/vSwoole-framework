@@ -4,18 +4,23 @@
 // +----------------------------------------------------------------------+
 // | Not Decline To Shoulder a Responsibility                             |
 // +----------------------------------------------------------------------+
-// | zengzhifei@outlook.com                                               |                  
+// | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
 namespace vSwoole\application\client;
 
-class Index
+
+use vSwoole\library\common\Utils;
+
+class Test
 {
-    public function index()
+    public function ip()
     {
-        echo <<<EOT
-             <p style="padding-left:30px;font-size: 30px;">VSwoole FrameWork</p>
-             <p style="padding-left:30px;font-size: 20px;">Swoole 微服务框架 - Not Decline To Shoulder a Responsibility</p>
-EOT;
+        echo Utils::getServerIp();
+    }
+
+    public function test()
+    {
+        throw new \vSwoole\library\common\exception\Exception(11);
     }
 }

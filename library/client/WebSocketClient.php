@@ -11,7 +11,7 @@ namespace vSwoole\library\client;
 
 
 use vSwoole\library\common\Config;
-use vSwoole\library\common\Exception;
+use vSwoole\library\common\exception\Exception;
 
 class WebSocketClient extends Client
 {
@@ -37,6 +37,7 @@ class WebSocketClient extends Client
      * 连接服务器
      * @param array $connectOptions
      * @param array $configOptions
+     * @throws \ReflectionException
      */
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {

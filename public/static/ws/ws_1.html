@@ -14,11 +14,11 @@
 <script>
     $(function () {
         interact.initConsole();
-        var ws = new WS('ws://10.4.0.100/ws', {
+        var ws = new WS('ws://10.4.0.101/ws', {
             onOpen: function (ws) {
-                var range_data = {cmd: 'range', user_id: 'user_1', range_id: 123456};
+                var range_data = {cmd: 'range', data: {user_id: 'user_1', range_id: 123456}};
                 ws.send(JSON.stringify(range_data));
-                var line = {cmd:'online',range_id:123456};
+                var line = {cmd: 'online', range_id: 123456};
                 /*setInterval(function () {
                     ws.send(JSON.stringify(line));
 

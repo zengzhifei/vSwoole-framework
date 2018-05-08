@@ -11,7 +11,7 @@ namespace vSwoole\application\server\logic;
 
 
 use think;
-use vSwoole\library\common\Exception;
+use vSwoole\library\common\exception\Exception;
 
 class HttpLogic
 {
@@ -53,6 +53,7 @@ class HttpLogic
      * 请求执行
      * @param \swoole_http_request $request
      * @param \swoole_http_response $response
+     * @throws \ReflectionException
      */
     public function execute(\swoole_http_request $request, \swoole_http_response $response)
     {
