@@ -1,0 +1,17 @@
+[2018-05-09 11:27:48] 
+vSwoole\library\common\exception\ClassNotFoundException: class vSwoole\application\server\Swoole_WebSocket_Server not exist,file path: /mnt/hgfs/demo/vSwoole/public/../application/server/Swoole_WebSocket_Server.php
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 226
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(414): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Command.php(55): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#3 /mnt/hgfs/demo/vSwoole/library/common/File.php(83): vSwoole\library\common\Command->vSwoole\library\common\{closure}('23412')
+#4 /mnt/hgfs/demo/vSwoole/library/common/Command.php(57): vSwoole\library\common\File::get('/mnt/hgfs/demo/...', Object(Closure))
+#5 /mnt/hgfs/demo/vSwoole/library/Init.php(333): vSwoole\library\common\Command->restart('Swoole_WebSocke...')
+#6 /mnt/hgfs/demo/vSwoole/library/Init.php(94): vSwoole\library\Init::restart('WebSocket')
+#7 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#8 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#9 {main}
+
+

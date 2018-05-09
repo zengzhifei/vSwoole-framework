@@ -167,11 +167,15 @@ abstract class Server
         $str .= '|' . $this->connectOptions['serverType'] . ' start ok. ' . date('Y-m-d H:i:s') . PHP_EOL;
         $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL;
         $str .= '|' . 'IP: ' . Utils::getServerIp() . PHP_EOL;
+        $str .= '|' . 'host: ' . $this->connectOptions['host'] . PHP_EOL;
+        $str .= '|' . 'port: ' . $this->connectOptions['port'] . PHP_EOL;
+        $str .= '|' . 'adminHost: ' . $this->connectOptions['adminHost'] . PHP_EOL;
+        $str .= '|' . 'adminPort: ' . $this->connectOptions['adminPort'] . PHP_EOL;
         foreach ($setting as $option => $config) {
             $str .= '|' . $option . ': ' . (is_bool($config) ? ($config ? 'true' : 'false') : $config) . PHP_EOL;
         }
-        $str .= '+-----------------------------------------------------------------------------------------------------+';
-        File::write($setting['log_file'], $str);
+        $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL . PHP_EOL;
+        File::write($setting['log_file'], $str, FILE_APPEND);
         if (!$setting['daemonize']) echo $str;
     }
 

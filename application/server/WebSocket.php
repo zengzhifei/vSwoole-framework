@@ -16,7 +16,7 @@ use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Inotify;
 use vSwoole\library\common\Process;
-use vSwoole\library\common\Redis;
+use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Task;
 use vSwoole\library\common\Utils;
 use vSwoole\library\server\WebSocketServer;

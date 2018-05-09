@@ -12,7 +12,7 @@ namespace vSwoole\application\server\logic;
 
 use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
-use vSwoole\library\common\Redis;
+use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Utils;
 
 class WebSocketLogic

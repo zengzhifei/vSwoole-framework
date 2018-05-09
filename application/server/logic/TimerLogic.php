@@ -14,7 +14,7 @@ use vSwoole\library\common\Config;
 use vSwoole\library\common\Curl;
 use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Process;
-use vSwoole\library\common\Redis;
+use vSwoole\library\common\cache\Redis;
 
 class TimerLogic
 {

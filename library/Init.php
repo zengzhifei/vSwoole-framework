@@ -19,6 +19,113 @@ use vSwoole\library\common\exception\Exception;
 class Init
 {
     /**
+     * 执行命令
+     * @throws \Exception
+     */
+    public static function cmd()
+    {
+        $commands = [
+            'default'  => 'You can input the following commands:' . PHP_EOL,
+            'start'    => '  start servername' . '       you can start a server[WebSocket,Http,Udp]' . PHP_EOL,
+            'build'    => '  build servername' . '       you can build a new server' . PHP_EOL,
+            'reload'   => '  reload servername' . '      you can reload has runing server' . PHP_EOL,
+            'shutdown' => '  shutdown servername' . '    you can shutdown has runing server' . PHP_EOL,
+            'clear'    => '  clear' . '                  you can clear the logs of the vswoole framework' . PHP_EOL,
+            'install'  => '  install' . '                you can install the necessary directory in the vswoole framework' . PHP_EOL,
+            'help'     => '  help' . '                   you can get help about vswoole framework' . PHP_EOL,
+        ];
+
+        $cmd = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
+        switch (strtolower($cmd)) {
+            case 'start':
+                if (count($_SERVER['argv']) !== 3) {
+                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::start()->runServer($_SERVER['argv'][2]);
+                }
+                break;
+            case 'clear':
+                if (count($_SERVER['argv']) > 2) {
+                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::clear();
+                }
+                break;
+            case 'install':
+                if (count($_SERVER['argv']) > 2) {
+                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::install();
+                }
+                break;
+            case 'build':
+                if (count($_SERVER['argv']) > 3) {
+                    echo "command: '{$cmd}' require arguments server name and do not require more arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else if (count($_SERVER['argv']) == 2) {
+                    echo "will build a Demo server for you..." . PHP_EOL;
+                    self::build();
+                } else {
+                    self::build($_SERVER['argv'][2]);
+                }
+                break;
+            case 'reload':
+                if (count($_SERVER['argv']) !== 3) {
+                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::reload($_SERVER['argv'][2]);
+                }
+                break;
+            case 'restart':
+                if (count($_SERVER['argv']) !== 3) {
+                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::restart($_SERVER['argv'][2]);
+                }
+                break;
+            case 'shutdown':
+                if (count($_SERVER['argv']) !== 3) {
+                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::shutdown($_SERVER['argv'][2]);
+                }
+                break;
+            case 'help':
+                $help_cmd = isset($_SERVER['argv'][2]) ? strtolower($_SERVER['argv'][2]) : '';
+                if (array_key_exists($help_cmd, $commands)) {
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$help_cmd];
+                } else {
+                    echo join('', $commands);
+                }
+                break;
+            case '':
+                echo join('', $commands);
+                break;
+            case 'test':
+                self::test();
+                break;
+            default:
+                echo "command: '{$cmd}' is invalid" . PHP_EOL;
+                echo join('', $commands);
+                break;
+        }
+    }
+
+    /**
      * 框架初始化检测
      */
     private static function initCheck()
@@ -126,7 +233,7 @@ class Init
      */
     private static function exceptionRegister()
     {
-        require VSWOOLE_ROOT . 'library/common/exception/Exception.php';
+        require_once VSWOOLE_ROOT . 'library/common/exception/Exception.php';
         Exception::register();
     }
 
@@ -154,7 +261,7 @@ class Init
     private static function build(string $serverName = 'Demo')
     {
         self::initConvention();
-        require VSWOOLE_ROOT . 'library/common/Build.php';
+        require_once VSWOOLE_ROOT . 'library/common/Build.php';
         if (!Build::build($serverName)) {
             die('Build the server failure,and the server file has already existed.' . PHP_EOL);
         }
@@ -169,9 +276,7 @@ class Init
         if (!defined('VSWOOLE_LOG_PATH') || !defined('VSWOOLE_LOG_SERVER_PATH') || !defined('VSWOOLE_LOG_CLIENT_PATH')) {
             self::initConvention();
         }
-
         $dir = $dir ? $dir : VSWOOLE_LOG_PATH;
-
         if (is_dir($dir)) {
             $files = scandir($dir);
             foreach ($files as $file) {
@@ -189,7 +294,7 @@ class Init
     }
 
     /**
-     * 重启指定服务
+     * 重载指定服务工作进程
      * @param string $serverName
      */
     private static function reload(string $serverName = '')
@@ -211,7 +316,35 @@ class Init
                 Command::getInstance()->reload(VSWOOLE_UDP_SERVER);
                 break;
             default:
-                die('Reload the server failure,and the server is not running.' . PHP_EOL);
+                die('Reload the server failure,and the server is not exist.' . PHP_EOL);
+                break;
+        }
+    }
+
+    /**
+     * 重启指定服务
+     * @param string $serverName
+     */
+    private static function restart(string $serverName = '')
+    {
+        self::initConvention();
+        self::exceptionRegister();
+        self::autoloadRegister();
+        switch ($serverName) {
+            case 'WebSocket':
+                Command::getInstance()->restart($serverName, VSWOOLE_WEB_SOCKET_SERVER);
+                break;
+            case 'Http':
+                Command::getInstance()->restart($serverName, VSWOOLE_HTTP_SERVER);
+                break;
+            case 'Timer':
+                Command::getInstance()->restart($serverName, VSWOOLE_TIMER_SERVER);
+                break;
+            case 'Udp':
+                Command::getInstance()->restart($serverName, VSWOOLE_UDP_SERVER);
+                break;
+            default:
+                die('Restart the server failure,and the server is not exist.' . PHP_EOL);
                 break;
         }
     }
@@ -226,20 +359,20 @@ class Init
         self::exceptionRegister();
         self::autoloadRegister();
         switch ($serverName) {
-            case 'websocket':
+            case 'WebSocket':
                 Command::getInstance()->shutdown(VSWOOLE_WEB_SOCKET_SERVER);
                 break;
-            case 'http':
+            case 'Http':
                 Command::getInstance()->shutdown(VSWOOLE_HTTP_SERVER);
                 break;
-            case 'timer':
+            case 'Timer':
                 Command::getInstance()->shutdown(VSWOOLE_TIMER_SERVER);
                 break;
-            case 'udp':
+            case 'Udp':
                 Command::getInstance()->shutdown(VSWOOLE_UDP_SERVER);
                 break;
             default:
-                die('Shutdown the server failure,and the server is not running.' . PHP_EOL);
+                die('Shutdown the server failure,and the server is not exist.' . PHP_EOL);
                 break;
         }
     }
@@ -253,104 +386,6 @@ class Init
         self::exceptionRegister();
         self::autoloadRegister();
 
-    }
-
-    /**
-     * 执行命令
-     * @throws \Exception
-     */
-    public static function cmd()
-    {
-        $commands = [
-            'default'  => 'You can input the following commands:' . PHP_EOL,
-            'start'    => '  start servername' . '       you can start a server[WebSocket,Http,Udp]' . PHP_EOL,
-            'build'    => '  build servername' . '       you can build a new server' . PHP_EOL,
-            'reload'   => '  reload servername' . '      you can reload has runing server' . PHP_EOL,
-            'shutdown' => '  shutdown servername' . '    you can shutdown has runing server' . PHP_EOL,
-            'clear'    => '  clear' . '                  you can clear the logs of the vswoole framework' . PHP_EOL,
-            'install'  => '  install' . '                you can install the necessary directory in the vswoole framework' . PHP_EOL,
-            'help'     => '  help' . '                   you can get help about vswoole framework' . PHP_EOL,
-        ];
-
-        $cmd = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
-        switch (strtolower($cmd)) {
-            case 'start':
-                if (count($_SERVER['argv']) !== 3) {
-                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else {
-                    self::start()->runServer($_SERVER['argv'][2]);
-                }
-                break;
-            case 'clear':
-                if (count($_SERVER['argv']) > 2) {
-                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else {
-                    self::clear();
-                }
-                break;
-            case 'install':
-                if (count($_SERVER['argv']) > 2) {
-                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else {
-                    self::install();
-                }
-                break;
-            case 'build':
-                if (count($_SERVER['argv']) > 3) {
-                    echo "command: '{$cmd}' require arguments server name and do not require more arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else if (count($_SERVER['argv']) == 2) {
-                    echo "will build a Demo server for you..." . PHP_EOL;
-                    self::build();
-                } else {
-                    self::build($_SERVER['argv'][2]);
-                }
-                break;
-            case 'reload':
-                if (count($_SERVER['argv']) !== 3) {
-                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else {
-                    self::reload($_SERVER['argv'][2]);
-                }
-                break;
-            case 'shutdown':
-                if (count($_SERVER['argv']) !== 3) {
-                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else {
-                    self::shutdown($_SERVER['argv'][2]);
-                }
-                break;
-            case 'help':
-                $help_cmd = isset($_SERVER['argv'][2]) ? strtolower($_SERVER['argv'][2]) : '';
-                if (array_key_exists($help_cmd, $commands)) {
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$help_cmd];
-                } else {
-                    echo join('', $commands);
-                }
-                break;
-            case '':
-                echo join('', $commands);
-                break;
-            case 'test':
-                self::test();
-                break;
-            default:
-                echo "command: '{$cmd}' is invalid" . PHP_EOL;
-                echo join('', $commands);
-                break;
-        }
     }
 
     /**
@@ -375,7 +410,7 @@ class Init
      * 启动框架服务
      * @param string $class
      */
-    private function runServer(string $class)
+    public function runServer(string $class)
     {
         $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
         $server = new $class;

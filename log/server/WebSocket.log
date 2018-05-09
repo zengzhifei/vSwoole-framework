@@ -1,5 +1,5 @@
 +-----------------------------------------------------------------------------------------------------+
-|Swoole_WebSocket_Server start ok. 2018-05-08 19:35:26
+|Swoole_WebSocket_Server start ok. 2018-05-09 09:33:35
 +-----------------------------------------------------------------------------------------------------+
 |IP: 10.4.0.101
 |daemonize: false
@@ -19,3 +19,345 @@
 |open_length_check: false
 |open_websocket_protocol: true
 +-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 09:33:42
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 09:39:34
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 09:40:08
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 09:40:33
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 1
+|reactor_num: 1
+|task_worker_num: 1
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 10:40:34 #21020.1]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 10:43:28
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 10:43:31 #22414.2]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 10:45:28
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: true
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 10:48:45 #22477.2]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 10:48:55
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: true
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 11:19:03 #22560.2]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 11:19:42
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: true
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 11:19:53 #23226.2]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 11:27:39
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: true
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 11:27:48 #23412.2]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 11:39:37
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: true
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 11:39:43 #23677.2]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 11:39:43
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: true
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 11:40:17 #23696.2]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 11:40:17
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 11:40:34 #23737.2]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 11:40:34
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+

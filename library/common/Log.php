@@ -26,7 +26,7 @@ class Log
         if (VSWOOLE_IS_CLI) {
             $logFile = VSWOOLE_LOG_SERVER_PATH . date('Ym') . '/' . date('d') . '/' . $fileName;
             $content = '[' . date('Y-m-d H:i:s') . '] ' . PHP_EOL . $content . PHP_EOL . PHP_EOL;
-            File::write($logFile, $content);
+            File::write($logFile, $content, $mode, $callback);
         } else {
             trigger_error('async-io method write only in cli mode');
         }

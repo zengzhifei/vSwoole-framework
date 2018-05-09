@@ -7,7 +7,7 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace vSwoole\library\common;
+namespace vSwoole\library\common\cache;
 
 class Redis
 {
