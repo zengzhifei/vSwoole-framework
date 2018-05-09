@@ -42,8 +42,8 @@ class WebSocketClient extends Client
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
-            $connectOptions = array_merge(Config::loadConfig('websocket')->get('ws_client_connect'), $connectOptions);
-            $configOptions = array_merge(Config::loadConfig('websocket')->get('ws_client_config'), $configOptions);
+            $connectOptions = array_merge(Config::loadConfig('websocket')->get('client_connect'), $connectOptions);
+            $configOptions = array_merge(Config::loadConfig('websocket')->get('client_config'), $configOptions);
             if (false !== parent::__construct($connectOptions, $configOptions)) {
                 $this->key = $this->generateToken();
                 $this->header = $this->createHeader($connectOptions['host'], $connectOptions['port']);

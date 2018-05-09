@@ -361,3 +361,176 @@
 |open_websocket_protocol: true
 +-----------------------------------------------------------------------------------------------------+
 
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 15:17:28
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 16:26:04
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 16:26:04 *29970.2]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:04 ^29966.6]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:04 $29959.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:04 ^29964.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:04 *29968.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:04 $29959.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:04 ^29976.6]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:04 *29969.1]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 *29971.3]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 *29975.2]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 *29986.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 ^29967.7]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 ^29965.5]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 *29991.2]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 *29987.1]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 ^29983.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 *29988.3]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 *29994.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 ^30001.7]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 ^30003.5]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 *30005.1]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 ^29999.6]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 *30006.3]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 *30007.2]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 ^30004.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 ^30011.7]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 ^30012.5]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 ^30016.6]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 *30010.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 *30020.2]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 ^30026.5]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 ^30025.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 *30019.3]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 ^30027.7]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 *30015.1]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 ^30034.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 ^30040.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 *30031.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 *30032.2]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#4 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 ^30033.5]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:05 *30037.3]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 *30039.1]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 $29959.0]	WARNING	swManager_check_exit_status: worker#5 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:05 *30050.2]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:05 ^30028.6]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:06 ^30038.7]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:06 $29959.0]	WARNING	swManager_check_exit_status: worker#6 abnormal exit, status=255, signal=0
+[2018-05-09 16:26:06 ^30047.4]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:06 ^30053.5]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
+[2018-05-09 16:26:06 *30054.1]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
+[2018-05-09 16:26:06 ^30057.6]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: swoole_async_writefile(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/File.php on line 70.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 16:30:03
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 4
+|reactor_num: 2
+|task_worker_num: 4
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 16:31:31 $30140.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-09 16:32:16
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 1
+|reactor_num: 1
+|task_worker_num: 1
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-09 16:33:05 $30216.0]	NOTICE	Server is reloading now.

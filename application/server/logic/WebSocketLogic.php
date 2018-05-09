@@ -23,7 +23,7 @@ class WebSocketLogic
      */
     public function __construct(\swoole_websocket_server $server)
     {
-        $GLOBALS['webSocket'] = $server;
+        $GLOBALS['WebSocket'] = $server;
     }
 
     /**
@@ -43,7 +43,7 @@ class WebSocketLogic
             $link_info = $redis->hGet($link_key, $frame->fd);
             if (false !== $link_info) {
                 $link_info = json_decode($link_info, true);
-                if ($link_info['server_port'] == Config::loadConfig('websocket')->get('ws_server_connect.port')) {
+                if ($link_info['server_port'] == Config::loadConfig('websocket')->get('server_connect.port')) {
                     $data = json_decode($frame->data, true);
                     $data = $data['data'];
                     if (isset($data['user_id']) && $data['user_id']) {
@@ -83,7 +83,7 @@ class WebSocketLogic
             if (isset($data['range_id']) && $data['range_id']) {
                 $user_key = $userKey . '_' . $data['range_id'];
                 $online = $redis->hLen($user_key);
-                $GLOBALS['webSocket']->push($frame->fd, json_encode(['status' => 1, 'data' => $online]));
+                $GLOBALS['WebSocket']->push($frame->fd, json_encode(['status' => 1, 'data' => $online]));
             }
         } catch (\Exception $e) {
             Exception::reportException($e);
@@ -128,7 +128,7 @@ class WebSocketLogic
             $link_info = $redis->hGet($link_key, $frame->fd);
             if (false !== $link_info) {
                 $link_info = json_decode($link_info, true);
-                if ($link_info['server_port'] == Config::loadConfig('websocket')->get('ws_server_connect.adminPort')) {
+                if ($link_info['server_port'] == Config::loadConfig('websocket')->get('server_connect.adminPort')) {
                     $data = json_decode($frame->data, true);
                     $data = $data['data'];
                     if (isset($data['range_id']) && $data['range_id']) {
@@ -139,8 +139,8 @@ class WebSocketLogic
                             if (false !== $user_info) {
                                 $user_info = json_decode($user_info, true);
                                 $push_data = json_decode($frame->data, true);
-                                if ($user_info['server_ip'] == $server_ip && $GLOBALS['webSocket']->exist($user_info['fd'])) {
-                                    $res = $GLOBALS['webSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
+                                if ($user_info['server_ip'] == $server_ip && $GLOBALS['WebSocket']->exist($user_info['fd'])) {
+                                    $res = $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
                                 }
                             }
                             //推送所有用户
@@ -151,8 +151,8 @@ class WebSocketLogic
                                 $push_data = json_decode($frame->data, true);
                                 foreach ($user_list as $user_info) {
                                     $user_info = json_decode($user_info, true);
-                                    if (isset($user_info['fd']) && $GLOBALS['webSocket']->exist($user_info['fd'])) {
-                                        $GLOBALS['webSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
+                                    if (isset($user_info['fd']) && $GLOBALS['WebSocket']->exist($user_info['fd'])) {
+                                        $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
                                     }
                                 }
                             }

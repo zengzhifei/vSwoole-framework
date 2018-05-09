@@ -9,7 +9,7 @@
 
 return [
     //服务端连接配置
-    'udp_server_connect' => [
+    'server_connect' => [
         //服务类型
         'serverType'        => VSWOOLE_UDP_SERVER,
         //监听IP
@@ -34,7 +34,7 @@ return [
         'callbackEventList' => [],
     ],
     //服务端配置
-    'udp_server_config'  => [
+    'server_config'  => [
         //守护进程化
         'daemonize'                => false,
         //日志
@@ -59,7 +59,7 @@ return [
         'ssl_key_file'             => 'server.key',
     ],
     //管理客户端连接配置
-    'udp_client_connect' => [
+    'client_connect' => [
         //服务Sock类型
         'sockType'      => SWOOLE_SOCK_UDP,
         //同步异步(PHP-FPM/APACHE模式下只允许同步)
@@ -76,11 +76,11 @@ return [
         'flag'          => 0,
     ],
     //客户端配置
-    'udp_client_config'  => [
+    'client_config'  => [
 
     ],
     //其他配置
-    'udp_other_config'   => [
+    'other_config'   => [
         'is_cache_config' => true,
     ]
 ];

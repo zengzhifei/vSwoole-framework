@@ -18,7 +18,7 @@ class UdpLogic
      */
     public function __construct(\swoole_server $server)
     {
-        $GLOBALS['udp'] = $server;
+        $GLOBALS['Udp'] = $server;
     }
 
     /**

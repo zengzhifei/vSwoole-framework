@@ -14,7 +14,7 @@ use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Utils;
 
-class TimerServer extends Server
+class CrontabServer extends Server
 {
     /**
      * 启动服务器
@@ -25,11 +25,11 @@ class TimerServer extends Server
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
-            $timer_server_connect = array_merge(Config::loadConfig('timer')->get('timer_server_connect'), $connectOptions);
-            $timer_server_config = array_merge(Config::loadConfig('timer')->get('timer_server_config'), $configOptions);
+            $server_connect = array_merge(Config::loadConfig('crontab')->get('server_connect'), $connectOptions);
+            $server_config = array_merge(Config::loadConfig('crontab')->get('server_config'), $configOptions);
 
-            if (!parent::__construct($timer_server_connect, $timer_server_config)) {
-                throw new \Exception("Swoole Timer Server start failed", $this->swoole->getLastError());
+            if (!parent::__construct($server_connect, $server_config)) {
+                throw new \Exception("Swoole Crontab Server start failed", $this->swoole->getLastError());
             }
         } catch (\Exception $e) {
             Exception::reportError($e);
@@ -46,13 +46,13 @@ class TimerServer extends Server
         $this->startShowServerInfo();
         //设置主进程别名
         if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_TIMER_SERVER . ' master');
+            @cli_set_process_title(VSWOOLE_CRONTAB_SERVER . ' master');
         } else {
-            @swoole_set_process_name(VSWOOLE_TIMER_SERVER . ' master');
+            @swoole_set_process_name(VSWOOLE_CRONTAB_SERVER . ' master');
         }
         //异步记录服务进程PID
-        Utils::writePid($server->master_pid, VSWOOLE_TIMER_SERVER . '_Master');
-        Utils::writePid($server->manager_pid, VSWOOLE_TIMER_SERVER . '_Manager');
+        Utils::writePid($server->master_pid, VSWOOLE_CRONTAB_SERVER . '_Master');
+        Utils::writePid($server->manager_pid, VSWOOLE_CRONTAB_SERVER . '_Manager');
     }
 
     /**
@@ -70,7 +70,12 @@ class TimerServer extends Server
      */
     public function onManagerStart(\swoole_server $server)
     {
-
+        //设置管理进程别名
+        if (function_exists('cli_set_process_title')) {
+            @cli_set_process_title(VSWOOLE_CRONTAB_SERVER . ' manager');
+        } else {
+            @swoole_set_process_name(VSWOOLE_CRONTAB_SERVER . ' manager');
+        }
     }
 
     /**
@@ -89,7 +94,15 @@ class TimerServer extends Server
      */
     public function onWorkerStart(\swoole_server $server, int $worker_id)
     {
-        $is_cache = Config::loadConfig('timer')->get('timer_other_config.is_cache_config');
+        //设置工作进程别名
+        $worker_name = $server->taskworker ? ' tasker_' . $worker_id : ' worker_' . $worker_id;
+        if (function_exists('cli_set_process_title')) {
+            @cli_set_process_title(VSWOOLE_CRONTAB_SERVER . $worker_name);
+        } else {
+            @swoole_set_process_name(VSWOOLE_CRONTAB_SERVER . $worker_name);
+        }
+        //缓存配置
+        $is_cache = Config::loadConfig('crontab')->get('other_config.is_cache_config');
         $is_cache && Config::cacheConfig();
     }
 

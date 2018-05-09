@@ -21,7 +21,7 @@ class HttpLogic
      */
     public function __construct(\swoole_http_server $server)
     {
-        $GLOBALS['http'] = $server;
+        $GLOBALS['Http'] = $server;
 
         $this->loadFrameWork();
     }

@@ -26,7 +26,7 @@ class Init
     {
         $commands = [
             'default'  => 'You can input the following commands:' . PHP_EOL,
-            'start'    => '  start servername' . '       you can start a server[WebSocket,Http,Udp]' . PHP_EOL,
+            'start'    => '  start servername' . '       you can start a server[WebSocket,Crontab,Http,Udp]' . PHP_EOL,
             'build'    => '  build servername' . '       you can build a new server' . PHP_EOL,
             'reload'   => '  reload servername' . '      you can reload has runing server' . PHP_EOL,
             'shutdown' => '  shutdown servername' . '    you can shutdown has runing server' . PHP_EOL,
@@ -302,22 +302,11 @@ class Init
         self::initConvention();
         self::exceptionRegister();
         self::autoloadRegister();
-        switch ($serverName) {
-            case 'WebSocket':
-                Command::getInstance()->reload(VSWOOLE_WEB_SOCKET_SERVER);
-                break;
-            case 'Http':
-                Command::getInstance()->reload(VSWOOLE_HTTP_SERVER);
-                break;
-            case 'Timer':
-                Command::getInstance()->reload(VSWOOLE_TIMER_SERVER);
-                break;
-            case 'Udp':
-                Command::getInstance()->reload(VSWOOLE_UDP_SERVER);
-                break;
-            default:
-                die('Reload the server failure,and the server is not exist.' . PHP_EOL);
-                break;
+        $server_list = Config::loadConfig()->get('server_list');
+        if (array_key_exists($serverName, $server_list)) {
+            Command::getInstance()->reload($server_list[$serverName]);
+        } else {
+            die('Reload the server failure,and the server is not exist.' . PHP_EOL);
         }
     }
 
@@ -330,22 +319,11 @@ class Init
         self::initConvention();
         self::exceptionRegister();
         self::autoloadRegister();
-        switch ($serverName) {
-            case 'WebSocket':
-                Command::getInstance()->restart($serverName, VSWOOLE_WEB_SOCKET_SERVER);
-                break;
-            case 'Http':
-                Command::getInstance()->restart($serverName, VSWOOLE_HTTP_SERVER);
-                break;
-            case 'Timer':
-                Command::getInstance()->restart($serverName, VSWOOLE_TIMER_SERVER);
-                break;
-            case 'Udp':
-                Command::getInstance()->restart($serverName, VSWOOLE_UDP_SERVER);
-                break;
-            default:
-                die('Restart the server failure,and the server is not exist.' . PHP_EOL);
-                break;
+        $server_list = Config::loadConfig()->get('server_list');
+        if (array_key_exists($serverName, $server_list)) {
+            Command::getInstance()->restart($serverName, $server_list[$serverName]);
+        } else {
+            die('Restart the server failure,and the server is not exist.' . PHP_EOL);
         }
     }
 
@@ -358,22 +336,11 @@ class Init
         self::initConvention();
         self::exceptionRegister();
         self::autoloadRegister();
-        switch ($serverName) {
-            case 'WebSocket':
-                Command::getInstance()->shutdown(VSWOOLE_WEB_SOCKET_SERVER);
-                break;
-            case 'Http':
-                Command::getInstance()->shutdown(VSWOOLE_HTTP_SERVER);
-                break;
-            case 'Timer':
-                Command::getInstance()->shutdown(VSWOOLE_TIMER_SERVER);
-                break;
-            case 'Udp':
-                Command::getInstance()->shutdown(VSWOOLE_UDP_SERVER);
-                break;
-            default:
-                die('Shutdown the server failure,and the server is not exist.' . PHP_EOL);
-                break;
+        $server_list = Config::loadConfig()->get('server_list');
+        if (array_key_exists($serverName, $server_list)) {
+            Command::getInstance()->shutdown($server_list[$serverName]);
+        } else {
+            die('Shutdown the server failure,and the server is not exist.' . PHP_EOL);
         }
     }
 

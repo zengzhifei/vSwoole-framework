@@ -10,14 +10,14 @@
 namespace vSwoole\application\client;
 
 
-use vSwoole\library\client\TimerClient;
+use vSwoole\library\client\CrontabClient;
 use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Request;
 use vSwoole\library\common\Response;
 
-class Timer extends TimerClient
+class Crontab extends CrontabClient
 {
     /**
      * 连接服务器
@@ -38,7 +38,7 @@ class Timer extends TimerClient
     {
         try {
             $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            $task_list = $redis->hGetAll(Config::loadConfig('redis')->get('redis_key.Timer.Task_List'));
+            $task_list = $redis->hGetAll(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'));
             if ($task_list) {
                 foreach ($task_list as $key => $task) {
                     $task_list[$key] = json_decode($task, true);
@@ -57,10 +57,11 @@ class Timer extends TimerClient
      */
     public function addTask()
     {
-        $task_url = Request::getInstance()->param('task_url', null);
-        $task_num = Request::getInstance()->param('task_num', 1);
+        $task_cmd = Request::getInstance()->param('task_cmd', '');
+        $task_url = Request::getInstance()->param('task_url', '');
+        $task_name = Request::getInstance()->param('task_name', '');
+        $task_number = Request::getInstance()->param('task_number', 1);
         $task_time = Request::getInstance()->param('task_time', 100);
-        $task_name = Request::getInstance()->param('task_name', null);
 
         if (null === $task_url) {
             Response::return(['status' => -1, 'msg' => 'Arguments task_url is empty']);
@@ -68,7 +69,8 @@ class Timer extends TimerClient
             Response::return(['status' => -1, 'msg' => 'Arguments task_url is invalid']);
         }
 
-        $res = $this->execute('add', ['task_url' => $task_url, 'task_num' => $task_num, 'task_time' => $task_time, 'task_name' => $task_name]);
+        $data = ['task_cmd' => $task_cmd, 'task_url' => $task_url, 'task_name' => $task_name, 'task_number' => $task_number, 'task_time' => $task_time];
+        $res = $this->execute('add', $data);
         if ($res) {
             Response::return(['status' => 1, 'msg' => 'success']);
         } else {

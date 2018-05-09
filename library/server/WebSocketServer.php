@@ -25,10 +25,10 @@ class WebSocketServer extends Server
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
-            $ws_server_connect = array_merge(Config::loadConfig('websocket')->get('ws_server_connect'), $connectOptions);
-            $ws_server_config = array_merge(Config::loadConfig('websocket')->get('ws_server_config'), $configOptions);
+            $server_connect = array_merge(Config::loadConfig('websocket')->get('server_connect'), $connectOptions);
+            $erver_config = array_merge(Config::loadConfig('websocket')->get('server_config'), $configOptions);
 
-            if (!parent::__construct($ws_server_connect, $ws_server_config)) {
+            if (!parent::__construct($server_connect, $erver_config)) {
                 throw new \Exception("Swoole WebSocket Server start failed", $this->swoole->getLastError());
             }
         } catch (\Exception $e) {
@@ -70,7 +70,12 @@ class WebSocketServer extends Server
      */
     public function onManagerStart(\swoole_server $server)
     {
-
+        //设置管理进程别名
+        if (function_exists('cli_set_process_title')) {
+            @cli_set_process_title(VSWOOLE_WEB_SOCKET_SERVER . ' manager');
+        } else {
+            @swoole_set_process_name(VSWOOLE_WEB_SOCKET_SERVER . ' manager');
+        }
     }
 
     /**
@@ -89,7 +94,15 @@ class WebSocketServer extends Server
      */
     public function onWorkerStart(\swoole_server $server, int $worker_id)
     {
-        $is_cache = Config::loadConfig('websocket')->get('ws_other_config.is_cache_config');
+        //设置工作进程别名
+        $worker_name = $server->taskworker ? ' tasker_' . $worker_id : ' worker_' . $worker_id;
+        if (function_exists('cli_set_process_title')) {
+            @cli_set_process_title(VSWOOLE_CRONTAB_SERVER . $worker_name);
+        } else {
+            @swoole_set_process_name(VSWOOLE_CRONTAB_SERVER . $worker_name);
+        }
+        //缓存配置
+        $is_cache = Config::loadConfig('websocket')->get('other_config.is_cache_config');
         $is_cache && Config::cacheConfig();
     }
 
@@ -242,7 +255,7 @@ class WebSocketServer extends Server
         //向PHP-FPM 或Apache 模式的管理客户端返回数据接收成功状态
         if ($frame->finish) {
             $client_info = $server->getClientInfo($frame->fd);
-            $admin_port = Config::loadConfig('websocket')->get('ws_server_connect.adminPort');
+            $admin_port = Config::loadConfig('websocket')->get('server_connect.adminPort');
             if ($client_info && $admin_port == $client_info['server_port']) {
                 $server->push($frame->fd, 'ok');
             }

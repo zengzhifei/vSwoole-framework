@@ -10,11 +10,18 @@
 
 return [
     //是否开启调试
-    'is_debug'  => true,
+    'is_debug'    => true,
     //是否记录日志
-    'is_log'    => true,
+    'is_log'      => true,
     //日志记录级别
-    'log_grade' => E_ALL,
+    'log_grade'   => E_ALL,
     //时区
-    'timezone'  => 'PRC',
+    'timezone'    => 'PRC',
+    //服务
+    'server_list' => [
+        'WebSocket' => VSWOOLE_WEB_SOCKET_SERVER,
+        'Crontab'   => VSWOOLE_CRONTAB_SERVER,
+        'Http'      => VSWOOLE_HTTP_SERVER,
+        'Udp'       => VSWOOLE_UDP_SERVER,
+    ],
 ];

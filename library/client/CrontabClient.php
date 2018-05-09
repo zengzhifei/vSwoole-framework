@@ -13,7 +13,7 @@ namespace vSwoole\library\client;
 use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
 
-class TimerClient extends Client
+class CrontabClient extends Client
 {
     /**
      * 连接服务器
@@ -24,8 +24,8 @@ class TimerClient extends Client
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
-            $connectOptions = array_merge(Config::loadConfig('timer')->get('timer_client_connect'), $connectOptions);
-            $configOptions = array_merge(Config::loadConfig('timer')->get('timer_client_config'), $configOptions);
+            $connectOptions = array_merge(Config::loadConfig('crontab')->get('client_connect'), $connectOptions);
+            $configOptions = array_merge(Config::loadConfig('crontab')->get('client_config'), $configOptions);
             if (false !== parent::__construct($connectOptions, $configOptions)) {
                 return $this->client;
             } else {

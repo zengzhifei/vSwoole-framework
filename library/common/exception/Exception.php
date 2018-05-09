@@ -77,10 +77,10 @@ class Exception extends \Exception
     public static function swooleShutdown()
     {
         if (!is_null($error = error_get_last())) {
-            $error = new self($error['message'], $error['type']);
-            $error->file = $error['file'];
-            $error->line = $error['line'];
-            defined('VSWOOLE_IS_CLI') && VSWOOLE_IS_CLI ? self::reportException($error) : self::reportError($error);
+            $e = new ErrorException($error['message'], $error['type']);
+            $e->file = $error['file'];
+            $e->line = $error['line'];
+            defined('VSWOOLE_IS_CLI') && VSWOOLE_IS_CLI ? self::reportException($e) : self::reportError($e);
         }
     }
 
@@ -130,10 +130,11 @@ class Exception extends \Exception
     public static function logException(Throwable $e)
     {
         if (Config::loadConfig()->get('is_log')) {
-            if (E_ALL == ($grade = Config::loadConfig()->get('log_grade')) || !is_array($grade)) {
-                Log::write(self::getException($e));
-            } else if (in_array($e->getCode(), $grade)) {
-                Log::write(self::getException($e));
+            $grade = Config::loadConfig()->get('log_grade');
+            if (is_int($grade) && (E_ALL == $grade || $e->getCode() == $grade)) {
+                VSWOOLE_IS_CLI ? Log::write(self::getException($e)) : Log::save(self::getException($e));
+            } else if (is_array($grade) && in_array($e->getCode(), $grade)) {
+                VSWOOLE_IS_CLI ? Log::write(self::getException($e)) : Log::save(self::getException($e));
             }
         }
     }
@@ -187,7 +188,7 @@ class Exception extends \Exception
         $exception_string .= 'In ' . $file . ': ' . $line . PHP_EOL;
         $exception_string .= 'Exception Code: ' . self::getErrorGrade($code) . '[' . $code . ']' . PHP_EOL;
         $exception_string .= 'Exception Trace: ' . PHP_EOL;
-        $exception_string .= $trace . PHP_EOL;
+        $exception_string .= $trace;
 
         return $exception_string;
     }
@@ -281,7 +282,7 @@ class Exception extends \Exception
                     </tr>
                     <tr>
                         <td style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}代码</td>
-                        <td style="background:#F0F0F0;border:1px solid #cad9ea;padding:0 1em 0;text-align: left;"><pre><code class="php" style="font-size: 1.0rem;">{$trace}</code></pre></td>
+                        <td style="max-width: 400px;background:#F0F0F0;border:1px solid #cad9ea;padding:0 1em 0;text-align: left;"><pre><code class="php" style="font-size: 1.0rem;">{$trace}</code></pre></td>
                     </tr>
                 </table> 
                 <script>hljs.initHighlightingOnLoad();</script>

@@ -15,3 +15,333 @@ Exception Trace:
 #9 {main}
 
 
+[2018-05-09 14:32:26] 
+vSwoole\library\common\exception\Exception: Array to string conversion
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 132
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(132): vSwoole\library\common\exception\Exception::swooleError(8, 'Array to string...', '/mnt/hgfs/demo/...', 132, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/logic/TimerLogic.php(92): vSwoole\library\common\cache\Redis->__call('hSet', Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Timer.php(86): vSwoole\application\server\logic\TimerLogic->add(Array)
+#3 {main}
+
+[2018-05-09 14:32:41] 
+vSwoole\library\common\exception\Exception: Array to string conversion
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 132
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(132): vSwoole\library\common\exception\Exception::swooleError(8, 'Array to string...', '/mnt/hgfs/demo/...', 132, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/logic/TimerLogic.php(92): vSwoole\library\common\cache\Redis->__call('hSet', Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Timer.php(86): vSwoole\application\server\logic\TimerLogic->add(Array)
+#3 {main}
+
+[2018-05-09 14:33:51] 
+vSwoole\library\common\exception\Exception: Array to string conversion
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 133
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(133): vSwoole\library\common\exception\Exception::swooleError(8, 'Array to string...', '/mnt/hgfs/demo/...', 133, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/logic/TimerLogic.php(92): vSwoole\library\common\cache\Redis->__call('hSet', Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Timer.php(86): vSwoole\application\server\logic\TimerLogic->add(Array)
+#3 {main}
+
+[2018-05-09 16:26:04] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:04] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 3)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 3)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:04] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 1)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 1)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 3)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 3)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 0)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 0)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 1)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 1)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 3)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 3)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 0)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 0)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 3)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 3)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 1)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 1)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 0)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 0)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-09 16:26:05] 
+vSwoole\library\common\exception\Exception: Use of undefined constant VSWOOLE_TIMER_SERVER - assumed 'VSWOOLE_TIMER_SERVER'
+In /mnt/hgfs/demo/vSwoole/configs/timer.php: 14
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/configs/timer.php(14): vSwoole\library\common\exception\Exception::swooleError(8, 'Use of undefine...', '/mnt/hgfs/demo/...', 14, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Config.php(37): require('/mnt/hgfs/demo/...')
+#2 /mnt/hgfs/demo/vSwoole/library/common/Config.php(152): vSwoole\library\common\Config::loadConfig('*', true)
+#3 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(93): vSwoole\library\common\Config::cacheConfig()
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(91): vSwoole\library\server\WebSocketServer->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#5 [internal function]: vSwoole\application\server\WebSocket->onWorkerStart(Object(Swoole\WebSocket\Server), 2)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(34): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(405): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+

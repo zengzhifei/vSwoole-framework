@@ -9,9 +9,9 @@
 
 return [
     //服务端连接配置
-    'timer_server_connect' => [
+    'server_connect' => [
         //服务类型
-        'serverType'        => VSWOOLE_TIMER_SERVER,
+        'serverType'        => VSWOOLE_CRONTAB_SERVER,
         //监听IP
         'host'              => '0.0.0.0',
         //监听客户端端口
@@ -34,15 +34,15 @@ return [
         'callbackEventList' => [],
     ],
     //服务端配置
-    'timer_server_config'  => [
+    'server_config'  => [
         //守护进程化
         'daemonize'                => false,
         //日志
-        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'Timer.log',
+        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'Crontab.log',
         //工作进程数
         'worker_num'               => 1,
         //工作线程数
-        'reactor_num'              => 2,
+        'reactor_num'              => 1,
         //TASK进程数
         'task_worker_num'          => 1,
         //心跳检测最大时间间隔
@@ -59,7 +59,7 @@ return [
         'ssl_key_file'             => 'server.key'
     ],
     //管理客户端连接配置
-    'timer_client_connect' => [
+    'client_connect' => [
         //服务Sock类型
         'sockType'      => SWOOLE_SOCK_TCP,
         //同步异步(PHP-FPM/APACHE模式下只允许同步)
@@ -67,7 +67,7 @@ return [
         //长连接Key
         'connectionKey' => '',
         //服务器地址
-        'host'          => '192.168.31.100',
+        'host'          => '10.4.0.101',
         //服务器端口
         'port'          => 8502,
         //连接超时
@@ -76,11 +76,11 @@ return [
         'flag'          => 0,
     ],
     //客户端配置
-    'timer_client_config'  => [
+    'client_config'  => [
 
     ],
     //其他配置
-    'timer_other_config'   => [
+    'other_config'   => [
         'is_cache_config' => true,
     ]
 ];

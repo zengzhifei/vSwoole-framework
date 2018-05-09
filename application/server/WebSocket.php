@@ -136,6 +136,7 @@ class WebSocket extends WebSocketServer
      * WebSocket服务端接收客户端消息回调函数
      * @param \swoole_websocket_server $server
      * @param \swoole_websocket_frame $frame
+     * @throws \ReflectionException
      */
     public function onMessage(\swoole_websocket_server $server, \swoole_websocket_frame $frame)
     {
@@ -146,7 +147,7 @@ class WebSocket extends WebSocketServer
             $data = json_decode($frame->data, true);
             if (is_array($data) && isset($data['cmd'])) {
                 $client_info = $server->getClientInfo($frame->fd);
-                $admin_port = Config::loadConfig('websocket')->get('ws_server_connect.adminPort');
+                $admin_port = Config::loadConfig('websocket')->get('server_connect.adminPort');
                 //管理客户端指令接口
                 if ($client_info && $admin_port == $client_info['server_port']) {
                     switch (strtolower($data['cmd'])) {
@@ -238,7 +239,7 @@ class WebSocket extends WebSocketServer
                 $redis->hGet($link_key, $fd, function ($redis, $result) use ($link_key, $user_key, $fd) {
                     if (false !== $result) {
                         $link_info = json_decode($result, true);
-                        if ($link_info['server_port'] != Config::loadConfig('websocket')->get('ws_server_connect.adminPort')) {
+                        if ($link_info['server_port'] != Config::loadConfig('websocket')->get('server_connect.adminPort')) {
                             if (isset($link_info['range_id']) && $link_info['range_id']) {
                                 $redis->hDel($user_key . '_' . $link_info['range_id'], $link_info['user_id'], function ($redis, $result) {
                                 });

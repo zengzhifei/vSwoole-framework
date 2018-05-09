@@ -57,8 +57,8 @@ defined('VSWOOLE_HTTP_SERVER') or define('VSWOOLE_HTTP_SERVER', 'Swoole_Http_Ser
 defined('VSWOOLE_UDP_SERVER') or define('VSWOOLE_UDP_SERVER', 'Swoole_Udp_Server');
 //WebSocket服务
 defined('VSWOOLE_WEB_SOCKET_SERVER') or define('VSWOOLE_WEB_SOCKET_SERVER', 'Swoole_WebSocket_Server');
-//Timer服务
-defined('VSWOOLE_TIMER_SERVER') or define('VSWOOLE_TIMER_SERVER', 'Swoole_Timer_Server');
+//Crontab服务
+defined('VSWOOLE_CRONTAB_SERVER') or define('VSWOOLE_CRONTAB_SERVER', 'Swoole_Crontab_Server');
 
 //根命名空间
 defined('VSWOOLE_NAMESPACE') or define('VSWOOLE_NAMESPACE', 'vSwoole');

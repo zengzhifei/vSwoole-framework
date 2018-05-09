@@ -25,10 +25,10 @@ class UdpServer extends Server
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
-            $udp_server_connect = array_merge(Config::loadConfig('udp')->get('udp_server_connect'), $connectOptions);
-            $udp_server_config = array_merge(Config::loadConfig('udp')->get('udp_server_config'), $configOptions);
+            $server_connect = array_merge(Config::loadConfig('udp')->get('server_connect'), $connectOptions);
+            $server_config = array_merge(Config::loadConfig('udp')->get('server_config'), $configOptions);
 
-            if (!parent::__construct($udp_server_connect, $udp_server_config)) {
+            if (!parent::__construct($server_connect, $server_config)) {
                 throw new \Exception("Swoole Udp Server start failed", $this->swoole->getLastError());
             }
         } catch (\Exception $e) {
@@ -70,7 +70,12 @@ class UdpServer extends Server
      */
     public function onManagerStart(\swoole_server $server)
     {
-
+        //设置管理进程别名
+        if (function_exists('cli_set_process_title')) {
+            @cli_set_process_title(VSWOOLE_UDP_SERVER . ' manager');
+        } else {
+            @swoole_set_process_name(VSWOOLE_UDP_SERVER . ' manager');
+        }
     }
 
     /**
@@ -89,7 +94,15 @@ class UdpServer extends Server
      */
     public function onWorkerStart(\swoole_server $server, int $worker_id)
     {
-        $is_cache = Config::loadConfig('udp')->get('udp_other_config.is_cache_config');
+        //设置工作进程别名
+        $worker_name = $server->taskworker ? ' tasker_' . $worker_id : ' worker_' . $worker_id;
+        if (function_exists('cli_set_process_title')) {
+            @cli_set_process_title(VSWOOLE_HTTP_SERVER . $worker_name);
+        } else {
+            @swoole_set_process_name(VSWOOLE_HTTP_SERVER . $worker_name);
+        }
+        //缓存配置
+        $is_cache = Config::loadConfig('udp')->get('other_config.is_cache_config');
         $is_cache && Config::cacheConfig();
     }
 
