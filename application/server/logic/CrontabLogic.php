@@ -57,11 +57,6 @@ class CrontabLogic
     public function __construct(\swoole_server $server)
     {
         $GLOBALS['Crontab'] = $server;
-
-        $this->process = new Process([
-            'redirect_stdin_stdout' => false,
-            'create_pipe'           => true,
-        ]);
     }
 
     /**
@@ -81,15 +76,18 @@ class CrontabLogic
                     $task_options['task_cmd'] = isset($data['task_cmd']) && is_string($data['task_cmd']) ? $data['task_cmd'] : $task['task_cmd'];
                     $task_options['task_url'] = isset($data['task_url']) && is_string($data['task_url']) ? $data['task_url'] : $task['task_url'];
                     $task_options['task_name'] = isset($data['task_name']) && preg_match("/^\w+&/", $data['task_name']) ? $data['task_name'] : $task['task_name'];
-                    $task_options['task_number'] = isset($data['task_number']) && is_int($data['task_number']) && $data['task_number'] > 0 ? $data['task_number'] : $task['task_number'];
-                    $task_options['task_time'] = isset($data['task_time']) && is_int($data['task_time']) && $data['task_time'] > 0 ? $data['task_time'] : $task['task_time'];
+                    $task_options['task_number'] = isset($data['task_number']) && $data['task_number'] > 0 ? $data['task_number'] : $task['task_number'];
+                    $task_options['task_time'] = isset($data['task_time']) && $data['task_time'] > 0 ? $data['task_time'] : $task['task_time'];
+                    $task_options['task_process'] = $task['task_process'];
+                    $task_options['task_status'] = $task['task_status'];
+                    $task_options['task_start_time'] = $task['task_start_time'];
                     $task_options['task_key'] = $task_key;
                 } else {
                     $task_options['task_cmd'] = isset($data['task_cmd']) && is_string($data['task_cmd']) ? $data['task_cmd'] : $this->task_options['task_cmd'];
                     $task_options['task_url'] = isset($data['task_url']) && is_string($data['task_url']) ? $data['task_url'] : $this->task_options['task_url'];
                     $task_options['task_name'] = isset($data['task_name']) && is_string($data['task_name']) && preg_match("/^\w+&/", $data['task_name']) ? $data['task_name'] : $task_key;
-                    $task_options['task_number'] = isset($data['task_number']) && is_int($data['task_number']) && $data['task_number'] > 0 ? $data['task_number'] : $this->task_options['task_number'];
-                    $task_options['task_time'] = isset($data['task_time']) && is_int($data['task_time']) && $data['task_time'] > 0 ? $data['task_time'] : $this->task_options['task_time'];
+                    $task_options['task_number'] = isset($data['task_number']) && $data['task_number'] > 0 ? $data['task_number'] : $this->task_options['task_number'];
+                    $task_options['task_time'] = isset($data['task_time']) && $data['task_time'] > 0 ? $data['task_time'] : $this->task_options['task_time'];
                     $task_options['task_process'] = $this->task_options['task_process'];
                     $task_options['task_status'] = $this->task_options['task_status'];
                     $task_options['task_start_time'] = $this->task_options['task_start_time'];
@@ -118,14 +116,13 @@ class CrontabLogic
                     if (0 == $task['task_status']) {
                         if ($task['task_cmd'] == '') {
                             for ($i = 0; $i < $task['task_number']; $i++) {
-                                $pid = $this->process->add(function ($process) use ($i, $task, $redis) {
+                                $pid = Process::getInstance()->add(function ($process) use ($i, $task, $redis) {
                                     $process->name($task['task_name'] . '_' . $i);
                                     $curl = new Curl();
                                     Timer::tick($task['task_time'], function ($timer_id) use ($curl, $task, $redis) {
                                         $res = $curl->get($task['task_url']);
                                         var_dump($res);
                                     });
-
                                 });
                                 if (false !== $pid) {
                                     $task['task_process'][] = $pid;
@@ -136,12 +133,12 @@ class CrontabLogic
                             $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_key'], json_encode($task));
                         } else {
                             for ($i = 0; $i < $task['task_number']; $i++) {
-                                $pid = $this->process->add(function ($process) use ($i, $task, $redis) {
+                                $pid = Process::getInstance()->add(function ($process) use ($i, $task, $redis) {
                                     $process->name($task['task_name'] . '_' . $i);
                                     $process->exec($task['task_cmd'], explode(' ', $task['task_url']));
                                 });
                                 if (false !== $pid) {
-                                    $task['process_id'][] = $pid;
+                                    $task['task_process'][] = $pid;
                                 }
                             }
                             $task['task_status'] = 1;
@@ -164,16 +161,15 @@ class CrontabLogic
     public function stop(array $data = [])
     {
         try {
-            if (isset($data['task_key'])) {
+            if (isset($data['task_key']) && is_string($data['task_key'])) {
                 $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
                 $task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_key']);
                 if ($task) {
                     $task = json_decode($task, true);
-                    if ($task['is_running']) {
-                        $this->process->killProcess($task['process_id']);
-                        $task['is_running'] = false;
-                        $task['worker_id'] = false;
-                        $task['process_id'] = [];
+                    if (1 == $task['task_status']) {
+                        Process::getInstance()->killProcess($task['task_process']);
+                        $task['task_status'] = 0;
+                        $task['task_process'] = [];
                         $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_key'], json_encode($task));
                     }
                 }
@@ -191,15 +187,13 @@ class CrontabLogic
     public function delete(array $data = [])
     {
         try {
-            if (isset($data['task_key'])) {
+            if (isset($data['task_key']) && is_string($data['task_key'])) {
                 $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
                 $task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_key']);
                 if ($task) {
                     $task = json_decode($task, true);
-                    if ($task['is_running']) {
-                        $this->process->killProcess($task['process_id']);
-                        $redis->hDel(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_key']);
-                    }
+                    Process::getInstance()->killProcess($task['task_process']);
+                    $redis->hDel(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_key']);
                 }
             }
         } catch (\Exception $e) {

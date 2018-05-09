@@ -282,7 +282,7 @@ class Exception extends \Exception
                     </tr>
                     <tr>
                         <td style="font-size: 0.9rem;border:1px solid #cad9ea;height:30px;padding:0 1em 0;">{$status}代码</td>
-                        <td style="max-width: 400px;background:#F0F0F0;border:1px solid #cad9ea;padding:0 1em 0;text-align: left;"><pre><code class="php" style="font-size: 1.0rem;">{$trace}</code></pre></td>
+                        <td style="max-width: 800px;background:#F0F0F0;border:1px solid #cad9ea;padding:0 1em 0;text-align: left;"><pre><code class="php" style="font-size: 1.0rem;">{$trace}</code></pre></td>
                     </tr>
                 </table> 
                 <script>hljs.initHighlightingOnLoad();</script>

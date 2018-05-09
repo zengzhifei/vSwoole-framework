@@ -127,3 +127,105 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
+[2018-05-09 17:20:35] 
+vSwoole\library\common\exception\ClassNotFoundException: class vSwoole\application\client\Timer not exist,file path: /mnt/hgfs/demo/vSwoole/public/../application/client/Timer.php
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 226
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(397): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-09 17:26:27] 
+vSwoole\library\common\exception\ClassNotFoundException: class vSwoole\application\client\Timer not exist,file path: /mnt/hgfs/demo/vSwoole/public/../application/client/Timer.php
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 226
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(397): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-09 17:26:36] 
+vSwoole\library\common\exception\ClassNotFoundException: class vSwoole\application\client\Timer not exist,file path: /mnt/hgfs/demo/vSwoole/public/../application/client/Timer.php
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 226
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(397): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-09 17:54:11] 
+Exception: Argument 2 push method not exist
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 401
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#1 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#2 {main}
+
+[2018-05-09 17:54:49] 
+Exception: Argument 2 push method not exist
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 401
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#1 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#2 {main}
+
+[2018-05-09 17:54:57] 
+Exception: Argument 2 push method not exist
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 401
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#1 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#2 {main}
+
+[2018-05-09 17:55:04] 
+Exception: Argument 2 push method not exist
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 401
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#1 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#2 {main}
+
+[2018-05-09 18:09:14] 
+vSwoole\library\common\exception\ErrorException: Swoole\Process::__construct(): swoole_process only can be used in PHP CLI mode.
+In /mnt/hgfs/demo/vSwoole/library/common/Process.php: 125
+Exception Code: E_ERROR[1]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleShutdown()
+#1 {main}
+
+[2018-05-09 18:56:09] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8502] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8502, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php(29): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(31): vSwoole\library\client\CrontabClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(397): vSwoole\application\client\Crontab->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-09 18:59:10] 
+vSwoole\library\common\exception\ClassNotFoundException: class vSwoole\application\client\Timer not exist,file path: /mnt/hgfs/demo/vSwoole/public/../application/client/Timer.php
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 226
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(397): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+

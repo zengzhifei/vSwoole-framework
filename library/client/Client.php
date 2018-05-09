@@ -73,7 +73,7 @@ abstract class Client
         }
 
         //客户端连接服务器
-        $res =  $this->client->connect($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['timeout'], $this->connectOptions['flag']);
+        $res = $this->client->connect($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['timeout'], $this->connectOptions['flag']);
 
         //同步返回结果可用，异步不可用
         return $res ? $this->client : false;

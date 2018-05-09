@@ -138,9 +138,8 @@ class WebSocketLogic
                             $user_info = $redis->hGet($user_key, $data['user_id']);
                             if (false !== $user_info) {
                                 $user_info = json_decode($user_info, true);
-                                $push_data = json_decode($frame->data, true);
                                 if ($user_info['server_ip'] == $server_ip && $GLOBALS['WebSocket']->exist($user_info['fd'])) {
-                                    $res = $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
+                                    $res = $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $data['message']]));
                                 }
                             }
                             //推送所有用户
@@ -148,11 +147,10 @@ class WebSocketLogic
                             $user_key = $user_key . '_' . $data['range_id'];
                             $user_list = $redis->hVals($user_key);
                             if (false !== $user_list) {
-                                $push_data = json_decode($frame->data, true);
                                 foreach ($user_list as $user_info) {
                                     $user_info = json_decode($user_info, true);
                                     if (isset($user_info['fd']) && $GLOBALS['WebSocket']->exist($user_info['fd'])) {
-                                        $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $push_data['message']]));
+                                        $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $data['message']]));
                                     }
                                 }
                             }
@@ -182,7 +180,7 @@ class WebSocketLogic
                 $redis->hGet($link_key, $fd, function ($redis, $result) use ($link_key, $fd) {
                     if (false !== $result) {
                         $link_info = json_decode($result, true);
-                        if ($link_info['server_port'] == Config::loadConfig('websocket')->get('ws_server_connect.adminPort')) {
+                        if ($link_info['server_port'] == Config::loadConfig('websocket')->get('server_connect.adminPort')) {
                             $redis->hDel($link_key, $fd, function ($redis, $result) {
                             });
                         }

@@ -24,9 +24,11 @@ class Log
     public static function write(string $content = '', string $fileName = 'vSwoole.log', int $mode = FILE_APPEND, callable $callback = null)
     {
         if (VSWOOLE_IS_CLI) {
-            $logFile = VSWOOLE_LOG_SERVER_PATH . date('Ym') . '/' . date('d') . '/' . $fileName;
-            $content = '[' . date('Y-m-d H:i:s') . '] ' . PHP_EOL . $content . PHP_EOL . PHP_EOL;
-            File::write($logFile, $content, $mode, $callback);
+            Process::getInstance()->add(function () use ($content, $fileName, $mode, $callback) {
+                $logFile = VSWOOLE_LOG_SERVER_PATH . date('Ym') . '/' . date('d') . '/' . $fileName;
+                $content = '[' . date('Y-m-d H:i:s') . '] ' . PHP_EOL . $content . PHP_EOL . PHP_EOL;
+                File::write($logFile, $content, $mode, $callback);
+            });
         } else {
             trigger_error('async-io method write only in cli mode');
         }
