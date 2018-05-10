@@ -1,0 +1,105 @@
+[2018-05-10 11:45:52] 
+vSwoole\library\common\exception\Exception: Swoole\Table::column() expects parameter 2 to be integer, string given
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 54
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Table::c...', '/mnt/hgfs/demo/...', 54, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(54): Swoole\Table->column('id', 'int', 8)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(33): vSwoole\library\common\cache\Table->create(Array)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#6 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#7 {main}
+
+[2018-05-10 12:47:09] 
+vSwoole\library\common\exception\Exception: Undefined offset: 2
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 69
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(69): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined offse...', '/mnt/hgfs/demo/...', 69, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(37): vSwoole\library\common\cache\Table->show()
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#6 {main}
+
+[2018-05-10 13:07:56] 
+vSwoole\library\common\exception\Exception: A non-numeric value encountered
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 79
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(79): vSwoole\library\common\exception\Exception::swooleError(2, 'A non-numeric v...', '/mnt/hgfs/demo/...', 79, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(37): vSwoole\library\common\cache\Table->show()
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#6 {main}
+
+[2018-05-10 14:07:08] 
+vSwoole\library\common\exception\Exception: Undefined property: vSwoole\library\common\cache\Table::$table_size
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 121
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(121): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined prope...', '/mnt/hgfs/demo/...', 121, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(39): vSwoole\library\common\cache\Table->getTableSize()
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#6 {main}
+
+[2018-05-10 14:08:34] 
+Error: Call to undefined method Swoole\Table::size()
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 121
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(39): vSwoole\library\common\cache\Table->getTableSize()
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#3 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#5 {main}
+
+[2018-05-10 14:44:35] 
+vSwoole\library\common\exception\Exception: Undefined offset: 0
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 193
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(193): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined offse...', '/mnt/hgfs/demo/...', 193, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(180): vSwoole\library\common\cache\Table->parseSql(Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(41): vSwoole\library\common\cache\Table->delete(Array)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#6 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#7 {main}
+
+[2018-05-10 15:10:56] 
+vSwoole\library\common\exception\Exception: Only variables should be passed by reference
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 178
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(178): vSwoole\library\common\exception\Exception::swooleError(8, 'Only variables ...', '/mnt/hgfs/demo/...', 178, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(41): vSwoole\library\common\cache\Table->delete(Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#6 {main}
+
+[2018-05-10 15:12:10] 
+vSwoole\library\common\exception\Exception: Only variables should be passed by reference
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 178
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(178): vSwoole\library\common\exception\Exception::swooleError(8, 'Only variables ...', '/mnt/hgfs/demo/...', 178, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(41): vSwoole\library\common\cache\Table->delete(Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#6 {main}
+
