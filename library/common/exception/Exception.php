@@ -58,7 +58,7 @@ class Exception extends \Exception
         $error = new self($errorMsg, $errorCode);
         $error->file = $errorFile;
         $error->line = $errorLine;
-        self::reportError($error);
+        self::reportException($error);
     }
 
     /**
@@ -80,7 +80,7 @@ class Exception extends \Exception
             $e = new ErrorException($error['message'], $error['type']);
             $e->file = $error['file'];
             $e->line = $error['line'];
-            defined('VSWOOLE_IS_CLI') && VSWOOLE_IS_CLI ? self::reportException($e) : self::reportError($e);
+            self::reportError($e);
         }
     }
 
@@ -132,9 +132,9 @@ class Exception extends \Exception
         if (Config::loadConfig()->get('is_log')) {
             $grade = Config::loadConfig()->get('log_grade');
             if (is_int($grade) && (E_ALL == $grade || $e->getCode() == $grade)) {
-                VSWOOLE_IS_CLI ? Log::write(self::getException($e)) : Log::save(self::getException($e));
+                Log::save(self::getException($e));
             } else if (is_array($grade) && in_array($e->getCode(), $grade)) {
-                VSWOOLE_IS_CLI ? Log::write(self::getException($e)) : Log::save(self::getException($e));
+                Log::save(self::getException($e));
             }
         }
     }
@@ -150,7 +150,7 @@ class Exception extends \Exception
 
         if (Config::loadConfig()->get('is_debug')) {
             echo self::parseException($exception, self::Exception);
-        } else {
+        } else if (Config::loadConfig()->get('show_default_error')) {
             echo self::defaultException();
         }
     }
@@ -166,8 +166,8 @@ class Exception extends \Exception
 
         if (Config::loadConfig()->get('is_debug')) {
             die(self::parseException($error, self::ERROR));
-        } else {
-            die(self::defaultException());
+        } else if (Config::loadConfig()->get('show_default_error')) {
+            echo self::defaultException();
         }
     }
 

@@ -97,9 +97,9 @@ class WebSocketServer extends Server
         //设置工作进程别名
         $worker_name = $server->taskworker ? ' tasker_' . $worker_id : ' worker_' . $worker_id;
         if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_CRONTAB_SERVER . $worker_name);
+            @cli_set_process_title(VSWOOLE_WEB_SOCKET_SERVER . $worker_name);
         } else {
-            @swoole_set_process_name(VSWOOLE_CRONTAB_SERVER . $worker_name);
+            @swoole_set_process_name(VSWOOLE_WEB_SOCKET_SERVER . $worker_name);
         }
         //缓存配置
         $is_cache = Config::loadConfig('websocket')->get('other_config.is_cache_config');

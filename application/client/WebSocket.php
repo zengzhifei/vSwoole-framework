@@ -100,4 +100,14 @@ class WebSocket extends WebSocketClient
             Response::return(['status' => 0, 'msg' => 'shutdown failed']);
         }
     }
+
+    public function test()
+    {
+        $res = $this->execute('test');
+        if ($res) {
+            Response::return(['status' => 1, 'msg' => 'test success']);
+        } else {
+            Response::return(['status' => 0, 'msg' => 'test failed']);
+        }
+    }
 }

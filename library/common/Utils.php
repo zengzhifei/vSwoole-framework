@@ -9,6 +9,8 @@
 
 namespace vSwoole\library\common;
 
+use Swoole\Error;
+
 class Utils
 {
     /**
@@ -27,7 +29,19 @@ class Utils
     }
 
     /**
-     * 获取连接客户端的IP
+     * 获取客户端的连接端口
+     * @param \swoole_server $server
+     * @param $fd
+     * @return string
+     */
+    public static function getServerPort(\swoole_server $server, $fd)
+    {
+        $client_info = $server->getClientInfo($fd);
+        return $client_info && isset($client_info['server_port']) ? $client_info['server_port'] : '';
+    }
+
+    /**
+     * 获取客户端的连接IP
      * @param \swoole_server $server
      * @param $fd
      * @return string
@@ -39,24 +53,39 @@ class Utils
     }
 
     /**
-     * 获取连接客户端的端口
+     * 获取客户端连接时间
      * @param \swoole_server $server
      * @param $fd
-     * @return string
+     * @return int
      */
-    public static function getClientPort(\swoole_server $server, $fd)
+    public static function getClientConnectTime(\swoole_server $server, $fd)
     {
         $client_info = $server->getClientInfo($fd);
-        return $client_info && isset($client_info['server_port']) ? $client_info['server_port'] : '';
+        return $client_info && isset($client_info['connect_time']) ? $client_info['connect_time'] : time();
     }
 
     /**
      * 异步记录服务主进程PID
      * @param int $pid
-     * @param string $pidName
+     * @param string $pid_name
      */
-    public static function writePid(int $pid = 0, string $pidName = '')
+    public static function writePid(int $pid = 0, string $pid_name = '')
     {
-        $pidName && File::write(VSWOOLE_DATA_PID_PATH . $pidName . VSWOOLE_PID_EXT, $pid);
+        $pid_name && File::write(VSWOOLE_DATA_PID_PATH . $pid_name . VSWOOLE_PID_EXT, $pid);
+    }
+
+    /**
+     * 获取指定服务器运行状态
+     * @param string $host
+     * @param int $port
+     * @param int $timeout
+     * @param int $flag
+     * @return bool
+     */
+    public static function getServerStatus(string $host, int $port, int $timeout = 3, int $flag = 0)
+    {
+        $client = new \swoole_client(SWOOLE_TCP);
+        $client->connect($host, $port, $timeout, $flag);
+        return $client->isConnected();
     }
 }

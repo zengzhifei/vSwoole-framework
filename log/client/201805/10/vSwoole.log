@@ -1,0 +1,9 @@
+[2018-05-10 16:03:09] 
+Exception: Argument 2 push method not exist
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 401
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#1 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#2 {main}
+

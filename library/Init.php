@@ -309,24 +309,7 @@ class Init
             die('Reload the server failure,and the server is not exist.' . PHP_EOL);
         }
     }
-
-    /**
-     * 重启指定服务
-     * @param string $serverName
-     */
-    private static function restart(string $serverName = '')
-    {
-        self::initConvention();
-        self::exceptionRegister();
-        self::autoloadRegister();
-        $server_list = Config::loadConfig()->get('server_list');
-        if (array_key_exists($serverName, $server_list)) {
-            Command::getInstance()->restart($serverName, $server_list[$serverName]);
-        } else {
-            die('Restart the server failure,and the server is not exist.' . PHP_EOL);
-        }
-    }
-
+    
     /**
      * 关闭指定服务
      * @param string $serverName
@@ -377,7 +360,7 @@ class Init
      * 启动框架服务
      * @param string $class
      */
-    public function runServer(string $class)
+    private function runServer(string $class)
     {
         $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
         $server = new $class;

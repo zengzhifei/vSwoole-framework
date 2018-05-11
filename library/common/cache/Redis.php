@@ -75,7 +75,16 @@ class Redis
                     throw new \Exception('connect to redis server failed');
                 } else if (is_callable($callback)) {
                     $callback($redis, function ($redisKey) {
-                        return self::$redisOptions['prefix'] . $redisKey;
+                        if (is_string($redisKey)) {
+                            return self::$redisOptions['prefix'] . $redisKey;
+                        } else if (is_array($redisKey)) {
+                            foreach ($redisKey as $key => $value) {
+                                $redisKey[$key] = self::$redisOptions['prefix'] . $value;
+                            }
+                            return $redisKey;
+                        } else {
+                            return $redisKey;
+                        }
                     });
                 }
             });
@@ -121,6 +130,15 @@ class Redis
     }
 
     /**
+     * 设置Redis同步客户端的唯一连接标识
+     * @return string
+     */
+    public function getRedisPrefix()
+    {
+        return self::$sync_config_instance[$this->sync_instance_key]['prefix'];
+    }
+
+    /**
      * Redis同步客户端调用原生Redis方法
      * @param $name
      * @param $arguments
@@ -128,7 +146,14 @@ class Redis
      */
     public function __call($name, $arguments)
     {
-        $arguments[0] = self::$sync_config_instance[$this->sync_instance_key]['prefix'] . $arguments[0];
+        if (is_string($arguments[0])) {
+            $arguments[0] = self::$sync_config_instance[$this->sync_instance_key]['prefix'] . $arguments[0];
+        } else if (is_array($arguments[0])) {
+            foreach ($arguments[0] as $key => $value) {
+                $arguments[0][$key] = self::$sync_config_instance[$this->sync_instance_key]['prefix'] . $arguments[0][$key];
+            }
+        }
+
         return self::$sync_instance[$this->sync_instance_key]->$name(...$arguments);
     }
 }

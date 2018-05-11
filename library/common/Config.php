@@ -122,6 +122,7 @@ class Config
                         if (isset($config[$configKey])) {
                             $config = $config[$configKey];
                         } else {
+                            $config = null;
                             break;
                         }
                     }

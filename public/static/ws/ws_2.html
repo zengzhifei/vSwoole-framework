@@ -13,22 +13,28 @@
 <button>发送</button>
 <script>
     $(function () {
-        interact.initConsole();
-        var ws = new WS('ws://10.4.0.101/ws', {
-            onOpen: function (ws) {
-                var range_data = {cmd: 'range', data: {user_id: 'user_2', range_id: 123456}};
-                ws.send(JSON.stringify(range_data));
-                var line = {cmd: 'online', range_id: 123456};
-                /*setInterval(function () {
-                    ws.send(JSON.stringify(line));
+        //interact.initConsole();
+        window.link_count = 0;
+        window.message_count = 0;
+        for (var i = 201; i <= 400; i++) {
+            create_ws(i);
+        }
+        function create_ws(i){
+            new WS('ws://10.4.0.100/ws', {
+                'auto_connect' : false,
+                onOpen: function (ws) {
+                    var range_data = {cmd: 'range', data: {user_id: i, range_id: 123456}};
+                    ws.send(JSON.stringify(range_data));
+                    window.link_count++;
+                },
+                onMessage: function (ws, data) {
+                    var data = JSON.parse(data);
+                    console.log(interact.getTime());
+                    window.message_count++;
+                }
+            })
+        }
 
-                },1000)*/
-            },
-            onMessage: function (ws, data) {
-                var data = JSON.parse(data);
-                console.log(data);
-            }
-        })
         $("button").click(function () {
             var range_id = 123456;
             var user_id = $("[name='user-id']").val();

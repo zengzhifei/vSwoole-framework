@@ -10,6 +10,8 @@
 namespace vSwoole\library\common;
 
 
+use vSwoole\library\common\exception\Exception;
+
 class Timer
 {
     /**
@@ -36,8 +38,8 @@ class Timer
     public static function after(int $time = 0, callable $callback = null)
     {
         if ($time > 0 && !is_null($callback)) {
-            swoole_timer_after($time, function ($timer_id) use ($callback) {
-                $callback($timer_id);
+            swoole_timer_after($time, function () use ($callback) {
+                $callback();
             });
         } else {
             throw new \InvalidArgumentException('Arguments invalid');
@@ -50,7 +52,7 @@ class Timer
      */
     public static function clear(int $timer_id)
     {
-        if ($timer_id < 0) {
+        if ($timer_id > 0) {
             swoole_timer_clear($timer_id);
         } else {
             throw new \InvalidArgumentException('Arguments invalid');

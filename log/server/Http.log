@@ -1,0 +1,87 @@
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Http_Server start ok. 2018-05-11 18:17:54
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.102
+|host: 0.0.0.0
+|port: 9503
+|adminHost: 0.0.0.0
+|adminPort: 8503
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Http.log
+|worker_num: 1
+|reactor_num: 2
+|task_worker_num: 1
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|upload_tmp_dir: /tmp/vswoole/uploadfiles/
+|http_parse_post: false
+|document_root: /mnt/hgfs/demo/vSwoole/public/../public/static/
+|enable_static_handler: true
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Http_Server start ok. 2018-05-11 18:19:31
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.102
+|host: 0.0.0.0
+|port: 9503
+|adminHost: 0.0.0.0
+|adminPort: 8503
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Http.log
+|worker_num: 1
+|reactor_num: 2
+|task_worker_num: 1
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|upload_tmp_dir: /tmp/vswoole/uploadfiles/
+|http_parse_post: false
+|document_root: /mnt/hgfs/demo/vSwoole/public/../public/static/
+|enable_static_handler: true
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Http_Server start ok. 2018-05-11 18:20:59
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.102
+|host: 0.0.0.0
+|port: 9503
+|adminHost: 0.0.0.0
+|adminPort: 8503
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Http.log
+|worker_num: 1
+|reactor_num: 2
+|task_worker_num: 1
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|upload_tmp_dir: /tmp/vswoole/uploadfiles/
+|http_parse_post: false
+|document_root: /mnt/hgfs/demo/vSwoole/public/../public/static/
+|enable_static_handler: true
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
++-----------------------------------------------------------------------------------------------------+
+

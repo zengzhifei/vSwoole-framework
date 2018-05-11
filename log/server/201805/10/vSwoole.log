@@ -103,3 +103,52 @@ Exception Trace:
 #5 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
 #6 {main}
 
+[2018-05-10 15:41:01] 
+vSwoole\library\common\exception\Exception: Swoole\Table::column(): can't add column after the creation of swoole table.
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php: 72
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Table::c...', '/mnt/hgfs/demo/...', 72, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Table.php(72): Swoole\Table->column('name', 1, 4)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Udp.php(34): vSwoole\library\common\cache\Table->create(Array)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(383): vSwoole\application\server\Udp->__construct()
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#6 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#7 {main}
+
+[2018-05-10 18:30:08] 
+vSwoole\library\common\exception\ErrorException: Uncaught ArgumentCountError: Too few arguments to function vSwoole\library\common\Timer::vSwoole\library\common\{closure}(), 0 passed and exactly 1 expected in /mnt/hgfs/demo/vSwoole/library/common/Timer.php:39
+Stack trace:
+#0 {main}
+  thrown
+In /mnt/hgfs/demo/vSwoole/library/common/Timer.php: 39
+Exception Code: E_ERROR[1]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleShutdown()
+#1 {main}
+
+[2018-05-10 19:57:10] 
+ParseError: syntax error, unexpected ')'
+In /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php: 61
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(383): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#3 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#5 {main}
+
+[2018-05-10 19:58:46] 
+ParseError: syntax error, unexpected 'var_dump' (T_STRING)
+In /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php: 52
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(383): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#3 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#5 {main}
+

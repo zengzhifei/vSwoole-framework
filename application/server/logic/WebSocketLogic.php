@@ -13,6 +13,7 @@ namespace vSwoole\application\server\logic;
 use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\cache\Redis;
+use vSwoole\library\common\Process;
 use vSwoole\library\common\Utils;
 
 class WebSocketLogic
@@ -34,32 +35,38 @@ class WebSocketLogic
     public function range(\swoole_websocket_frame $frame)
     {
         try {
-            $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            $linkKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Link_Info');
-            $ip = str_replace('.', '', Utils::getServerIp());
-            $link_key = $linkKey . '_' . $ip;
-            $userKey = Config::loadConfig('redis')->get('redis_key.WebSocket.User_Info');
-            $user_key = $userKey;
-            $link_info = $redis->hGet($link_key, $frame->fd);
-            if (false !== $link_info) {
-                $link_info = json_decode($link_info, true);
-                if ($link_info['server_port'] == Config::loadConfig('websocket')->get('server_connect.port')) {
-                    $data = json_decode($frame->data, true);
-                    $data = $data['data'];
-                    if (isset($data['user_id']) && $data['user_id']) {
-                        $link_info['user_id'] = $data['user_id'];
-                        $link_info['range_id'] = $data['range_id'];
-                        $redis->hSet($link_key, $frame->fd, json_encode($link_info));
+            if (Config::loadConfig('websocket')->get('server_connect.port') == ($server_port = Utils::getServerPort($GLOBALS['WebSocket'], $frame->fd))) {
+                $data = json_decode($frame->data, true);
+                $user_data = $data['data'] ?? [];
+                if (isset($user_data['user_id']) && (is_string($user_data['user_id']) || is_int($user_data['user_id']))) {
+                    $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
+                    //写入连接信息
+                    $linkKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Link_Info');
+                    $server_ip = Utils::getServerIp();
+                    $str_ip = str_replace('.', '', $server_ip);
+                    $link_key = $linkKey . '_' . $str_ip;
+                    $link_info = [
+                        'client_ip'    => Utils::getClientIp($GLOBALS['WebSocket'], $frame->fd),
+                        'server_ip'    => $server_ip,
+                        'server_port'  => $server_port,
+                        'user_id'      => $user_data['user_id'],
+                        'range_id'     => $user_data['range_id'] ?? '',
+                        'connect_time' => Utils::getClientConnectTime($GLOBALS['WebSocket'], $frame->fd)
+                    ];
+                    $redis->hSet($link_key, $frame->fd, json_encode($link_info));
+                    //写入用户信息
+                    if (isset($user_data['range_id']) && (is_string($user_data['range_id']) || is_int($user_data['range_id']))) {
+                        $userKey = Config::loadConfig('redis')->get('redis_key.WebSocket.User_Info');
+                        $user_key = $userKey . '_' . $user_data['range_id'] . '_' . $str_ip;
                         $user_info = [
                             'fd'           => $frame->fd,
-                            'user_id'      => $data['user_id'],
-                            'range_id'     => $data['range_id'],
+                            'user_id'      => $user_data['user_id'],
+                            'range_id'     => $user_data['range_id'],
                             'client_ip'    => $link_info['client_ip'],
                             'server_ip'    => $link_info['server_ip'],
                             'connect_time' => $link_info['connect_time']
                         ];
-                        $user_key = isset($data['range_id']) ? $user_key . '_' . $data['range_id'] : $user_key;
-                        $redis->hSet($user_key, $data['user_id'], json_encode($user_info));
+                        $redis->hSet($user_key, $user_data['user_id'], json_encode($user_info));
                     }
                 }
             }
@@ -76,13 +83,19 @@ class WebSocketLogic
     public function line(\swoole_websocket_frame $frame)
     {
         try {
-            $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            $userKey = Config::loadConfig('redis')->get('redis_key.WebSocket.User_Info');
             $data = json_decode($frame->data, true);
-            $data = $data['data'];
-            if (isset($data['range_id']) && $data['range_id']) {
-                $user_key = $userKey . '_' . $data['range_id'];
-                $online = $redis->hLen($user_key);
+            $user_data = $data['data'] ?? [];
+            if (isset($user_data['range_id']) && $user_data['range_id']) {
+                $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
+                $userKey = Config::loadConfig('redis')->get('redis_key.WebSocket.User_Info');
+                $serverKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Server_Ip');
+                $server_ips = $redis->SMEMBERS($serverKey);
+                $online = 0;
+                foreach ($server_ips as $server_ip) {
+                    $str_ip = str_replace('.', '', $server_ip);
+                    $user_key = $userKey . '_' . $user_data['range_id'] . '_' . $str_ip;
+                    $online = $online + $redis->hLen($user_key);
+                }
                 $GLOBALS['WebSocket']->push($frame->fd, json_encode(['status' => 1, 'data' => $online]));
             }
         } catch (\Exception $e) {
@@ -99,10 +112,10 @@ class WebSocketLogic
     {
         try {
             $data = json_decode($frame->data, true);
-            $data = $data['data'];
+            $user_data = $data['data'];
             if (is_array($data)) {
                 $client = new \vSwoole\application\client\WebSocket([], []);
-                $client->execute('push', $data);
+                $client->execute('push', $user_data);
             }
         } catch (\Exception $e) {
             Exception::reportException($e);
@@ -118,77 +131,55 @@ class WebSocketLogic
     public function push(\swoole_websocket_frame $frame)
     {
         try {
-            $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            $linkKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Link_Info');
-            $server_ip = Utils::getServerIp();
-            $ip = str_replace('.', '', $server_ip);
-            $link_key = $linkKey . '_' . $ip;
-            $userKey = Config::loadConfig('redis')->get('redis_key.WebSocket.User_Info');
-            $user_key = $userKey;
-            $link_info = $redis->hGet($link_key, $frame->fd);
-            if (false !== $link_info) {
-                $link_info = json_decode($link_info, true);
-                if ($link_info['server_port'] == Config::loadConfig('websocket')->get('server_connect.adminPort')) {
-                    $data = json_decode($frame->data, true);
-                    $data = $data['data'];
-                    if (isset($data['range_id']) && $data['range_id']) {
-                        //推送指定用户
-                        if (isset($data['user_id']) && $data['user_id']) {
-                            $user_key = $user_key . '_' . $data['range_id'];
-                            $user_info = $redis->hGet($user_key, $data['user_id']);
-                            if (false !== $user_info) {
-                                $user_info = json_decode($user_info, true);
-                                if ($user_info['server_ip'] == $server_ip && $GLOBALS['WebSocket']->exist($user_info['fd'])) {
-                                    $res = $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $data['message']]));
-                                }
+            if (Config::loadConfig('websocket')->get('server_connect.adminPort') == ($server_port = Utils::getServerPort($GLOBALS['WebSocket'], $frame->fd))) {
+                $data = json_decode($frame->data, true);
+                $user_data = $data['data'] ?? [];
+                if (isset($user_data['range_id']) && (is_string($user_data['range_id']) || is_int($user_data['range_id']))) {
+                    $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
+                    $userKey = Config::loadConfig('redis')->get('redis_key.WebSocket.User_Info');
+                    $server_ip = Utils::getServerIp();
+                    $str_ip = str_replace('.', '', $server_ip);
+                    $user_key = $userKey . '_' . $user_data['range_id'] . '_' . $str_ip;
+                    //推送指定用户
+                    if (isset($user_data['user_id']) && (is_string($user_data['user_id']) || is_int($user_data['user_id']))) {
+                        $user_info = $redis->hGet($user_key, $user_data['user_id']);
+                        if (false !== $user_info) {
+                            $user_info = json_decode($user_info, true);
+                            if ($GLOBALS['WebSocket']->exist($user_info['fd'])) {
+                                $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $user_data['message'] ?? '']));
                             }
-                            //推送所有用户
-                        } else {
-                            $user_key = $user_key . '_' . $data['range_id'];
-                            $user_list = $redis->hVals($user_key);
-                            if (false !== $user_list) {
+                        }
+                        //推送所有用户
+                    } else {
+                        $user_list = $redis->hVals($user_key);
+                        if (false !== $user_list) {
+                            if (Config::loadConfig('websocket')->get('other_config.enable_process_push')) {
+                                $process_user_list = array_chunk($user_list, Config::loadConfig('websocket')->get('other_config.process_push_num'), true);
+                                for ($process_num = 0; $process_num < count($process_user_list); $process_num++) {
+                                    Process::getInstance()->add(function ($process) use ($process_user_list, $process_num, $server_ip, $user_data) {
+                                        foreach ($process_user_list[$process_num] as $user_info) {
+                                            $user_info = json_decode($user_info, true);
+                                            if ($GLOBALS['WebSocket']->exist($user_info['fd'])) {
+                                                $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $user_data['message'] ?? '']));
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
                                 foreach ($user_list as $user_info) {
                                     $user_info = json_decode($user_info, true);
-                                    if (isset($user_info['fd']) && $GLOBALS['WebSocket']->exist($user_info['fd'])) {
-                                        $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $data['message']]));
+                                    if ($GLOBALS['WebSocket']->exist($user_info['fd'])) {
+                                        $GLOBALS['WebSocket']->push($user_info['fd'], json_encode(['type' => 'message', 'data' => $user_data['message'] ?? '']));
                                     }
                                 }
                             }
                         }
                     }
                 }
-                return [[$this, 'clearClient'], [$frame->fd]];
             }
         } catch (\Exception $e) {
             Exception::reportException($e);
         }
     }
 
-    /**
-     * 删除管理客户端信息
-     * @param int $fd
-     * @throws \ReflectionException
-     */
-    public function clearClient(int $fd)
-    {
-        //删除管理客户端信息
-        try {
-            Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), false, function ($redis, $get_redis_key) use ($fd) {
-                $linkKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Link_Info');
-                $ip = str_replace('.', '', Utils::getServerIp());
-                $link_key = $get_redis_key($linkKey . '_' . $ip);
-                $redis->hGet($link_key, $fd, function ($redis, $result) use ($link_key, $fd) {
-                    if (false !== $result) {
-                        $link_info = json_decode($result, true);
-                        if ($link_info['server_port'] == Config::loadConfig('websocket')->get('server_connect.adminPort')) {
-                            $redis->hDel($link_key, $fd, function ($redis, $result) {
-                            });
-                        }
-                    }
-                });
-            });
-        } catch (\Exception $e) {
-            Exception::reportException($e);
-        }
-    }
 }

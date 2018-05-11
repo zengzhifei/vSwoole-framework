@@ -40,11 +40,13 @@ return [
         //日志
         'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'WebSocket.log',
         //工作进程数
-        'worker_num'               => 1,
+        'worker_num'               => 0,
         //工作线程数
-        'reactor_num'              => 1,
+        'reactor_num'              => 0,
         //TASK进程数
-        'task_worker_num'          => 1,
+        'task_worker_num'          => 0,
+        //最大连接数
+        'max_conn'                 => 1024,
         //心跳检测最大时间间隔
         'heartbeat_check_interval' => 60,
         //连接最大闲置时间
@@ -81,6 +83,11 @@ return [
     ],
     //其他配置
     'other_config'   => [
-        'is_cache_config' => true,
+        //是否缓存配置文件
+        'is_cache_config'     => true,
+        //是否启用多进程推送
+        'enable_process_push' => true,
+        //单个进程推送数量
+        'process_push_num'    => 100,
     ]
 ];
