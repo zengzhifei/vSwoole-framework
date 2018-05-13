@@ -1,0 +1,62 @@
+[2018-05-13 17:44:27] 
+vSwoole\library\common\exception\Exception: Undefined index: task_worker_num
+In /mnt/hgfs/demo/vSwoole/library/server/Server.php: 127
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/server/Server.php(127): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined index...', '/mnt/hgfs/demo/...', 127, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(35): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(366): vSwoole\application\server\WebSocket->__construct()
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#6 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#7 {main}
+
+[2018-05-13 17:45:17] 
+vSwoole\library\common\exception\Exception: Undefined index: task_worker_num
+In /mnt/hgfs/demo/vSwoole/library/server/Server.php: 127
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/server/Server.php(127): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined index...', '/mnt/hgfs/demo/...', 127, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(35): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(366): vSwoole\application\server\WebSocket->__construct()
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#5 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#6 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#7 {main}
+
+[2018-05-13 18:51:10] 
+vSwoole\library\common\exception\ErrorException: Uncaught TypeError: Argument 1 passed to vSwoole\application\server\logic\CrontabLogic::add() must be of the type array, string given in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php:67
+Stack trace:
+#0 [internal function]: vSwoole\application\server\logic\CrontabLogic->add('/opt/php/bin/ph...', '/home/html/demo...', '', '2', '200')
+#1 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(112): vSwoole\library\common\Task::execute(Object(Swoole\Server), Array)
+#3 [internal function]: vSwoole\application\server\Crontab->onTask(Object(Swoole\Server), 0, 0, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Server->start()
+#5 /mnt/hgfs/demo/vSwoole/library/server/CrontabServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#6 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(31): vSwoole\library\server\CrontabServer->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vS
+In /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php: 67
+Exception Code: E_ERROR[1]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleShutdown()
+#1 {main}
+
+[2018-05-13 18:54:17] 
+vSwoole\library\common\exception\ErrorException: Uncaught TypeError: Argument 1 passed to vSwoole\application\server\logic\CrontabLogic::add() must be of the type array, string given in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php:67
+Stack trace:
+#0 [internal function]: vSwoole\application\server\logic\CrontabLogic->add('/opt/php/bin/ph...', '/home/html/demo...', '', '2', '200')
+#1 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(112): vSwoole\library\common\Task::execute(Object(Swoole\Server), Array)
+#3 [internal function]: vSwoole\application\server\Crontab->onTask(Object(Swoole\Server), 1, 0, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Server->start()
+#5 /mnt/hgfs/demo/vSwoole/library/server/CrontabServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#6 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(31): vSwoole\library\server\CrontabServer->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vS
+In /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php: 67
+Exception Code: E_ERROR[1]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleShutdown()
+#1 {main}
+

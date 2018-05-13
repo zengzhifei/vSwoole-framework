@@ -95,7 +95,7 @@ class WebSocketServer extends Server
     public function onWorkerStart(\swoole_server $server, int $worker_id)
     {
         //设置工作进程别名
-        $worker_name = $server->taskworker ? ' tasker_' . $worker_id : ' worker_' . $worker_id;
+        $worker_name = $server->taskworker ? ' tasker/' . $worker_id : ' worker/' . $worker_id;
         if (function_exists('cli_set_process_title')) {
             @cli_set_process_title(VSWOOLE_WEB_SOCKET_SERVER . $worker_name);
         } else {

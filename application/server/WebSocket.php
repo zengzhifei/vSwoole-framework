@@ -85,7 +85,8 @@ class WebSocket extends WebSocketServer
 
         //DEBUG模式下，监听文件变化自动重启
         if (Config::loadConfig('config', true)->get('is_debug')) {
-            Process::getInstance()->add(function () use ($server) {
+            Process::getInstance()->add(function ($process) use ($server) {
+                $process->name(VSWOOLE_WEB_SOCKET_SERVER.' inotify');
                 Inotify::getInstance()->watch([VSWOOLE_CONFIG_PATH, VSWOOLE_APP_SERVER_PATH . 'logic/WebSocketLogic.php'], function () use ($server) {
                     Command::getInstance($server)->reload();
                 });

@@ -1,5 +1,5 @@
 +-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 17:20:00
+|Swoole_Crontab_Server start ok. 2018-05-13 18:49:18
 +-----------------------------------------------------------------------------------------------------+
 |IP: 10.4.0.101
 |host: 0.0.0.0
@@ -8,9 +8,9 @@
 |adminPort: 8502
 |daemonize: false
 |log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
 |heartbeat_check_interval: 60
 |heartbeat_idle_time: 600
 |open_cpu_affinity: true
@@ -19,189 +19,20 @@
 |ssl_key_file: server.key
 +-----------------------------------------------------------------------------------------------------+
 
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 17:25:33
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 17:29:23
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 17:31:00
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-[2018-05-09 17:33:12 $31471.0]	NOTICE	Server is reloading now.
-[2018-05-09 17:33:44 #31470.1]	NOTICE	Server is shutdown now.
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 17:41:45
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-[2018-05-09 17:45:12 $31727.0]	NOTICE	Server is reloading now.
-[2018-05-09 17:46:01 *31826.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 17:48:23
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-[2018-05-09 17:48:33 *31902.0]	NOTICE	zm_deactivate_swoole (ERROR 9003): worker process is terminated by exit()/die().
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 17:49:05
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 18:56:19
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-[2018-05-09 18:56:19 #33425.1]	WARNING	swServer_signal_hanlder: Fatal Error: manager process exit. status=0, signal=11.
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 18:56:59
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-[2018-05-09 18:58:16 $33437.0]	NOTICE	Server is reloading now.
-[2018-05-09 18:58:23 *33486.0]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Call to a member function killProcess() on null in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php:195
+[2018-05-13 18:51:10 ^4718.16]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 1 passed to vSwoole\application\server\logic\CrontabLogic::add() must be of the type array, string given in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php:67
 Stack trace:
-#0 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(94): vSwoole\application\server\logic\CrontabLogic->delete(Array)
-#1 {main}
-  thrown in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php on line 195.
-[2018-05-09 18:58:23 $33437.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
+#0 [internal function]: vSwoole\application\server\logic\CrontabLogic->add('/opt/php/bin/ph...', '/home/html/demo...', '', '2', '200')
+#1 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/demo/vSw
+[2018-05-13 18:51:10 $4707.0]	WARNING	swManager_check_exit_status: worker#16 abnormal exit, status=255, signal=0
+[2018-05-13 18:54:17 ^4719.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 1 passed to vSwoole\application\server\logic\CrontabLogic::add() must be of the type array, string given in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php:67
+Stack trace:
+#0 [internal function]: vSwoole\application\server\logic\CrontabLogic->add('/opt/php/bin/ph...', '/home/html/demo...', '', '2', '200')
+#1 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/demo/vSw
+[2018-05-13 18:54:17 $4707.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
 +-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 18:58:46
+|Swoole_Crontab_Server start ok. 2018-05-13 18:56:39
 +-----------------------------------------------------------------------------------------------------+
 |IP: 10.4.0.101
 |host: 0.0.0.0
@@ -210,42 +41,9 @@ Stack trace:
 |adminPort: 8502
 |daemonize: false
 |log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
-|heartbeat_check_interval: 60
-|heartbeat_idle_time: 600
-|open_cpu_affinity: true
-|debug_mode: false
-|ssl_cert_file: server.crt
-|ssl_key_file: server.key
-+-----------------------------------------------------------------------------------------------------+
-
-[2018-05-09 19:02:20 *33500.0]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Call to a member function killProcess() on null in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php:170
-Stack trace:
-#0 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(91): vSwoole\application\server\logic\CrontabLogic->stop(Array)
-#1 {main}
-  thrown in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php on line 170.
-[2018-05-09 19:02:20 $33495.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
-[2018-05-09 19:02:31 *33604.0]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Error: Call to a member function killProcess() on null in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php:170
-Stack trace:
-#0 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(91): vSwoole\application\server\logic\CrontabLogic->stop(Array)
-#1 {main}
-  thrown in /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php on line 170.
-[2018-05-09 19:02:31 $33495.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
-+-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-09 19:03:05
-+-----------------------------------------------------------------------------------------------------+
-|IP: 10.4.0.101
-|host: 0.0.0.0
-|port: 9502
-|adminHost: 0.0.0.0
-|adminPort: 8502
-|daemonize: false
-|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
 |heartbeat_check_interval: 60
 |heartbeat_idle_time: 600
 |open_cpu_affinity: true
@@ -255,7 +53,7 @@ Stack trace:
 +-----------------------------------------------------------------------------------------------------+
 
 +-----------------------------------------------------------------------------------------------------+
-|Swoole_Crontab_Server start ok. 2018-05-11 18:17:16
+|Swoole_Crontab_Server start ok. 2018-05-13 18:58:34
 +-----------------------------------------------------------------------------------------------------+
 |IP: 10.4.0.101
 |host: 0.0.0.0
@@ -264,9 +62,178 @@ Stack trace:
 |adminPort: 8502
 |daemonize: false
 |log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
-|worker_num: 1
-|reactor_num: 1
-|task_worker_num: 1
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-13 18:59:54
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-13 19:01:28
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-13 19:01:53
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-13 19:02:03
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-13 19:04:11
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-13 19:04:38 $5361.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-13 19:06:19
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-13 19:06:50
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-13 19:08:43
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
 |heartbeat_check_interval: 60
 |heartbeat_idle_time: 600
 |open_cpu_affinity: true
