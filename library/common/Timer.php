@@ -16,13 +16,13 @@ class Timer
 {
     /**
      * 间隔时钟定时器
-     * @param int $time
+     * @param int $ms
      * @param callable|null $callback
      */
-    public static function tick(int $time = 0, callable $callback = null)
+    public static function tick(int $ms = 0, callable $callback = null)
     {
-        if ($time > 0 && !is_null($callback)) {
-            swoole_timer_tick($time, function ($timer_id) use ($callback) {
+        if ($ms > 0 && !is_null($callback)) {
+            swoole_timer_tick($ms, function ($timer_id) use ($callback) {
                 $callback($timer_id);
             });
         } else {
@@ -32,13 +32,13 @@ class Timer
 
     /**
      * 延迟时钟定时器
-     * @param int $time
+     * @param int $ms
      * @param callable|null $callback
      */
-    public static function after(int $time = 0, callable $callback = null)
+    public static function after(int $ms = 0, callable $callback = null)
     {
-        if ($time > 0 && !is_null($callback)) {
-            swoole_timer_after($time, function () use ($callback) {
+        if ($ms > 0 && !is_null($callback)) {
+            swoole_timer_after($ms, function () use ($callback) {
                 $callback();
             });
         } else {

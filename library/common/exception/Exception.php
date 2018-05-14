@@ -127,7 +127,7 @@ class Exception extends \Exception
      * 根据错误级别记录错误日志
      * @param Throwable $e
      */
-    public static function logException(Throwable $e)
+    protected static function logException(Throwable $e)
     {
         if (Config::loadConfig()->get('is_log')) {
             $grade = Config::loadConfig()->get('log_grade');
@@ -167,7 +167,7 @@ class Exception extends \Exception
         if (Config::loadConfig()->get('is_debug')) {
             die(self::parseException($error, self::ERROR));
         } else if (Config::loadConfig()->get('show_default_error')) {
-            echo self::defaultException();
+            die(self::defaultException());
         }
     }
 

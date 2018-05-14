@@ -38,17 +38,16 @@ class Crontab extends CrontabClient
     {
         try {
             $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            $task_list = $redis->hGetAll(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'));
-            if ($task_list) {
+            if ($task_list = $redis->hGetAll(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'))) {
                 foreach ($task_list as $key => $task) {
                     $task_list[$key] = json_decode($task, true);
                 }
-                Response::return(['status' => 1, 'msg' => 'success', 'data' => $task_list]);
+                Response::return (['status' => 1, 'msg' => 'success', 'data' => $task_list]);
             } else {
-                Response::return(['status' => 0, 'msg' => 'failed']);
+                Response::return (['status' => 0, 'msg' => 'failed']);
             }
         } catch (\Exception $e) {
-            Exception::reportError($e);
+            Exception::reportException($e);
         }
     }
 
@@ -60,21 +59,20 @@ class Crontab extends CrontabClient
         $task_cmd = Request::getInstance()->param('task_cmd', '');
         $task_url = Request::getInstance()->param('task_url', '');
         $task_name = Request::getInstance()->param('task_name', '');
-        $task_number = Request::getInstance()->param('task_number', 1);
-        $task_time = Request::getInstance()->param('task_time', 100);
+        $task_time = Request::getInstance()->param('task_time', '');
 
         if (null === $task_url) {
-            Response::return(['status' => -1, 'msg' => 'Arguments task_url is empty']);
+            Response::return (['status' => -1, 'msg' => 'Arguments task_url is empty']);
         } else if ('' === $task_url) {
-            Response::return(['status' => -1, 'msg' => 'Arguments task_url is invalid']);
+            Response::return (['status' => -1, 'msg' => 'Arguments task_url is invalid']);
         }
 
-        $data = ['task_cmd' => $task_cmd, 'task_url' => $task_url, 'task_name' => $task_name, 'task_number' => $task_number, 'task_time' => $task_time];
+        $data = ['task_cmd' => $task_cmd, 'task_url' => $task_url, 'task_name' => $task_name, 'task_time' => $task_time];
         $res = $this->execute('add', $data);
         if ($res) {
-            Response::return(['status' => 1, 'msg' => 'success']);
+            Response::return (['status' => 1, 'msg' => 'success']);
         } else {
-            Response::return(['status' => 0, 'msg' => 'failed']);
+            Response::return (['status' => 0, 'msg' => 'failed']);
         }
     }
 
@@ -83,19 +81,19 @@ class Crontab extends CrontabClient
      */
     public function startTask()
     {
-        $task_key = Request::getInstance()->param('task_key', null);
+        $task_id = Request::getInstance()->param('task_id', null);
 
-        if (null === $task_key) {
-            Response::return(['status' => -1, 'msg' => 'Arguments task_key is empty']);
-        } else if ('' === $task_key) {
-            Response::return(['status' => -1, 'msg' => 'Arguments task_key is invalid']);
+        if (null === $task_id) {
+            Response::return (['status' => -1, 'msg' => 'Arguments task_id is empty']);
+        } else if ('' === $task_id) {
+            Response::return (['status' => -1, 'msg' => 'Arguments task_id is invalid']);
         }
 
-        $res = $this->execute('start', ['task_key' => $task_key]);
+        $res = $this->execute('start', ['task_id' => $task_id]);
         if ($res) {
-            Response::return(['status' => 1, 'msg' => 'success']);
+            Response::return (['status' => 1, 'msg' => 'success']);
         } else {
-            Response::return(['status' => 0, 'msg' => 'failed']);
+            Response::return (['status' => 0, 'msg' => 'failed']);
         }
     }
 
@@ -107,16 +105,16 @@ class Crontab extends CrontabClient
         $task_key = Request::getInstance()->param('task_key', null);
 
         if (null === $task_key) {
-            Response::return(['status' => -1, 'msg' => 'Arguments task_key is empty']);
+            Response::return (['status' => -1, 'msg' => 'Arguments task_key is empty']);
         } else if ('' === $task_key) {
-            Response::return(['status' => -1, 'msg' => 'Arguments task_key is invalid']);
+            Response::return (['status' => -1, 'msg' => 'Arguments task_key is invalid']);
         }
 
         $res = $this->execute('stop', ['task_key' => $task_key]);
         if ($res) {
-            Response::return(['status' => 1, 'msg' => 'success']);
+            Response::return (['status' => 1, 'msg' => 'success']);
         } else {
-            Response::return(['status' => 0, 'msg' => 'failed']);
+            Response::return (['status' => 0, 'msg' => 'failed']);
         }
     }
 
@@ -128,16 +126,16 @@ class Crontab extends CrontabClient
         $task_key = Request::getInstance()->param('task_key', null);
 
         if (null === $task_key) {
-            Response::return(['status' => -1, 'msg' => 'Arguments task_key is empty']);
+            Response::return (['status' => -1, 'msg' => 'Arguments task_key is empty']);
         } else if ('' === $task_key) {
-            Response::return(['status' => -1, 'msg' => 'Arguments task_key is invalid']);
+            Response::return (['status' => -1, 'msg' => 'Arguments task_key is invalid']);
         }
 
         $res = $this->execute('delete', ['task_key' => $task_key]);
         if ($res) {
-            Response::return(['status' => 1, 'msg' => 'success']);
+            Response::return (['status' => 1, 'msg' => 'success']);
         } else {
-            Response::return(['status' => 0, 'msg' => 'failed']);
+            Response::return (['status' => 0, 'msg' => 'failed']);
         }
     }
 }

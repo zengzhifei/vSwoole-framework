@@ -85,15 +85,6 @@ class Init
                     self::reload($_SERVER['argv'][2]);
                 }
                 break;
-            case 'restart':
-                if (count($_SERVER['argv']) !== 3) {
-                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else {
-                    self::restart($_SERVER['argv'][2]);
-                }
-                break;
             case 'shutdown':
                 if (count($_SERVER['argv']) !== 3) {
                     echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
@@ -242,7 +233,7 @@ class Init
      */
     private static function autoloadRegister()
     {
-        spl_autoload_register("self::loadClass");
+        spl_autoload_register([self::class,'loadClass']);
     }
 
     /**

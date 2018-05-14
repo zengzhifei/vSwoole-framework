@@ -140,7 +140,7 @@ class Table
         foreach ($this->table_instance as $key => $value) {
             $table_result[$key] = $value;
         }
-        return $table_result;
+        return count($table_result) ? $table_result : null;
     }
 
     /**
@@ -151,11 +151,20 @@ class Table
     {
         $delete_row = 0;
         foreach ($this->table_instance as $key => $value) {
-            if ($this->del($key)) {
+            if ($this->table_instance->del($key)) {
                 $delete_row++;
             }
         }
         return $delete_row;
+    }
+
+    /**
+     * 获取内存表对象实例
+     * @return null|\swoole_table
+     */
+    public function getTable()
+    {
+        return $this->table_instance;
     }
 
     /**

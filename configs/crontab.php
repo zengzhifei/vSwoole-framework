@@ -67,7 +67,7 @@ return [
         //长连接Key
         'connectionKey' => '',
         //服务器地址
-        'host'          => '10.4.0.101',
+        'host'          => '192.168.31.100',
         //服务器端口
         'port'          => 8502,
         //连接超时
@@ -82,5 +82,6 @@ return [
     //其他配置
     'other_config'   => [
         'is_cache_config' => true,
+        'task_key'        => 'VSoole-Crontab-task',
     ]
 ];

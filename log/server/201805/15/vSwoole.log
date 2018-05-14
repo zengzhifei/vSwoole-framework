@@ -1,0 +1,21 @@
+[2018-05-15 00:28:01] 
+InvalidArgumentException: Arguments task url invalid: http://192.168.31.100/demo/tp5/public/index.php?s=index/index/time
+In /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php: 75
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 [internal function]: vSwoole\application\server\logic\CrontabLogic->add(Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(126): vSwoole\library\common\Task::execute(Object(Swoole\Server), Array)
+#3 [internal function]: vSwoole\application\server\Crontab->onTask(Object(Swoole\Server), 0, 0, Array)
+#4 {main}
+
+[2018-05-15 02:15:00] 
+vSwoole\library\common\exception\Exception: preg_match() expects at least 2 parameters, 1 given
+In /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php: 209
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'preg_match() ex...', '/mnt/hgfs/demo/...', 209, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/logic/CrontabLogic.php(209): preg_match('/(\\/curl)[\\s]*$...')
+#2 /mnt/hgfs/demo/vSwoole/application/server/Crontab.php(111): vSwoole\application\server\logic\CrontabLogic->execute(Array)
+#3 {main}
+

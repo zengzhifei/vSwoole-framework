@@ -88,4 +88,19 @@ class Utils
         $client->connect($host, $port, $timeout, $flag);
         return $client->isConnected();
     }
+
+    /**
+     * 设置进程别名
+     * @param string $process_name
+     */
+    public static function setProcessName(string $process_name = '')
+    {
+        if ($process_name) {
+            if (function_exists('cli_set_process_title')) {
+                @cli_set_process_title($process_name);
+            } else {
+                @swoole_set_process_name($process_name);
+            }
+        }
+    }
 }
