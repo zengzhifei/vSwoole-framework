@@ -45,11 +45,7 @@ class WebSocketServer extends Server
         //展示服务启动信息
         $this->startShowServerInfo();
         //设置主进程别名
-        if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_WEB_SOCKET_SERVER . ' master');
-        } else {
-            @swoole_set_process_name(VSWOOLE_WEB_SOCKET_SERVER . ' master');
-        }
+        Utils::setProcessName(VSWOOLE_WEB_SOCKET_SERVER . ' master');
         //异步记录服务进程PID
         Utils::writePid($server->master_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Master');
         Utils::writePid($server->manager_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Manager');
@@ -71,11 +67,7 @@ class WebSocketServer extends Server
     public function onManagerStart(\swoole_server $server)
     {
         //设置管理进程别名
-        if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_WEB_SOCKET_SERVER . ' manager');
-        } else {
-            @swoole_set_process_name(VSWOOLE_WEB_SOCKET_SERVER . ' manager');
-        }
+        Utils::setProcessName(VSWOOLE_WEB_SOCKET_SERVER . ' manager');
     }
 
     /**
@@ -96,11 +88,7 @@ class WebSocketServer extends Server
     {
         //设置工作进程别名
         $worker_name = $server->taskworker ? ' tasker/' . $worker_id : ' worker/' . $worker_id;
-        if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_WEB_SOCKET_SERVER . $worker_name);
-        } else {
-            @swoole_set_process_name(VSWOOLE_WEB_SOCKET_SERVER . $worker_name);
-        }
+        Utils::setProcessName(VSWOOLE_WEB_SOCKET_SERVER . $worker_name);
         //缓存配置
         $is_cache = Config::loadConfig('websocket')->get('other_config.is_cache_config');
         $is_cache && Config::cacheConfig();
