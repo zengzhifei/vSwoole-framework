@@ -17,7 +17,7 @@ abstract class Client
     //客户端连接配置
     protected $connectOptions = [
         //服务Sock类型
-        'sockType'      => SWOOLE_SOCK_TCP | SWOOLE_KEEP,
+        'sockType'      => SWOOLE_SOCK_TCP,
         //同步异步
         'syncType'      => SWOOLE_SOCK_SYNC,
         //长连接Key

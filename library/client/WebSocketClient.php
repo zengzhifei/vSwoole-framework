@@ -12,6 +12,7 @@ namespace vSwoole\library\client;
 
 use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
+use vSwoole\library\common\Log;
 
 class WebSocketClient extends Client
 {
@@ -35,32 +36,26 @@ class WebSocketClient extends Client
 
     /**
      * 连接服务器
+     * WebSocketClient constructor.
      * @param array $connectOptions
      * @param array $configOptions
-     * @throws \ReflectionException
      */
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
-        try {
-            $connectOptions = array_merge(Config::loadConfig('websocket')->get('client_connect'), $connectOptions);
-            $configOptions = array_merge(Config::loadConfig('websocket')->get('client_config'), $configOptions);
-            if (false !== parent::__construct($connectOptions, $configOptions)) {
-                $this->key = $this->generateToken();
-                $this->header = $this->createHeader($connectOptions['host'], $connectOptions['port']);
-                $this->client->send($this->header);
-                $res = $this->recv();
-                if ($res) {
-                    $this->clients_instance[md5($connectOptions['host'])] = $this->client;
-                    return $this->client;
-                }
-                return false;
-            } else {
-                $this->client->close();
-                throw new \Exception('Swoole Client connect failed');
+        $connectOptions = array_merge(Config::loadConfig('websocket')->get('client_connect'), $connectOptions);
+        $configOptions = array_merge(Config::loadConfig('websocket')->get('client_config'), $configOptions);
+        if (false !== parent::__construct($connectOptions, $configOptions)) {
+            $this->key = $this->generateToken();
+            $this->header = $this->createHeader($connectOptions['host'], $connectOptions['port']);
+            $this->client->send($this->header);
+            if ($this->recv()) {
+                $this->clients_instance[md5($connectOptions['host'])] = $this->client;
+                return $this->client;
             }
-        } catch (\Exception $e) {
-            Exception::reportError($e);
+        } else {
+            $this->client->close();
         }
+        return false;
     }
 
     /**
@@ -105,26 +100,18 @@ class WebSocketClient extends Client
 
     /**
      * 接收服务器返回消息
-     * @return mixed
+     * @return bool
      */
     private function recv()
     {
-        try {
-            $data = $this->client->recv();
-            if ($data === false) {
-                throw new \Exception("swoole_websocket_server return false.");
-            }
+        if ($data = $this->client->recv()) {
             $this->buffer .= $data;
-            $recv_data = $this->parseData($this->buffer);
-            if ($recv_data) {
+            if ($recv_data = $this->parseData($this->buffer)) {
                 $this->buffer = '';
                 return $recv_data;
-            } else {
-                throw new \Exception("swoole_websocket_server return failed.");
             }
-        } catch (\Exception $e) {
-            Exception::reportError($e);
         }
+        return false;
     }
 
     /**
@@ -134,25 +121,20 @@ class WebSocketClient extends Client
      */
     private function parseData($response)
     {
-        try {
-            if (!$this->connected) {
-                $response = $this->parseIncomingRaw($response);
-                if (isset($response['Sec-Websocket-Accept']) && base64_encode(pack('H*', sha1($this->key . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'))) === $response['Sec-Websocket-Accept']) {
-                    $this->connected = true;
-                    return true;
-                } else {
-                    throw new \Exception("error response key.");
-                }
+        if (!$this->connected) {
+            $response = $this->parseIncomingRaw($response);
+            if (isset($response['Sec-Websocket-Accept']) && base64_encode(pack('H*', sha1($this->key . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'))) === $response['Sec-Websocket-Accept']) {
+                $this->connected = true;
+                return true;
+            } else {
+                return false;
             }
-
-            $frame = \swoole_websocket_server::unpack($response);
-            if ($frame) {
+        } else {
+            if ($frame = \swoole_websocket_server::unpack($response)) {
                 return $this->returnData ? $frame->data : $frame;
             } else {
-                throw new \Exception("swoole_websocket_server::unpack failed.");
+                return false;
             }
-        } catch (\Exception $e) {
-
         }
     }
 
@@ -194,29 +176,34 @@ class WebSocketClient extends Client
      * 向服务器发送指令+数据
      * @param string $cmd
      * @param array $data
+     * @param string|null $server_ip
      * @return bool
      */
-    public function execute(string $cmd = '', array $data = [])
+    public function execute(string $cmd = '', array $data = [], string $server_ip = null)
     {
         if ($cmd && is_string($cmd)) {
-            $result = true;
-            $send_data = ['cmd' => $cmd, 'data' => $data];
             if (!empty($this->clients_instance)) {
-                foreach ($this->clients_instance as $client) {
+                $send_data = ['cmd' => $cmd, 'data' => $data];
+                if (empty($server_ip)) {
+                    $result = true;
+                    foreach ($this->clients_instance as $client) {
+                        if ($client->isConnected()) {
+                            $res = $client->send(\swoole_websocket_server::pack(json_encode($send_data), WEBSOCKET_OPCODE_TEXT));
+                            $return_status = $this->parseData($client->recv());
+                            $result = $result && $res && $return_status->finish ? true : false;
+                        }
+                    }
+                } else if (array_key_exists(md5($server_ip), $this->clients_instance)) {
+                    $client = $this->clients_instance[md5($server_ip)];
                     if ($client->isConnected()) {
                         $res = $client->send(\swoole_websocket_server::pack(json_encode($send_data), WEBSOCKET_OPCODE_TEXT));
-                        $res = false === $res ? false : true;
                         $return_status = $this->parseData($client->recv());
-                        $result = $result && $res && $return_status->finish;
+                        $result = $res && $return_status->finish ? true : false;
                     }
                 }
-            } else {
-                $result = $result && false;
             }
-            return $result;
-        } else {
-            return false;
         }
+        return $result ?? false;
     }
 
     /**

@@ -1,0 +1,750 @@
+[2018-05-15 17:56:09] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 17:56:09] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 17:57:19] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 17:57:19] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:00:35] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:00:35] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:02:16] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:02:16] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:02:18] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:02:18] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:02:19] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:02:19] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:03:32] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:03:32] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:04:18] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:04:18] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:04:52] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:04:52] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:05:30] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:05:30] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:05:43] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:05:43] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:11:32] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:11:32] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:13:22] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(32): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:13:22] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(34): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-15 18:33:04] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:33:04] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 18:35:31] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:35:31] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 18:36:37] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:36:37] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 18:36:54] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:36:54] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 18:37:10] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:37:10] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 18:37:18] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:37:18] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 18:50:08] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:50:08] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 18:52:02] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:52:02] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 18:52:26] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 18:52:26] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 19:24:30] 
+Error: Class '/mnt/hgfs/demo/vSwoole/public/../application/api/\WebSocket' not found
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 391
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/index.php(24): vSwoole\library\Init->runApi()
+#1 /mnt/hgfs/demo/vSwoole/public/index.php(28): Index->__construct()
+#2 {main}
+
+[2018-05-15 19:26:56] 
+Error: Class '/mnt/hgfs/demo/vSwoole/public/../application/api/\' not found
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 391
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/index.php(24): vSwoole\library\Init->runApi()
+#1 /mnt/hgfs/demo/vSwoole/public/index.php(28): Index->__construct()
+#2 {main}
+
+[2018-05-15 19:27:06] 
+Error: Class '/mnt/hgfs/demo/vSwoole/public/../application/api/\WebSocket' not found
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 391
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/index.php(24): vSwoole\library\Init->runApi()
+#1 /mnt/hgfs/demo/vSwoole/public/index.php(28): Index->__construct()
+#2 {main}
+
+[2018-05-15 19:27:23] 
+Error: Class '/mnt/hgfs/demo/vSwoole/public/../application/api/\WebSocket' not found
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 392
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/public/index.php(24): vSwoole\library\Init->runApi()
+#1 /mnt/hgfs/demo/vSwoole/public/index.php(28): Index->__construct()
+#2 {main}
+
+[2018-05-15 19:28:45] 
+vSwoole\library\common\exception\ClassNotFoundException: class vSwoole\application\api\Utils not exist,file path: /mnt/hgfs/demo/vSwoole/public/../application/api/Utils.php
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 217
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/application/api/WebSocket.php(31): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(393): vSwoole\application\api\WebSocket->getServerList()
+#3 /mnt/hgfs/demo/vSwoole/public/index.php(24): vSwoole\library\Init->runApi()
+#4 /mnt/hgfs/demo/vSwoole/public/index.php(28): Index->__construct()
+#5 {main}
+
+[2018-05-15 19:29:18] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/common/Utils.php: 88
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 88, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Utils.php(88): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/application/api/WebSocket.php(32): vSwoole\library\common\Utils::getServerStatus('10.4.0.101', 8501)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(393): vSwoole\application\api\WebSocket->getServerList()
+#4 /mnt/hgfs/demo/vSwoole/public/index.php(24): vSwoole\library\Init->runApi()
+#5 /mnt/hgfs/demo/vSwoole/public/index.php(28): Index->__construct()
+#6 {main}
+
+[2018-05-15 19:29:31] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/common/Utils.php: 88
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 88, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Utils.php(88): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/application/api/WebSocket.php(32): vSwoole\library\common\Utils::getServerStatus('10.4.0.101', 8501)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(393): vSwoole\application\api\WebSocket->getServerList()
+#4 /mnt/hgfs/demo/vSwoole/public/index.php(24): vSwoole\library\Init->runApi()
+#5 /mnt/hgfs/demo/vSwoole/public/index.php(28): Index->__construct()
+#6 {main}
+
+[2018-05-15 19:32:18] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/common/Utils.php: 88
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 88, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/Utils.php(88): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/application/api/WebSocket.php(33): vSwoole\library\common\Utils::getServerStatus('10.4.0.101', 8501)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(393): vSwoole\application\api\WebSocket->getServerList()
+#4 /mnt/hgfs/demo/vSwoole/public/index.php(24): vSwoole\library\Init->runApi()
+#5 /mnt/hgfs/demo/vSwoole/public/index.php(28): Index->__construct()
+#6 {main}
+
+[2018-05-15 20:03:55] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 20:03:55] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 20:04:23] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 20:04:23] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 20:11:44] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 20:11:44] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-15 20:13:24] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[10.4.0.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 76
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 76, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(76): Swoole\Client->connect('10.4.0.101', 8501, 3, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->__construct(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-15 20:13:24] 
+Exception: Swoole Client connect failed
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 59
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(38): vSwoole\library\client\WebSocketClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+

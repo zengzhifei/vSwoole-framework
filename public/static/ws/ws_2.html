@@ -16,14 +16,14 @@
         //interact.initConsole();
         window.link_count = 0;
         window.message_count = 0;
-        for (var i = 201; i <= 400; i++) {
+        for (var i = 101; i <= 200; i++) {
             create_ws(i);
         }
         function create_ws(i){
-            new WS('ws://th7.ctvit.tv/ws', {
+            new WS('ws://10.4.0.101/ws', {
                 'auto_connect' : false,
                 onOpen: function (ws) {
-                    var range_data = {cmd: 'range', data: {user_id: i, range_id: 123456}};
+                    var range_data = {cmd: 'range', data: {user_id: i, range_id: 12345678}};
                     ws.send(JSON.stringify(range_data));
                     window.link_count++;
                 },

@@ -19,9 +19,10 @@
         for (var i = 601; i <= 800; i++) {
             create_ws(i);
         }
-        function create_ws(i){
-            new WS('ws://10.4.0.101:9501', {
-                'auto_connect' : false,
+
+        function create_ws(i) {
+            new WS('ws://10.4.0.101/ws', {
+                'auto_connect': false,
                 onOpen: function (ws) {
                     var range_data = {cmd: 'range', data: {user_id: i, range_id: 123456}};
                     ws.send(JSON.stringify(range_data));

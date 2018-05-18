@@ -9,7 +9,6 @@
 
 namespace vSwoole\library\common;
 
-use Swoole\Error;
 
 class Utils
 {

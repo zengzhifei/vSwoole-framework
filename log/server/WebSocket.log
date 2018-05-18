@@ -621,3 +621,2568 @@
 [2018-05-13 18:23:54 *3683.2]	NOTICE	swFactoryProcess_finish (ERROR 1004): send 189 byte failed, because connection[fd=1057] is closed.
 [2018-05-13 18:23:54 *3686.5]	NOTICE	swFactoryProcess_finish (ERROR 1004): send 189 byte failed, because connection[fd=1060] is closed.
 [2018-05-13 18:23:54 *3687.6]	NOTICE	swFactoryProcess_finish (ERROR 1004): send 189 byte failed, because connection[fd=1061] is closed.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-15 18:01:10
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-15 20:13:54
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 13:02:20 *4454.7]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: require_once(): Failed opening required '/mnt/hgfs/demo/vSwoole/public/../library/common/exception/ErrorException.php' (include_path='.:/opt/php/lib/php') in /mnt/hgfs/demo/vSwoole/library/Init.php on line 215.
+[2018-05-16 13:02:22 $4419.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2018-05-16 13:29:37 *25086.7]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: require_once(): Failed opening required '/mnt/hgfs/demo/vSwoole/public/../library/common/exception/ErrorException.php' (include_path='.:/opt/php/lib/php') in /mnt/hgfs/demo/vSwoole/library/Init.php on line 215.
+[2018-05-16 13:29:37 $4419.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2018-05-16 13:35:46 *4455.8]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: require_once(): Failed opening required '/mnt/hgfs/demo/vSwoole/public/../library/common/exception/ErrorException.php' (include_path='.:/opt/php/lib/php') in /mnt/hgfs/demo/vSwoole/library/Init.php on line 215.
+[2018-05-16 13:35:46 $4419.0]	WARNING	swManager_check_exit_status: worker#8 abnormal exit, status=255, signal=0
+[2018-05-16 14:46:07 *25642.7]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: require_once(): Failed opening required '/mnt/hgfs/demo/vSwoole/public/../library/common/exception/ErrorException.php' (include_path='.:/opt/php/lib/php') in /mnt/hgfs/demo/vSwoole/library/Init.php on line 215.
+[2018-05-16 14:46:07 $4419.0]	WARNING	swManager_check_exit_status: worker#7 abnormal exit, status=255, signal=0
+[2018-05-16 14:51:39 #4418.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 14:52:29
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 14:52:43 *27402.4]	NOTICE	swFactoryProcess_finish (ERROR 1004): send 189 byte failed, because connection[fd=3] is closed.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 14:54:26
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 14:55:40 #27458.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 15:13:55
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 15:18:44 #27900.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 15:19:53
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 15:24:47
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 15:26:06 $28217.0]	NOTICE	Server is reloading now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 16:19:28
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 16:43:14
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 16:49:34 #29965.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 16:55:59
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 16:56:06 $30258.0]	NOTICE	Server is reloading now.
+[2018-05-16 16:56:09 #30257.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 16:56:58
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 16:59:27 #30352.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 17:00:18
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 17:00:25 #30479.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 17:13:46
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 17:13:53 #30797.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 17:14:37
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 20:43:20
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-16 20:49:46
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-16 20:50:15 *35389.0]	NOTICE	swFactoryProcess_finish (ERROR 1004): send 189 byte failed, because connection[fd=1] is closed.
+[2018-05-16 20:50:23 *35399.4]	NOTICE	swFactoryProcess_finish (ERROR 1004): send 189 byte failed, because connection[fd=3] is closed.
+[2018-05-16 21:06:01 *35408.12]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35390.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35409.13]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35405.9]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35413.14]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35407.11]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35413.14]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35389.0]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35403.7]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35403.7]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 #35307.8]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 #35307.8]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35402.6]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35402.6]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 $35359.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-05-16 21:06:01 $35359.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2018-05-16 21:06:01 *35392.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35415.15]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35390.1]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35405.9]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35409.13]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35399.4]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35401.5]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35407.11]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35401.5]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35406.10]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35408.12]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35404.8]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35394.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35394.3]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35392.2]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35415.15]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-16 21:06:01 *35406.10]	WARNING	swSignalfd_onSignal: signal[1] callback is null.
+[2018-05-17 10:07:51 #35307.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:09:32
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:29:45
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:34:23
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:35:26
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-17 10:35:37 *52491.4]	NOTICE	swFactoryProcess_finish (ERROR 1004): send 189 byte failed, because connection[fd=34] is closed.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:36:34
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-17 10:36:34 ^52534.16]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:34 $52523.0]	WARNING	swManager_check_exit_status: worker#16 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 ^52539.21]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 ^52545.27]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#21 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#27 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 ^52547.29]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 ^52542.24]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 ^52540.22]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 ^52538.20]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 ^52566.16]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 ^52549.31]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#29 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 ^52546.28]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#20 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 ^52544.26]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#24 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#31 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#16 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 ^52543.25]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 ^52548.30]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 ^52541.23]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#22 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#28 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 ^52537.19]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#26 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 ^52536.18]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#25 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#30 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 $52523.0]	WARNING	swManager_check_exit_status: worker#18 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:56 ^52535.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52569.27]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#19 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#23 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52571.20]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#27 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#20 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52573.31]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52568.21]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52574.16]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#31 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#21 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52579.30]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#16 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#30 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52570.29]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52580.18]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#29 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52577.26]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#18 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#26 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52588.16]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52581.19]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#16 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52575.22]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#19 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52589.30]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#22 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#30 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52576.28]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#28 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52583.27]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52584.20]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52578.25]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#20 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52572.24]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#25 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#27 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52585.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#24 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52586.31]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52582.23]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#31 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52590.29]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#23 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#29 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52592.26]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#26 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52593.16]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52591.18]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#16 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52606.26]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52598.20]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52587.21]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52594.19]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52605.29]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52603.31]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52597.28]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#18 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#21 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#19 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#20 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#31 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#29 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#28 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#26 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52604.23]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52599.25]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52596.30]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#25 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#23 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52600.27]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52601.24]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 ^52595.22]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#30 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#27 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#24 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52607.16]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#22 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#16 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:57 ^52602.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:57 $52523.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52610.19]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#19 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52608.18]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#18 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52616.25]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52619.27]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52612.31]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52624.19]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#31 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#25 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52613.29]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52611.20]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#27 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52615.26]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#19 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#20 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52609.21]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#29 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#26 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52622.16]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52621.22]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52623.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52614.28]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52618.30]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52620.24]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#21 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#22 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#28 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#16 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52617.23]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#23 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#30 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#24 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52627.25]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#25 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52626.31]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52630.20]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#31 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#20 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52633.21]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#21 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52628.27]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52631.29]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#29 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52638.30]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52641.25]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52640.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52639.24]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52625.18]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52643.20]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#27 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52629.19]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#20 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#18 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#25 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52632.26]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52634.22]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#26 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#22 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#19 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#30 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#24 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52637.23]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#23 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52644.21]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 ^52635.28]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#21 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#28 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:58 ^52649.18]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:58 $52523.0]	WARNING	swManager_check_exit_status: worker#18 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:59 ^52656.23]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:59 $52523.0]	WARNING	swManager_check_exit_status: worker#23 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:59 ^52655.24]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:59 ^52647.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:59 ^52658.28]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:59 $52523.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:59 $52523.0]	WARNING	swManager_check_exit_status: worker#24 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:59 ^52653.19]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:59 $52523.0]	WARNING	swManager_check_exit_status: worker#28 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:59 $52523.0]	WARNING	swManager_check_exit_status: worker#19 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:59 ^52657.21]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:59 ^52652.22]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:59 $52523.0]	WARNING	swManager_check_exit_status: worker#22 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:59 $52523.0]	WARNING	swManager_check_exit_status: worker#21 abnormal exit, status=255, signal=0
+[2018-05-17 10:36:59 ^52665.22]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Swoole\Redis::connect(): can't use async-io in task process. in /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php on line 90.
+[2018-05-17 10:36:59 $52523.0]	WARNING	swManager_check_exit_status: worker#22 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:43:45
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:49:37
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:54:50
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:55:04
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:55:38
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:56:30
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:57:09
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:57:35
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:59:34
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 10:59:52
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:21:16
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:24:03
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:27:23
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:28:01
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:28:56
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:30:37
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:34:23
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:40:39
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 11:41:14
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-17 12:01:45
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 09:19:17
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 10:02:28
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 11:44:23
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 11:51:29
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 11:51:46
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 11:54:21
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 11:54:28 ^84836.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to vSwoole\library\common\Task::execute() must be of the type array, string given, called in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php on line 198 and defined in /mnt/hgfs/demo/vSwoole/library/common/Task.php:39
+Stack trace:
+#0 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(198): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), '}}\x00\xC8\xA3\xE0\xBD\xEF\x7F\x00\x00\x97\x00\x00\
+[2018-05-18 11:54:28 $84824.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 11:55:45
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 11:57:43
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 11:57:47 ^84988.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to vSwoole\library\common\Task::execute() must be of the type array, string given, called in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php on line 198 and defined in /mnt/hgfs/demo/vSwoole/library/common/Task.php:39
+Stack trace:
+#0 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(198): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), '}}\x00\xC8\xA3 :4\x7F\x00\x00\x97\x00\x00\x00...')
+
+[2018-05-18 11:57:47 $84976.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 11:58:35
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 11:58:50 ^85053.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to vSwoole\library\common\Task::execute() must be of the type array, string given, called in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php on line 198 and defined in /mnt/hgfs/demo/vSwoole/library/common/Task.php:39
+Stack trace:
+#0 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(198): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), '}}\x00\xC8\xA3\xA0_\x9C\x7F\x00\x00\x97\x00\x00\x00
+[2018-05-18 11:58:50 $85041.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:01:56
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 12:01:59 ^85174.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to vSwoole\library\common\Task::execute() must be of the type array, string given, called in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php on line 198 and defined in /mnt/hgfs/demo/vSwoole/library/common/Task.php:39
+Stack trace:
+#0 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(198): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), '}}\x00\xC8\xA3\xC0/\xF1\x7F\x00\x00\x97\x00\x00\x00
+[2018-05-18 12:01:59 $85162.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:02:13
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 12:02:18 *85253.0]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Swoole\Exception: cannot serialize or unserialize. in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php:128
+Stack trace:
+#0 [internal function]: Swoole\Http\Request->__sleep()
+#1 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(128): serialize(Object(Swoole\Http\Request))
+#2 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php on line 128.
+[2018-05-18 12:02:18 $85226.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:03:32
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:04:59
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:05:29
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 12:05:35 *85448.0]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught Swoole\Exception: cannot serialize or unserialize. in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php:128
+Stack trace:
+#0 [internal function]: Swoole\Http\Request->__sleep()
+#1 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(128): serialize(Object(Swoole\Http\Request))
+#2 {main}
+  thrown in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php on line 128.
+[2018-05-18 12:05:35 $85421.0]	WARNING	swManager_check_exit_status: worker#0 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:05:56
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 12:05:59 ^85478.17]	ERROR	zm_deactivate_swoole (ERROR 503): Fatal error: Uncaught TypeError: Argument 2 passed to vSwoole\library\common\Task::execute() must be of the type array, string given, called in /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php on line 198 and defined in /mnt/hgfs/demo/vSwoole/library/common/Task.php:39
+Stack trace:
+#0 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(198): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), '}}\x00\xC8\xA3\x00\x8Ae\x7F\x00\x00\x97\x00\x00\x00
+[2018-05-18 12:05:59 $85466.0]	WARNING	swManager_check_exit_status: worker#17 abnormal exit, status=255, signal=0
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:07:06
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:08:33
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:10:25
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:13:08
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:13:43
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:14:24
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:15:13
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:20:33
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 12:26:53
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:03:36
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:10:33
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:12:36
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:14:53
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:18:32
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:20:26
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:51:56
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:58:15
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 13:59:23
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:00:03
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 14:00:23 *88679.0]	WARNING	swWorker_discard_data (ERROR 1007): [1]received the wrong data[56 bytes] from socket#7
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:17:02
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:25:13
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:27:51
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:30:01
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:44:30
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:45:03
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 14:49:28 *89865.0]	WARNING	swWorker_discard_data (ERROR 1007): [1]received the wrong data[57 bytes] from socket#416
+[2018-05-18 14:51:52 *89865.0]	WARNING	swWorker_discard_data (ERROR 1007): [1]received the wrong data[57 bytes] from socket#1012
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:59:03
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 14:59:18
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
+[2018-05-18 15:05:36 #90215.8]	NOTICE	Server is shutdown now.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_WebSocket_Server start ok. 2018-05-18 15:17:28
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9501
+|adminHost: 0.0.0.0
+|adminPort: 8501
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/WebSocket.log
+|worker_num: 16
+|reactor_num: 8
+|task_worker_num: 16
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|debug_mode: false
+|max_conn: 1024
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_http_protocol: true
+|open_mqtt_protocol: false
+|open_eof_check: false
+|open_length_check: false
+|open_websocket_protocol: true
++-----------------------------------------------------------------------------------------------------+
+
