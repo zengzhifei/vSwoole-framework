@@ -15,7 +15,6 @@ use vSwoole\library\common\Config;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Request;
 use vSwoole\library\common\Response;
-use vSwoole\library\common\Utils;
 
 class WebSocket extends WebSocketClient
 {
@@ -124,19 +123,12 @@ class WebSocket extends WebSocketClient
             Response::return(['status' => -1, 'msg' => 'Arguments user_id is invalid']);
         }
 
-        $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-        $serverKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Server_Ip');
-        $user_key = Config::loadConfig('redis')->get('redis_key.WebSocket.User_Info');
-        $server_ips = $redis->SMEMBERS($serverKey);
-        foreach ($server_ips as $ip) {
-            $str_ip = str_replace('.', '', $ip);
-            $user = $redis->hGet($user_key . '_' . $range_id . '_' . $str_ip, $user_id);
-            if ($user && ($user = json_decode($user, true))) {
-                $res = $this->execute('close', ['fd' => $user['fd']], $ip);
-                $res && Response::return(['status' => 1, 'msg' => 'close success']);
-            }
+        $res = $this->execute('close', ['range_id' => $range_id, 'user_id' => $user_id]);
+        if ($res) {
+            Response::return(['status' => 1, 'msg' => 'close success']);
+        } else {
+            Response::return(['status' => 0, 'msg' => 'close failed']);
         }
-        Response::return(['status' => 0, 'msg' => 'close failed']);
     }
 
     /**
@@ -145,19 +137,7 @@ class WebSocket extends WebSocketClient
      */
     public function getServerList()
     {
-        $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-        $serverKey = Config::loadConfig('redis')->get('redis_key.WebSocket.Server_Ip');
-        $server_ips = $redis->SMEMBERS($serverKey);
-        $server_port = Config::loadConfig('websocket')->get('server_connect.adminPort');
-        $ips = [];
-        if ($server_ips) {
-            foreach ($server_ips as $ip) {
-                if (Utils::getServerStatus($ip, $server_port)) {
-                    $ips[] = $ip;
-                }
-            }
-        }
-        if (count($ips)) {
+        if (count($ips = $this->getConnectIp())) {
             Response::return(['status' => 1, 'msg' => 'get success', 'data' => $ips]);
         } else {
             Response::return(['status' => 0, 'msg' => 'get failed']);
@@ -172,21 +152,16 @@ class WebSocket extends WebSocketClient
     {
         $server_ip = Request::getInstance()->param('server_ip', null);
 
-        if (null === $server_ip) {
-            Response::return(['status' => -1, 'msg' => 'Arguments server_ip is empty']);
-        } else if ('' === $server_ip) {
-            Response::return(['status' => -1, 'msg' => 'Arguments server_ip is invalid']);
+        if ($server_ip && is_string($server_ip)) {
+            $online_list = $this->execute('line', [], $server_ip);
+        } else {
+            $online_list = $this->execute('line', []);
         }
-
-        $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-        $link_key = Config::loadConfig('redis')->get('redis_key.WebSocket.Link_Info');
-        $server_ips = is_array($server_ip) ? $server_ip : [$server_ip];
-        $online_data = [];
-        foreach ($server_ips as $server_ip) {
-            $linkKey = $link_key . '_' . str_replace('.', '', $server_ip);
-            $online_data[$server_ip] = $redis->hLen($linkKey);
+        if ($online_list) {
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => $online_list]);
+        } else {
+            Response::return(['status' => 0, 'msg' => 'get fail']);
         }
-        Response::return(['status' => 1, 'msg' => 'get success', 'data' => $online_data]);
     }
 
     /**
@@ -195,11 +170,14 @@ class WebSocket extends WebSocketClient
      */
     public function getRanges()
     {
-        $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-        $ranges = $redis->hGetAll(Config::loadConfig('redis')->get('redis_key.WebSocket.Range_Info'));
-        foreach ($ranges as $range => $count) {
-            if ($count > 0) {
-                $_ranges[] = $range;
+        $ranges = $this->execute('range', []);
+        if ($ranges && is_array($ranges)) {
+            foreach ($ranges as $range_list) {
+                if ($range_list = json_decode($range_list, true)) {
+                    foreach ($range_list as $range => $count) {
+                        if ($count > 0 && !in_array($range, $_ranges ?? [])) $_ranges[] = $range;
+                    }
+                }
             }
         }
         if (isset($_ranges)) {
@@ -223,10 +201,9 @@ class WebSocket extends WebSocketClient
             Response::return(['status' => -1, 'msg' => 'Arguments range_id is invalid']);
         }
 
-        $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-        $online = $redis->hGet(Config::loadConfig('redis')->get('redis_key.WebSocket.Range_Info'), $range_id);
-        if ($online) {
-            Response::return(['status' => 1, 'msg' => 'get success', 'data' => $online]);
+        $online = $this->execute('line', ['range_id' => $range_id]);
+        if ($online && is_array($online)) {
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => array_sum($online)]);
         } else {
             Response::return(['status' => 0, 'msg' => 'get fail']);
         }

@@ -11,8 +11,6 @@ namespace vSwoole\library\client;
 
 
 use vSwoole\library\common\Config;
-use vSwoole\library\common\exception\Exception;
-use vSwoole\library\common\Log;
 
 class WebSocketClient extends Client
 {
@@ -33,6 +31,8 @@ class WebSocketClient extends Client
     protected $returnData = false;
     //客户端实例
     protected $clients_instance = [];
+    //连接实例
+    protected $connect_instance = [];
 
     /**
      * 连接服务器
@@ -50,6 +50,7 @@ class WebSocketClient extends Client
             $this->client->send($this->header);
             if ($this->recv()) {
                 $this->clients_instance[md5($connectOptions['host'])] = $this->client;
+                $this->connect_instance[md5($connectOptions['host'])] = $connectOptions['host'];
                 return $this->client;
             }
         } else {
@@ -181,29 +182,45 @@ class WebSocketClient extends Client
      */
     public function execute(string $cmd = '', array $data = [], string $server_ip = null)
     {
-        if ($cmd && is_string($cmd)) {
-            if (!empty($this->clients_instance)) {
-                $send_data = ['cmd' => $cmd, 'data' => $data];
-                if (empty($server_ip)) {
-                    $result = true;
-                    foreach ($this->clients_instance as $client) {
-                        if ($client->isConnected()) {
-                            $res = $client->send(\swoole_websocket_server::pack(json_encode($send_data), WEBSOCKET_OPCODE_TEXT));
+        if ($cmd && is_string($cmd) && !empty($this->clients_instance)) {
+            $send_data = ['cmd' => $cmd, 'data' => $data];
+            if (empty($server_ip)) {
+                foreach ($this->clients_instance as $ip => $client) {
+                    if ($client->isConnected()) {
+                        if ($client->send(\swoole_websocket_server::pack(json_encode($send_data), WEBSOCKET_OPCODE_TEXT))) {
                             $return_status = $this->parseData($client->recv());
-                            $result = $result && $res && $return_status->finish ? true : false;
+                            if ($return_status && $return_status->finish) {
+                                $result[$this->connect_instance[$ip]] = $return_status->data;
+                            } else {
+                                $result[$ip] = true;
+                            }
                         }
                     }
-                } else if (array_key_exists(md5($server_ip), $this->clients_instance)) {
-                    $client = $this->clients_instance[md5($server_ip)];
-                    if ($client->isConnected()) {
-                        $res = $client->send(\swoole_websocket_server::pack(json_encode($send_data), WEBSOCKET_OPCODE_TEXT));
+                }
+            } else if (array_key_exists(md5($server_ip), $this->clients_instance)) {
+                $client = $this->clients_instance[md5($server_ip)];
+                if ($client->isConnected()) {
+                    if ($client->send(\swoole_websocket_server::pack(json_encode($send_data), WEBSOCKET_OPCODE_TEXT))) {
                         $return_status = $this->parseData($client->recv());
-                        $result = $res && $return_status->finish ? true : false;
+                        if ($return_status && $return_status->finish) {
+                            $result[$server_ip] = $return_status->data;
+                        } else {
+                            $result[] = true;
+                        }
                     }
                 }
             }
         }
         return $result ?? false;
+    }
+
+    /**
+     * 获取已连接IP实例
+     * @return array
+     */
+    public function getConnectIp()
+    {
+        return $this->connect_instance;
     }
 
     /**

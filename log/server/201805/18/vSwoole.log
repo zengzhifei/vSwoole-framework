@@ -310,3 +310,190 @@ Exception Trace:
 #0 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(157): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined index...', '/mnt/hgfs/demo/...', 157, Array)
 #1 {main}
 
+[2018-05-18 18:29:22] 
+vSwoole\library\common\exception\Exception: Undefined index: server
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 92
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(92): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined index...', '/mnt/hgfs/demo/...', 92, Array)
+#1 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#2 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(149): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#4 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 1, 0, Array)
+#5 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#6 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSocket->__construct()
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#10 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#12 {main}
+
+[2018-05-18 18:29:22] 
+vSwoole\library\common\exception\ErrorException: Uncaught Error: Call to a member function push() on null in /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php:92
+Stack trace:
+#0 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#1 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(149): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#3 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 1, 0, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#5 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#6 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSoc
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 92
+Exception Code: E_ERROR[1]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleShutdown()
+#1 {main}
+
+[2018-05-18 18:30:25] 
+vSwoole\library\common\exception\Exception: Undefined index: server
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 92
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(92): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined index...', '/mnt/hgfs/demo/...', 92, Array)
+#1 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#2 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(149): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#4 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 4, 0, Array)
+#5 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#6 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSocket->__construct()
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#10 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#12 {main}
+
+[2018-05-18 18:30:25] 
+vSwoole\library\common\exception\ErrorException: Uncaught Error: Call to a member function push() on null in /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php:92
+Stack trace:
+#0 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#1 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(149): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#3 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 4, 0, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#5 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#6 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSoc
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 92
+Exception Code: E_ERROR[1]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleShutdown()
+#1 {main}
+
+[2018-05-18 18:30:32] 
+vSwoole\library\common\exception\Exception: Undefined index: server
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 92
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(92): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined index...', '/mnt/hgfs/demo/...', 92, Array)
+#1 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#2 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(149): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#4 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 1, 0, Array)
+#5 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#6 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSocket->__construct()
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#10 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#12 {main}
+
+[2018-05-18 18:30:32] 
+vSwoole\library\common\exception\ErrorException: Uncaught Error: Call to a member function push() on null in /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php:92
+Stack trace:
+#0 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#1 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#2 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(149): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#3 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 1, 0, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#5 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#6 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSoc
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 92
+Exception Code: E_ERROR[1]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleShutdown()
+#1 {main}
+
+[2018-05-18 19:07:11] 
+vSwoole\library\common\exception\Exception: Undefined index: fd
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 93
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(93): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined index...', '/mnt/hgfs/demo/...', 93, Array)
+#1 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#2 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(147): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#4 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 1, 3, Array)
+#5 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#6 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#7 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSocket->__construct()
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#10 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#12 {main}
+
+[2018-05-18 19:12:37] 
+vSwoole\library\common\exception\Exception: Undefined index: data
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 235
+Exception Code: E_NOTICE[8]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(235): vSwoole\library\common\exception\Exception::swooleError(8, 'Undefined index...', '/mnt/hgfs/demo/...', 235, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(93): vSwoole\application\server\logic\WebSocketLogic->closeFd(Array)
+#2 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#3 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(147): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#5 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 1, 3, Array)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-18 19:37:52] 
+vSwoole\library\common\exception\Exception: Invalid argument supplied for foreach()
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 250
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(250): vSwoole\library\common\exception\Exception::swooleError(2, 'Invalid argumen...', '/mnt/hgfs/demo/...', 250, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(90): vSwoole\application\server\logic\WebSocketLogic->getRanges(Object(Swoole\WebSocket\Frame))
+#2 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#3 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(147): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#5 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 1, 0, Array)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
+[2018-05-18 19:42:04] 
+vSwoole\library\common\exception\Exception: Invalid argument supplied for foreach()
+In /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php: 250
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(250): vSwoole\library\common\exception\Exception::swooleError(2, 'Invalid argumen...', '/mnt/hgfs/demo/...', 250, Array)
+#1 /mnt/hgfs/demo/vSwoole/application/server/logic/WebSocketLogic.php(90): vSwoole\application\server\logic\WebSocketLogic->getRanges(Object(Swoole\WebSocket\Frame))
+#2 [internal function]: vSwoole\application\server\logic\WebSocketLogic->message(Object(Swoole\WebSocket\Frame))
+#3 /mnt/hgfs/demo/vSwoole/library/common/Task.php(41): call_user_func_array(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(147): vSwoole\library\common\Task::execute(Object(Swoole\WebSocket\Server), Array)
+#5 [internal function]: vSwoole\application\server\WebSocket->onTask(Object(Swoole\WebSocket\Server), 4, 0, Array)
+#6 /mnt/hgfs/demo/vSwoole/library/server/Server.php(156): Swoole\Http\Server->start()
+#7 /mnt/hgfs/demo/vSwoole/library/server/WebSocketServer.php(31): vSwoole\library\server\Server->__construct(Array, Array)
+#8 /mnt/hgfs/demo/vSwoole/application/server/WebSocket.php(55): vSwoole\library\server\WebSocketServer->__construct(Array, Array)
+#9 /mnt/hgfs/demo/vSwoole/library/Init.php(357): vSwoole\application\server\WebSocket->__construct()
+#10 /mnt/hgfs/demo/vSwoole/library/Init.php(46): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#11 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#12 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#13 {main}
+
