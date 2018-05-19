@@ -46,7 +46,7 @@ return [
         //TASK进程数
         'task_worker_num'          => 0,
         //最大连接数
-        'max_conn'                 => 1024,
+        //'max_conn'                 => 65535,
         //心跳检测最大时间间隔
         'heartbeat_check_interval' => 60,
         //连接最大闲置时间
@@ -62,18 +62,18 @@ return [
     ],
     //管理客户端连接配置
     'client_connect' => [
-        //服务Sock类型
+        //服务Sock类型(使用SWOOLE_KEEP会出现丢消息现象，不建议开启)
         'sockType'      => SWOOLE_SOCK_TCP,
         //同步异步(PHP-FPM/APACHE模式下只允许同步)
         'syncType'      => SWOOLE_SOCK_SYNC,
         //长连接Key
         'connectionKey' => '',
         //服务器地址
-        'host'          => '10.4.0.101',
+        'host'          => '192.168.31.100',
         //服务器端口
         'port'          => 8501,
         //连接超时
-        'timeout'       => 3,
+        'timeout'       => 10,
         //连接是否阻塞
         'flag'          => 0,
     ],
@@ -86,7 +86,7 @@ return [
         //是否缓存配置文件
         'is_cache_config'     => true,
         //是否启用多进程推送
-        'enable_process_push' => true,
+        'enable_process_push' => false,
         //单个进程推送数量
         'process_push_num'    => 100,
     ]

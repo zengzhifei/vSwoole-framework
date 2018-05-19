@@ -41,8 +41,9 @@ abstract class Client
      * 连接服务器
      * @param array $connectOptions
      * @param array $configOptions
+     * @return bool|\swoole_client
      */
-    public function __construct(array $connectOptions = [], array $configOptions = [])
+    public function connect(array $connectOptions = [], array $configOptions = [])
     {
         //配置客户端连接相关参数
         $this->connectOptions = array_merge($this->connectOptions, $connectOptions);

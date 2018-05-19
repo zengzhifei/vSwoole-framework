@@ -10,6 +10,7 @@
 namespace vSwoole\application\server\logic;
 
 
+use vSwoole\library\client\WebSocketClient;
 use vSwoole\library\common\Config;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Process;
@@ -23,7 +24,7 @@ class WebSocketLogic
      */
     public function __construct($server)
     {
-        //写入服务到全局变量
+        //写入服务对象到全局变量
         $GLOBALS['server'] = $server;
     }
 
@@ -82,27 +83,31 @@ class WebSocketLogic
                 if (($link_port = $GLOBALS['link_table']->get($frame->fd, 'link_port')) && (Config::loadConfig('websocket')->get('server_connect.adminPort') == $link_port)) {
                     switch (strtolower($data['cmd'])) {
                         case 'ping':
+                            $GLOBALS['server']->push($frame->fd, 'pong');
                             break;
                         case 'line':
                             $this->line($frame);
                             break;
-                        case 'range':
+                        case 'ranges':
                             $this->getRanges($frame);
                             break;
                         case 'push':
                             $this->push($frame);
+                            $GLOBALS['server']->push($frame->fd, 'pong');
                             break;
                         case 'close':
                             $this->closeFd($data['data'] ?? []);
+                            $GLOBALS['server']->push($frame->fd, 'pong');
                             break;
                         case 'reload':
                             $GLOBALS['server']->reload();
+                            $GLOBALS['server']->push($frame->fd, 'pong');
                             break;
                         case 'shutdown':
                             $GLOBALS['server']->shutdown();
+                            $GLOBALS['server']->push($frame->fd, 'pong');
                             break;
                     }
-                    $GLOBALS['server']->push($frame->fd, 'ok');
                 } else {
                     //用户端指令接口
                     switch (strtolower($data['cmd'])) {
@@ -112,7 +117,7 @@ class WebSocketLogic
                             $this->range($frame);
                             break;
                         case 'online':
-                            $this->line($frame);
+                            $this->online($frame);
                             break;
                         case 'send':
                             $this->send($frame);
@@ -134,7 +139,37 @@ class WebSocketLogic
         $GLOBALS['link_table']->del($fd);
         if ($user_info['range_id']) {
             $GLOBALS['range_table']->decr($user_info['range_id'], 'link_count', 1);
+            if ($user_info['user_id']) {
+                $GLOBALS['user_table']->del($user_info['range_id'] . '_' . $user_info['user_id']);
+            }
         }
+    }
+
+    /**
+     * 获取客户端全局对象
+     * @throws \Exception
+     */
+    protected function getClient()
+    {
+        if (!isset($GLOBALS['client']) || empty($GLOBALS['client'])) {
+            $GLOBALS['client'] = new WebSocketClient();
+            $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
+            $server_ips = $redis->SMEMBERS(Config::loadConfig('redis')->get('redis_key.WebSocket.Server_Ip'));
+            if ($server_ips) {
+                $connect_status = false;
+                foreach ($server_ips as $ip) {
+                    $connect_status = $GLOBALS['client']->connect(['host' => $ip], []) == false ? $connect_status || false : $connect_status || true;
+                }
+            } else {
+                $connect_status = $GLOBALS['client']->connect([], []);
+            }
+        } else {
+            $connect_status = true;
+        }
+        if ($connect_status == false) {
+            unset($GLOBALS['client']);
+        }
+        return $connect_status;
     }
 
     /**
@@ -214,17 +249,37 @@ class WebSocketLogic
     }
 
     /**
+     * 发送总体在线人数
+     * @param \swoole_websocket_frame $frame
+     * @throws \Exception
+     */
+    protected function online(\swoole_websocket_frame $frame)
+    {
+        if ($this->getClient()) {
+            $data = json_decode($frame->data, true);
+            $user_data = $data['data'] ?? [];
+            if (is_array($data)) {
+                $online = $GLOBALS['client']->execute('line', $user_data);
+                if ($online && is_array($online)) {
+                    $GLOBALS['server']->push($frame->fd, json_encode(['online' => array_sum($online)]));
+                }
+            }
+        }
+    }
+
+    /**
      * 客户端发送消息
      * @param \swoole_websocket_frame $frame
      * @throws \Exception
      */
     protected function send(\swoole_websocket_frame $frame)
     {
-        $data = json_decode($frame->data, true);
-        $user_data = $data['data'];
-        if (is_array($data)) {
-            $client = new \vSwoole\application\client\WebSocket([], []);
-            $client->execute('push', $user_data);
+        if ($this->getClient()) {
+            $data = json_decode($frame->data, true);
+            $user_data = $data['data'] ?? [];
+            if (is_array($data)) {
+                $GLOBALS['client']->execute('push', $user_data);
+            }
         }
     }
 

@@ -10,7 +10,7 @@
 return [
     //缓存连接配置（正式）
     'redis_master' => [
-        'host'       => '10.4.0.101',
+        'host'       => '192.168.31.100',
         'port'       => 6379,
         'password'   => '',
         'select'     => 0,
@@ -22,11 +22,8 @@ return [
     //缓存键值
     'redis_key'    => [
         'WebSocket' => [
-            'Server_Ip'  => 'WebSocket-Server_Ip',
-            'Link_Info'  => 'WebSocket-Link_Info',
-            'User_Info'  => 'WebSocket-User_Info',
-            'Range_Info' => 'WebSocket-Range_Info',
-            'Config'     => 'WebSocket-Config',
+            'Server_Ip' => 'WebSocket-Server_Ip',
+            'Config'    => 'WebSocket-Config',
         ],
         'Crontab'   => [
             'Task_List' => 'Crontab-Task_List',

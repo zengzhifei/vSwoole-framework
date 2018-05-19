@@ -36,15 +36,15 @@ class WebSocketClient extends Client
 
     /**
      * 连接服务器
-     * WebSocketClient constructor.
      * @param array $connectOptions
      * @param array $configOptions
+     * @return bool|\swoole_client
      */
-    public function __construct(array $connectOptions = [], array $configOptions = [])
+    public function connect(array $connectOptions = [], array $configOptions = [])
     {
         $connectOptions = array_merge(Config::loadConfig('websocket')->get('client_connect'), $connectOptions);
         $configOptions = array_merge(Config::loadConfig('websocket')->get('client_config'), $configOptions);
-        if (false !== parent::__construct($connectOptions, $configOptions)) {
+        if (false !== parent::connect($connectOptions, $configOptions)) {
             $this->key = $this->generateToken();
             $this->header = $this->createHeader($connectOptions['host'], $connectOptions['port']);
             $this->client->send($this->header);
@@ -192,7 +192,7 @@ class WebSocketClient extends Client
                             if ($return_status && $return_status->finish) {
                                 $result[$this->connect_instance[$ip]] = $return_status->data;
                             } else {
-                                $result[$ip] = true;
+                                $result[$this->connect_instance[$ip]] = true;
                             }
                         }
                     }
@@ -205,7 +205,7 @@ class WebSocketClient extends Client
                         if ($return_status && $return_status->finish) {
                             $result[$server_ip] = $return_status->data;
                         } else {
-                            $result[] = true;
+                            $result[$server_ip] = true;
                         }
                     }
                 }
