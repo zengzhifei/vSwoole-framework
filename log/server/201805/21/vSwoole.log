@@ -1,0 +1,12 @@
+[2018-05-21 00:40:22] 
+vSwoole\library\common\exception\ClassNotFoundException: class vSwoole\application\server\WebSockets not exist,file path: /mnt/hgfs/demo/vSwoole/public/../application/server/WebSockets.php
+In /mnt/hgfs/demo/vSwoole/library/Init.php: 218
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\Init::loadClass('vSwoole\\applica...')
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(358): spl_autoload_call('vSwoole\\applica...')
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(47): vSwoole\library\Init->runServer('vSwoole\\applica...')
+#3 /mnt/hgfs/demo/vSwoole/public/swoole.php(25): vSwoole\library\Init::cmd()
+#4 /mnt/hgfs/demo/vSwoole/public/swoole.php(32): Swoole->__construct()
+#5 {main}
+

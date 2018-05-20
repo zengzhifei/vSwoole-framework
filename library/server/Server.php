@@ -60,8 +60,6 @@ abstract class Server
         'heartbeat_idle_time'      => 600,
         //启用CPU亲和性设置
         'open_cpu_affinity'        => true,
-        //设置进程所属用户权限
-        'user'                     => 'swoole',
         //安全重启进程
         'reload_async'             => true,
         //debug模式

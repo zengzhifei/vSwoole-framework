@@ -30,6 +30,7 @@ class Init
             'build'    => '  build servername' . '       you can build a new server' . PHP_EOL,
             'reload'   => '  reload servername' . '      you can reload has runing server' . PHP_EOL,
             'shutdown' => '  shutdown servername' . '    you can shutdown has runing server' . PHP_EOL,
+            'log'      => '  log servername' . '         you can reload log file' . PHP_EOL,
             'clear'    => '  clear' . '                  you can clear the logs of the vswoole framework' . PHP_EOL,
             'install'  => '  install' . '                you can install the necessary directory in the vswoole framework' . PHP_EOL,
             'help'     => '  help' . '                   you can get help about vswoole framework' . PHP_EOL,
@@ -44,24 +45,6 @@ class Init
                     echo $commands[$cmd];
                 } else {
                     self::start()->runServer($_SERVER['argv'][2]);
-                }
-                break;
-            case 'clear':
-                if (count($_SERVER['argv']) > 2) {
-                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else {
-                    self::clear();
-                }
-                break;
-            case 'install':
-                if (count($_SERVER['argv']) > 2) {
-                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
-                    echo 'help:' . PHP_EOL;
-                    echo $commands[$cmd];
-                } else {
-                    self::install();
                 }
                 break;
             case 'build':
@@ -92,6 +75,33 @@ class Init
                     echo $commands[$cmd];
                 } else {
                     self::shutdown($_SERVER['argv'][2]);
+                }
+                break;
+            case 'log':
+                if (count($_SERVER['argv']) !== 3) {
+                    echo "command: '{$cmd}' require argument server name and do not require more arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::log($_SERVER['argv'][2]);
+                }
+                break;
+            case 'clear':
+                if (count($_SERVER['argv']) > 2) {
+                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::clear();
+                }
+                break;
+            case 'install':
+                if (count($_SERVER['argv']) > 2) {
+                    echo "command: '{$cmd}' do not require arguments" . PHP_EOL;
+                    echo 'help:' . PHP_EOL;
+                    echo $commands[$cmd];
+                } else {
+                    self::install();
                 }
                 break;
             case 'help':
@@ -233,7 +243,7 @@ class Init
      */
     private static function autoloadRegister()
     {
-        spl_autoload_register([self::class,'loadClass']);
+        spl_autoload_register([self::class, 'loadClass']);
     }
 
     /**
@@ -300,7 +310,7 @@ class Init
             die('Reload the server failure,and the server is not exist.' . PHP_EOL);
         }
     }
-    
+
     /**
      * 关闭指定服务
      * @param string $serverName
@@ -315,6 +325,24 @@ class Init
             Command::getInstance()->shutdown($server_list[$serverName]);
         } else {
             die('Shutdown the server failure,and the server is not exist.' . PHP_EOL);
+        }
+    }
+
+    /**
+     * 重载服务日志文件
+     * @param string $serverName
+     * @throws \ReflectionException
+     */
+    private static function log(string $serverName = '')
+    {
+        self::initConvention();
+        self::exceptionRegister();
+        self::autoloadRegister();
+        $server_list = Config::loadConfig()->get('server_list');
+        if (array_key_exists($serverName, $server_list)) {
+            Command::getInstance()->reloadLog($server_list[$serverName]);
+        } else {
+            die('Reload log of the server failure,and the server is not exist.' . PHP_EOL);
         }
     }
 
@@ -353,8 +381,13 @@ class Init
      */
     private function runServer(string $class)
     {
-        $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
-        $server = new $class;
+        $server_list = Config::loadConfig()->get('server_list');
+        if (array_key_exists($class, $server_list)) {
+            $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
+            $server = new $class;
+        } else {
+            die('Start the server failure,and the server is not exist.' . PHP_EOL);
+        }
     }
 
     /**

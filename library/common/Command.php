@@ -61,4 +61,24 @@ class Command
             }
         }
     }
+
+    /**
+     * 重载指定服务日志文件
+     * @param string $server_name
+     * @param callable|null $callback
+     * @throws \ReflectionException
+     */
+    public function reloadLog(string $server_name = '', callable $callback = null)
+    {
+        if (is_string($server_name) && $server_name !== '') {
+            $pidFile = VSWOOLE_DATA_PID_PATH . $server_name . '_Master' . VSWOOLE_PID_EXT;
+            if (file_exists($pidFile)) {
+                File::read($pidFile, function ($filename, $content) use ($callback) {
+                    File::exec('kill -34 ' . $content, function ($result) use ($callback) {
+                        !is_null($callback) && $callback();
+                    });
+                });
+            }
+        }
+    }
 }
