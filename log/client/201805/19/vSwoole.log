@@ -3421,3 +3421,53 @@ Exception Trace:
 #3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #4 {main}
 
+[2018-05-19 23:49:22] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-19 23:49:22] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-19 23:49:47] 
+Error: Cannot call constructor
+In /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php: 29
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(31): vSwoole\library\client\CrontabClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\Crontab->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
+[2018-05-19 23:50:12] 
+Error: Cannot call constructor
+In /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php: 29
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(31): vSwoole\library\client\CrontabClient->__construct(Array, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\Crontab->__construct()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+

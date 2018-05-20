@@ -22,7 +22,7 @@ class Process
      * 子进程实例
      * @var array
      */
-    protected $process_instance = [];
+    protected static $process_instance = [];
 
     /**
      * 默认配置参数
@@ -31,7 +31,6 @@ class Process
     protected static $default_options = [
         'redirect_stdin_stdout' => true,
         'create_pipe'           => true,
-        'is_blocking'           => false
     ];
 
     /**
@@ -80,21 +79,31 @@ class Process
         $process = new \swoole_process($callback, self::$process_options['redirect_stdin_stdout'], self::$process_options['create_pipe']);
         $pid = $process->start();
         if (false !== $pid) {
-            $this->process_instance[$pid] = $process;
-            $this->releaseProcess();
+            self::$process_instance[$pid] = $process;
         }
         return $pid;
     }
 
     /**
-     * 监听子进程状态，子进程退出后，释放子进程
+     *  监听子进程状态，子进程退出后，释放子进程
+     * @param bool $is_blocking
      */
-    private function releaseProcess()
+    public static function signalProcess(bool $is_blocking = true)
     {
-        while ($ret = \swoole_process::wait(self::$process_options['is_blocking'])) {
-            if ($ret) {
-                unset($this->process_instance[$ret['pid']]);
+        if ($is_blocking) {
+            while ($ret = \swoole_process::wait(true)) {
+                if ($ret) {
+                    unset(self::$process_instance[$ret['pid']]);
+                }
             }
+        } else {
+            \swoole_process::signal(SIGCHLD, function ($sign) {
+                while ($ret = \swoole_process::wait(false)) {
+                    if ($ret) {
+                        unset(self::$process_instance[$ret['pid']]);
+                    }
+                }
+            });
         }
     }
 
@@ -105,7 +114,7 @@ class Process
      */
     public function getProcess(int $pid = -1)
     {
-        return !empty($this->process_instance) && isset($this->process_instance[$pid]) ? $this->process_instance[$pid] : null;
+        return !empty(self::$process_instance) && isset(self::$process_instance[$pid]) ? self::$process_instance[$pid] : null;
     }
 
     /**
@@ -114,14 +123,14 @@ class Process
      */
     public function getProcessList()
     {
-        return $this->process_instance;
+        return self::$process_instance;
     }
 
     /**
      * 终止指定子进程
      * @param int $pid
      */
-    public function killProcess($pid = -1)
+    public static function killProcess($pid = -1)
     {
         if (is_int($pid) && $pid > -1) {
             \swoole_process::kill($pid);

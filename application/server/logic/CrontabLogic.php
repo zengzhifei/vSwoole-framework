@@ -21,9 +21,9 @@ use vSwoole\library\common\Utils;
 class CrontabLogic
 {
     //获取任务进程ID
-    const GET_TASK = 0;
+    protected static $get_task_worker = 0;
     //执行任务进程ID
-    const EXECUTE_TASK = 1;
+    protected static $execute_task_worker = 1;
 
     /**
      * 任务参数
@@ -36,12 +36,14 @@ class CrontabLogic
         'task_cmd'         => '',
         //任务地址(接口地址或实际地址)
         'task_url'         => '',
-        //任务名称
-        'task_name'        => '',
         //任务执行频率
         'task_time'        => '* * * * * *',
         //任务并发数
-        'task_concurrent'  => 1,
+        'task_process_num' => 1,
+        //任务分组
+        'task_group'       => '',
+        //任务名称
+        'task_name'        => '',
         //任务状态
         'task_status'      => 0,
         //任务创建时间
@@ -55,43 +57,83 @@ class CrontabLogic
      */
     public function __construct(\swoole_server $server)
     {
-        $GLOBALS['Crontab'] = $server;
+        $GLOBALS['server'] = $server;
 
         //启动任务读取解析并执行执行进程
-        self::run();
+        $this->run();
+    }
+
+    /**
+     * 异步处理任务
+     * @param int $fd
+     * @param string $data
+     * @throws \Exception
+     * @throws \ReflectionException
+     */
+    public function receive(int $fd, string $data)
+    {
+        if ($data && ($data = json_decode($data, true)) && is_array($data) && isset($data['cmd'])) {
+            switch (strtolower($data['cmd'])) {
+                case 'reload':
+                    $GLOBALS['server']->reload();
+                    $GLOBALS['server']->send($fd, 'pong');
+                    break;
+                case 'shutdown':
+                    $GLOBALS['server']->shutdown();
+                    $GLOBALS['server']->send($fd, 'pong');
+                    break;
+                case 'add':
+                    $this->add($fd, $data['data']);
+                    break;
+                case 'start':
+                    $this->start($data['data']);
+                    break;
+                case 'stop':
+                    $this->stop($data['data']);
+                    break;
+                case 'delete':
+                    $this->delete($data['data']);
+                    break;
+            }
+        }
+
     }
 
     /**
      * 添加任务到任务列表
      * @param array $data
-     * @throws \ReflectionException
+     * @throws \Exception
      */
-    public function add(array $data = [])
+    protected function add(int $fd, array $data = [])
     {
         try {
-            if (!isset($data['task_cmd']) || !self::checkTaskCmd($data['task_cmd'])) {
+            if (!isset($data['task_cmd']) || !$data['task_cmd'] || !self::checkTaskCmd($data['task_cmd'])) {
                 throw new \InvalidArgumentException("Arguments task cmd invalid: {$data['task_cmd']}");
             }
-            if (!isset($data['task_url']) || !self::checkTaskUrl($data['task_url'])) {
+            if (!isset($data['task_url']) || !$data['task_url'] || !self::checkTaskUrl($data['task_url'])) {
                 throw new \InvalidArgumentException("Arguments task url invalid: {$data['task_url']}");
             }
-            if (!isset($data['task_time']) || !self::checkTaskTime($data['task_time'])) {
+            if (!isset($data['task_time']) || !$data['task_time'] || !self::checkTaskTime($data['task_time'])) {
                 throw new \InvalidArgumentException("Arguments task time invalid: {$data['task_time']}");
             }
             $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            if (isset($data['task_id']) && ($task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']))) {
+            if (isset($data['task_id']) && $data['task_id'] && ($task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']))) {
                 $task = json_decode($task, true);
-                $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id'], json_encode(array_merge($task, $data)));
+                $task = array_merge($task, $data);
+                $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id'], json_encode($task));
+                $this->taskToPool($task);
             } else {
                 $task['task_cmd'] = $data['task_cmd'];
                 $task['task_url'] = $data['task_url'];
-                $task['task_name'] = $data['task_name'] ?? $this->task_options['task_name'];
                 $task['task_time'] = $data['task_time'];
-                $task['task_concurrent'] = isset($data['task_concurrent']) && is_int($data['task_concurrent']) && $data['task_concurrent'] > 0 ? $data['task_concurrent'] : $this->task_options['task_concurrent'];
+                $task['task_process_num'] = isset($data['task_process_num']) && $data['task_process_num'] > 0 ? $data['task_process_num'] : $this->task_options['task_process_num'];
+                $task['task_group'] = $data['task_group'] ?? $this->task_options['task_group'];
+                $task['task_name'] = $data['task_name'] ?? $this->task_options['task_name'];
                 $task['task_status'] = $this->task_options['task_status'];
                 $task['task_create_time'] = time();
                 $task_key = Config::loadConfig('crontab')->get('other.task_key');
-                $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), md5($task_key . time()), json_encode($task));
+                $task['task_id'] = md5($task_key . time());
+                $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $task['task_id'], json_encode($task));
             }
         } catch (\Exception $e) {
             Exception::reportException($e);
@@ -107,11 +149,11 @@ class CrontabLogic
     {
         try {
             $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            if (isset($data['task_id']) && ($task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']))) {
+            if (isset($data['task_id']) && $data['task_id'] && ($task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']))) {
                 $task = json_decode($task, true);
                 $task['task_status'] = 1;
                 $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id'], json_encode($task));
-                $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_Pool'), $data['task_id'], json_encode($task));
+                $this->taskToPool($task);
             }
         } catch (\Exception $e) {
             Exception::reportException($e);
@@ -127,11 +169,11 @@ class CrontabLogic
     {
         try {
             $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            if (isset($data['task_id']) && ($task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']))) {
+            if (isset($data['task_id']) && $data['task_id'] && ($task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']))) {
                 $task = json_decode($task, true);
                 $task['task_status'] = 0;
                 $redis->hSet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id'], json_encode($task));
-                $redis->hDel(Config::loadConfig('redis')->get('redis_key.Crontab.Task_Pool'), $data['task_id']);
+                $this->taskToPool($task);
             }
         } catch (\Exception $e) {
             Exception::reportException($e);
@@ -147,8 +189,12 @@ class CrontabLogic
     {
         try {
             $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-            $redis->hDel(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']);
-            $redis->hDel(Config::loadConfig('redis')->get('redis_key.Crontab.Task_Pool'), $data['task_id']);
+            if (isset($data['task_id']) && $data['task_id'] && ($task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']))) {
+                $task = json_decode($task, true);
+                $task['task_status'] = 0;
+                $redis->hDel(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $data['task_id']);
+                $this->taskToPool($task);
+            }
         } catch (\Exception $e) {
             Exception::reportException($e);
         }
@@ -158,18 +204,17 @@ class CrontabLogic
      * 定时读取任务
      * @throws \ReflectionException
      */
-    public static function run()
+    protected function run()
     {
         try {
-            if ($GLOBALS['Crontab']->taskworker) {
-                if ($GLOBALS['Crontab']->worker_id == ($GLOBALS['Crontab']->setting['worker_num'] + self::GET_TASK)) {
-                    Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . ' crontab get');
-                    $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
-                    $task_list_key = Config::loadConfig('redis')->get('redis_key.Crontab.Task_Pool');
-                    Timer::after((60 - date('s')) * 1000, function () use ($redis, $task_list_key) {
-                        self::getTask($redis, $task_list_key);
-                        Timer::tick(60000, function ($timer_id) use ($redis, $task_list_key) {
-                            self::getTask($redis, $task_list_key);
+            if ($GLOBALS['server']->taskworker) {
+                if ($GLOBALS['server']->worker_id == ($GLOBALS['server']->setting['worker_num'] + self::$get_task_worker)) {
+                    Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . ' run task');
+                    $this->serverStartGetTaskToPool();
+                    Timer::after((60 - date('s')) * 1000, function () {
+                        $this->getTask();
+                        Timer::tick(60000, function ($timer_id) {
+                            $this->getTask();
                         });
                     });
                 }
@@ -180,20 +225,65 @@ class CrontabLogic
     }
 
     /**
-     * 读取已启动任务列表
-     * @param $redis
-     * @param $task_list_key
+     * 服务器启动读取可执行任务到任务池
+     * @throws \ReflectionException
      */
-    private static function getTask($redis, $task_list_key)
+    protected function serverStartGetTaskToPool()
     {
-        if ($task_list = $redis->hGetAll($task_list_key)) {
-            foreach ($task_list as $task_id => $task) {
-                $task = json_decode($task, true);
-                if ($task_execute_time = self::parse($task['task_time'])) {
-                    $task['task_execute_time'] = $task_execute_time;
-                    $GLOBALS['Crontab']->sendMessage($task, $GLOBALS['Crontab']->setting['worker_num'] + self::EXECUTE_TASK);
+        try {
+            $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
+            if ($task_list = $redis->hGetAll(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'))) {
+                foreach ($task_list as $task) {
+                    $this->taskToPool(json_decode($task, true));
                 }
             }
+        } catch (\Exception $e) {
+            Exception::reportException($e);
+        }
+    }
+
+    /**
+     * 计划任务写入或写出任务池
+     * @param array $task
+     */
+    protected function taskToPool(array $task)
+    {
+        if ($task && isset($task['task_status'])) {
+            if ($task['task_status'] == 1) {
+                $GLOBALS['task_table']->set($task['task_id'], ['task_cmd' => $task['task_cmd'], 'task_url' => $task['task_url'], 'task_time' => $task['task_time'], 'task_process_num' => $task['task_process_num']]);
+            } else {
+                $GLOBALS['task_table']->del($task['task_id']);
+            }
+        }
+    }
+
+    /**
+     * 读取已启动任务列表
+     */
+    protected function getTask()
+    {
+        if ($task_list = $GLOBALS['task_table']->getAll()) {
+            $execute_task_worker = self::$execute_task_worker + $GLOBALS['server']->setting['worker_num'];
+            foreach ($task_list as $task_id => $task) {
+                if ($task_execute_time = self::parse($task['task_time'])) {
+                    $task['task_execute_time'] = $task_execute_time;
+                    $GLOBALS['server']->sendMessage($task, $execute_task_worker);
+                }
+            }
+            $this->calculateExecuteTaskWorker();
+        }
+    }
+
+    /**
+     * 计算下一个轮询的执行进程号
+     */
+    protected function calculateExecuteTaskWorker()
+    {
+        $current_execute_worker = self::$execute_task_worker;
+        if ($GLOBALS['server']->setting['task_worker_num'] > ($next_execute_worker = $current_execute_worker + 1)) {
+            self::$execute_task_worker = $next_execute_worker;
+        } else {
+            self::$execute_task_worker = 1;
         }
     }
 
@@ -205,31 +295,36 @@ class CrontabLogic
     public function execute($task)
     {
         try {
-            Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . ' crontab execute');
+            Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . ' execute task');
             if (preg_match("/(\/curl)[\s]*$/i", trim($task['task_cmd']))) {
-                var_dump('curl');
-                for ($i = 1; $i <= $task['task_concurrent']; $i++) {
+                for ($i = 1; $i <= $task['task_process_num']; $i++) {
                     Process::getInstance(['redirect_stdin_stdout' => false])->add(function ($process) use ($task) {
                         $curl = new Curl();
-                        foreach ($task['task_execute_time'] as $task_time) {
-                            Timer::after($task_time * 1000, function () use ($curl, $task) {
+                        foreach ($task['task_execute_time'] as $task_key => $task_time) {
+                            Timer::after($task_time * 1000, function () use ($process, $curl, $task, $task_key) {
                                 $res = $curl->get(trim($task['task_url']));
+                                if (($task_key + 1) == count($task['task_execute_time'])) {
+                                    $process->exit(0);
+                                }
                             });
                         }
                     });
                 }
+                Process::signalProcess(true);
             } else {
-                var_dump('cmd');
-                for ($i = 1; $i <= $task['task_concurrent']; $i++) {
-                    foreach ($task['task_execute_time'] as $task_time) {
-                        Process::getInstance(['redirect_stdin_stdout' => false])->add(function ($process) use ($task, $task_time) {
-                            Timer::after($task_time * 1000, function () use ($process, $task) {
+                for ($i = 1; $i <= $task['task_process_num']; $i++) {
+                    Process::getInstance(['redirect_stdin_stdout' => false])->add(function ($process) use ($task) {
+                        foreach ($task['task_execute_time'] as $task_key => $task_time) {
+                            Timer::after($task_time * 1000, function () use ($process, $task, $task_key) {
                                 $process->exec(trim($task['task_cmd']), preg_split("/[\s]+/i", trim($task['task_url'])));
-                                $process->exit(0);
+                                if (($task_key + 1) == count($task['task_execute_time'])) {
+                                    $process->exit(0);
+                                }
                             });
-                        });
-                    }
+                        }
+                    });
                 }
+                Process::signalProcess(true);
             }
         } catch (\Exception $e) {
             Exception::reportException($e);

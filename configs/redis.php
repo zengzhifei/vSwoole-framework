@@ -26,6 +26,7 @@ return [
             'Config'    => 'WebSocket-Config',
         ],
         'Crontab'   => [
+            'Server_Ip' => 'Crontab-Server_Ip',
             'Task_List' => 'Crontab-Task_List',
             'Task_Pool' => 'Crontab-Task_Pool,'
         ]

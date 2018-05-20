@@ -11,30 +11,47 @@ namespace vSwoole\library\client;
 
 
 use vSwoole\library\common\Config;
-use vSwoole\library\common\exception\Exception;
 
 class CrontabClient extends Client
 {
     /**
+     * 客户端连接实例
+     * @var array
+     */
+    protected $clients_instance = [];
+    /**
+     * 连接IP
+     * @var array
+     */
+    protected $connect_instance = [];
+
+    /**
      * 连接服务器
      * @param array $connectOptions
      * @param array $configOptions
-     * @throws \ReflectionException
+     * @return bool|\swoole_client
      */
-    public function __construct(array $connectOptions = [], array $configOptions = [])
+    public function connect(array $connectOptions = [], array $configOptions = [])
     {
-        try {
-            $connectOptions = array_merge(Config::loadConfig('crontab')->get('client_connect'), $connectOptions);
-            $configOptions = array_merge(Config::loadConfig('crontab')->get('client_config'), $configOptions);
-            if (false !== parent::__construct($connectOptions, $configOptions)) {
-                return $this->client;
-            } else {
-                $this->client->close();
-                throw new \Exception('Swoole Client connect failed');
-            }
-        } catch (\Exception $e) {
-            Exception::reportError($e);
+        $connectOptions = array_merge(Config::loadConfig('crontab')->get('client_connect'), $connectOptions);
+        $configOptions = array_merge(Config::loadConfig('crontab')->get('client_config'), $configOptions);
+        if (false !== parent::connect($connectOptions, $configOptions)) {
+            $this->clients_instance[md5($connectOptions['host'])] = $this->client;
+            $this->connect_instance[md5($connectOptions['host'])] = $connectOptions['host'];
+            return $this->client;
+        } else {
+            $this->client->close();
+            return false;
         }
+    }
+
+    /**
+     * 获取已连接IP实例
+     * @return array
+     */
+    public function getConnectIp()
+    {
+        return $this->connect_instance;
     }
 
     /**
@@ -45,14 +62,15 @@ class CrontabClient extends Client
      */
     public function execute(string $cmd = '', array $data = [])
     {
-        if ($cmd && is_string($cmd)) {
+        if ($cmd && is_string($cmd) && !empty($this->clients_instance)) {
             $send_data = ['cmd' => $cmd, 'data' => $data];
-            if ($this->client->isConnected()) {
-                return $this->client->send(json_encode($send_data));
+            foreach ($this->clients_instance as $ip => $client) {
+                if ($client->isConnected()) {
+                    return $client->send(json_encode($send_data));
+                }
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
     /**

@@ -11,7 +11,7 @@
 return [
 
     //是否开启调试
-    'is_debug'           => false,
+    'is_debug'           => true,
     //是否显示默认错误提示
     'show_default_error' => false,
     //是否记录日志

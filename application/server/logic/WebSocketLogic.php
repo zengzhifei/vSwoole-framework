@@ -218,6 +218,7 @@ class WebSocketLogic
                                 }
                             });
                         }
+                        Process::signalProcess(true);
                     } else {
                         foreach ($user_list as $link_info) {
                             if ($link_info['range_id'] && $link_info['range_id'] == $user_data['range_id'] && $GLOBALS['server']->exist($link_info['fd'])) {

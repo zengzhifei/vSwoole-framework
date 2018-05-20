@@ -79,4 +79,14 @@ abstract class Client
         //同步返回结果可用，异步不可用
         return $res ? $this->client : false;
     }
+
+    /**
+     * 魔术方法
+     * @param $method
+     * @param $args
+     */
+    public function __call($method, $args)
+    {
+        call_user_func_array([$this->client, $method], $args);
+    }
 }

@@ -17,7 +17,6 @@ use vSwoole\library\common\Inotify;
 use vSwoole\library\common\Process;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Task;
-use vSwoole\library\common\Timer;
 use vSwoole\library\common\Utils;
 use vSwoole\library\server\WebSocketServer;
 
