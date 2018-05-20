@@ -51,7 +51,6 @@ class UdpServer extends Server
             @swoole_set_process_name(VSWOOLE_UDP_SERVER . ' master');
         }
         //异步记录服务进程PID
-        Utils::writePid($server->master_pid, VSWOOLE_UDP_SERVER . '_Master');
         Utils::writePid($server->manager_pid, VSWOOLE_UDP_SERVER . '_Manager');
     }
 

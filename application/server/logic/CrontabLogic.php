@@ -298,7 +298,7 @@ class CrontabLogic
             Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . ' execute task');
             if (preg_match("/(\/curl)[\s]*$/i", trim($task['task_cmd']))) {
                 for ($i = 1; $i <= $task['task_process_num']; $i++) {
-                    Process::getInstance(['redirect_stdin_stdout' => false])->add(function ($process) use ($task) {
+                    Process::getInstance()->add(function ($process) use ($task) {
                         $curl = new Curl();
                         foreach ($task['task_execute_time'] as $task_key => $task_time) {
                             Timer::after($task_time * 1000, function () use ($process, $curl, $task, $task_key) {
@@ -313,7 +313,7 @@ class CrontabLogic
                 Process::signalProcess(true);
             } else {
                 for ($i = 1; $i <= $task['task_process_num']; $i++) {
-                    Process::getInstance(['redirect_stdin_stdout' => false])->add(function ($process) use ($task) {
+                    Process::getInstance()->add(function ($process) use ($task) {
                         foreach ($task['task_execute_time'] as $task_key => $task_time) {
                             Timer::after($task_time * 1000, function () use ($process, $task, $task_key) {
                                 $process->exec(trim($task['task_cmd']), preg_split("/[\s]+/i", trim($task['task_url'])));

@@ -1,18 +1,4 @@
-[2018-05-20 12:46:06] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: Operation now in progress[115].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 12:46:06] 
+[2018-05-21 00:00:08] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -26,77 +12,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 12:46:11] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8502] failed. Error: Connection refused[111].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8502, 3, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php(38): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(30): vSwoole\library\client\CrontabClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\Crontab->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 12:55:00] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8502] failed. Error: Connection refused[111].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8502, 3, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php(38): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(30): vSwoole\library\client\CrontabClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\Crontab->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 12:57:41] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8502] failed. Error: Connection refused[111].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8502, 3, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php(38): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(30): vSwoole\library\client\CrontabClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\Crontab->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 12:57:44] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8502] failed. Error: Connection refused[111].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8502, 3, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php(38): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(30): vSwoole\library\client\CrontabClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\Crontab->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 15:54:23] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 15:54:23] 
+[2018-05-21 00:00:18] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -110,30 +26,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 17:06:21] 
-Exception: Argument 2 index method not exist
-In /mnt/hgfs/demo/vSwoole/library/Init.php: 375
-Exception Code: E_UNKONW[0]
-Exception Trace: 
-#0 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#1 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#2 {main}
-
-[2018-05-20 18:54:17] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 18:54:17] 
+[2018-05-21 00:00:28] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -147,49 +40,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 19:20:16] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8502] failed. Error: Connection refused[111].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8502, 3, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php(38): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(29): vSwoole\library\client\CrontabClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\Crontab->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 19:20:23] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8502] failed. Error: Connection refused[111].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8502, 3, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/CrontabClient.php(38): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/Crontab.php(29): vSwoole\library\client\CrontabClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\Crontab->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 21:41:53] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 21:41:53] 
+[2018-05-21 00:00:38] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -203,265 +54,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 23:43:36] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:43:46] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:43:57] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:44:07] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:44:33] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:45:30] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:46:03] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:46:10] 
-vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.101:8501] failed. Error: No route to host[113].
-In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.101', 8501, 10, 0)
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:46:48] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:47:11] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:47:21] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:48:33] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:48:43] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:49:47] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:49:57] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 108
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 108, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(108): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(51): vSwoole\library\client\WebSocketClient->recv()
-#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
-#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#7 {main}
-
-[2018-05-20 23:52:18] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 191
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 191, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(191): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(204): vSwoole\library\client\WebSocketClient->execute('ranges', Array)
-#3 /mnt/hgfs/demo/vSwoole/library/Init.php(373): vSwoole\application\client\WebSocket->getRanges()
-#4 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#6 {main}
-
-[2018-05-20 23:52:18] 
-vSwoole\library\common\exception\Exception: Invalid argument supplied for foreach()
-In /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php: 208
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(208): vSwoole\library\common\exception\Exception::swooleError(2, 'Invalid argumen...', '/mnt/hgfs/demo/...', 208, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/Init.php(373): vSwoole\application\client\WebSocket->getRanges()
-#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#4 {main}
-
-[2018-05-20 23:56:05] 
-vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
-In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 191
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 191, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(191): Swoole\Client->recv()
-#2 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(204): vSwoole\library\client\WebSocketClient->execute('ranges', Array)
-#3 /mnt/hgfs/demo/vSwoole/library/Init.php(373): vSwoole\application\client\WebSocket->getRanges()
-#4 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#5 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#6 {main}
-
-[2018-05-20 23:56:05] 
-vSwoole\library\common\exception\Exception: Invalid argument supplied for foreach()
-In /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php: 208
-Exception Code: E_WARNING[2]
-Exception Trace: 
-#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(208): vSwoole\library\common\exception\Exception::swooleError(2, 'Invalid argumen...', '/mnt/hgfs/demo/...', 208, Array)
-#1 /mnt/hgfs/demo/vSwoole/library/Init.php(373): vSwoole\application\client\WebSocket->getRanges()
-#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
-#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
-#4 {main}
-
-[2018-05-20 23:58:48] 
+[2018-05-21 00:00:48] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -475,7 +68,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 23:58:58] 
+[2018-05-21 00:00:58] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -489,7 +82,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 23:59:08] 
+[2018-05-21 00:01:08] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -503,7 +96,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 23:59:18] 
+[2018-05-21 00:01:18] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -517,7 +110,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 23:59:28] 
+[2018-05-21 00:01:28] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -531,7 +124,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 23:59:38] 
+[2018-05-21 00:01:38] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -545,7 +138,7 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 23:59:48] 
+[2018-05-21 00:01:48] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]
@@ -559,7 +152,371 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
-[2018-05-20 23:59:58] 
+[2018-05-21 00:01:58] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:02:08] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:02:18] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:02:28] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:02:38] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:02:48] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:02:58] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:03:08] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:03:18] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:03:28] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:03:38] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:03:48] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:03:58] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:04:08] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:04:18] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:04:28] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:04:38] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:04:48] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:04:58] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:05:08] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:05:18] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:05:28] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:05:38] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:05:48] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:05:58] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:06:08] 
+vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
+In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 77, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/Client.php(77): Swoole\Client->connect('192.168.31.100', 8501, 10, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(47): vSwoole\library\client\Client->connect(Array, Array)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(37): vSwoole\library\client\WebSocketClient->connect(Array, Array)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(371): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 00:06:18] 
 vSwoole\library\common\exception\Exception: Swoole\Client::connect(): connect to server[192.168.31.100:8501] failed. Error: Connection refused[111].
 In /mnt/hgfs/demo/vSwoole/library/client/Client.php: 77
 Exception Code: E_WARNING[2]

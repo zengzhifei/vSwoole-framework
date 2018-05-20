@@ -44,22 +44,26 @@ abstract class Server
     ];
     //服务运行配置
     protected $configOptions = [
+        //工作线程数
+        'reactor_num'              => 2,
+        //工作进程数
+        'worker_num'               => 4,
+        //TASK进程数
+        'task_worker_num'          => 100,
         //守护进程化
         'daemonize'                => true,
         //日志
         'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'vSwoole.log',
-        //工作进程数
-        'worker_num'               => 4,
-        //工作线程数
-        'reactor_num'              => 2,
-        //TASK进程数
-        'task_worker_num'          => 4,
         //心跳检测最大时间间隔
         'heartbeat_check_interval' => 60,
         //连接最大闲置时间
         'heartbeat_idle_time'      => 600,
         //启用CPU亲和性设置
         'open_cpu_affinity'        => true,
+        //设置进程所属用户权限
+        'user'                     => 'swoole',
+        //安全重启进程
+        'reload_async'             => true,
         //debug模式
         'debug_mode'               => false,
     ];
@@ -104,12 +108,16 @@ abstract class Server
                     break;
                 case VSWOOLE_HTTP_SERVER:
                     $this->swoole = new \swoole_http_server($this->connectOptions['host'], $this->connectOptions['port']);
+                    $this->configOptions['open_eof_split'] = $this->configOptions['open_eof_split'] ?? true;
+                    $this->configOptions['package_eof'] = $this->configOptions['open_eof_split'] ?? "\r\n";
                     array_push($this->callbackEventList, 'Request');
                     unset($this->callbackEventList[array_search('Connect', $this->callbackEventList)]);
                     unset($this->callbackEventList[array_search('Receive', $this->callbackEventList)]);
                     break;
                 default:
                     $this->swoole = new \swoole_server($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['mode'], $this->connectOptions['sockType']);
+                    $this->configOptions['open_eof_split'] = $this->configOptions['open_eof_split'] ?? true;
+                    $this->configOptions['package_eof'] = $this->configOptions['package_eof'] ?? "\r\n";
                     break;
             }
         }
@@ -121,11 +129,11 @@ abstract class Server
                 if ($this->configOptions['worker_num'] < 1 || $this->configOptions['worker_num'] > (4 * $cpu_cores)) {
                     $this->configOptions['worker_num'] = 4 * $cpu_cores;
                 }
-                if ($this->configOptions['reactor_num'] < 1 || $this->configOptions['reactor_num'] > (2 * $cpu_cores)) {
+                if ($this->configOptions['reactor_num'] < 1 || $this->configOptions['reactor_num'] > (4 * $cpu_cores)) {
                     $this->configOptions['reactor_num'] = 2 * $cpu_cores;
                 }
-                if ($this->configOptions['task_worker_num'] < 1 || $this->configOptions['task_worker_num'] > (4 * $cpu_cores)) {
-                    $this->configOptions['task_worker_num'] = 4 * $cpu_cores;
+                if ($this->configOptions['task_worker_num'] < 1 || $this->configOptions['task_worker_num'] > (100 * $cpu_cores)) {
+                    $this->configOptions['task_worker_num'] = 100 * $cpu_cores;
                 }
             }
             $this->swoole->set($this->configOptions);
@@ -172,7 +180,7 @@ abstract class Server
         $str .= '|' . 'adminHost: ' . $this->connectOptions['adminHost'] . PHP_EOL;
         $str .= '|' . 'adminPort: ' . $this->connectOptions['adminPort'] . PHP_EOL;
         foreach ($setting as $option => $config) {
-            $str .= '|' . $option . ': ' . (is_bool($config) ? ($config ? 'true' : 'false') : $config) . PHP_EOL;
+            $str .= '|' . $option . ': ' . (is_bool($config) ? ($config ? 'true' : 'false') : str_replace("\r\n", '\r\n', $config)) . PHP_EOL;
         }
         $str .= '+-----------------------------------------------------------------------------------------------------+' . PHP_EOL . PHP_EOL;
         File::write($setting['log_file'], $str, FILE_APPEND);

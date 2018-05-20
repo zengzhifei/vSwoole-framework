@@ -36,27 +36,21 @@ return [
     //服务端配置
     'server_config'  => [
         //守护进程化
-        'daemonize'                => false,
+        'daemonize'       => false,
         //日志
-        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'Crontab.log',
+        'log_file'        => VSWOOLE_LOG_SERVER_PATH . 'Crontab.log',
         //工作进程数
-        'worker_num'               => 0,
+        'worker_num'      => 0,
         //工作线程数
-        'reactor_num'              => 0,
+        'reactor_num'     => 0,
         //TASK进程数
-        'task_worker_num'          => 0,
-        //心跳检测最大时间间隔
-        'heartbeat_check_interval' => 60,
-        //连接最大闲置时间
-        'heartbeat_idle_time'      => 600,
-        //启用CPU亲和性设置
-        'open_cpu_affinity'        => true,
-        //debug模式
-        'debug_mode'               => false,
+        'task_worker_num' => 0,
+        //PID
+        'pid_file'        => VSWOOLE_DATA_PID_PATH . VSWOOLE_CRONTAB_SERVER . '_Master' . VSWOOLE_PID_EXT,
         //SSL Crt
-        'ssl_cert_file'            => 'server.crt',
+        'ssl_cert_file'   => 'server.crt',
         //SSL Key
-        'ssl_key_file'             => 'server.key'
+        'ssl_key_file'    => 'server.key'
     ],
     //管理客户端连接配置
     'client_connect' => [

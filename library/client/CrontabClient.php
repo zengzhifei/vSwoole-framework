@@ -66,7 +66,7 @@ class CrontabClient extends Client
             $send_data = ['cmd' => $cmd, 'data' => $data];
             foreach ($this->clients_instance as $ip => $client) {
                 if ($client->isConnected()) {
-                    return $client->send(json_encode($send_data));
+                    return $client->send(json_encode($send_data) . "\r\n");
                 }
             }
         }

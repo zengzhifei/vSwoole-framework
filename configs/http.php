@@ -36,35 +36,29 @@ return [
     //服务端配置
     'server_config'  => [
         //守护进程化
-        'daemonize'                => false,
+        'daemonize'             => false,
         //日志
-        'log_file'                 => VSWOOLE_LOG_SERVER_PATH . 'Http.log',
+        'log_file'              => VSWOOLE_LOG_SERVER_PATH . 'Http.log',
         //工作进程数
-        'worker_num'               => 1,
+        'worker_num'            => 1,
         //工作线程数
-        'reactor_num'              => 2,
+        'reactor_num'           => 2,
         //TASK进程数
-        'task_worker_num'          => 1,
-        //心跳检测最大时间间隔
-        'heartbeat_check_interval' => 60,
-        //连接最大闲置时间
-        'heartbeat_idle_time'      => 600,
-        //启用CPU亲和性设置
-        'open_cpu_affinity'        => true,
-        //debug模式
-        'debug_mode'               => false,
+        'task_worker_num'       => 1,
+        //PID
+        'pid_file'              => VSWOOLE_DATA_PID_PATH . VSWOOLE_HTTP_SERVER . '_Master' . VSWOOLE_PID_EXT,
         //SSL Crt
-        'ssl_cert_file'            => 'server.crt',
+        'ssl_cert_file'         => 'server.crt',
         //SSL Key
-        'ssl_key_file'             => 'server.key',
+        'ssl_key_file'          => 'server.key',
         //上传文件的临时目录
-        'upload_tmp_dir'           => '/tmp/vswoole/uploadfiles/',
+        'upload_tmp_dir'        => '/tmp/vswoole/uploadfiles/',
         //POST消息解析
-        'http_parse_post'          => false,
+        'http_parse_post'       => false,
         //静态文件根目录
-        'document_root'            => VSWOOLE_PUBLIC_STATIC_PATH,
+        'document_root'         => VSWOOLE_PUBLIC_STATIC_PATH,
         //支持静态文件访问
-        'enable_static_handler'    => true,
+        'enable_static_handler' => true,
     ],
     //管理客户端连接配置
     'client_connect' => [

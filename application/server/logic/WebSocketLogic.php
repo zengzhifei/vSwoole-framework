@@ -82,9 +82,6 @@ class WebSocketLogic
                 //管理端指令接口
                 if (($link_port = $GLOBALS['link_table']->get($frame->fd, 'link_port')) && (Config::loadConfig('websocket')->get('server_connect.adminPort') == $link_port)) {
                     switch (strtolower($data['cmd'])) {
-                        case 'ping':
-                            $GLOBALS['server']->push($frame->fd, 'pong');
-                            break;
                         case 'line':
                             $this->line($frame);
                             break;

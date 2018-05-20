@@ -47,7 +47,6 @@ class WebSocketServer extends Server
         //设置主进程别名
         Utils::setProcessName(VSWOOLE_WEB_SOCKET_SERVER . ' master');
         //异步记录服务进程PID
-        Utils::writePid($server->master_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Master');
         Utils::writePid($server->manager_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Manager');
     }
 

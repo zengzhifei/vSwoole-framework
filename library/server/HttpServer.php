@@ -51,7 +51,6 @@ class HttpServer extends Server
             @swoole_set_process_name(VSWOOLE_HTTP_SERVER . ' master');
         }
         //异步记录服务进程PID
-        Utils::writePid($server->master_pid, VSWOOLE_HTTP_SERVER . '_Master');
         Utils::writePid($server->manager_pid, VSWOOLE_HTTP_SERVER . '_Manager');
     }
 
