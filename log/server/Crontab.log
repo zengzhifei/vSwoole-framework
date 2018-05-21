@@ -8903,3 +8903,53 @@ Stack trace:
 [2018-05-21 00:10:09 *38975.11]	WARNING	swWorker_onStart: get user [swoole] info failed.
 [2018-05-21 00:10:09 *38978.14]	WARNING	swWorker_onStart: get user [swoole] info failed.
 [2018-05-21 00:10:09 *38979.15]	WARNING	swWorker_onStart: get user [swoole] info failed.
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-21 10:45:19
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|reactor_num: 8
+|worker_num: 16
+|task_worker_num: 400
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|reload_async: true
+|debug_mode: false
+|pid_file: /mnt/hgfs/demo/vSwoole/public/../data/pid/Swoole_Crontab_Server_Master.pid
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_eof_split: true
+|package_eof: \r\n
++-----------------------------------------------------------------------------------------------------+
+
++-----------------------------------------------------------------------------------------------------+
+|Swoole_Crontab_Server start ok. 2018-05-21 10:47:24
++-----------------------------------------------------------------------------------------------------+
+|IP: 10.4.0.101
+|host: 0.0.0.0
+|port: 9502
+|adminHost: 0.0.0.0
+|adminPort: 8502
+|reactor_num: 8
+|worker_num: 16
+|task_worker_num: 400
+|daemonize: false
+|log_file: /mnt/hgfs/demo/vSwoole/public/../log/server/Crontab.log
+|heartbeat_check_interval: 60
+|heartbeat_idle_time: 600
+|open_cpu_affinity: true
+|reload_async: true
+|debug_mode: false
+|pid_file: /mnt/hgfs/demo/vSwoole/public/../data/pid/Swoole_Crontab_Server_Master.pid
+|ssl_cert_file: server.crt
+|ssl_key_file: server.key
+|open_eof_split: true
+|package_eof: \r\n
++-----------------------------------------------------------------------------------------------------+
+

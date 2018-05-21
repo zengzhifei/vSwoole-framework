@@ -530,3 +530,79 @@ Exception Trace:
 #6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
 #7 {main}
 
+[2018-05-21 10:14:41] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(31): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(404): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 10:14:41] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(33): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(404): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-21 10:16:14] 
+vSwoole\library\common\exception\Exception: Redis::pconnect(): connect() failed: Connection timed out
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 57
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Redis::pconnect...', '/mnt/hgfs/demo/...', 57, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(57): Redis->pconnect('192.168.31.100', 6379, 0)
+#2 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(111): vSwoole\library\common\cache\Redis::connect(true)
+#3 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(31): vSwoole\library\common\cache\Redis::getInstance(Array, true)
+#4 /mnt/hgfs/demo/vSwoole/library/Init.php(404): vSwoole\application\client\WebSocket->__construct()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#6 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#7 {main}
+
+[2018-05-21 10:16:14] 
+RedisException: Redis server went away
+In /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php: 157
+Exception Code: E_UNKONW[0]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/library/common/cache/Redis.php(157): Redis->sMembers('VSwoole-WebSock...')
+#1 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(33): vSwoole\library\common\cache\Redis->__call('SMEMBERS', Array)
+#2 /mnt/hgfs/demo/vSwoole/library/Init.php(404): vSwoole\application\client\WebSocket->__construct()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#5 {main}
+
+[2018-05-21 10:55:27] 
+vSwoole\library\common\exception\Exception: Swoole\Client::recv(): recv() failed. Error: Resource temporarily unavailable [11]
+In /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php: 191
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 [internal function]: vSwoole\library\common\exception\Exception::swooleError(2, 'Swoole\\Client::...', '/mnt/hgfs/demo/...', 191, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/client/WebSocketClient.php(191): Swoole\Client->recv()
+#2 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(204): vSwoole\library\client\WebSocketClient->execute('ranges', Array)
+#3 /mnt/hgfs/demo/vSwoole/library/Init.php(406): vSwoole\application\client\WebSocket->getRanges()
+#4 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#5 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#6 {main}
+
+[2018-05-21 10:55:27] 
+vSwoole\library\common\exception\Exception: Invalid argument supplied for foreach()
+In /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php: 208
+Exception Code: E_WARNING[2]
+Exception Trace: 
+#0 /mnt/hgfs/demo/vSwoole/application/client/WebSocket.php(208): vSwoole\library\common\exception\Exception::swooleError(2, 'Invalid argumen...', '/mnt/hgfs/demo/...', 208, Array)
+#1 /mnt/hgfs/demo/vSwoole/library/Init.php(406): vSwoole\application\client\WebSocket->getRanges()
+#2 /mnt/hgfs/demo/vSwoole/public/client.php(25): vSwoole\library\Init->runClient()
+#3 /mnt/hgfs/demo/vSwoole/public/client.php(32): Client->__construct()
+#4 {main}
+
