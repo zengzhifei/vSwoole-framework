@@ -14,6 +14,7 @@ use vSwoole\library\client\WebSocketClient;
 use vSwoole\library\common\Config;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Process;
+use vSwoole\library\common\Timer;
 
 class WebSocketLogic
 {
@@ -116,7 +117,7 @@ class WebSocketLogic
                         case 'online':
                             $this->online($frame);
                             break;
-                        case 'send':
+                        case 'message':
                             $this->send($frame);
                             break;
                     }
@@ -160,12 +161,17 @@ class WebSocketLogic
             } else {
                 $connect_status = $GLOBALS['client']->connect([], []);
             }
+            if ($connect_status == false) {
+                unset($GLOBALS['client']);
+            } else {
+                Timer::tick(5000, function ($timer_id) {
+                    $GLOBALS['client']->ping();
+                });
+            }
         } else {
             $connect_status = true;
         }
-        if ($connect_status == false) {
-            unset($GLOBALS['client']);
-        }
+
         return $connect_status;
     }
 
@@ -259,7 +265,7 @@ class WebSocketLogic
             if (is_array($data)) {
                 $online = $GLOBALS['client']->execute('line', $user_data);
                 if ($online && is_array($online)) {
-                    $GLOBALS['server']->push($frame->fd, json_encode(['online' => array_sum($online)]));
+                    $GLOBALS['server']->push($frame->fd, json_encode(['type' => 'online', 'data' => array_sum($online)]));
                 }
             }
         }

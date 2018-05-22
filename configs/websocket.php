@@ -76,6 +76,6 @@ return [
     //其他配置
     'other_config'   => [
         //是否缓存配置文件
-        'is_cache_config'     => true,
+        'is_cache_config' => true,
     ]
 ];

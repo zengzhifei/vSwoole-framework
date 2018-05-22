@@ -215,6 +215,26 @@ class WebSocketClient extends Client
     }
 
     /**
+     * 发送心跳
+     * @param string|null $server_ip
+     */
+    public function ping(string $server_ip = null)
+    {
+        if (empty($server_ip)) {
+            foreach ($this->clients_instance as $ip => $client) {
+                if ($client->isConnected()) {
+                    $client->send(\swoole_websocket_server::pack('', 9));
+                }
+            }
+        } else if (array_key_exists(md5($server_ip), $this->clients_instance)) {
+            $client = $this->clients_instance[md5($server_ip)];
+            if ($client->isConnected()) {
+                $client->send(\swoole_websocket_server::pack('', 9));
+            }
+        }
+    }
+
+    /**
      * 获取已连接IP实例
      * @return array
      */
