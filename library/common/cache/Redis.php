@@ -130,7 +130,7 @@ class Redis
     }
 
     /**
-     * 设置Redis同步客户端的唯一连接标识
+     * 获取同步客户端的缓存前缀
      * @return string
      */
     public function getRedisPrefix()
