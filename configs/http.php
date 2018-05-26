@@ -36,15 +36,15 @@ return [
     //服务端配置
     'server_config'  => [
         //守护进程化
-        'daemonize'             => false,
+        'daemonize'             => true,
         //日志
         'log_file'              => VSWOOLE_LOG_SERVER_PATH . 'Http.log',
         //工作进程数
-        'worker_num'            => 1,
+        'worker_num'            => 0,
         //工作线程数
-        'reactor_num'           => 2,
+        'reactor_num'           => 0,
         //TASK进程数
-        'task_worker_num'       => 1,
+        'task_worker_num'       => 0,
         //PID
         'pid_file'              => VSWOOLE_DATA_PID_PATH . VSWOOLE_HTTP_SERVER . '_Master' . VSWOOLE_PID_EXT,
         //SSL Crt

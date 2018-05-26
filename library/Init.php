@@ -116,9 +116,6 @@ class Init
             case '':
                 echo join('', $commands);
                 break;
-            case 'test':
-                self::test();
-                break;
             default:
                 echo "command: '{$cmd}' is invalid" . PHP_EOL;
                 echo join('', $commands);
@@ -347,17 +344,6 @@ class Init
     }
 
     /**
-     * 测试使用
-     */
-    private static function test()
-    {
-        self::initConvention();
-        self::exceptionRegister();
-        self::autoloadRegister();
-
-    }
-
-    /**
      * 载入框架
      * @return Init
      * @throws \Exception
@@ -383,6 +369,7 @@ class Init
     {
         $server_list = Config::loadConfig()->get('server_list');
         if (array_key_exists($class, $server_list)) {
+            define('VSWOOLE_BIND', $class);
             $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
             $server = new $class;
         } else {
@@ -403,6 +390,7 @@ class Init
         $class = VSWOOLE_APP_CLIENT_NAMESPACE . '\\' . $controller;
         $client = new $class;
         if (method_exists($client, $action)) {
+            define('VSWOOLE_BIND', $class);
             $client->$action();
         } else {
             throw new \Exception("Argument 2 {$action} method not exist");

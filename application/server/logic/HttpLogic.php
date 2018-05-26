@@ -16,13 +16,15 @@ use vSwoole\library\common\exception\Exception;
 class HttpLogic
 {
     /**
+     * 设置对象
      * HttpLogic constructor.
      * @param \swoole_http_server $server
      */
     public function __construct(\swoole_http_server $server)
     {
-        $GLOBALS['Http'] = $server;
+        $GLOBALS['server'] = $server;
 
+        //载入第三方框架
         $this->loadFrameWork();
     }
 

@@ -28,7 +28,12 @@ return [
         'Crontab'   => [
             'Server_Ip' => 'Crontab-Server_Ip',
             'Task_List' => 'Crontab-Task_List',
-            'Task_Pool' => 'Crontab-Task_Pool,'
+        ],
+        'Http'      => [
+            'Server_Ip' => 'Http-Server_Ip',
+        ],
+        'Udp'       => [
+            'Server_Ip' => 'Udp-Server_Ip',
         ]
     ],
 ];

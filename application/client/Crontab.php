@@ -23,10 +23,25 @@ class Crontab extends CrontabClient
      * Crontab constructor.
      * @param array $connectOptions
      * @param array $configOptions
+     * @throws \Exception
      */
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
-        $connect_status = parent::connect($connectOptions, $configOptions);
+        if (empty($connectOptions)) {
+            $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
+            $serverKey = Config::loadConfig('redis')->get('redis_key.Crontab.Server_Ip');
+            $server_ips = $redis->SMEMBERS($serverKey);
+            if ($server_ips) {
+                $connect_status = false;
+                foreach ($server_ips as $ip) {
+                    $connect_status = parent::connect(['host' => $ip], $configOptions) == false ? $connect_status || false : $connect_status || true;
+                }
+            } else {
+                $connect_status = parent::connect($connectOptions, $configOptions);
+            }
+        } else {
+            $connect_status = parent::connect($connectOptions, $configOptions);
+        }
         if (false == $connect_status) {
             Response::return (['status' => 504, 'msg' => 'Server Connect Gateway Timeout']);
         }

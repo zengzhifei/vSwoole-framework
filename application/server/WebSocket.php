@@ -81,10 +81,11 @@ class WebSocket extends WebSocketServer
         if (Config::loadConfig('config', true)->get('is_debug')) {
             Process::getInstance()->add(function ($process) use ($server) {
                 $process->name(VSWOOLE_WEB_SOCKET_SERVER . ' inotify');
-                Inotify::getInstance()->watch([VSWOOLE_CONFIG_PATH, VSWOOLE_APP_SERVER_PATH . 'logic/'], function () use ($server) {
+                Inotify::getInstance()->watch([VSWOOLE_CONFIG_PATH, VSWOOLE_APP_SERVER_PATH . 'logic/WebSocketLogic.php'], function () use ($server) {
                     $server->reload();
                 });
             });
+            Process::signalProcess(false);
         }
     }
 

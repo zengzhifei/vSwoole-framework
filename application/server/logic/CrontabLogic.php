@@ -76,11 +76,9 @@ class CrontabLogic
             switch (strtolower($data['cmd'])) {
                 case 'reload':
                     $GLOBALS['server']->reload();
-                    $GLOBALS['server']->send($fd, 'pong');
                     break;
                 case 'shutdown':
                     $GLOBALS['server']->shutdown();
-                    $GLOBALS['server']->send($fd, 'pong');
                     break;
                 case 'add':
                     $this->add($fd, $data['data']);
@@ -95,6 +93,7 @@ class CrontabLogic
                     $this->delete($data['data']);
                     break;
             }
+            $GLOBALS['server']->send($fd, 'pong');
         }
 
     }

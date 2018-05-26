@@ -36,7 +36,7 @@ return [
     //服务端配置
     'server_config'  => [
         //守护进程化
-        'daemonize'       => false,
+        'daemonize'       => true,
         //日志
         'log_file'        => VSWOOLE_LOG_SERVER_PATH . 'udp.log',
         //工作进程数
