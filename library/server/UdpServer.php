@@ -45,11 +45,7 @@ class UdpServer extends Server
         //展示服务启动信息
         $this->startShowServerInfo();
         //设置主进程别名
-        if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_UDP_SERVER . ' master');
-        } else {
-            @swoole_set_process_name(VSWOOLE_UDP_SERVER . ' master');
-        }
+        Utils::setProcessName(VSWOOLE_UDP_SERVER . ' master');
         //异步记录服务进程PID
         Utils::writePid($server->manager_pid, VSWOOLE_UDP_SERVER . '_Manager');
     }
@@ -70,11 +66,7 @@ class UdpServer extends Server
     public function onManagerStart(\swoole_server $server)
     {
         //设置管理进程别名
-        if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_UDP_SERVER . ' manager');
-        } else {
-            @swoole_set_process_name(VSWOOLE_UDP_SERVER . ' manager');
-        }
+        Utils::setProcessName(VSWOOLE_UDP_SERVER . ' manager');
     }
 
     /**
@@ -95,11 +87,7 @@ class UdpServer extends Server
     {
         //设置工作进程别名
         $worker_name = $server->taskworker ? ' tasker_' . $worker_id : ' worker_' . $worker_id;
-        if (function_exists('cli_set_process_title')) {
-            @cli_set_process_title(VSWOOLE_HTTP_SERVER . $worker_name);
-        } else {
-            @swoole_set_process_name(VSWOOLE_HTTP_SERVER . $worker_name);
-        }
+        Utils::setProcessName(VSWOOLE_UDP_SERVER . $worker_name);
         //缓存配置
         $is_cache = Config::loadConfig('udp')->get('other_config.is_cache_config');
         $is_cache && Config::cacheConfig();
