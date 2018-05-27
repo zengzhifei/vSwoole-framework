@@ -59,7 +59,13 @@ class HttpLogic
      */
     public function execute(\swoole_http_request $request, \swoole_http_response $response)
     {
-        $this->conversionRequest($request);
+        if ($request->server['request_uri'] == '/favicon.ico') {
+            $response->status(404);
+            $response->end();
+            return;
+        } else {
+            $this->conversionRequest($request);
+        }
 
         ob_start();
         try {

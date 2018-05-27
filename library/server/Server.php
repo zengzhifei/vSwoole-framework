@@ -64,6 +64,10 @@ abstract class Server
         'reload_async'             => true,
         //debug模式
         'debug_mode'               => false,
+        //开启eof
+        'open_eof_split'           => true,
+        //eof
+        'package_eof'              => "\r\n",
     ];
     //服务回调事件列表
     protected $callbackEventList = [
@@ -103,19 +107,17 @@ abstract class Server
                 case VSWOOLE_WEB_SOCKET_SERVER:
                     $this->swoole = new \swoole_websocket_server($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['mode'], $this->connectOptions['sockType']);
                     array_push($this->callbackEventList, 'HandShake', 'Open', 'Message');
+                    unset($this->configOptions['open_eof_split']);
+                    unset($this->configOptions['package_eof']);
                     break;
                 case VSWOOLE_HTTP_SERVER:
                     $this->swoole = new \swoole_http_server($this->connectOptions['host'], $this->connectOptions['port']);
-                    $this->configOptions['open_eof_split'] = $this->configOptions['open_eof_split'] ?? true;
-                    $this->configOptions['package_eof'] = $this->configOptions['open_eof_split'] ?? "\r\n";
                     array_push($this->callbackEventList, 'Request');
                     unset($this->callbackEventList[array_search('Connect', $this->callbackEventList)]);
                     unset($this->callbackEventList[array_search('Receive', $this->callbackEventList)]);
                     break;
                 default:
                     $this->swoole = new \swoole_server($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['mode'], $this->connectOptions['sockType']);
-                    $this->configOptions['open_eof_split'] = $this->configOptions['open_eof_split'] ?? true;
-                    $this->configOptions['package_eof'] = $this->configOptions['package_eof'] ?? "\r\n";
                     break;
             }
         }

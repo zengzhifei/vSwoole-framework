@@ -10,13 +10,12 @@
 namespace vSwoole\application\client;
 
 
-use vSwoole\library\client\HttpClient;
+use vSwoole\library\client\UdpClient;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Config;
-use vSwoole\library\common\Request;
 use vSwoole\library\common\Response;
 
-class Http extends HttpClient
+class Udp extends UdpClient
 {
     /**
      * 连接服务器
@@ -68,34 +67,6 @@ class Http extends HttpClient
             Response::return (['status' => 1, 'msg' => 'get success', 'data' => $server_list]);
         } else {
             Response::return (['status' => 0, 'msg' => 'get failed']);
-        }
-    }
-
-    /**
-     * 重启服务
-     */
-    public function reload()
-    {
-        $server_ip = Request::getInstance()->param('server_ip', null);
-        $res = $this->execute('reload', [], $server_ip);
-        if ($res) {
-            Response::return (['status' => 1, 'msg' => 'reload success']);
-        } else {
-            Response::return (['status' => 0, 'msg' => 'reload failed']);
-        }
-    }
-
-    /**
-     * 关闭服务
-     */
-    public function shutdown()
-    {
-        $server_ip = Request::getInstance()->param('server_ip', null);
-        $res = $this->execute('shutdown', [], $server_ip);
-        if ($res) {
-            Response::return (['status' => 1, 'msg' => 'shutdown success']);
-        } else {
-            Response::return (['status' => 0, 'msg' => 'shutdown failed']);
         }
     }
 

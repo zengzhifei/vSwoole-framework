@@ -191,8 +191,6 @@ class WebSocketClient extends Client
                             $return_status = $this->parseData($client->recv());
                             if ($return_status && $return_status->finish) {
                                 $result[$this->connect_instance[$ip]] = $return_status->data;
-                            } else {
-                                $result[$this->connect_instance[$ip]] = true;
                             }
                         }
                     }
@@ -204,8 +202,6 @@ class WebSocketClient extends Client
                         $return_status = $this->parseData($client->recv());
                         if ($return_status && $return_status->finish) {
                             $result[$server_ip] = $return_status->data;
-                        } else {
-                            $result[$server_ip] = true;
                         }
                     }
                 }

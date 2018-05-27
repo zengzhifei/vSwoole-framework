@@ -69,7 +69,6 @@ class CrontabClient extends Client
                 foreach ($this->clients_instance as $ip => $client) {
                     if ($client->isConnected()) {
                         $result[$this->connect_instance[$ip]] = $client->send(json_encode($send_data) . "\r\n");
-
                     }
                 }
             } else if (array_key_exists(md5($server_ip), $this->clients_instance)) {

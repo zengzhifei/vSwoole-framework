@@ -388,9 +388,9 @@ class Init
         $controller = isset($router[0]) && $router[0] != '' ? $router[0] : 'Index';
         $action = isset($router[1]) && $router[1] != '' ? $router[1] : 'index';
         $class = VSWOOLE_APP_CLIENT_NAMESPACE . '\\' . $controller;
-        $client = new $class;
-        if (method_exists($client, $action)) {
-            define('VSWOOLE_BIND', $class);
+        if (is_callable([$class, $action])) {
+            define('VSWOOLE_BIND', $controller);
+            $client = new $class;
             $client->$action();
         } else {
             throw new \Exception("Argument 2 {$action} method not exist");
