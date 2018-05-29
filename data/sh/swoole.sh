@@ -64,7 +64,7 @@ startServer(){
             echo ${startReturn} >> ${log}
             exit 1
         else
-            echo "${time} Server: ${server} Start success" >> ${log}
+            echo "${time} Server: ${server} Start Success" >> ${log}
             exit 0
         fi
     fi
