@@ -38,7 +38,7 @@ return [
         //守护进程化
         'daemonize'       => true,
         //日志
-        'log_file'        => VSWOOLE_LOG_SERVER_PATH . 'udp.log',
+        'log_file'        => VSWOOLE_LOG_SERVER_PATH . 'Udp.log',
         //工作进程数
         'worker_num'      => 0,
         //工作线程数

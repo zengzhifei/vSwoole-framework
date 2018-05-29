@@ -7,7 +7,7 @@
 </head>
 <body>
 <script>
-    var ws = new WS("ws://192.168.31.100/ws", {
+    var ws = new WS("ws://10.4.0.101/ws", {
         onOpen: function (ws) {
             var range_data = {'cmd': 'range', 'data': {'range_id': 123456, 'user_id': 123}};
             ws.send(JSON.stringify(range_data));
