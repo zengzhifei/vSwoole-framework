@@ -25,7 +25,7 @@ class HttpLogic
         $GLOBALS['server'] = $server;
 
         //载入第三方框架
-        $this->loadFrameWork();
+        //$this->loadFrameWork();
     }
 
     /**
