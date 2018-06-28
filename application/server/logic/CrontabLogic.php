@@ -301,7 +301,7 @@ class CrontabLogic
                         $curl = new Curl();
                         foreach ($task['task_execute_time'] as $task_key => $task_time) {
                             Timer::after($task_time * 1000, function () use ($process, $curl, $task, $task_key) {
-                                $res = $curl->get(trim($task['task_url']));
+                                $curl->get(trim($task['task_url']));
                                 if (($task_key + 1) == count($task['task_execute_time'])) {
                                     $process->exit(0);
                                 }
