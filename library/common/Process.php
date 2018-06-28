@@ -29,8 +29,10 @@ class Process
      * @var array
      */
     protected static $default_options = [
-        'redirect_stdin_stdout' => true,
-        'create_pipe'           => true,
+        'redirect_stdin_stdout'     => true,
+        'create_pipe'               => true,
+        'enable_memory_security'    => true,
+        'memory_security_threshold' => 204800
     ];
 
     /**
@@ -61,12 +63,16 @@ class Process
      */
     public function add($callback, array $arguments = [])
     {
+        if (self::$process_options['enable_memory_security'] && !$this->checkMemorySecurity()) {
+            return false;
+        }
+
         $pid = $this->createProcess(function (\swoole_process $process) use ($callback, $arguments) {
             array_unshift($arguments, $process);
             call_user_func_array($callback, $arguments);
         });
 
-        return isset($pid) ? $pid : false;
+        return $pid;
     }
 
     /**
@@ -82,6 +88,18 @@ class Process
             self::$process_instance[$pid] = $process;
         }
         return $pid;
+    }
+
+    /**
+     * 检测内存大小是否大于阈值
+     * @return bool
+     */
+    private function checkMemorySecurity()
+    {
+        exec("cat /proc/meminfo | grep MemFree | awk '{print $2}'", $output, $status);
+        $check = $status === 0 && $output[0] >= self::$process_options['memory_security_threshold'] ? true : false;
+        unset($output);
+        return $check;
     }
 
     /**
