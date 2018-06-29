@@ -335,6 +335,7 @@ class CrontabLogic
                                 Timer::after($task_time * 1000, function () use ($task, $http, $task_url, $task_key, $process) {
                                     for ($j = 1; $j <= $task['task_concurrent_num']; $j++) {
                                         $http->connect();
+                                        $http->set(['timeout' => -1]);
                                         $http->get($task_url, function ($client) {
                                             $client->close();
                                         });
