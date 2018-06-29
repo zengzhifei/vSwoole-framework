@@ -43,7 +43,7 @@ class Crontab extends CrontabClient
             $connect_status = parent::connect($connectOptions, $configOptions);
         }
         if (false == $connect_status) {
-            Response::return (['status' => 504, 'msg' => 'Server Connect Gateway Timeout']);
+            Response::return(['status' => 504, 'msg' => 'Server Connect Gateway Timeout']);
         }
     }
 
@@ -65,9 +65,9 @@ class Crontab extends CrontabClient
             }
         }
         if (isset($server_list)) {
-            Response::return (['status' => 1, 'msg' => 'get success', 'data' => $server_list]);
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => $server_list]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'get failed']);
+            Response::return(['status' => 0, 'msg' => 'get failed']);
         }
     }
 
@@ -79,9 +79,9 @@ class Crontab extends CrontabClient
         $server_ip = Request::getInstance()->param('server_ip', null);
         $res = $this->execute('reload', [], $server_ip);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'reload success']);
+            Response::return(['status' => 1, 'msg' => 'reload success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'reload failed']);
+            Response::return(['status' => 0, 'msg' => 'reload failed']);
         }
     }
 
@@ -93,9 +93,9 @@ class Crontab extends CrontabClient
         $server_ip = Request::getInstance()->param('server_ip', null);
         $res = $this->execute('shutdown', [], $server_ip);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'shutdown success']);
+            Response::return(['status' => 1, 'msg' => 'shutdown success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'shutdown failed']);
+            Response::return(['status' => 0, 'msg' => 'shutdown failed']);
         }
     }
 
@@ -116,7 +116,7 @@ class Crontab extends CrontabClient
                 }
             }
         }
-        Response::return (['status' => 1, 'msg' => 'clear success']);
+        Response::return(['status' => 1, 'msg' => 'clear success']);
     }
 
     /**
@@ -129,46 +129,52 @@ class Crontab extends CrontabClient
         $task_url = Request::getInstance()->param('task_url', '');
         $task_time = Request::getInstance()->param('task_time', '');
         $task_process_num = Request::getInstance()->param('task_process_num', 1);
+        $task_concurrent_num = Request::getInstance()->param('task_concurrent_num', 1);
         $task_group = Request::getInstance()->param('task_group', '');
         $task_name = Request::getInstance()->param('task_name', '');
 
         if (null === $task_cmd) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_cmd is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_cmd is empty']);
         } else if ('' === $task_cmd) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_cmd is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_cmd is invalid']);
         }
         if (null === $task_url) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_url is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_url is empty']);
         } else if ('' === $task_url) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_url is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_url is invalid']);
         }
         if (null === $task_time) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_time is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_time is empty']);
         } else if ('' === $task_time) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_time is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_time is invalid']);
         }
         if (null === $task_process_num) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_process_num is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_process_num is empty']);
         } else if ('' === $task_process_num || $task_process_num < 1) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_process_num is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_process_num is invalid']);
+        }
+        if (null === $task_concurrent_num) {
+            Response::return(['status' => -1, 'msg' => 'Arguments task_concurrent_num is empty']);
+        } else if ('' === $task_concurrent_num || $task_concurrent_num < 1) {
+            Response::return(['status' => -1, 'msg' => 'Arguments task_concurrent_num is invalid']);
         }
         if (null === $task_group) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_group is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_group is empty']);
         } else if ('' === $task_group) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_group is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_group is invalid']);
         }
         if (null === $task_name) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_name is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_name is empty']);
         } else if ('' === $task_name) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_name is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_name is invalid']);
         }
 
-        $data = ['task_id' => $task_id, 'task_cmd' => $task_cmd, 'task_url' => $task_url, 'task_process_num' => $task_process_num, 'task_time' => $task_time, 'task_group' => $task_group, 'task_name' => $task_name];
+        $data = ['task_id' => $task_id, 'task_cmd' => $task_cmd, 'task_url' => $task_url, 'task_process_num' => $task_process_num, 'task_concurrent_num' => $task_concurrent_num, 'task_time' => $task_time, 'task_group' => $task_group, 'task_name' => $task_name];
         $res = $this->execute('add', $data);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'success']);
+            Response::return(['status' => 1, 'msg' => 'success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'failed']);
+            Response::return(['status' => 0, 'msg' => 'failed']);
         }
     }
 
@@ -182,9 +188,9 @@ class Crontab extends CrontabClient
             foreach ($task_list as $key => $task) {
                 $task_list[$key] = json_decode($task, true);
             }
-            Response::return (['status' => 1, 'msg' => 'success', 'data' => $task_list]);
+            Response::return(['status' => 1, 'msg' => 'success', 'data' => $task_list]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'failed']);
+            Response::return(['status' => 0, 'msg' => 'failed']);
         }
     }
 
@@ -196,16 +202,16 @@ class Crontab extends CrontabClient
         $task_id = Request::getInstance()->param('task_id', '');
 
         if (null === $task_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_id is empty']);
         } else if ('' === $task_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_id is invalid']);
         }
 
         $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
         if ($task = $redis->hGet(Config::loadConfig('redis')->get('redis_key.Crontab.Task_List'), $task_id)) {
-            Response::return (['status' => 1, 'msg' => 'success', 'data' => json_decode($task)]);
+            Response::return(['status' => 1, 'msg' => 'success', 'data' => json_decode($task)]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'failed']);
+            Response::return(['status' => 0, 'msg' => 'failed']);
         }
     }
 
@@ -217,16 +223,16 @@ class Crontab extends CrontabClient
         $task_id = Request::getInstance()->param('task_id', null);
 
         if (null === $task_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_id is empty']);
         } else if ('' === $task_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_id is invalid']);
         }
 
         $res = $this->execute('start', ['task_id' => $task_id]);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'success']);
+            Response::return(['status' => 1, 'msg' => 'success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'failed']);
+            Response::return(['status' => 0, 'msg' => 'failed']);
         }
     }
 
@@ -238,16 +244,16 @@ class Crontab extends CrontabClient
         $task_id = Request::getInstance()->param('task_id', null);
 
         if (null === $task_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_id is empty']);
         } else if ('' === $task_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_id is invalid']);
         }
 
         $res = $this->execute('stop', ['task_id' => $task_id]);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'success']);
+            Response::return(['status' => 1, 'msg' => 'success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'failed']);
+            Response::return(['status' => 0, 'msg' => 'failed']);
         }
     }
 
@@ -259,16 +265,16 @@ class Crontab extends CrontabClient
         $task_id = Request::getInstance()->param('task_id', null);
 
         if (null === $task_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_id is empty']);
         } else if ('' === $task_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments task_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments task_id is invalid']);
         }
 
         $res = $this->execute('delete', ['task_id' => $task_id]);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'success']);
+            Response::return(['status' => 1, 'msg' => 'success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'failed']);
+            Response::return(['status' => 0, 'msg' => 'failed']);
         }
     }
 }
