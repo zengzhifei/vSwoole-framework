@@ -333,7 +333,7 @@ class CrontabLogic
                         Process::getInstance()->add(function ($process) use ($task, $http, $task_url) {
                             foreach ($task['task_execute_time'] as $task_key => $task_time) {
                                 Timer::after($task_time * 1000, function () use ($task, $http, $task_url, $task_key, $process) {
-                                    for ($i = 1; $i <= $task['task_concurrent_num']; $i++) {
+                                    for ($j = 1; $j <= $task['task_concurrent_num']; $j++) {
                                         $http->connect();
                                         $http->get($task_url, function ($client) {
                                             $client->close();
