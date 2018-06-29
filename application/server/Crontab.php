@@ -33,10 +33,11 @@ class Crontab extends CrontabServer
         //创建任务池内存表
         $GLOBALS['task_table'] = new Table(102400);
         $GLOBALS['task_table']->create([
-            'task_cmd'         => ['string', 32],
-            'task_url'         => ['string', 128],
-            'task_time'        => ['string', 128],
-            'task_process_num' => ['int', 4],
+            'task_cmd'            => ['string', 32],
+            'task_url'            => ['string', 128],
+            'task_time'           => ['string', 128],
+            'task_process_num'    => ['int', 4],
+            'task_concurrent_num' => ['int', 8],
         ]);
 
         parent::__construct($connectOptions, $configOptions);

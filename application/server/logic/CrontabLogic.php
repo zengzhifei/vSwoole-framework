@@ -14,6 +14,7 @@ use vSwoole\library\common\Config;
 use vSwoole\library\common\Curl;
 use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\cache\Redis;
+use vSwoole\library\common\Http;
 use vSwoole\library\common\Process;
 use vSwoole\library\common\Timer;
 use vSwoole\library\common\Utils;
@@ -31,23 +32,25 @@ class CrontabLogic
      */
     protected $task_options = [
         //任务唯一ID
-        'task_id'          => 0,
+        'task_id'             => 0,
         //任务执行命令全路径
-        'task_cmd'         => '',
+        'task_cmd'            => '',
         //任务地址(接口地址或实际地址)
-        'task_url'         => '',
+        'task_url'            => '',
         //任务执行频率
-        'task_time'        => '* * * * * *',
+        'task_time'           => '* * * * * *',
+        //任务进程数
+        'task_process_num'    => 1,
         //任务并发数
-        'task_process_num' => 1,
+        'task_concurrent_num' => 1,
         //任务分组
-        'task_group'       => '',
+        'task_group'          => '',
         //任务名称
-        'task_name'        => '',
+        'task_name'           => '',
         //任务状态
-        'task_status'      => 0,
+        'task_status'         => 0,
         //任务创建时间
-        'task_create_time' => 0
+        'task_create_time'    => 0
     ];
 
     /**
@@ -126,6 +129,7 @@ class CrontabLogic
                 $task['task_url'] = $data['task_url'];
                 $task['task_time'] = $data['task_time'];
                 $task['task_process_num'] = isset($data['task_process_num']) && $data['task_process_num'] > 0 ? $data['task_process_num'] : $this->task_options['task_process_num'];
+                $task['task_concurrent_num'] = isset($data['task_concurrent_num']) && $data['task_concurrent_num'] > 0 ? $data['task_concurrent_num'] : $this->task_options['task_concurrent_num'];
                 $task['task_group'] = $data['task_group'] ?? $this->task_options['task_group'];
                 $task['task_name'] = $data['task_name'] ?? $this->task_options['task_name'];
                 $task['task_status'] = $this->task_options['task_status'];
@@ -249,7 +253,7 @@ class CrontabLogic
     {
         if ($task && isset($task['task_status'])) {
             if ($task['task_status'] == 1) {
-                $GLOBALS['task_table']->set($task['task_id'], ['task_cmd' => $task['task_cmd'], 'task_url' => $task['task_url'], 'task_time' => $task['task_time'], 'task_process_num' => $task['task_process_num']]);
+                $GLOBALS['task_table']->set($task['task_id'], ['task_cmd' => $task['task_cmd'], 'task_url' => $task['task_url'], 'task_time' => $task['task_time'], 'task_process_num' => $task['task_process_num'], 'task_concurrent_num' => $task['task_concurrent_num']]);
             } else {
                 $GLOBALS['task_table']->del($task['task_id']);
             }
@@ -295,14 +299,17 @@ class CrontabLogic
     {
         try {
             Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . ' execute task');
-            if (preg_match("/(\/curl)[\s]*$/i", trim($task['task_cmd']))) {
+            if (strtolower($task['task_cmd']) === 'curl') {
+                $curl = new Curl();
                 for ($i = 1; $i <= $task['task_process_num']; $i++) {
-                    Process::getInstance()->add(function ($process) use ($task) {
-                        $curl = new Curl();
+                    Process::getInstance()->add(function ($process) use ($task, $curl) {
                         foreach ($task['task_execute_time'] as $task_key => $task_time) {
-                            Timer::after($task_time * 1000, function () use ($process, $curl, $task, $task_key) {
-                                $curl->get(trim($task['task_url']));
+                            Timer::after($task_time * 1000, function () use ($curl, $task, $task_key, $process) {
+                                for ($j = 1; $j <= $task['task_concurrent_num']; $j++) {
+                                    $curl->get(trim($task['task_url']));
+                                }
                                 if (($task_key + 1) == count($task['task_execute_time'])) {
+                                    sleep(2);
                                     $process->exit(0);
                                 }
                             });
@@ -310,6 +317,38 @@ class CrontabLogic
                     });
                 }
                 Process::signalProcess(true);
+            } else if (strtolower($task['task_cmd']) === 'http') {
+                $urlMatches = self::parseUrl(trim($task['task_url']));
+                if ($urlMatches[1] && $urlMatches[2] && $urlMatches[3]) {
+                    $http = new Http([
+                        'request_domain' => $urlMatches[2],
+                        'request_port'   => strtolower($urlMatches[1]) === 'https://' ? 443 : 80,
+                        'ssl'            => [
+                            'ssl_cert_file' => '',
+                            'ssl_key_file'  => ''
+                        ]
+                    ]);
+                    $task_url = $urlMatches[3];
+                    for ($i = 1; $i <= $task['task_process_num']; $i++) {
+                        Process::getInstance()->add(function ($process) use ($task, $http, $task_url) {
+                            foreach ($task['task_execute_time'] as $task_key => $task_time) {
+                                Timer::after($task_time * 1000, function () use ($task, $http, $task_url, $task_key, $process) {
+                                    for ($i = 1; $i <= $task['task_concurrent_num']; $i++) {
+                                        $http->connect();
+                                        $http->get($task_url, function ($client) {
+                                            $client->close();
+                                        });
+                                    }
+                                    if (($task_key + 1) == count($task['task_execute_time'])) {
+                                        sleep(2);
+                                        $process->exit(0);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    Process::signalProcess(true);
+                }
             } else {
                 for ($i = 1; $i <= $task['task_process_num']; $i++) {
                     Process::getInstance()->add(function ($process) use ($task) {
@@ -317,6 +356,7 @@ class CrontabLogic
                             Timer::after($task_time * 1000, function () use ($process, $task, $task_key) {
                                 $process->exec(trim($task['task_cmd']), preg_split("/[\s]+/i", trim($task['task_url'])));
                                 if (($task_key + 1) == count($task['task_execute_time'])) {
+                                    sleep(2);
                                     $process->exit(0);
                                 }
                             });
@@ -328,6 +368,17 @@ class CrontabLogic
         } catch (\Exception $e) {
             Exception::reportException($e);
         }
+    }
+
+    /**
+     * 解析任务地址
+     * @param string $task_url
+     * @return mixed
+     */
+    private static function parseUrl(string $task_url)
+    {
+        preg_match("/^(http:\/\/|https:\/\/)?([^\/]+)(.*)$/i", $task_url, $matches);
+        return $matches;
     }
 
     /**
@@ -402,7 +453,7 @@ class CrontabLogic
      */
     private static function checkTaskCmd(string $task_cmd)
     {
-        if (preg_match("/^\/[\w|\/]+[^\/]$/", trim($task_cmd))) {
+        if (trim($task_cmd)) {
             return true;
         } else {
             return false;
