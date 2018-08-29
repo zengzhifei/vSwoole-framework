@@ -89,6 +89,9 @@ class WebSocketLogic
                         case 'ranges':
                             $this->getRanges($frame);
                             break;
+                        case 'users':
+                            $this->getUsers($frame);
+                            break;
                         case 'push':
                             $this->push($frame);
                             $GLOBALS['server']->push($frame->fd, 'pong');
@@ -315,4 +318,31 @@ class WebSocketLogic
         $GLOBALS['server']->push($frame->fd, json_encode($_ranges ?? []));
     }
 
+    /**
+     * 获取在线用户
+     * @param \swoole_websocket_frame $frame
+     */
+    protected function getUsers(\swoole_websocket_frame $frame)
+    {
+        $data = json_decode($frame->data, true);
+        $user_data = $data['data'] ?? [];
+        $range_users = [];
+        $all_users = [];
+        if ($users = $GLOBALS['user_table']->getAll()) {
+            foreach ($users as $key => $fd) {
+                $index = strpos($key, '_');
+                $range_id = substr($key, 0, $index);
+                $user_id = substr($key, $index + 1);
+                $all_users[] = $user_id;
+                if ($range_id == $user_data['range_id']) {
+                    $range_users[] = $user_id;
+                }
+            }
+        }
+        if (isset($user_data['range_id']) && $user_data['range_id']) {
+            $GLOBALS['server']->push($frame->fd, json_encode($range_users));
+        } else {
+            $GLOBALS['server']->push($frame->fd, json_encode($all_users));
+        }
+    }
 }

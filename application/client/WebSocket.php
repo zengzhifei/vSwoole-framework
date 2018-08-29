@@ -43,7 +43,7 @@ class WebSocket extends WebSocketClient
             $connect_status = parent::connect($connectOptions, $configOptions);
         }
         if (false == $connect_status) {
-            Response::return (['status' => 504, 'msg' => 'Server Connect Gateway Timeout']);
+            Response::return(['status' => 504, 'msg' => 'Server Connect Gateway Timeout']);
         }
     }
 
@@ -57,21 +57,21 @@ class WebSocket extends WebSocketClient
         $message = Request::getInstance()->param('message', null);
 
         if (null === $range_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments range_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments range_id is empty']);
         } else if ('' === $range_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments range_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments range_id is invalid']);
         }
         if (null === $message) {
-            Response::return (['status' => -1, 'msg' => 'Arguments message is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments message is empty']);
         } else if ('' === $message) {
-            Response::return (['status' => -1, 'msg' => 'Arguments message is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments message is invalid']);
         }
 
         $res = $this->execute('push', ['user_id' => $user_id, 'range_id' => $range_id, 'message' => $message]);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'send success']);
+            Response::return(['status' => 1, 'msg' => 'send success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'send failed']);
+            Response::return(['status' => 0, 'msg' => 'send failed']);
         }
     }
 
@@ -83,9 +83,9 @@ class WebSocket extends WebSocketClient
         $server_ip = Request::getInstance()->param('server_ip', null);
         $res = $this->execute('reload', [], $server_ip);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'reload success']);
+            Response::return(['status' => 1, 'msg' => 'reload success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'reload failed']);
+            Response::return(['status' => 0, 'msg' => 'reload failed']);
         }
     }
 
@@ -97,9 +97,9 @@ class WebSocket extends WebSocketClient
         $server_ip = Request::getInstance()->param('server_ip', null);
         $res = $this->execute('shutdown', [], $server_ip);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'shutdown success']);
+            Response::return(['status' => 1, 'msg' => 'shutdown success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'shutdown failed']);
+            Response::return(['status' => 0, 'msg' => 'shutdown failed']);
         }
     }
 
@@ -113,21 +113,21 @@ class WebSocket extends WebSocketClient
         $user_id = Request::getInstance()->param('user_id', null);
 
         if (null === $range_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments range_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments range_id is empty']);
         } else if ('' === $range_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments range_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments range_id is invalid']);
         }
         if (null === $user_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments user_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments user_id is empty']);
         } else if ('' === $user_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments user_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments user_id is invalid']);
         }
 
         $res = $this->execute('close', ['range_id' => $range_id, 'user_id' => $user_id]);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'close success']);
+            Response::return(['status' => 1, 'msg' => 'close success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'close failed']);
+            Response::return(['status' => 0, 'msg' => 'close failed']);
         }
     }
 
@@ -149,9 +149,9 @@ class WebSocket extends WebSocketClient
             }
         }
         if (isset($server_list)) {
-            Response::return (['status' => 1, 'msg' => 'get success', 'data' => $server_list]);
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => $server_list]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'get failed']);
+            Response::return(['status' => 0, 'msg' => 'get failed']);
         }
     }
 
@@ -172,7 +172,7 @@ class WebSocket extends WebSocketClient
                 }
             }
         }
-        Response::return (['status' => 1, 'msg' => 'clear success']);
+        Response::return(['status' => 1, 'msg' => 'clear success']);
     }
 
     /**
@@ -189,9 +189,9 @@ class WebSocket extends WebSocketClient
             $online_list = $this->execute('line', []);
         }
         if ($online_list) {
-            Response::return (['status' => 1, 'msg' => 'get success', 'data' => $online_list]);
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => $online_list]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'get fail']);
+            Response::return(['status' => 0, 'msg' => 'get fail']);
         }
     }
 
@@ -212,9 +212,9 @@ class WebSocket extends WebSocketClient
             }
         }
         if (isset($_ranges)) {
-            Response::return (['status' => 1, 'msg' => 'get success', 'data' => $_ranges]);
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => $_ranges]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'get fail']);
+            Response::return(['status' => 0, 'msg' => 'get fail']);
         }
     }
 
@@ -227,16 +227,36 @@ class WebSocket extends WebSocketClient
         $range_id = Request::getInstance()->param('range_id', null);
 
         if (null === $range_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments range_id is empty']);
+            Response::return(['status' => -1, 'msg' => 'Arguments range_id is empty']);
         } else if ('' === $range_id) {
-            Response::return (['status' => -1, 'msg' => 'Arguments range_id is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments range_id is invalid']);
         }
 
         $online = $this->execute('line', ['range_id' => $range_id]);
         if ($online && is_array($online)) {
-            Response::return (['status' => 1, 'msg' => 'get success', 'data' => array_sum($online)]);
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => ['online_ip' => $online, 'online_count' => array_sum($online)]]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'get fail']);
+            Response::return(['status' => 0, 'msg' => 'get fail']);
+        }
+    }
+
+    /**
+     * 获取指定分类的在线用户列表
+     * @throws \Exception
+     */
+    public function getUsers()
+    {
+        $range_id = Request::getInstance()->param('range_id', null);
+
+        if ($range_id && is_string($range_id)) {
+            $user_list = $this->execute('users', ['range_id' => $range_id]);
+        } else {
+            $user_list = $this->execute('users', []);
+        }
+        if ($user_list) {
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => $user_list]);
+        } else {
+            Response::return(['status' => 0, 'msg' => 'get fail']);
         }
     }
 
@@ -249,15 +269,15 @@ class WebSocket extends WebSocketClient
         $configs = Request::getInstance()->param('config', []);
 
         if (!is_array($configs) && count($configs) < 1) {
-            Response::return (['status' => -1, 'msg' => 'Arguments config is invalid']);
+            Response::return(['status' => -1, 'msg' => 'Arguments config is invalid']);
         }
 
         $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
         $res = $redis->hMSet(Config::loadConfig('redis')->get('redis_key.WebSocket.Config'), $configs);
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'config success']);
+            Response::return(['status' => 1, 'msg' => 'config success']);
         } else {
-            Response::return (['status' => 0, 'msg' => 'config fail']);
+            Response::return(['status' => 0, 'msg' => 'config fail']);
         }
     }
 
@@ -270,9 +290,9 @@ class WebSocket extends WebSocketClient
         $redis = Redis::getInstance(Config::loadConfig('redis')->get('redis_master'), true);
         $res = $redis->hGetAll(Config::loadConfig('redis')->get('redis_key.WebSocket.Config'));
         if ($res) {
-            Response::return (['status' => 1, 'msg' => 'config success', 'data' => $res]);
+            Response::return(['status' => 1, 'msg' => 'config success', 'data' => $res]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'config fail']);
+            Response::return(['status' => 0, 'msg' => 'config fail']);
         }
     }
 }
