@@ -26,14 +26,14 @@ class Init
     {
         $commands = [
             'default'  => 'You can input the following commands:' . PHP_EOL,
-            'start'    => '  start servername' . '       you can start a server[WebSocket,Crontab,Http,Udp]' . PHP_EOL,
-            'build'    => '  build servername' . '       you can build a new server' . PHP_EOL,
-            'reload'   => '  reload servername' . '      you can reload has runing server' . PHP_EOL,
-            'shutdown' => '  shutdown servername' . '    you can shutdown has runing server' . PHP_EOL,
-            'log'      => '  log servername' . '         you can reload log file' . PHP_EOL,
-            'clear'    => '  clear' . '                  you can clear the logs of the vswoole framework' . PHP_EOL,
-            'install'  => '  install' . '                you can install the necessary directory in the vswoole framework' . PHP_EOL,
-            'help'     => '  help' . '                   you can get help about vswoole framework' . PHP_EOL,
+            'start'    => '  start servername' . '                  you can start a server[WebSocket,Crontab,Http,Udp]' . PHP_EOL,
+            'build'    => '  build servername serverport' . '       you can build a new server' . PHP_EOL,
+            'reload'   => '  reload servername' . '                 you can reload has runing server' . PHP_EOL,
+            'shutdown' => '  shutdown servername' . '               you can shutdown has runing server' . PHP_EOL,
+            'log'      => '  log servername' . '                    you can reload log file' . PHP_EOL,
+            'clear'    => '  clear' . '                             you can clear the logs of the vswoole framework' . PHP_EOL,
+            'install'  => '  install' . '                           you can install the necessary directory in the vswoole framework' . PHP_EOL,
+            'help'     => '  help' . '                              you can get help about vswoole framework' . PHP_EOL,
         ];
 
         $cmd = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
@@ -48,7 +48,7 @@ class Init
                 }
                 break;
             case 'build':
-                if (count($_SERVER['argv']) > 3) {
+                if (count($_SERVER['argv']) > 4) {
                     echo "command: '{$cmd}' require arguments server name and do not require more arguments" . PHP_EOL;
                     echo 'help:' . PHP_EOL;
                     echo $commands[$cmd];
@@ -56,7 +56,7 @@ class Init
                     echo "will build a Demo server for you..." . PHP_EOL;
                     self::build();
                 } else {
-                    self::build($_SERVER['argv'][2]);
+                    self::build($_SERVER['argv'][2], $_SERVER['argv'][3]);
                 }
                 break;
             case 'reload':
@@ -267,13 +267,14 @@ class Init
     /**
      * 构建服务器基础文件
      * @param string $serverName
+     * @param int $serverPort
      */
-    private static function build(string $serverName = 'Demo')
+    private static function build(string $serverName = 'Demo', int $serverPort = 9501)
     {
         self::initConvention();
         require_once VSWOOLE_ROOT . 'library/common/Build.php';
-        if (!Build::build($serverName)) {
-            die('Build the server failure,and the server file has already existed.' . PHP_EOL);
+        if (!Build::build($serverName, $serverPort)) {
+            die('Build the server failure, or the server file has already existed.' . PHP_EOL);
         }
     }
 
@@ -316,7 +317,7 @@ class Init
         if (defined($serverName)) {
             Command::getInstance()->reload($serverName);
         } else {
-            die('Reload the server failure,and the server is not exist.' . PHP_EOL);
+            die('Reload the server failure, or the server is not exist.' . PHP_EOL);
         }
     }
 
@@ -333,7 +334,7 @@ class Init
         if (defined($serverName)) {
             Command::getInstance()->shutdown($serverName);
         } else {
-            die('Shutdown the server failure,and the server is not exist.' . PHP_EOL);
+            die('Shutdown the server failure, or the server is not exist.' . PHP_EOL);
         }
     }
 
@@ -351,7 +352,7 @@ class Init
         if (defined($serverName)) {
             Command::getInstance()->reloadLog($serverName);
         } else {
-            die('Reload log of the server failure,and the server is not exist.' . PHP_EOL);
+            die('Reload log of the server failure, or the server is not exist.' . PHP_EOL);
         }
     }
 
@@ -384,7 +385,7 @@ class Init
             $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
             $server = new $class;
         } else {
-            die('Start the server failure,and the server is not exist.' . PHP_EOL);
+            die('Start the server failure, or the server is not exist.' . PHP_EOL);
         }
     }
 

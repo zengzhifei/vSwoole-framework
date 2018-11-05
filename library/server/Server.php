@@ -104,7 +104,7 @@ abstract class Server
         // 实例化服务
         if (!empty($this->connectOptions)) {
             switch ($this->connectOptions['serverType']) {
-                case VSWOOLE_WEB_SOCKET_SERVER:
+                case VSWOOLE_WEBSOCKET_SERVER:
                     $this->swoole = new \swoole_websocket_server($this->connectOptions['host'], $this->connectOptions['port'], $this->connectOptions['mode'], $this->connectOptions['sockType']);
                     array_push($this->callbackEventList, 'HandShake', 'Open', 'Message');
                     unset($this->configOptions['open_eof_split']);
