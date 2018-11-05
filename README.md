@@ -1,6 +1,5 @@
 # vSwoole
 vSwoole是对Swoole扩展的超轻量级封装，主要用于PHP微型服务器开发。
-框架已有服务：WebSocket，Http，Udp，Timer定时器等。
 框架汲取大多数Web框架可用的特点，尽量减少服务器开发与Web开发的不同（同步执行），又保持服务器开发的一些必须要求（异步执行）。
 
 ## 框架特点：
@@ -17,7 +16,7 @@ vSwoole是对Swoole扩展的超轻量级封装，主要用于PHP微型服务器�
 + 管理客户端与用户客户端端口区分连接，服务接口也以端口区分，加强连接安全性
 + 文件IO同步与异步调用组件化，统一调用
 + 缓存同步与异步操作组件化，以参数区别调用
-+ WebSocket服务支持分布式
++ 服务支持分布式部署
 + Timer定时器服务，异步任务毫秒数定时处理
 + Task，Process等扩展底层调用方法封装成组件，便于使用
 + 服务管理，如重启，关闭，启动等，可通过管理客户端调用服务接口，也可通过命令行管理
@@ -52,12 +51,21 @@ vSwoole（服务框架目录）
 │
 ├─configs                       框架配置根目录
 │   │ 
-│   ├─convention.php            偏好配置
+│   ├─const.php                 服务注册
 │   ├─config.php                基础配置
 │   ├─redis.php                 缓存配置
 │   ├─db.php                    数据库配置
 │   ├─server.php                基础服务配置
 │   └─···                       
+│
+├─core                          服务核心根目录
+│   │
+│   ├─client                    客户端核心目录
+│   │   ├─ServerClient.php      客户端核心类
+│   │   └─···              
+│   └─server                    服务端核心目录
+│       ├─ServerServer.php      服务端核心类
+│       └─···
 │
 ├─data                          框架数据根目录
 │   │ 
@@ -72,16 +80,14 @@ vSwoole（服务框架目录）
 ├─library                       框架核心目录
 │   │
 │   ├─client                    客户端核心目录
-│   │   ├─Client.php            客户端底层抽象模型
-│   │   ├─ServerClient.php      客户端核心层
-│   │   └─···
+│   │   └─Client.php            客户端底层抽象模型
 │   │─server                    服务端核心目录
-│   │   ├─Server.php            服务端底层抽象模型
-│   │   ├─ServerServer.php      服务端核心层
-│   │   └─···
+│   │   └─Server.php            服务端底层抽象模型
 │   ├─common                    核心工具类目录
-│   │   ├─Exception             服务异常处理类目录
-│   │   ├─Reflection            反射类目录
+│   │   ├─cache                 服务缓存方法目录
+│   │   ├─exception             服务异常处理类目录
+│   │   ├─kafka                 服务kafka类目录
+│   │   ├─reflection            反射类目录
 │   │   ├─Build.php             服务核心层构建类
 │   │   ├─Command.php           服务管理命令类
 │   │   ├─Config.php            服务配置类  
@@ -95,8 +101,8 @@ vSwoole（服务框架目录）
 │   │   ├─Utils.php             服务其他工具类
 │   │   └─···
 │   ├─conf                      框架核心配置目录
-│   │   ├─convention.php        框架核心偏好配置
-│   │   └─···
+│   │   ├─config.php            框架核心配置
+│   │   └─const.php             框架核心常量配置
 │   └─Init.php                  框架初始化引导类
 │
 ├─log                           框架日志目录
