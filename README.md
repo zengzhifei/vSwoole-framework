@@ -121,7 +121,7 @@ vSwoole（服务框架目录）
     └─swoole.php                服务端管理入口文件
 ~~~
 
-## 开发规范
+## 开发文档
 https://www.kancloud.cn/zengzhifei/vswoole
 
 ## 开发规范
