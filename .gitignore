@@ -1,6 +1,1 @@
 .idea
-/log/client/*.log
-/log/server/*.log
-/data/cache/*.php
-/data/pid/*.pid
-/data/sh/*.log

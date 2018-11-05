@@ -21,19 +21,6 @@ return [
     ],
     //缓存键值
     'redis_key'    => [
-        'WebSocket' => [
-            'Server_Ip' => 'WebSocket-Server_Ip',
-            'Config'    => 'WebSocket-Config',
-        ],
-        'Crontab'   => [
-            'Server_Ip' => 'Crontab-Server_Ip',
-            'Task_List' => 'Crontab-Task_List',
-        ],
-        'Http'      => [
-            'Server_Ip' => 'Http-Server_Ip',
-        ],
-        'Udp'       => [
-            'Server_Ip' => 'Udp-Server_Ip',
-        ]
+
     ],
 ];
