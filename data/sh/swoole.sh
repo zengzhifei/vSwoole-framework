@@ -71,20 +71,4 @@ startServer(){
 }
 
 # Server
-case "${server}" in
-    'WebSocket')
-    startServer 'Swoole_WebSocket_Server master'
-    ;;
-    'Crontab')
-    startServer 'Swoole_Crontab_Server master'
-    ;;
-    'Http')
-    startServer 'Swoole_Http_Server master'
-    ;;
-    'Udp')
-    startServer 'Swoole_Udp_Server master'
-    ;;
-    *)
-    echo "${time} Server: ${server} is Not Defined" >> ${log}
-    exit 1
-esac
+startServer "Swoole_${server}_Server master"

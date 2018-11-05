@@ -10,7 +10,7 @@
 namespace vSwoole\application\client;
 
 
-use vSwoole\library\client\WebSocketClient;
+use vSwoole\core\client\WebSocketClient;
 use vSwoole\library\common\Config;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Request;

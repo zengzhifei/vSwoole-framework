@@ -23,6 +23,15 @@ defined('VSWOOLE_DATA_PATH') or define('VSWOOLE_DATA_PATH', VSWOOLE_ROOT . 'data
 defined('VSWOOLE_DATA_PID_PATH') or define('VSWOOLE_DATA_PID_PATH', VSWOOLE_DATA_PATH . 'pid/');
 //框架文件缓存目录
 defined('VSWOOLE_DATA_CACHE_PATH') or define('VSWOOLE_DATA_CACHE_PATH', VSWOOLE_DATA_PATH . 'cache/');
+//服务管理脚本目录
+defined('VSWOOLE_DATA_SH_PATH') or define('VSWOOLE_DATA_SH_PATH', VSWOOLE_DATA_PATH . 'sh/');
+
+//服务核心目录
+defined('VSWOOLE_CORE_PATH') or define('VSWOOLE_CORE_PATH', VSWOOLE_ROOT . 'core/');
+//服务核心客户端目录
+defined('VSWOOLE_CORE_CLIENT_PATH') or define('VSWOOLE_CORE_CLIENT_PATH', VSWOOLE_CORE_PATH . 'client/');
+//服务核心服务端目录
+defined('VSWOOLE_CORE_SERVER_PATH') or define('VSWOOLE_CORE_SERVER_PATH', VSWOOLE_CORE_PATH . 'server/');
 
 //框架核心根目录
 defined('VSWOOLE_LIB_PATH') or define('VSWOOLE_LIB_PATH', VSWOOLE_ROOT . 'library/');
@@ -47,18 +56,10 @@ defined('VSWOOLE_PUBLIC_PATH') or define('VSWOOLE_PUBLIC_PATH', VSWOOLE_ROOT . '
 //框架静态文件目录
 defined('VSWOOLE_PUBLIC_STATIC_PATH') or define('VSWOOLE_PUBLIC_STATIC_PATH', VSWOOLE_PUBLIC_PATH . 'static/');
 
-//服务器
+//服务器标识
 defined('VSWOOLE_SERVER') or define('VSWOOLE_SERVER', 1);
-//客户端
+//客户端标识
 defined('VSWOOLE_CLIENT') or define('VSWOOLE_CLIENT', 2);
-//Http服务
-defined('VSWOOLE_HTTP_SERVER') or define('VSWOOLE_HTTP_SERVER', 'Swoole_Http_Server');
-//UDP服务
-defined('VSWOOLE_UDP_SERVER') or define('VSWOOLE_UDP_SERVER', 'Swoole_Udp_Server');
-//WebSocket服务
-defined('VSWOOLE_WEB_SOCKET_SERVER') or define('VSWOOLE_WEB_SOCKET_SERVER', 'Swoole_WebSocket_Server');
-//Crontab服务
-defined('VSWOOLE_CRONTAB_SERVER') or define('VSWOOLE_CRONTAB_SERVER', 'Swoole_Crontab_Server');
 
 //根命名空间
 defined('VSWOOLE_NAMESPACE') or define('VSWOOLE_NAMESPACE', 'vSwoole');

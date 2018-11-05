@@ -300,9 +300,9 @@ class Init
         self::initConvention();
         self::exceptionRegister();
         self::autoloadRegister();
-        $server_list = Config::loadConfig()->get('server_list');
-        if (array_key_exists($serverName, $server_list)) {
-            Command::getInstance()->reload($server_list[$serverName]);
+
+        if (defined($serverName)) {
+            Command::getInstance()->reload($serverName);
         } else {
             die('Reload the server failure,and the server is not exist.' . PHP_EOL);
         }
@@ -317,9 +317,9 @@ class Init
         self::initConvention();
         self::exceptionRegister();
         self::autoloadRegister();
-        $server_list = Config::loadConfig()->get('server_list');
-        if (array_key_exists($serverName, $server_list)) {
-            Command::getInstance()->shutdown($server_list[$serverName]);
+
+        if (defined($serverName)) {
+            Command::getInstance()->shutdown($serverName);
         } else {
             die('Shutdown the server failure,and the server is not exist.' . PHP_EOL);
         }
@@ -335,9 +335,9 @@ class Init
         self::initConvention();
         self::exceptionRegister();
         self::autoloadRegister();
-        $server_list = Config::loadConfig()->get('server_list');
-        if (array_key_exists($serverName, $server_list)) {
-            Command::getInstance()->reloadLog($server_list[$serverName]);
+
+        if (defined($serverName)) {
+            Command::getInstance()->reloadLog($serverName);
         } else {
             die('Reload log of the server failure,and the server is not exist.' . PHP_EOL);
         }
@@ -367,8 +367,7 @@ class Init
      */
     private function runServer(string $class)
     {
-        $server_list = Config::loadConfig()->get('server_list');
-        if (array_key_exists($class, $server_list)) {
+        if (defined($class)) {
             define('VSWOOLE_BIND', $class);
             $class = VSWOOLE_APP_SERVER_NAMESPACE . '\\' . $class;
             $server = new $class;

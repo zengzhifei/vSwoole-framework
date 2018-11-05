@@ -7,14 +7,15 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
-namespace vSwoole\library\server;
+namespace vSwoole\core\server;
 
 
 use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Utils;
+use vSwoole\library\server\Server;
 
-class UdpServer extends Server
+class WebSocketServer extends Server
 {
     /**
      * 启动服务器
@@ -25,11 +26,11 @@ class UdpServer extends Server
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
-            $server_connect = array_merge(Config::loadConfig('udp')->get('server_connect'), $connectOptions);
-            $server_config = array_merge(Config::loadConfig('udp')->get('server_config'), $configOptions);
+            $server_connect = array_merge(Config::loadConfig('websocket')->get('server_connect'), $connectOptions);
+            $erver_config = array_merge(Config::loadConfig('websocket')->get('server_config'), $configOptions);
 
-            if (!parent::__construct($server_connect, $server_config)) {
-                throw new \Exception("Swoole Udp Server start failed", $this->swoole->getLastError());
+            if (!parent::__construct($server_connect, $erver_config)) {
+                throw new \Exception("Swoole WebSocket Server start failed", $this->swoole->getLastError());
             }
         } catch (\Exception $e) {
             Exception::reportError($e);
@@ -45,9 +46,9 @@ class UdpServer extends Server
         //展示服务启动信息
         $this->startShowServerInfo();
         //设置主进程别名
-        Utils::setProcessName(VSWOOLE_UDP_SERVER . ' master');
+        Utils::setProcessName(VSWOOLE_WEB_SOCKET_SERVER . ' master');
         //异步记录服务进程PID
-        Utils::writePid($server->manager_pid, VSWOOLE_UDP_SERVER . '_Manager');
+        Utils::writePid($server->manager_pid, VSWOOLE_WEB_SOCKET_SERVER . '_Manager');
     }
 
     /**
@@ -66,7 +67,7 @@ class UdpServer extends Server
     public function onManagerStart(\swoole_server $server)
     {
         //设置管理进程别名
-        Utils::setProcessName(VSWOOLE_UDP_SERVER . ' manager');
+        Utils::setProcessName(VSWOOLE_WEB_SOCKET_SERVER . ' manager');
     }
 
     /**
@@ -86,10 +87,10 @@ class UdpServer extends Server
     public function onWorkerStart(\swoole_server $server, int $worker_id)
     {
         //设置工作进程别名
-        $worker_name = $server->taskworker ? ' tasker_' . $worker_id : ' worker_' . $worker_id;
-        Utils::setProcessName(VSWOOLE_UDP_SERVER . $worker_name);
+        $worker_name = $server->taskworker ? ' tasker/' . $worker_id : ' worker/' . $worker_id;
+        Utils::setProcessName(VSWOOLE_WEB_SOCKET_SERVER . $worker_name);
         //缓存配置
-        $is_cache = Config::loadConfig('udp')->get('other_config.is_cache_config');
+        $is_cache = Config::loadConfig('websocket')->get('other_config.is_cache_config');
         $is_cache && Config::cacheConfig();
     }
 
@@ -223,16 +224,6 @@ class UdpServer extends Server
     }
 
     /**
-     * 客户端与WebSocket建立连接后握手回调函数
-     * @param \swoole_http_request $request
-     * @param \swoole_http_response $response
-     */
-    public function onHandShake(\swoole_http_request $request, \swoole_http_response $response)
-    {
-
-    }
-
-    /**
      * 客户端与WebSocket建立连接成功后回调函数
      * @param \swoole_websocket_server $server
      * @param \swoole_http_request $request
@@ -249,7 +240,7 @@ class UdpServer extends Server
      */
     public function onMessage(\swoole_websocket_server $server, \swoole_websocket_frame $frame)
     {
-
+        //向PHP-FPM 或Apache 模式的管理客户端返回数据接收成功状态
     }
 
     /**

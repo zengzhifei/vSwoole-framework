@@ -54,7 +54,7 @@ class Command
             $pidFile = VSWOOLE_DATA_PID_PATH . $server_name . '_Master' . VSWOOLE_PID_EXT;
             if (file_exists($pidFile)) {
                 File::read($pidFile, function ($filename, $content) use ($callback) {
-                    File::exec('kill 15 ' . $content, function ($result) use ($callback) {
+                    File::exec('kill -15 ' . $content, function ($result) use ($callback) {
                         !is_null($callback) && $callback();
                     });
                 });

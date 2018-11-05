@@ -7,9 +7,10 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace vSwoole\library\client;
+namespace vSwoole\core\client;
 
 
+use vSwoole\library\client\Client;
 use vSwoole\library\common\Config;
 
 class HttpClient extends Client

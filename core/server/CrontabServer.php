@@ -7,14 +7,15 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
-namespace vSwoole\library\server;
+namespace vSwoole\core\server;
 
 
 use vSwoole\library\common\Config;
 use vSwoole\library\common\exception\Exception;
 use vSwoole\library\common\Utils;
+use vSwoole\library\server\Server;
 
-class HttpServer extends Server
+class CrontabServer extends Server
 {
     /**
      * 启动服务器
@@ -25,11 +26,11 @@ class HttpServer extends Server
     public function __construct(array $connectOptions = [], array $configOptions = [])
     {
         try {
-            $server_connect = array_merge(Config::loadConfig('http')->get('server_connect'), $connectOptions);
-            $server_config = array_merge(Config::loadConfig('http')->get('server_config'), $configOptions);
+            $server_connect = array_merge(Config::loadConfig('crontab')->get('server_connect'), $connectOptions);
+            $server_config = array_merge(Config::loadConfig('crontab')->get('server_config'), $configOptions);
 
             if (!parent::__construct($server_connect, $server_config)) {
-                throw new \Exception("Swoole Http Server start failed", $this->swoole->getLastError());
+                throw new \Exception("Swoole Crontab Server start failed", $this->swoole->getLastError());
             }
         } catch (\Exception $e) {
             Exception::reportError($e);
@@ -45,9 +46,9 @@ class HttpServer extends Server
         //展示服务启动信息
         $this->startShowServerInfo();
         //设置主进程别名
-        Utils::setProcessName(VSWOOLE_HTTP_SERVER . ' master');
+        Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . ' master');
         //异步记录服务进程PID
-        Utils::writePid($server->manager_pid, VSWOOLE_HTTP_SERVER . '_Manager');
+        Utils::writePid($server->manager_pid, VSWOOLE_CRONTAB_SERVER . '_Manager');
     }
 
     /**
@@ -66,7 +67,7 @@ class HttpServer extends Server
     public function onManagerStart(\swoole_server $server)
     {
         //设置管理进程别名
-        Utils::setProcessName(VSWOOLE_HTTP_SERVER . ' manager');
+        Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . ' manager');
     }
 
     /**
@@ -86,10 +87,10 @@ class HttpServer extends Server
     public function onWorkerStart(\swoole_server $server, int $worker_id)
     {
         //设置工作进程别名
-        $worker_name = $server->taskworker ? ' tasker_' . $worker_id : ' worker_' . $worker_id;
-        Utils::setProcessName(VSWOOLE_HTTP_SERVER . $worker_name);
+        $worker_name = $server->taskworker ? ' tasker/' . $worker_id : ' worker/' . $worker_id;
+        Utils::setProcessName(VSWOOLE_CRONTAB_SERVER . $worker_name);
         //缓存配置
-        $is_cache = Config::loadConfig('http')->get('other_config.is_cache_config');
+        $is_cache = Config::loadConfig('crontab')->get('other_config.is_cache_config');
         $is_cache && Config::cacheConfig();
     }
 

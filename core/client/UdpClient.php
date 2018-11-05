@@ -7,12 +7,13 @@
 // | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
-namespace vSwoole\library\client;
+namespace vSwoole\core\client;
 
 
+use vSwoole\library\client\Client;
 use vSwoole\library\common\Config;
 
-class CrontabClient extends Client
+class UdpClient extends Client
 {
     /**
      * 客户端连接实例
@@ -33,8 +34,8 @@ class CrontabClient extends Client
      */
     public function connect(array $connectOptions = [], array $configOptions = [])
     {
-        $connectOptions = array_merge(Config::loadConfig('crontab')->get('client_connect'), $connectOptions);
-        $configOptions = array_merge(Config::loadConfig('crontab')->get('client_config'), $configOptions);
+        $connectOptions = array_merge(Config::loadConfig('udp')->get('client_connect'), $connectOptions);
+        $configOptions = array_merge(Config::loadConfig('udp')->get('client_config'), $configOptions);
         if (false !== parent::connect($connectOptions, $configOptions)) {
             $this->clients_instance[md5($connectOptions['host'])] = $this->client;
             $this->connect_instance[md5($connectOptions['host'])] = $connectOptions['host'];

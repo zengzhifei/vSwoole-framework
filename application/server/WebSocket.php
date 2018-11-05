@@ -11,6 +11,7 @@ namespace vSwoole\application\server;
 
 
 use vSwoole\application\server\logic\WebSocketLogic;
+use vSwoole\core\server\WebSocketServer;
 use vSwoole\library\common\cache\Table;
 use vSwoole\library\common\Config;
 use vSwoole\library\common\Inotify;
@@ -18,7 +19,6 @@ use vSwoole\library\common\Process;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Task;
 use vSwoole\library\common\Utils;
-use vSwoole\library\server\WebSocketServer;
 
 class WebSocket extends WebSocketServer
 {

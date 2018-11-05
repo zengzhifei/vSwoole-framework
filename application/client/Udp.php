@@ -10,7 +10,7 @@
 namespace vSwoole\application\client;
 
 
-use vSwoole\library\client\UdpClient;
+use vSwoole\core\client\UdpClient;
 use vSwoole\library\common\cache\Redis;
 use vSwoole\library\common\Config;
 use vSwoole\library\common\Response;
@@ -42,7 +42,7 @@ class Udp extends UdpClient
             $connect_status = parent::connect($connectOptions, $configOptions);
         }
         if (false == $connect_status) {
-            Response::return (['status' => 504, 'msg' => 'Server Connect Gateway Timeout']);
+            Response::return(['status' => 504, 'msg' => 'Server Connect Gateway Timeout']);
         }
     }
 
@@ -64,9 +64,9 @@ class Udp extends UdpClient
             }
         }
         if (isset($server_list)) {
-            Response::return (['status' => 1, 'msg' => 'get success', 'data' => $server_list]);
+            Response::return(['status' => 1, 'msg' => 'get success', 'data' => $server_list]);
         } else {
-            Response::return (['status' => 0, 'msg' => 'get failed']);
+            Response::return(['status' => 0, 'msg' => 'get failed']);
         }
     }
 
@@ -87,7 +87,7 @@ class Udp extends UdpClient
                 }
             }
         }
-        Response::return (['status' => 1, 'msg' => 'clear success']);
+        Response::return(['status' => 1, 'msg' => 'clear success']);
     }
 
 }

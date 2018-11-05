@@ -122,7 +122,7 @@ class Build
      */
     protected static function buildServerName(string $serverName = 'Demo')
     {
-        if ($serverName == '' || file_exists(VSWOOLE_LIB_SERVER_PATH . $serverName . VSWOOLE_CLASS_EXT)) {
+        if ($serverName == '' || file_exists(VSWOOLE_CORE_SERVER_PATH . $serverName . VSWOOLE_CLASS_EXT)) {
             return false;
         } else {
             self::$serverName = $serverName;
