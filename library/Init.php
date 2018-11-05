@@ -182,6 +182,18 @@ class Init
         if (!is_dir(VSWOOLE_CONFIG_PATH)) {
             mkdir(VSWOOLE_CONFIG_PATH, 755, true);
         }
+        //服务核心目录
+        if (!is_dir(VSWOOLE_CORE_PATH)) {
+            mkdir(VSWOOLE_CORE_PATH, 755, true);
+        }
+        //服务核心客户端目录
+        if (!is_dir(VSWOOLE_CORE_CLIENT_PATH)) {
+            mkdir(VSWOOLE_CORE_CLIENT_PATH, 755, true);
+        }
+        //服务核心服务端目录
+        if (!is_dir(VSWOOLE_CORE_SERVER_PATH)) {
+            mkdir(VSWOOLE_CORE_SERVER_PATH, 755, true);
+        }
         //框架数据根目录
         if (!is_dir(VSWOOLE_DATA_PATH)) {
             mkdir(VSWOOLE_DATA_PATH, 755, true);
