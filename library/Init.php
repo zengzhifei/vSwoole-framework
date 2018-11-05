@@ -55,6 +55,8 @@ class Init
                 } else if (count($_SERVER['argv']) == 2) {
                     echo "will build a Demo server for you..." . PHP_EOL;
                     self::build();
+                } else if (count($_SERVER['argv']) == 3) {
+                    self::build($_SERVER['argv'][2]);
                 } else {
                     self::build($_SERVER['argv'][2], $_SERVER['argv'][3]);
                 }
