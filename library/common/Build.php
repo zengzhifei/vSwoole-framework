@@ -167,11 +167,6 @@ EOF
                 'parameters' => ['@param \swoole_server $server', '@param int $src_worker_id', '@param $data'],
                 'arguments'  => ['\swoole_server $server', 'int $src_worker_id', '$data']
             ],
-            'onHandShake'    => [
-                'annotation' => '客户端与WebSocket建立连接后握手回调函数',
-                'parameters' => ['@param \swoole_http_request $request', '@param \swoole_http_response $response'],
-                'arguments'  => ['\swoole_http_request $request', '\swoole_http_response $response']
-            ],
             'onOpen'         => [
                 'annotation' => '客户端与WebSocket建立连接成功后回调函数',
                 'parameters' => ['@param \swoole_websocket_server $server', '@param \swoole_http_request $request'],
