@@ -317,7 +317,7 @@ class Init
         self::autoloadRegister();
 
         if (defined($serverName)) {
-            Command::getInstance()->reload($serverName);
+            Command::getInstance()->reload(constant($serverName));
         } else {
             die('Reload the server failure, or the server is not exist.' . PHP_EOL);
         }
@@ -334,7 +334,7 @@ class Init
         self::autoloadRegister();
 
         if (defined($serverName)) {
-            Command::getInstance()->shutdown($serverName);
+            Command::getInstance()->shutdown(constant($serverName));
         } else {
             die('Shutdown the server failure, or the server is not exist.' . PHP_EOL);
         }
@@ -352,7 +352,7 @@ class Init
         self::autoloadRegister();
 
         if (defined($serverName)) {
-            Command::getInstance()->reloadLog($serverName);
+            Command::getInstance()->reloadLog(constant($serverName));
         } else {
             die('Reload log of the server failure, or the server is not exist.' . PHP_EOL);
         }
