@@ -19,6 +19,12 @@ class Build
     protected static $coreServerName;
 
     /**
+     * 核心服务客户端名称
+     * @var string
+     */
+    protected static $coreClientServerName;
+
+    /**
      * 应用服务名称
      * @var string
      */
@@ -285,6 +291,7 @@ EOF;
     {
         $serverName = self::$serverName;
         $coreServerName = self::$coreServerName;
+
         return <<<EOF
 <?php
 // +----------------------------------------------------------------------+
@@ -443,6 +450,114 @@ EOF;
     }
 
     /**
+     * 构建核心客户端
+     * @return string
+     */
+    protected static function buildCoreClient()
+    {
+        $coreClientServerName = self::$coreClientServerName;
+        $serverNameLower = strtolower(self::$serverName);
+
+        return <<<EOF
+<?php
+// +----------------------------------------------------------------------+
+// | VSwoole FrameWork                                                    |
+// +----------------------------------------------------------------------+
+// | Not Decline To Shoulder a Responsibility                             |
+// +----------------------------------------------------------------------+
+// | zengzhifei@outlook.com                                               |
+// +----------------------------------------------------------------------+
+
+namespace vSwoole\core\client;
+
+
+use vSwoole\library\client\Client;
+use vSwoole\library\common\Config;
+
+class {$coreClientServerName} extends Client
+{
+    /**
+     * 客户端连接实例
+     * @var array
+     */
+    protected \$clients_instance = [];
+    /**
+     * 连接IP
+     * @var array
+     */
+    protected \$connect_instance = [];
+
+    /**
+     * 连接服务器
+     * @param array \$connectOptions
+     * @param array \$configOptions
+     * @return bool|\swoole_client
+     */
+    public function connect(array \$connectOptions = [], array \$configOptions = [])
+    {
+        \$connectOptions = array_merge(Config::loadConfig('{$serverNameLower}')->get('client_connect'), \$connectOptions);
+        \$configOptions = array_merge(Config::loadConfig('{$serverNameLower}')->get('client_config'), \$configOptions);
+        if (false !== parent::connect(\$connectOptions, \$configOptions)) {
+            \$this->clients_instance[md5(\$connectOptions['host'])] = \$this->client;
+            \$this->connect_instance[md5(\$connectOptions['host'])] = \$connectOptions['host'];
+            return \$this->client;
+        } else {
+            \$this->client->close();
+            return false;
+        }
+    }
+
+    /**
+     * 获取已连接IP实例
+     * @return array
+     */
+    public function getConnectIp()
+    {
+        return \$this->connect_instance;
+    }
+
+    /**
+     * 向服务器发送指令+数据
+     * @param string \$cmd
+     * @param array \$data
+     * @param string|null \$server_ip
+     * @return bool
+     */
+    public function execute(string \$cmd = '', array \$data = [], string \$server_ip = null)
+    {
+        if (\$cmd && is_string(\$cmd) && !empty(\$this->clients_instance)) {
+            \$send_data = ['cmd' => \$cmd, 'data' => \$data];
+            if (empty(\$server_ip)) {
+                foreach (\$this->clients_instance as \$ip => \$client) {
+                    if (\$client->isConnected()) {
+                        \$result[\$this->connect_instance[\$ip]] = \$client->send(json_encode(\$send_data) . "\\r\\n");
+                    }
+                }
+            } else if (array_key_exists(md5(\$server_ip), \$this->clients_instance)) {
+                \$client = \$this->clients_instance[md5(\$server_ip)];
+                if (\$client->isConnected()) {
+                    \$result[\$server_ip] = \$client->send(json_encode(\$send_data) . "\\r\\n");
+                }
+            }
+        }
+        return \$result ?? false;
+    }
+
+    /**
+     * 请求结束，关闭客户端连接
+     */
+    public function __destruct()
+    {
+        // TODO: Implement __destruct() method.
+        if (\$this->client->isConnected()) {
+            \$this->client->close();
+        }
+    }
+}
+EOF;
+    }
+
+    /**
      * 初始化构建
      * @param string $serverName
      * @param $serverPort
@@ -451,6 +566,7 @@ EOF;
     {
         self::$serverName = $serverName;
         self::$coreServerName = $serverName . 'Server';
+        self::$coreClientServerName = $serverName . 'Client';
         self::$serverPort = $serverPort;
         self::$adminServerPort = abs($serverPort - 1000);
 
@@ -493,6 +609,15 @@ EOF;
     }
 
     /**
+     * 校验核心客户端
+     * @return bool
+     */
+    protected static function checkCoreClient()
+    {
+        return self::$serverName && !file_exists(VSWOOLE_CORE_CLIENT_PATH . self::$coreClientServerName . VSWOOLE_CLASS_EXT);
+    }
+
+    /**
      * 获取核心服务文件名称
      * @return string
      */
@@ -520,6 +645,15 @@ EOF;
     }
 
     /**
+     * 获取核心客户端文件名称
+     * @return string
+     */
+    protected static function getCoreClientFileName()
+    {
+        return VSWOOLE_CORE_CLIENT_PATH . self::$coreClientServerName . VSWOOLE_CLASS_EXT;
+    }
+
+    /**
      * 构建服务文件
      * @param string $serverName
      * @param int $serverPort
@@ -542,6 +676,11 @@ EOF;
         if (self::checkConfigServer()) {
             $configServerContent = self::buildConfigServer();
             @file_put_contents(self::getConfigServerFileName(), $configServerContent);
+        }
+
+        if (self::checkCoreClient()) {
+            $coreClientContent = self::buildCoreClient();
+            @file_put_contents(self::getCoreClientFileName(), $coreClientContent);
         }
 
         return !self::checkCoreServer() && !self::checkAppServer() && !self::checkConfigServer();
