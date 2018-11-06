@@ -26,14 +26,14 @@ class Init
     {
         $commands = [
             'default'  => 'You can input the following commands:' . PHP_EOL,
-            'start'    => '  start servername' . '                  you can start a server[WebSocket,Crontab,Http,Udp]' . PHP_EOL,
-            'build'    => '  build servername serverport' . '       you can build a new server' . PHP_EOL,
-            'reload'   => '  reload servername' . '                 you can reload has runing server' . PHP_EOL,
-            'shutdown' => '  shutdown servername' . '               you can shutdown has runing server' . PHP_EOL,
-            'log'      => '  log servername' . '                    you can reload log file' . PHP_EOL,
-            'clear'    => '  clear' . '                             you can clear the logs of the vswoole framework' . PHP_EOL,
-            'install'  => '  install' . '                           you can install the necessary directory in the vswoole framework' . PHP_EOL,
-            'help'     => '  help' . '                              you can get help about vswoole framework' . PHP_EOL,
+            'start'    => '  start servername' . '                              you can start a server' . PHP_EOL,
+            'build'    => '  build servername serverport servertype' . '        you can build a new server[common,websocket,http,udp]' . PHP_EOL,
+            'reload'   => '  reload servername' . '                             you can reload has runing server' . PHP_EOL,
+            'shutdown' => '  shutdown servername' . '                           you can shutdown has runing server' . PHP_EOL,
+            'log'      => '  log servername' . '                                you can reload log file' . PHP_EOL,
+            'clear'    => '  clear' . '                                         you can clear the logs of the vswoole framework' . PHP_EOL,
+            'install'  => '  install' . '                                       you can install the necessary directory in the vswoole framework' . PHP_EOL,
+            'help'     => '  help' . '                                          you can get help about vswoole framework' . PHP_EOL,
         ];
 
         $cmd = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
@@ -48,7 +48,7 @@ class Init
                 }
                 break;
             case 'build':
-                if (count($_SERVER['argv']) > 4) {
+                if (count($_SERVER['argv']) > 5) {
                     echo "command: '{$cmd}' require arguments server name and do not require more arguments" . PHP_EOL;
                     echo 'help:' . PHP_EOL;
                     echo $commands[$cmd];
@@ -57,8 +57,10 @@ class Init
                     self::build();
                 } else if (count($_SERVER['argv']) == 3) {
                     self::build($_SERVER['argv'][2]);
-                } else {
+                } else if (count($_SERVER['argv']) == 4) {
                     self::build($_SERVER['argv'][2], $_SERVER['argv'][3]);
+                } else {
+                    self::build($_SERVER['argv'][2], $_SERVER['argv'][3], $_SERVER['argv'][4]);
                 }
                 break;
             case 'reload':
@@ -270,12 +272,13 @@ class Init
      * 构建服务器基础文件
      * @param string $serverName
      * @param int $serverPort
+     * @param string $serverType
      */
-    private static function build(string $serverName = 'Demo', int $serverPort = 9501)
+    private static function build(string $serverName = 'Demo', int $serverPort = 9501, string $serverType = 'common')
     {
         self::initConvention();
         require_once VSWOOLE_ROOT . 'library/common/Build.php';
-        if (!Build::build($serverName, $serverPort)) {
+        if (!Build::build($serverName, $serverPort, $serverType)) {
             die('Build the server failure, or the server file has already existed.' . PHP_EOL);
         }
     }

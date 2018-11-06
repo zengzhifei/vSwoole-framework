@@ -7,6 +7,9 @@
 // | zengzhifei@outlook.com                                               |                  
 // +----------------------------------------------------------------------+
 
+//框架版本
+defined('VSWOOLE_VERSION') or define('VSWOOLE_VERSION', '2.0.0');
+
 //框架应用根目录
 defined('VSWOOLE_APP_PATH') or define('VSWOOLE_APP_PATH', VSWOOLE_ROOT . 'application/');
 //框架应用服务端目录
@@ -60,6 +63,15 @@ defined('VSWOOLE_PUBLIC_STATIC_PATH') or define('VSWOOLE_PUBLIC_STATIC_PATH', VS
 defined('VSWOOLE_SERVER') or define('VSWOOLE_SERVER', 1);
 //客户端标识
 defined('VSWOOLE_CLIENT') or define('VSWOOLE_CLIENT', 2);
+
+//COMMON服务类型
+defined('VSWOOLE_SERVER_COMMON') or define('VSWOOLE_SERVER_COMMON', 0);
+//WEBSOCKET服务类型
+defined('VSWOOLE_SERVER_WEBSOCKET') or define('VSWOOLE_SERVER_WEBSOCKET', 1);
+//HTTP服务类型
+defined('VSWOOLE_SERVER_HTTP') or define('VSWOOLE_SERVER_HTTP', 2);
+//UDP服务类型
+defined('VSWOOLE_SERVER_UDP') or define('VSWOOLE_SERVER_UDP', 3);
 
 //根命名空间
 defined('VSWOOLE_NAMESPACE') or define('VSWOOLE_NAMESPACE', 'vSwoole');

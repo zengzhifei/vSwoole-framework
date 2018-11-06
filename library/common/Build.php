@@ -13,6 +13,12 @@ namespace vSwoole\library\common;
 class Build
 {
     /**
+     * 服务类型
+     * @var string
+     */
+    protected static $serverType;
+
+    /**
      * 核心服务名称
      * @var string
      */
@@ -359,6 +365,7 @@ EOF;
      */
     protected static function buildConfigServer()
     {
+        $serverType = self::$serverType;
         $serverName = self::$serverName;
         $serverNameUpper = strtoupper(self::$serverName);
         $serverPort = self::$serverPort;
@@ -378,7 +385,7 @@ return [
     //服务端连接配置
     'server_connect' => [
         //服务类型
-        'serverType'        => VSWOOLE_{$serverNameUpper}_SERVER,
+        'serverType'        => {$serverType},
         //监听IP
         'host'              => '0.0.0.0',
         //监听客户端端口
@@ -560,10 +567,13 @@ EOF;
     /**
      * 初始化构建
      * @param string $serverName
-     * @param $serverPort
+     * @param int $serverPort
+     * @param string $serverType
      */
-    protected static function initBuild(string $serverName, $serverPort = 9501)
+    protected static function initBuild(string $serverName, $serverPort = 9501, string $serverType = 'COMMON')
     {
+        $serverType = in_array($serverType, ['COMMON', 'WEBSOCKET', 'HTTP', 'UDP']) ? $serverType : 'COMMON';
+        self::$serverType = 'VSWOOLE_SERVER_' . $serverType;
         self::$serverName = $serverName;
         self::$coreServerName = $serverName . 'Server';
         self::$coreClientServerName = $serverName . 'Client';
@@ -657,11 +667,12 @@ EOF;
      * 构建服务文件
      * @param string $serverName
      * @param int $serverPort
+     * @param string $serverType
      * @return bool
      */
-    public static function build(string $serverName, int $serverPort = 9501)
+    public static function build(string $serverName, int $serverPort = 9501, string $serverType = 'common')
     {
-        self::initBuild(ucwords($serverName), $serverPort);
+        self::initBuild(ucwords($serverName), $serverPort, strtoupper($serverType));
 
         if (self::checkCoreServer()) {
             $coreServerContent = self::buildCoreServerHeader() . self::buildCoreServerCallback() . self::buildCoreServerFooter();
