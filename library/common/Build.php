@@ -4,7 +4,7 @@
 // +----------------------------------------------------------------------+
 // | Not Decline To Shoulder a Responsibility                             |
 // +----------------------------------------------------------------------+
-// | zengzhifei@outlook.com                                               |                  
+// | zengzhifei@outlook.com                                               |
 // +----------------------------------------------------------------------+
 
 namespace vSwoole\library\common;
@@ -47,11 +47,13 @@ class Build
         return [
             '__construct'    => [
                 'annotation' => '启动服务器',
-                'parameters' => ['array $connectOptions = []', 'array $configOptions = []'],
+                'parameters' => ['@param array $connectOptions', '@param array $configOptions', '@throws \ReflectionException'],
+                'arguments'  => ['array $connectOptions = []', 'array $configOptions = []'],
                 'content'    => <<<EOF
         try {
             \$server_connect = array_merge(Config::loadConfig('{$serverNameLower}')->get('server_connect'), \$connectOptions);
             \$server_config = array_merge(Config::loadConfig('{$serverNameLower}')->get('server_config'), \$configOptions);
+            
             if (!parent::__construct(\$server_connect, \$server_config)) {
                 throw new \Exception("Swoole {$serverName} Server start failed", \$this->swoole->getLastError());
             }
@@ -62,7 +64,8 @@ EOF
             ],
             'onStart'        => [
                 'annotation' => '主进程启动回调函数',
-                'parameters' => ['\swoole_server $server'],
+                'parameters' => ['@param \swoole_server $server'],
+                'arguments'  => ['\swoole_server $server'],
                 'content'    => <<<EOF
         //展示服务启动信息
         \$this->startShowServerInfo();
@@ -74,11 +77,13 @@ EOF
             ],
             'onShutdown'     => [
                 'annotation' => '主进程结束回调函数',
-                'parameters' => ['\swoole_server $server']
+                'parameters' => ['@param \swoole_server $server'],
+                'arguments'  => ['\swoole_server $server']
             ],
             'onManagerStart' => [
                 'annotation' => '管理进程启动回调函数',
-                'parameters' => ['\swoole_server $server'],
+                'parameters' => ['@param \swoole_server $server'],
+                'arguments'  => ['\swoole_server $server'],
                 'content'    => <<<EOF
         //设置管理进程别名
         Utils::setProcessName(VSWOOLE_{$serverNameUpper}_SERVER . ' manager');                                     
@@ -86,11 +91,13 @@ EOF
             ],
             'onManagerStop'  => [
                 'annotation' => '管理进程结束回调函数',
-                'parameters' => ['\swoole_server $server']
+                'parameters' => ['@param \swoole_server $server'],
+                'arguments'  => ['\swoole_server $server']
             ],
             'onWorkerStart'  => [
                 'annotation' => '工作进程启动回调函数',
-                'parameters' => ['\swoole_server $server', 'int $worker_id'],
+                'parameters' => ['@param \swoole_server $server', '@param int $worker_id'],
+                'arguments'  => ['\swoole_server $server', 'int $worker_id'],
                 'content'    => <<<EOF
         //设置工作进程别名
         \$worker_name = \$server->taskworker ? ' tasker/' . \$worker_id : ' worker/' . \$worker_id;
@@ -102,67 +109,86 @@ EOF
             ],
             'onWorkerStop'   => [
                 'annotation' => '工作进程结束回调函数',
-                'parameters' => ['\swoole_server $server', 'int $worker_id']
+                'parameters' => ['@param \swoole_server $server', '@param int $worker_id'],
+                'arguments'  => ['\swoole_server $server', 'int $worker_id']
             ],
             'onWorkerExit'   => [
                 'annotation' => '工作进程退出回调函数',
-                'parameters' => ['\swoole_server $server', 'int $worker_id']
+                'parameters' => ['@param \swoole_server $server', '@param int $worker_id'],
+                'arguments'  => ['\swoole_server $server', 'int $worker_id']
             ],
             'onWorkerError'  => [
                 'annotation' => '工作进程异常回调函数',
-                'parameters' => ['\swoole_server $server', 'int $worker_id']
+                'parameters' => ['@param \swoole_server $server', '@param int $worker_id'],
+                'arguments'  => ['\swoole_server $server', 'int $worker_id']
             ],
             'onConnect'      => [
                 'annotation' => '客户端连接回调函数',
-                'parameters' => ['\swoole_server $server', 'int $fd', 'int $reactor_id']
+                'parameters' => ['@param \swoole_server $server', '@param int $fd', '@param int $reactor_id'],
+                'arguments'  => ['\swoole_server $server', 'int $fd', 'int $reactor_id']
             ],
             'onReceive'      => [
                 'annotation' => '接收客户端数据回调函数',
-                'parameters' => ['\swoole_server $server', 'int $fd', 'int $reactor_id', 'string $data']
+                'parameters' => ['@param \swoole_server $server', '@param int $fd', '@param int $reactor_id', '@param string $data'],
+                'arguments'  => ['\swoole_server $server', 'int $fd', 'int $reactor_id', 'string $data']
             ],
             'onPacket'       => [
                 'annotation' => '接收客户端UDP数据回调函数',
-                'parameters' => ['\swoole_server $server', 'string $data', 'array $client_info',]
+                'parameters' => ['@param \swoole_server $server', '@param string $data', '@param array $client_info'],
+                'arguments'  => ['\swoole_server $server', 'string $data', 'array $client_info']
             ],
             'onClose'        => [
                 'annotation' => '客户端断开回调函数',
-                'parameters' => ['\swoole_server $server', 'int $fd', 'int $reactor_id']
+                'parameters' => ['@param \swoole_server $server', '@param int $fd', '@param int $reactor_id'],
+                'arguments'  => ['\swoole_server $server', 'int $fd', 'int $reactor_id']
             ],
             'onBufferFull'   => [
                 'annotation' => '缓存区达到最高水位时回调函数',
-                'parameters' => ['\swoole_server $server', 'int $fd']
+                'parameters' => ['@param \swoole_server $server', '@param int $fd'],
+                'arguments'  => ['\swoole_server $server', 'int $fd']
             ],
             'onBufferEmpty'  => [
                 'annotation' => '缓存区达到最低水位时回调函数',
-                'parameters' => ['\swoole_server $server', 'int $fd']
+                'parameters' => ['@param \swoole_server $server', '@param int $fd'],
+                'arguments'  => ['\swoole_server $server', 'int $fd']
             ],
             'onTask'         => [
                 'annotation' => '异步任务执行回调函数',
-                'parameters' => ['\swoole_server $server', 'int $task_id', 'int $src_worker_id', '$data']
+                'parameters' => ['@param \swoole_server $server', '@param int $task_id', '@param int $src_worker_id', '@param $data'],
+                'arguments'  => ['\swoole_server $server', 'int $task_id', 'int $src_worker_id', '$data']
             ],
             'onFinish'       => [
                 'annotation' => '异步任务执行完成回调函数',
-                'parameters' => ['\swoole_server $server', 'int $task_id', '$data']
+                'parameters' => ['@param \swoole_server $server', '@param int $task_id', '@param $data'],
+                'arguments'  => ['\swoole_server $server', 'int $task_id', '$data']
             ],
             'onPipeMessage'  => [
                 'annotation' => '工作进程接收管道消息回调函数',
-                'parameters' => ['\swoole_server $server', 'int $src_worker_id', '$data']
+                'parameters' => ['@param \swoole_server $server', '@param int $src_worker_id', '@param $data'],
+                'arguments'  => ['\swoole_server $server', 'int $src_worker_id', '$data']
             ],
             'onHandShake'    => [
                 'annotation' => '客户端与WebSocket建立连接后握手回调函数',
-                'parameters' => ['\swoole_http_request $request', '\swoole_http_response $response']
+                'parameters' => ['@param \swoole_http_request $request', '@param \swoole_http_response $response'],
+                'arguments'  => ['\swoole_http_request $request', '\swoole_http_response $response']
             ],
             'onOpen'         => [
                 'annotation' => '客户端与WebSocket建立连接成功后回调函数',
-                'parameters' => ['\swoole_websocket_server $server', '\swoole_http_request $request']
+                'parameters' => ['@param \swoole_websocket_server $server', '@param \swoole_http_request $request'],
+                'arguments'  => ['\swoole_websocket_server $server', '\swoole_http_request $request']
             ],
             'onMessage'      => [
                 'annotation' => 'WebSocket服务端接收客户端消息回调函数',
-                'parameters' => ['\swoole_websocket_server $server', '\swoole_websocket_frame $frame']
+                'parameters' => ['@param \swoole_websocket_server $server', '@param \swoole_websocket_frame $frame'],
+                'arguments'  => ['\swoole_websocket_server $server', '\swoole_websocket_frame $frame'],
+                'content'    => <<<EOF
+            //向管理客户端返回数据接收成功状态
+EOF
             ],
             'onRequest'      => [
                 'annotation' => '接收Http客户端请求回调函数',
-                'parameters' => ['\swoole_http_request $request', '\swoole_http_response $response']
+                'parameters' => ['@param \swoole_http_request $request', '@param \swoole_http_response $response'],
+                'arguments'  => ['\swoole_http_request $request', '\swoole_http_response $response']
             ]
         ];
     }
@@ -176,7 +202,8 @@ EOF
         return [
             '__construct' => [
                 'annotation' => '启动服务器',
-                'parameters' => ['array $connectOptions = []', 'array $configOptions = []'],
+                'parameters' => ['@param array $connectOptions', '@param array $configOptions'],
+                'arguments'  => ['array $connectOptions = []', 'array $configOptions = []'],
                 'content'    => <<<EOF
         parent::__construct(\$connectOptions, \$configOptions);// TODO: Change the autogenerated stub
 EOF
@@ -223,16 +250,16 @@ EOF;
         $callbackContent = PHP_EOL;
 
         foreach (self::getCoreCallbackEventList() as $callbackName => $callback) {
-            $annotation = join(PHP_EOL . '     * @param ', $callback['parameters']);
-            $parameters = join(', ', $callback['parameters']);
+            $parameters = join(PHP_EOL . '     * ', $callback['parameters']);
+            $arguments = join(', ', $callback['arguments']);
             $content = isset($callback['content']) ? $callback['content'] : '';
 
             $callbackContent .= <<<EOF
     /**
      * {$callback['annotation']}
-     * @param {$annotation}
+     * {$parameters}
      */
-    public function {$callbackName}({$parameters}) 
+    public function {$callbackName}({$arguments}) 
     {
 {$content}
     }
@@ -292,16 +319,16 @@ EOF;
         $callbackContent = PHP_EOL;
 
         foreach (self::getCallbackEventList() as $callbackName => $callback) {
-            $annotation = join(PHP_EOL . '     * @param ', $callback['parameters']);
-            $parameters = join(', ', $callback['parameters']);
+            $parameters = join(PHP_EOL . '     * ', $callback['parameters']);
+            $arguments = join(', ', $callback['arguments']);
             $content = isset($callback['content']) ? $callback['content'] : '';
 
             $callbackContent .= <<<EOF
     /**
      * {$callback['annotation']}
-     * @param {$annotation}
+     * {$parameters}
      */
-    public function {$callbackName}({$parameters}) 
+    public function {$callbackName}({$arguments}) 
     {
 {$content}
     }
