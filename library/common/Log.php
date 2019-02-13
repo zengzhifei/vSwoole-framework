@@ -42,7 +42,8 @@ class Log
     {
         $logDir = VSWOOLE_IS_CLI ? VSWOOLE_LOG_SERVER_PATH . date('Ym') . '/' . date('d') : VSWOOLE_LOG_CLIENT_PATH . date('Ym') . '/' . date('d');
         if (!file_exists($logDir)) {
-            @mkdir($logDir, 755, true);
+            @mkdir($logDir, 0775, true);
+            @chmod($logDir, 0775);
         }
         $fileName = $fileName ? $fileName : (defined('VSWOOLE_BIND') ? VSWOOLE_BIND : 'vSwoole') . VSWOOLE_LOG_EXT;
         $logFile = $logDir . '/' . $fileName;

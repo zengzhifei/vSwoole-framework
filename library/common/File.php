@@ -62,8 +62,9 @@ class File
     {
         $pathInfo = pathinfo($filename);
         if (!file_exists($pathInfo['dirname'])) {
-            @mkdir($pathInfo['dirname'], 755, true);
-        }
+            @mkdir($pathInfo['dirname'], 0775, true);
+            @chmod($pathInfo['dirname'], 0775);
+	}
         if (mb_strlen($content, 'utf-8') >= 4194304) {
             swoole_async_write($filename, $content, -1, $callback);
         } else {
@@ -96,7 +97,8 @@ class File
     {
         $pathInfo = pathinfo($filename);
         if (!file_exists($pathInfo['dirname'])) {
-            @mkdir($pathInfo['dirname'], 755, true);
+            @mkdir($pathInfo['dirname'], 0775, true);
+            @chmod($pathInfo['dirname'], 0775);
         }
         if (file_put_contents($filename, $content, $mode)) {
             is_null($callback) && $callback();
